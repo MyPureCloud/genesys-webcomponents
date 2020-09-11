@@ -1,8 +1,8 @@
 {
-  "page": "Page",
-  "totalPages": " of {totalPages, number}",
-  "first": "First",
-  "previous": "Previous",
-  "next": "Next",
-  "last": "Last"
+  "page": "صفحة",
+  "totalPages": " من {totalPages, number}",
+  "first": "الأول",
+  "previous": "السابق",
+  "next": "التالي",
+  "last": "الأخير"
 }

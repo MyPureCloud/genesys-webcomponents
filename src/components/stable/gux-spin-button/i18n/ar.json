@@ -1,7 +1,7 @@
 {
-  "validation.max": "Cannot be greater than {max, number}",
-  "validation.min": "Cannot be less than {min, number}",
-  "validation.increment": "Must be a multiple of {increment, number}",
-  "increment": "increment",
-  "decrement": "decrement"
+  "validation.max": "لا يمكن أن يكون أكبر من {max, number}",
+  "validation.min": "لا يمكن أن يكون أصغر من {min, number}",
+  "validation.increment": "يجب أن يكون مضاعف{increment, number}",
+  "increment": "زيادة",
+  "decrement": "تخفيض"
 }
