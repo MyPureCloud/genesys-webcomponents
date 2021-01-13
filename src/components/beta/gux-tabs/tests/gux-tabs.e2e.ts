@@ -1,18 +1,51 @@
 import { E2EElement, E2EPage, newE2EPage } from '@stencil/core/testing';
 
 describe('gux-tabs', () => {
-  let page: E2EPage;
-  let element: E2EElement;
-
-  beforeEach(async () => {
-    page = await newE2EPage();
-  });
-
   it('renders', async () => {
-    await page.setContent(`
-    <gux-tabs-beta lang="en"></gux-tabs-beta>
-    `);
-    element = await page.find('gux-tabs-beta');
-    expect(element).toHaveClass('hydrated');
+    const html = `
+      <gux-tabs-beta id="interactive">
+        <gux-tab tab-id="1" tab-icon-name="ic-locked">
+          <span slot="title"> Hello World </span>
+          <span slot="dropdown-options">
+            <gux-tab-dropdown-option
+              option-id="1"
+              icon-name="ic-pencil"
+              onclick="notify(event)"
+            >
+              Edit
+            </gux-tab-dropdown-option>
+            <gux-tab-dropdown-option
+              option-id="2"
+              icon-name="ic-clone"
+              onclick="notify(event)"
+            >
+              Clone
+            </gux-tab-dropdown-option>
+            <gux-tab-dropdown-option
+              option-id="3"
+              icon-name="ic-share"
+              onclick="notify(event)"
+            >
+              Share
+            </gux-tab-dropdown-option>
+            <gux-tab-dropdown-option
+              option-id="4"
+              icon-name="ic-download"
+              onclick="notify(event)"
+            >
+              Download
+            </gux-tab-dropdown-option>
+          </span>
+        </gux-tab>
+
+        <gux-tab tab-id="2" tab-icon-name="ic-locked">
+          <span slot="title"> Hello World 2 </span>
+        </gux-tab>
+      </gux-tabs-beta>
+    `;
+    const page = await newE2EPage({ html });
+    const element = await page.find('gux-tabs-beta');
+
+    expect(element.innerHTML).toMatchSnapshot();
   });
 });

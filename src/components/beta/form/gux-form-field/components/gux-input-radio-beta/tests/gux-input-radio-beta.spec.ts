@@ -2,10 +2,10 @@ import { newSpecPage } from '@stencil/core/testing';
 import { GuxInputRadioBeta } from '../gux-input-radio-beta';
 
 describe('gux-input-radio-beta', () => {
-  let component: GuxInputRadioBeta;
+  let page: SpecPage;
 
   beforeEach(async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [GuxInputRadioBeta],
       html: `
       <gux-input-radio-beta>
@@ -14,11 +14,13 @@ describe('gux-input-radio-beta', () => {
       `,
       language: 'en'
     });
-
-    component = page.rootInstance;
   });
 
   it('should build', async () => {
-    expect(component).toBeInstanceOf(GuxInputRadioBeta);
+    expect(page.rootInstance).toBeInstanceOf(GuxInputRadioBeta);
+  });
+
+  it('should render', async () => {
+    expect(page.root).toMatchSnapshot();
   });
 });
