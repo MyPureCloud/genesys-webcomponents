@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gux-error-message-beta #render should render component as expected 1`] = `
+<gux-error-message-beta>
+  <!---->
+  <div class="gux-container">
+    <div class="gux-icon">
+      <gux-icon decorative="" icon-name="ic-error-bold"></gux-icon>
+    </div>
+    <div class="gux-message">
+      This is an error message
+    </div>
+  </div>
+</gux-error-message-beta>
+`;
