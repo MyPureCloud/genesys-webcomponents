@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gux-error-message-beta renders 1`] = `"<!----><div class=\\"gux-container\\"><div class=\\"gux-icon\\"><gux-icon icon-name=\\"ic-error-bold\\" class=\\"hydrated\\"><div class=\\"gux-icon-container\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 16 16\\" aria-hidden=\\"true\\"><path d=\\"M13 5l-2-2-3 3-3-3-2 2 3 3-3 3 2 2 3-3 3 3 2-2-3-3z\\"></path></svg></div></gux-icon></div><div class=\\"gux-message\\">This is an error message</div></div>"`;

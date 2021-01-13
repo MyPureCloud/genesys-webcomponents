@@ -8,8 +8,8 @@ describe('gux-input-radio-beta', () => {
       </gux-input-radio-beta>
     `;
     const page = await newE2EPage({ html });
-
     const element = await page.find('gux-input-radio-beta');
+
     expect(element).toHaveClass('hydrated');
   });
 });

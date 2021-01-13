@@ -12,4 +12,13 @@ describe('gux-error-message-beta', () => {
 
     expect(component).toBeInstanceOf(GuxErrorMessageBeta);
   });
+
+  describe('#render', () => {
+    it(`should render component as expected`, async () => {
+      const html = `<gux-error-message-beta>This is an error message</gux-error-message-beta>`;
+      const page = await newSpecPage({ components, html, language });
+
+      expect(page.root).toMatchSnapshot();
+    });
+  });
 });
