@@ -6,6 +6,6 @@ describe('gux-error-message-beta', () => {
     const page = await newE2EPage({ html });
     const element = await page.find('gux-error-message-beta');
 
-    expect(element).toHaveClass('hydrated');
+    expect(element.innerHTML).toMatchSnapshot();
   });
 });
