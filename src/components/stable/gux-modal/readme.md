@@ -7,9 +7,9 @@ This default behaviour of this componet assumes that `gux-modal` components will
 
 ## Properties
 
-| Property | Attribute | Description                                              | Type                                          | Default   |
-| -------- | --------- | -------------------------------------------------------- | --------------------------------------------- | --------- |
-| `size`   | `size`    | Indicates the size of the modal (small, medium or large) | `"dynamic" \| "large" \| "medium" \| "small"` | `'small'` |
+| Property | Attribute | Description                                              | Type                                          | Default     |
+| -------- | --------- | -------------------------------------------------------- | --------------------------------------------- | ----------- |
+| `size`   | `size`    | Indicates the size of the modal (small, medium or large) | `"dynamic" \| "large" \| "medium" \| "small"` | `'dynamic'` |
 
 
 ## Events
