@@ -28,7 +28,7 @@ export class GuxModal {
    * Indicates the size of the modal (small, medium or large)
    */
   @Prop()
-  size: GuxModalSize = 'small';
+  size: GuxModalSize = 'dynamic';
 
   /**
    * Fired when a user dismisses the modal (The default behaviour is to remove the component from the DOM)
