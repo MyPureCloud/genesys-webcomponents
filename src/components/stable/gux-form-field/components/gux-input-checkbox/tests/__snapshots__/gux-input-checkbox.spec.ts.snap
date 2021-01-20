@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gux-input-checkbox should render 1`] = `
+<gux-input-checkbox>
+  <!---->
+  <div class="gux-input-checkbox-container">
+    <input id="pizza" name="food" slot="input" type="checkbox" value="pizza">
+    <label class="gux-unchecked" for="pizza" slot="label">
+      Pizza
+    </label>
+  </div>
+</gux-input-checkbox>
+`;

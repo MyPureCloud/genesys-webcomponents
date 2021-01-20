@@ -1,0 +1,132 @@
+@import (reference) '../../../../../style/color.less';
+
+@gux-icon-checkbox-unchecked: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cpath fill='%2398a7b8' d='M416 32v352h-352v-352h352zM448 416v-416h-416v416h416z' /%3E%3C/svg%3E");
+@gux-icon-checkbox-unchecked-hover: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cpath fill='%232a60c8' d='M416 32v352h-352v-352h352zM448 416v-416h-416v416h416z' /%3E%3C/svg%3E");
+@gux-icon-checkbox-checked: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cpath fill='%232a60c8' d='M144 272l96 -64l224 224l32 -32l-256 -320l-128 160zM416 228l32 40v-268h-416v416h353l-32 -32h-289v-352h352v196z' /%3E%3C/svg%3E");
+@gux-icon-checkbox-mixed: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cpath fill='%232a60c8' d='M128 192v32h224v-32h-224zM416 32v352h-352v-352h352zM448 416v-416h-416v416h416z' /%3E%3C/svg%3E");
+
+@gux-icon-checkbox-checked-dark: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cpath fill='%2375a8ff' d='M144 272l96 -64l224 224l32 -32l-256 -320l-128 160zM416 228l32 40v-268h-416v416h353l-32 -32h-289v-352h352v196z' /%3E%3C/svg%3E");
+@gux-icon-checkbox-mixed-dark: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cpath fill='%2375a8ff' d='M128 192v32h224v-32h-224zM416 32v352h-352v-352h352zM448 416v-416h-416v416h416z' /%3E%3C/svg%3E");
+@gux-icon-checkbox-unchecked-hover-dark: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cpath fill='%2375a8ff' d='M416 32v352h-352v-352h352zM448 416v-416h-416v416h416z' /%3E%3C/svg%3E");
+
+gux-input-checkbox {
+  display: block;
+
+  .gux-input-checkbox-container {
+    position: relative;
+    padding-left: 24px;
+    line-height: 24px;
+  }
+
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    &[type='checkbox']:focus + label::before {
+      outline: fade(@gux-blue-80, 50%) solid 3px;
+    }
+
+    &[type='checkbox']:focus + label.gux-unchecked::after {
+      background-image: @gux-icon-checkbox-unchecked-hover;
+    }
+  }
+
+  label {
+    display: inline-block;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  label::before {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    height: 11px;
+    width: 11px;
+    left: 6px;
+    top: 7px;
+  }
+
+  label::after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 6px;
+    width: @gux-icon-size-default-global;
+    height: @gux-icon-size-default-global;
+  }
+
+  label.gux-unchecked::after {
+    background-image: @gux-icon-checkbox-unchecked;
+  }
+
+  input:not(:disabled) ~ label.gux-unchecked:hover::after {
+    background-image: @gux-icon-checkbox-unchecked-hover;
+  }
+
+  input:disabled ~ label::after,
+  input:disabled ~ label {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  label.gux-checked::after {
+    transform: scaleY(-1);
+    top: 3px;
+    background-image: @gux-icon-checkbox-checked;
+  }
+
+  label.gux-mixed::after {
+    background-image: @gux-icon-checkbox-mixed;
+  }
+}
+
+.gux-input-checkbox-dark-theme {
+  color: @gux-type-dark;
+
+  label.gux-checked::after {
+    background-image: @gux-icon-checkbox-checked-dark;
+  }
+
+  label.gux-mixed::after {
+    background-image: @gux-icon-checkbox-mixed-dark;
+  }
+
+  input:not(:disabled) ~ label.gux-unchecked:hover::after {
+    background-image: @gux-icon-checkbox-unchecked-hover-dark;
+  }
+}
+
+.gux-dark-theme {
+  gux-input-checkbox {
+    .gux-input-checkbox-dark-theme();
+  }
+}
+
+gux-input-checkbox.gux-dark-theme {
+  .gux-input-checkbox-dark-theme();
+}
+
+// Light
+.gux-input-checkbox-light-theme {
+  color: @gux-type;
+}
+
+.gux-light-theme {
+  gux-input-checkbox {
+    .gux-input-checkbox-light-theme();
+  }
+}
+
+gux-input-checkbox.gux-light-theme {
+  .gux-input-checkbox-light-theme();
+}
+
+// Default Theme
+gux-input-checkbox {
+  .gux-input-checkbox-light-theme();
+}
