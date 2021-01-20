@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gux-input-range should render 1`] = `
+<gux-input-range>
+  <!---->
+  <div class="gux-container">
+    <div class="gux-range">
+      <div class="gux-track">
+        <div class="gux-progress" style="width: 0%;"></div>
+      </div>
+      <input slot="input" type="range">
+    </div>
+    <div class="gux-display"></div>
+  </div>
+</gux-input-range>
+`;
