@@ -25,9 +25,9 @@
 ### Graph
 ```mermaid
 graph TD;
-  gux-color-select --> gux-input-color-option
-  gux-input-color --> gux-color-select
-  style gux-color-select fill:#f9f,stroke:#333,stroke-width:4px
+  gux-input-color-select --> gux-input-color-option
+  gux-input-color --> gux-input-color-select
+  style gux-input-color-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
