@@ -35,13 +35,13 @@ Type: `Promise<void>`
 
 
 
-### `setSelected() => Promise<void>`
+### `setSelected() => void`
 
 
 
 #### Returns
 
-Type: `Promise<void>`
+Type: `void`
 
 
 
