@@ -32,8 +32,8 @@ graph TD;
   gux-form-field --> gux-input-range
   gux-form-field --> gux-input-text-like
   gux-input-color --> gux-icon
-  gux-input-color --> gux-color-select
-  gux-color-select --> gux-input-color-option
+  gux-input-color --> gux-input-color-select
+  gux-input-color-select --> gux-input-color-option
   style gux-form-field fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
