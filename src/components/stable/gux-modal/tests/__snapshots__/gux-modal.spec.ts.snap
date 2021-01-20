@@ -572,7 +572,7 @@ exports[`gux-modal #render should render small modal by default 1`] = `
 <gux-modal>
   <!---->
   <div class="gux-modal">
-    <div class="gux-modal-container gux-small">
+    <div class="gux-dynamic gux-modal-container">
       <button class="gux-dismiss-button" title="Dismiss">
         <gux-icon icon-name="ic-close" screenreader-text="Dismiss"></gux-icon>
       </button>
@@ -619,7 +619,7 @@ exports[`gux-modal #render should render small modal by default 2`] = `
 <gux-modal>
   <!---->
   <div class="gux-modal">
-    <div class="gux-modal-container gux-small">
+    <div class="gux-dynamic gux-modal-container">
       <button class="gux-dismiss-button" title="Dismiss">
         <gux-icon icon-name="ic-close" screenreader-text="Dismiss"></gux-icon>
       </button>
