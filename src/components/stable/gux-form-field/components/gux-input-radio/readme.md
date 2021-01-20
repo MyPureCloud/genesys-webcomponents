@@ -1,4 +1,14 @@
-# gux-input-radio
+# gux-radio
+
+A radio button component, intended to be used in conjunction with the `gux-radio-group` component.  Labels should be provided through the component's main slot.
+
+## Example Usage
+
+See documentation for the `gux-radio-group` documentation for a more thourough example.
+
+```
+<gux-radio value="pizza">I like pizza!</gux-radio>
+```
 
 <!-- Auto Generated Below -->
 

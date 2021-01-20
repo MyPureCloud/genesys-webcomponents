@@ -1,4 +1,4 @@
-# gux-input-color
+# gux-color-picker
 
 
 
@@ -21,14 +21,14 @@
 ### Depends on
 
 - [gux-icon](../../../gux-icon)
-- [gux-color-select](./components/gux-color-select)
+- [gux-input-color-select](./components/gux-color-select)
 
 ### Graph
 ```mermaid
 graph TD;
   gux-input-color --> gux-icon
-  gux-input-color --> gux-color-select
-  gux-color-select --> gux-input-color-option
+  gux-input-color --> gux-input-color-select
+  gux-input-color-select --> gux-input-color-option
   gux-form-field --> gux-input-color
   style gux-input-color fill:#f9f,stroke:#333,stroke-width:4px
 ```

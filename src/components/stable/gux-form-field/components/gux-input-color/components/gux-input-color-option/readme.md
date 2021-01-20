@@ -24,12 +24,12 @@
 
 ### Used by
 
- - [gux-color-select](../gux-color-select)
+ - [gux-input-color-select](../gux-color-select)
 
 ### Graph
 ```mermaid
 graph TD;
-  gux-color-select --> gux-input-color-option
+  gux-input-color-select --> gux-input-color-option
   style gux-input-color-option fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
