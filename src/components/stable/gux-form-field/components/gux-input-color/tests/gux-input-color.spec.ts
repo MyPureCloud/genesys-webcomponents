@@ -2,10 +2,10 @@ import { newSpecPage } from '@stencil/core/testing';
 import MutationObserver from 'mutation-observer';
 
 import { GuxInputColorOption } from '../../gux-input-color/components/gux-input-color-option/gux-input-color-option';
-import { GuxInputColorSelect } from '../../gux-input-color/components/gux-color-select/gux-input-color-select';
+import { GuxColorSelect } from '../../gux-input-color/components/gux-color-select/gux-color-select';
 import { GuxInputColor } from '../gux-input-color';
 
-const components = [GuxInputColor, GuxInputColorSelect, GuxInputColorOption];
+const components = [GuxInputColor, GuxColorSelect, GuxInputColorOption];
 const language = 'en';
 
 describe('gux-input-color', () => {
