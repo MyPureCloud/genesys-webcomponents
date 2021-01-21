@@ -1,0 +1,10 @@
+<h1>Legacy</h1>
+<gux-spin-button-legacy step="1" value="10"></gux-spin-button-legacy>
+
+<h1>Migration to gux-form-field</h1>
+<div onchange="notify(event)" oninput="notify(event)">
+  <gux-form-field>
+    <input slot="input" type="number" step="1" value="10" />
+    <label slot="label">Optional Label Slot</label>
+  </gux-form-field>
+</div>

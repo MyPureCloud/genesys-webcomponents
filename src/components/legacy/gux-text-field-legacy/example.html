@@ -1,0 +1,42 @@
+<h1>Legacy</h1>
+<gux-text-field-legacy
+  placeholder="This is a placeholder"
+></gux-text-field-legacy>
+<gux-text-field-legacy value="Value"></gux-text-field-legacy>
+<gux-text-field-legacy value="Readonly input" readonly></gux-text-field-legacy>
+<gux-text-field-legacy type="password" value="password"></gux-text-field-legacy>
+<gux-text-field-legacy
+  value="Lorem ipsum dolor sit amet, lacinia blandit ultricies lorem aliquam, dui quam a viverra vivamus pellentesque, rhoncus aliquet proin eleifend."
+></gux-text-field-legacy>
+
+<h1>Migration to gux-form-field</h1>
+<div onchange="notify(event)" oninput="notify(event)">
+  <gux-form-field>
+    <input slot="input" type="text" placeholder="This is a placeholder" />
+    <label slot="label">Optional Label Slot</label>
+  </gux-form-field>
+
+  <gux-form-field>
+    <input slot="input" type="text" value="Value" />
+    <label slot="label">Optional Label Slot</label>
+  </gux-form-field>
+
+  <gux-form-field>
+    <input slot="input" type="text" value="Readonly input" readonly />
+    <label slot="label">Optional Label Slot</label>
+  </gux-form-field>
+
+  <gux-form-field>
+    <input slot="input" type="password" value="password" />
+    <label slot="label">Optional Label Slot</label>
+  </gux-form-field>
+
+  <gux-form-field>
+    <input
+      slot="input"
+      type="text"
+      value="Lorem ipsum dolor sit amet, lacinia blandit ultricies lorem aliquam, dui quam a viverra vivamus pellentesque, rhoncus aliquet proin eleifend."
+    />
+    <label slot="label">Optional Label Slot</label>
+  </gux-form-field>
+</div>

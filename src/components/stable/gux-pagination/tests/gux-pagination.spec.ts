@@ -7,7 +7,7 @@ import { GuxOption } from '../../gux-dropdown/gux-option/gux-option';
 import { GuxPaginationButtons } from '../gux-pagination-buttons/gux-pagination-buttons';
 import { GuxPaginationItemCounts } from '../gux-pagination-item-counts/gux-pagination-item-counts';
 import { GuxPaginationItemsPerPage } from '../gux-pagination-items-per-page/gux-pagination-items-per-page';
-import { GuxTextField } from '../../gux-text-field/gux-text-field';
+import { GuxTextFieldLegacy } from '../../../legacy/gux-text-field-legacy/gux-text-field';
 
 const components = [
   GuxButton,
@@ -17,7 +17,7 @@ const components = [
   GuxPaginationButtons,
   GuxPaginationItemCounts,
   GuxPaginationItemsPerPage,
-  GuxTextField
+  GuxTextFieldLegacy
 ];
 const language = 'en';
 
