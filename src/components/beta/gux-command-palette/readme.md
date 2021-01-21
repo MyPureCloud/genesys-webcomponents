@@ -63,9 +63,9 @@ graph TD;
   gux-command-palette-beta --> gux-list
   gux-command-palette-beta --> gux-list-item
   gux-command-palette-beta --> gux-text-highlight
-  gux-search-beta --> gux-text-field
+  gux-search-beta --> gux-text-field-legacy
   gux-search-beta --> gux-icon
-  gux-text-field --> gux-icon
+  gux-text-field-legacy --> gux-icon
   gux-list-item --> gux-text-highlight
   style gux-command-palette-beta fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -26,7 +26,7 @@ describe('gux-dropdown', () => {
     `);
     await page.waitForChanges();
     element = await page.find('gux-dropdown');
-    const inputElm = await element.find('gux-text-field');
+    const inputElm = await element.find('gux-text-field-legacy');
     inputElm.click();
     await page.waitForChanges();
 
@@ -51,7 +51,7 @@ describe('gux-dropdown', () => {
     element = await page.find('gux-dropdown');
     const changeSpy = await element.spyOnEvent('change');
 
-    const inputElm = await element.find('gux-text-field');
+    const inputElm = await element.find('gux-text-field-legacy');
     inputElm.click();
     await page.waitForChanges();
 
