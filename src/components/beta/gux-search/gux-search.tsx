@@ -18,7 +18,7 @@ export class GuxSearch {
   @Element()
   root: HTMLElement;
 
-  textFieldElement: HTMLGuxTextFieldElement;
+  textFieldElement: HTMLGuxTextFieldLegacyElement;
 
   /**
    * Indicate the input search value
@@ -106,8 +106,10 @@ export class GuxSearch {
     return (
       <div class={this.getClassList()}>
         <div class="gux-search-input">
-          <gux-text-field
-            ref={el => (this.textFieldElement = el as HTMLGuxTextFieldElement)}
+          <gux-text-field-legacy
+            ref={el =>
+              (this.textFieldElement = el as HTMLGuxTextFieldLegacyElement)
+            }
             value={this.value}
             disabled={this.disabled}
             placeholder={this.placeholder}

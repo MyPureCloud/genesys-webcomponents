@@ -1,0 +1,48 @@
+<h1>Legacy</h1>
+<div onchange="notify(event)" oninput="notify(event)">
+  <gux-checkbox-legacy>Pizza</gux-checkbox-legacy>
+  <gux-checkbox-legacy checked>Pasta</gux-checkbox-legacy>
+  <gux-checkbox-legacy indeterminate>Hamburger</gux-checkbox-legacy>
+  <gux-checkbox-legacy disabled>Sandwich</gux-checkbox-legacy>
+</div>
+
+<h1>Migration to gux-form-field</h1>
+<div onchange="notify(event)" oninput="notify(event)">
+  <gux-form-field>
+    <input slot="input" type="checkbox" id="pizza" name="food" value="pizza" />
+    <label slot="label" for="pizza">Pizza</label>
+  </gux-form-field>
+  <gux-form-field>
+    <input
+      slot="input"
+      type="checkbox"
+      id="pasta"
+      name="food"
+      value="pasta"
+      checked
+    />
+    <label slot="label" for="pasta">Pasta</label>
+  </gux-form-field>
+  <gux-form-field>
+    <input
+      slot="input"
+      type="checkbox"
+      id="hamburger"
+      name="food"
+      value="hamburger"
+      indeterminate
+    />
+    <label slot="label" for="hamburger">Hamburger</label>
+  </gux-form-field>
+  <gux-form-field>
+    <input
+      slot="input"
+      type="checkbox"
+      id="sandwich"
+      name="food"
+      value="sandwich"
+      disabled
+    />
+    <label slot="label" for="sandwich">Sandwich</label>
+  </gux-form-field>
+</div>

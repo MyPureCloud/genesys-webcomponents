@@ -1,0 +1,49 @@
+<h1>Legacy</h1>
+<gux-slider-legacy
+  min="0"
+  max="10"
+  step="1"
+  value="3"
+  is-percentage="true"
+></gux-slider-legacy>
+
+<gux-slider-legacy
+  min="0"
+  max="3"
+  step="1"
+  value="2"
+  display-text-box="false"
+  disabled="true"
+></gux-slider-legacy>
+
+<gux-slider-legacy
+  max="1"
+  min="0"
+  step="0.1"
+  value="0.3"
+  display-text-box="false"
+></gux-slider-legacy>
+
+<h1>Migration to gux-form-field</h1>
+<gux-form-field>
+  <label slot="label">Optional Label Slot</label>
+  <input slot="input" type="range" min="0" max="10" step="1" value="3" />
+</gux-form-field>
+
+<gux-form-field>
+  <label slot="label">Optional Label Slot</label>
+  <input
+    slot="input"
+    type="range"
+    min="0"
+    max="3"
+    step="1"
+    value="2"
+    disabled
+  />
+</gux-form-field>
+
+<gux-form-field>
+  <label slot="label">Optional Label Slot</label>
+  <input slot="input" type="range" max="1" min="0" step="0.1" value="0.3" />
+</gux-form-field>
