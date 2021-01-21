@@ -1,0 +1,70 @@
+@import (reference) '../../../style/color.less';
+
+// Variables part
+
+// Style
+gux-color-select-legacy {
+  display: inline-block;
+
+  > div {
+    border: 1px solid @gux-border;
+    background-color: @gux-type-dark;
+    padding: 20px 0 12px;
+    box-shadow: 0 0 2px fade(@gux-black-30, 24%);
+    box-sizing: border-box;
+  }
+
+  .gux-color-matrix {
+    width: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin: 0;
+    padding: 0 20px 8px;
+
+    > * {
+      display: none;
+    }
+
+    > gux-color-option-legacy {
+      display: inline-block;
+    }
+  }
+}
+
+// Theming
+
+// Dark
+.gux-color-select-dark-theme {
+  color: @gux-type-dark;
+}
+
+.gux-dark-theme {
+  gux-color-select-legacy {
+    .gux-color-select-dark-theme();
+  }
+}
+
+gux-color-select-legacy.gux-dark-theme {
+  .gux-color-select-dark-theme();
+}
+
+// Light
+.gux-color-select-light-theme {
+  color: @gux-type;
+}
+
+.gux-light-theme {
+  gux-color-select-legacy {
+    .gux-color-select-light-theme();
+  }
+}
+
+gux-color-select-legacy.gux-light-theme {
+  .gux-color-select-light-theme();
+}
+
+// Default Theme
+gux-color-select-legacy {
+  .gux-color-select-light-theme();
+}

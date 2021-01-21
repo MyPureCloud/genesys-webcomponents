@@ -86,14 +86,14 @@ export class GuxInputColor {
           <div class="gux-input-color-color-name">{this.color}</div>
           <gux-icon decorative iconName="ic-dropdown-arrow"></gux-icon>
         </button>
-        <gux-input-color-select
+        <gux-color-select
           class={{
             'gux-input-color-color-select': true,
             'gux-opened': this.opened
           }}
         >
           <slot name="input" slot="input" />
-        </gux-input-color-select>
+        </gux-color-select>
       </section>
     );
   }

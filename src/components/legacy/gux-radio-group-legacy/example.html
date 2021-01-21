@@ -1,0 +1,64 @@
+<h1>Legacy</h1>
+<gux-radio-group-legacy
+  name="food-selection"
+  aria-labelledby="food-header"
+  onchange="notify(event)"
+  oninput="notify(event)"
+>
+  <gux-radio-legacy id="pizza-radio" value="pizza">Pizza</gux-radio-legacy>
+  <gux-radio-legacy id="pasta-radio" value="pasta">Pasta</gux-radio-legacy>
+  <gux-radio-legacy id="burger-radio" value="burger"
+    >Hamburger</gux-radio-legacy
+  >
+  <gux-radio-legacy id="sandwich-radio" value="sandwich" disabled
+    >Sandwich</gux-radio-legacy
+  >
+</gux-radio-group-legacy>
+
+<h1>Migration to gux-form-field</h1>
+<div onchange="notify(event)" oninput="notify(event)">
+  <gux-form-field>
+    <input
+      slot="input"
+      type="radio"
+      id="pizza-radio-2"
+      name="food-selection-2"
+      value="pizza"
+    />
+    <label slot="label" for="pizza-radio-2">Pizza</label>
+  </gux-form-field>
+
+  <gux-form-field>
+    <input
+      slot="input"
+      type="radio"
+      id="pasta-radio-2"
+      name="food-selection-2"
+      value="pasta"
+    />
+    <label slot="label" for="pasta-radio-2">Pasta</label>
+  </gux-form-field>
+
+  <gux-form-field>
+    <input
+      slot="input"
+      type="radio"
+      id="hamburger-radio-2"
+      name="food-selection-2"
+      value="hamburger"
+    />
+    <label slot="label" for="hamburger-radio-2">Hamburger</label>
+  </gux-form-field>
+
+  <gux-form-field>
+    <input
+      slot="input"
+      type="radio"
+      id="sandwich-radio-2"
+      name="food-selection-2"
+      value="sandwich"
+      disabled
+    />
+    <label slot="label" for="sandwich-radio-2">Sandwich</label>
+  </gux-form-field>
+</div>

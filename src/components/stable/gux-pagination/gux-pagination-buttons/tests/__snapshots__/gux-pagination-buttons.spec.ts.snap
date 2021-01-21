@@ -22,13 +22,13 @@ exports[`gux-pagination-item-counts #render should render as expected (1) 1`] = 
         Page
       </div>
       <div class="gux-pagination-buttons-input">
-        <gux-text-field use-clear-button="false" value="0">
+        <gux-text-field-legacy use-clear-button="false" value="0">
           <div>
             <div class="gux-field">
               <input type="text" value="0">
             </div>
           </div>
-        </gux-text-field>
+        </gux-text-field-legacy>
       </div>
       <div>
         of 0
@@ -74,13 +74,13 @@ exports[`gux-pagination-item-counts #render should render as expected (2) 1`] = 
         Page
       </div>
       <div class="gux-pagination-buttons-input">
-        <gux-text-field use-clear-button="false" value="1">
+        <gux-text-field-legacy use-clear-button="false" value="1">
           <div>
             <div class="gux-field">
               <input type="text" value="1">
             </div>
           </div>
-        </gux-text-field>
+        </gux-text-field-legacy>
       </div>
       <div>
         of 10
@@ -126,13 +126,13 @@ exports[`gux-pagination-item-counts #render should render as expected (3) 1`] = 
         Page
       </div>
       <div class="gux-pagination-buttons-input">
-        <gux-text-field use-clear-button="false" value="5">
+        <gux-text-field-legacy use-clear-button="false" value="5">
           <div>
             <div class="gux-field">
               <input type="text" value="5">
             </div>
           </div>
-        </gux-text-field>
+        </gux-text-field-legacy>
       </div>
       <div>
         of 10

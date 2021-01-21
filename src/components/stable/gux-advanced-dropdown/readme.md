@@ -58,9 +58,9 @@ Type: `Promise<void>`
 graph TD;
   gux-advanced-dropdown --> gux-icon
   gux-advanced-dropdown --> gux-search-beta
-  gux-search-beta --> gux-text-field
+  gux-search-beta --> gux-text-field-legacy
   gux-search-beta --> gux-icon
-  gux-text-field --> gux-icon
+  gux-text-field-legacy --> gux-icon
   style gux-advanced-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

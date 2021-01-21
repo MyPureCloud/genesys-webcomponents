@@ -45,11 +45,11 @@ graph TD;
   gux-pagination --> gux-pagination-buttons
   gux-pagination-items-per-page --> gux-dropdown
   gux-pagination-items-per-page --> gux-option
-  gux-dropdown --> gux-text-field
+  gux-dropdown --> gux-text-field-legacy
   gux-dropdown --> gux-icon
-  gux-text-field --> gux-icon
+  gux-text-field-legacy --> gux-icon
   gux-option --> gux-text-highlight
-  gux-pagination-buttons --> gux-text-field
+  gux-pagination-buttons --> gux-text-field-legacy
   gux-pagination-buttons --> gux-button
   gux-pagination-buttons --> gux-icon
   style gux-pagination fill:#f9f,stroke:#333,stroke-width:4px
