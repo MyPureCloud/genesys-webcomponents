@@ -30,17 +30,17 @@ An internal component used by the gux-pagination component.
 
 ### Depends on
 
-- [gux-text-field](../../gux-text-field)
+- [gux-text-field-legacy](../../../legacy/gux-text-field-legacy)
 - [gux-button](../../gux-button)
 - [gux-icon](../../gux-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  gux-pagination-buttons --> gux-text-field
+  gux-pagination-buttons --> gux-text-field-legacy
   gux-pagination-buttons --> gux-button
   gux-pagination-buttons --> gux-icon
-  gux-text-field --> gux-icon
+  gux-text-field-legacy --> gux-icon
   gux-pagination --> gux-pagination-buttons
   style gux-pagination-buttons fill:#f9f,stroke:#333,stroke-width:4px
 ```

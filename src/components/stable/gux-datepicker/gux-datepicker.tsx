@@ -89,8 +89,8 @@ export class GuxDatepicker {
   yearFormat: string = 'yyyy';
   sepArr: string[];
 
-  textFieldElement: HTMLGuxTextFieldElement;
-  toTextFieldElement: HTMLGuxTextFieldElement;
+  textFieldElement: HTMLGuxTextFieldLegacyElement;
+  toTextFieldElement: HTMLGuxTextFieldLegacyElement;
   inputElement: HTMLInputElement;
   toInputElement: HTMLInputElement;
   calendarElement: HTMLGuxCalendarElement;
@@ -604,9 +604,9 @@ export class GuxDatepicker {
           ref={(el: HTMLDivElement) => (this.fieldDatepickerElement = el)}
         >
           <gux-text-label label={this.getCalendarLabels()[0]} position="beside">
-            <gux-text-field
+            <gux-text-field-legacy
               type="text"
-              ref={(el: HTMLGuxTextFieldElement) =>
+              ref={(el: HTMLGuxTextFieldLegacyElement) =>
                 (this.textFieldElement = el)
               }
               value={this.formatedValue}
@@ -633,7 +633,7 @@ export class GuxDatepicker {
                 firstDayOfWeek={this.firstDayOfWeek}
                 numberOfMonths={this.numberOfMonths}
               />
-            </gux-text-field>
+            </gux-text-field-legacy>
           </gux-text-label>
         </div>
         {this.mode === CalendarModes.Range && (
@@ -645,9 +645,9 @@ export class GuxDatepicker {
               label={this.getCalendarLabels()[1]}
               position="beside"
             >
-              <gux-text-field
+              <gux-text-field-legacy
                 type="text"
-                ref={(el: HTMLGuxTextFieldElement) =>
+                ref={(el: HTMLGuxTextFieldLegacyElement) =>
                   (this.toTextFieldElement = el)
                 }
                 value={this.toFormatedValue}
@@ -665,7 +665,7 @@ export class GuxDatepicker {
                     iconName="ic-calendar-generic"
                   ></gux-icon>
                 </button>
-              </gux-text-field>
+              </gux-text-field-legacy>
             </gux-text-label>
           </div>
         )}

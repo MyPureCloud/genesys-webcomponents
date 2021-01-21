@@ -22,7 +22,7 @@ export class GuxPaginationButtons {
   @Element()
   private root: HTMLElement;
 
-  private textFieldRef: HTMLGuxTextFieldElement;
+  private textFieldRef: HTMLGuxTextFieldLegacyElement;
 
   private i18n: GetI18nValue;
 
@@ -120,7 +120,7 @@ export class GuxPaginationButtons {
       <div class="gux-pagination-buttons-input-container">
         <div>{this.i18n('page')}</div>
         <div class="gux-pagination-buttons-input">
-          <gux-text-field
+          <gux-text-field-legacy
             value={String(this.currentPage)}
             ref={ref => (this.textFieldRef = ref)}
             use-clear-button="false"
