@@ -5,10 +5,10 @@ import { defaultColors } from './colors';
  * @slot input - Required slot for input[type="color"]
  */
 @Component({
-  styleUrl: 'gux-input-color-select.less',
-  tag: 'gux-input-color-select'
+  styleUrl: 'gux-color-select.less',
+  tag: 'gux-color-select'
 })
-export class GuxInputColorSelect {
+export class GuxColorSelect {
   private input: HTMLInputElement;
 
   @Element()
