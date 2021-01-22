@@ -78,7 +78,6 @@ Type: `Promise<void>`
 
  - [gux-datepicker](../../stable/gux-datepicker)
  - [gux-dropdown](../../stable/gux-dropdown)
- - [gux-pagination-buttons](../../stable/gux-pagination/gux-pagination-buttons)
  - [gux-search-beta](../../beta/gux-search)
  - [gux-spin-button-legacy](../gux-spin-button-legacy)
 
@@ -92,7 +91,6 @@ graph TD;
   gux-text-field-legacy --> gux-icon
   gux-datepicker --> gux-text-field-legacy
   gux-dropdown --> gux-text-field-legacy
-  gux-pagination-buttons --> gux-text-field-legacy
   gux-search-beta --> gux-text-field-legacy
   gux-spin-button-legacy --> gux-text-field-legacy
   style gux-text-field-legacy fill:#f9f,stroke:#333,stroke-width:4px

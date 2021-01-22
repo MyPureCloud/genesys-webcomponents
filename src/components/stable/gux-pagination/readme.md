@@ -49,7 +49,7 @@ graph TD;
   gux-dropdown --> gux-icon
   gux-text-field-legacy --> gux-icon
   gux-option --> gux-text-highlight
-  gux-pagination-buttons --> gux-text-field-legacy
+  gux-pagination-buttons --> gux-input-text-like
   gux-pagination-buttons --> gux-button
   gux-pagination-buttons --> gux-icon
   style gux-pagination fill:#f9f,stroke:#333,stroke-width:4px

@@ -27,11 +27,13 @@ changing error-message attribute.
 ### Used by
 
  - [gux-form-field](../..)
+ - [gux-pagination-buttons](../../../gux-pagination/gux-pagination-buttons)
 
 ### Graph
 ```mermaid
 graph TD;
   gux-form-field --> gux-input-text-like
+  gux-pagination-buttons --> gux-input-text-like
   style gux-input-text-like fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
