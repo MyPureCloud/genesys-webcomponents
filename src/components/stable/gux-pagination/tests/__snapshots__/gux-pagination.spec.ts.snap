@@ -102,13 +102,9 @@ exports[`gux-pagination #render should render as expected (1) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field-legacy use-clear-button="false" value="1">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="1">
-                  </div>
-                </div>
-              </gux-text-field-legacy>
+              <gux-input-text-like>
+                <input slot="input" value="1">
+              </gux-input-text-like>
             </div>
             <div>
               of 40
@@ -237,13 +233,9 @@ exports[`gux-pagination #render should render as expected (2) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field-legacy use-clear-button="false" value="1">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="1">
-                  </div>
-                </div>
-              </gux-text-field-legacy>
+              <gux-input-text-like>
+                <input slot="input" value="1">
+              </gux-input-text-like>
             </div>
             <div>
               of 20
@@ -372,13 +364,9 @@ exports[`gux-pagination #render should render as expected (3) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field-legacy use-clear-button="false" value="1">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="1">
-                  </div>
-                </div>
-              </gux-text-field-legacy>
+              <gux-input-text-like>
+                <input slot="input" value="1">
+              </gux-input-text-like>
             </div>
             <div>
               of 14
@@ -507,13 +495,9 @@ exports[`gux-pagination #render should render as expected (4) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field-legacy use-clear-button="false" value="1">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="1">
-                  </div>
-                </div>
-              </gux-text-field-legacy>
+              <gux-input-text-like>
+                <input slot="input" value="1">
+              </gux-input-text-like>
             </div>
             <div>
               of 10
@@ -642,13 +626,9 @@ exports[`gux-pagination #render should render as expected (5) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field-legacy use-clear-button="false" value="1">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="1">
-                  </div>
-                </div>
-              </gux-text-field-legacy>
+              <gux-input-text-like>
+                <input slot="input" value="1">
+              </gux-input-text-like>
             </div>
             <div>
               of 40
@@ -777,13 +757,9 @@ exports[`gux-pagination #render should render as expected (6) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field-legacy use-clear-button="false" value="10">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="10">
-                  </div>
-                </div>
-              </gux-text-field-legacy>
+              <gux-input-text-like>
+                <input slot="input" value="10">
+              </gux-input-text-like>
             </div>
             <div>
               of 40
@@ -912,13 +888,9 @@ exports[`gux-pagination #render should render as expected (7) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field-legacy use-clear-button="false" value="10">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="10">
-                  </div>
-                </div>
-              </gux-text-field-legacy>
+              <gux-input-text-like>
+                <input slot="input" value="10">
+              </gux-input-text-like>
             </div>
             <div>
               of 20
@@ -1047,13 +1019,9 @@ exports[`gux-pagination #render should render as expected (8) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field-legacy use-clear-button="false" value="10">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="10">
-                  </div>
-                </div>
-              </gux-text-field-legacy>
+              <gux-input-text-like>
+                <input slot="input" value="10">
+              </gux-input-text-like>
             </div>
             <div>
               of 14
@@ -1182,13 +1150,9 @@ exports[`gux-pagination #render should render as expected (9) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field-legacy use-clear-button="false" value="10">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="10">
-                  </div>
-                </div>
-              </gux-text-field-legacy>
+              <gux-input-text-like>
+                <input slot="input" value="10">
+              </gux-input-text-like>
             </div>
             <div>
               of 10
