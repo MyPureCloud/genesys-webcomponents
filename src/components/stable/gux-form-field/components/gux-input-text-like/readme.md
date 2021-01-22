@@ -34,6 +34,7 @@ changing error-message attribute.
 ### Used by
 
  - [gux-form-field](../..)
+ - [gux-pagination-buttons](../../../gux-pagination/gux-pagination-buttons)
 
 ### Depends on
 
@@ -44,6 +45,7 @@ changing error-message attribute.
 graph TD;
   gux-input-text-like --> gux-icon
   gux-form-field --> gux-input-text-like
+  gux-pagination-buttons --> gux-input-text-like
   style gux-input-text-like fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
