@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property    | Attribute   | Description | Type      | Default     |
+| ----------- | ----------- | ----------- | --------- | ----------- |
+| `clearable` | `clearable` |             | `boolean` | `undefined` |
+
+
 ## Slots
 
 | Slot      | Description                 |
@@ -34,6 +41,7 @@ graph TD;
   gux-input-color --> gux-icon
   gux-input-color --> gux-color-select
   gux-color-select --> gux-input-color-option
+  gux-input-text-like --> gux-icon
   style gux-form-field fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

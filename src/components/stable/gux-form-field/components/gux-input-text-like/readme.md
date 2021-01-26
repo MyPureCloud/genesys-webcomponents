@@ -14,6 +14,13 @@ changing error-message attribute.
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property    | Attribute   | Description | Type      | Default     |
+| ----------- | ----------- | ----------- | --------- | ----------- |
+| `clearable` | `clearable` |             | `boolean` | `undefined` |
+
+
 ## Slots
 
 | Slot      | Description                           |
@@ -28,9 +35,14 @@ changing error-message attribute.
 
  - [gux-form-field](../..)
 
+### Depends on
+
+- [gux-icon](../../../gux-icon)
+
 ### Graph
 ```mermaid
 graph TD;
+  gux-input-text-like --> gux-icon
   gux-form-field --> gux-input-text-like
   style gux-input-text-like fill:#f9f,stroke:#333,stroke-width:4px
 ```
