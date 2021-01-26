@@ -1,6 +1,7 @@
 <form onchange="notify(event)" oninput="notify(event)">
+  <h1>Checkbox</h1>
+
   <div>
-    <h1>Checkbox</h1>
     <gux-form-field>
       <input
         slot="input"
@@ -45,9 +46,10 @@
       <label slot="label" for="sandwich">Sandwich</label>
     </gux-form-field>
   </div>
-  <div>
-    <h1>Radio</h1>
 
+  <h1>Radio</h1>
+
+  <div>
     <gux-form-field>
       <input
         slot="input"
@@ -109,37 +111,98 @@
 
   <div>
     <gux-form-field>
-      <input slot="input" name="email" type="email" />
+      <input
+        slot="input"
+        name="email"
+        type="email"
+        placeholder="joe.bloggs@example.com"
+      />
       <label slot="label">Email</label>
     </gux-form-field>
-  </div>
-  <div>
+
     <gux-form-field>
-      <input slot="input" name="number" type="number" />
+      <input
+        slot="input"
+        name="number"
+        type="number"
+        placeholder="Enter a number"
+      />
       <label slot="label">Number</label>
     </gux-form-field>
-  </div>
-  <div>
+
     <gux-form-field>
-      <input slot="input" name="password" type="password" />
+      <input
+        slot="input"
+        name="password"
+        type="password"
+        placeholder="Enter a password"
+      />
       <label slot="label">Password</label>
     </gux-form-field>
-  </div>
-  <div>
+
     <gux-form-field>
       <input slot="input" name="search" type="search" />
       <label slot="label">Search</label>
     </gux-form-field>
-  </div>
-  <div>
+
     <gux-form-field>
-      <input slot="input" name="text" type="text" />
+      <input
+        slot="input"
+        name="text"
+        type="text"
+        placeholder="Enter a string"
+      />
       <label slot="label">Text</label>
     </gux-form-field>
   </div>
 
+  <h1>Text Like (clearable)</h1>
+
   <div>
-    <h1>select</h1>
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="email-clearable"
+        type="email"
+        placeholder="joe.bloggs@example.com"
+      />
+      <label slot="label">Email</label>
+    </gux-form-field>
+
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="number-clearable"
+        type="number"
+        placeholder="Enter a number"
+      />
+      <label slot="label">Number</label>
+    </gux-form-field>
+
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="password-clearable"
+        type="password"
+        placeholder="Enter a password"
+      />
+      <label slot="label">Password</label>
+    </gux-form-field>
+
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="text-clearable"
+        type="text"
+        placeholder="Enter a string"
+      />
+      <label slot="label">Text</label>
+    </gux-form-field>
+  </div>
+
+  <h1>Select</h1>
+
+  <div>
     <gux-form-field>
       <select slot="input" name="select" type="select">
         <option value="option1">Option 1</option>
@@ -150,8 +213,9 @@
     </gux-form-field>
   </div>
 
+  <h1>Range</h1>
+
   <div>
-    <h1>range</h1>
     <gux-form-field>
       <label slot="label">Range</label>
       <input slot="input" name="range" type="range" />
