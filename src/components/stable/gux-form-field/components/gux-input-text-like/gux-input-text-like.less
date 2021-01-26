@@ -1,58 +1,84 @@
 @import (reference) '../../../../../style/color.less';
 
 // Variables part
-@background-color: @gux-type-dark;
-@text-color: @gux-type;
-@border: @gux-border;
-@placeholder: @gux-placeholder;
-
 @dark-background-color: @gux-type;
 @dark-text-color: @gux-type-dark;
 @dark-border: @gux-black-30;
-@dark-placeholder: @gux-placeholder;
-
-@focus-outline: fade(@gux-blue-80, 50%);
-@focus-border: @gux-blue-60;
 
 gux-input-text-like {
   display: block;
   position: relative;
 
-  input,
-  select {
+  .gux-input-container {
     font-family: inherit;
     height: 32px;
     width: 100%;
     box-sizing: border-box;
     padding: 4px 12px 4px 12px;
-    background-color: @background-color;
+    background-color: @gux-grey-100;
     background-image: none;
-    border: 1px solid @border;
+    border: 1px solid @gux-grey-60;
     border-radius: 2px;
     font-size: 12px;
     line-height: 1.66666667;
-    color: @text-color;
+    color: @gux-black-50;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
 
-    &::placeholder {
-      color: @placeholder;
-    }
-
-    &::-webkit-input-placeholder {
-      color: @placeholder;
-    }
-
-    &::-ms-input-placeholder {
-      color: @placeholder;
-    }
-
-    &::-moz-placeholder {
-      color: @placeholder;
-    }
-
-    &:focus {
-      border: 1px solid @focus-border;
+    input,
+    select {
+      border: none;
       outline: none;
-      box-shadow: 0 0 4px @focus-outline;
+      order: 0;
+      flex: 1 1 auto;
+      align-self: auto;
+
+      &::placeholder {
+        color: @gux-black-90;
+      }
+
+      &::-webkit-input-placeholder {
+        color: @gux-black-90;
+      }
+
+      &::-ms-input-placeholder {
+        color: @gux-black-90;
+      }
+
+      &::-moz-placeholder {
+        color: @gux-black-90;
+      }
+    }
+
+    .gux-clear-button {
+      order: 0;
+      flex: 0 1 auto;
+      align-self: auto;
+      padding: 2px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: @gux-black-90;
+
+      &:focus,
+      &:hover {
+        color: @gux-blue-60;
+      }
+
+      gux-icon {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    &:focus-within {
+      border: 1px solid @gux-blue-60;
+      outline: none;
+      box-shadow: 0 0 4px fade(@gux-blue-80, 50%);
     }
   }
 }
@@ -61,29 +87,12 @@ gux-input-text-like {
 
 // Dark
 .gux-input-text-like-dark-theme {
-  input,
-  select {
+  .gux-input-container {
     background-color: @dark-background-color;
     border: 1px solid @dark-border;
     color: @dark-text-color;
 
-    &::placeholder {
-      color: @dark-placeholder;
-    }
-
-    &::-webkit-input-placeholder {
-      color: @dark-placeholder;
-    }
-
-    &::-ms-input-placeholder {
-      color: @dark-placeholder;
-    }
-
-    &::-moz-placeholder {
-      color: @dark-placeholder;
-    }
-
-    &:focus {
+    &:focus-within {
       border: 1px solid @gux-blue-80;
       outline: 3px @gux-blue-80;
       box-shadow: none;
@@ -103,31 +112,14 @@ gux-input-text-like.gux-dark-theme {
 
 // Light
 .gux-input-text-like-light-theme {
-  input,
-  select {
-    background-color: @background-color;
-    border: 1px solid @border;
-    color: @text-color;
+  .gux-input-container {
+    background-color: @gux-grey-100;
+    border: 1px solid @gux-grey-60;
+    color: @gux-black-50;
 
-    &::placeholder {
-      color: @placeholder;
-    }
-
-    &::-webkit-input-placeholder {
-      color: @placeholder;
-    }
-
-    &::-ms-input-placeholder {
-      color: @placeholder;
-    }
-
-    &::-moz-placeholder {
-      color: @placeholder;
-    }
-
-    &:focus {
-      border: 1px solid @focus-border;
-      box-shadow: 0 0 4px @focus-outline;
+    &:focus-within {
+      border: 1px solid @gux-blue-60;
+      box-shadow: 0 0 4px fade(@gux-blue-80, 50%);
     }
   }
 }

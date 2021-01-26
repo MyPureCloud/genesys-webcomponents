@@ -1,4 +1,4 @@
-import { Component, Element, h, JSX, State } from '@stencil/core';
+import { Component, Element, h, JSX, Prop, State } from '@stencil/core';
 
 /**
  * @slot input - Required slot for input tag
@@ -14,6 +14,9 @@ export class GuxFormField {
 
   @Element()
   private root: HTMLElement;
+
+  @Prop()
+  clearable: boolean;
 
   @State()
   private type: string;
@@ -85,12 +88,12 @@ export class GuxFormField {
     );
   }
 
-  private getInputTextLike(): JSX.Element {
+  private getInputTextLike(clearable: boolean): JSX.Element {
     return (
       <div class="gux-label-and-input-and-error-container">
         <div class={`gux-label-and-input-container gux-${this.labelPosition}`}>
           <slot name="label" slot="label" />
-          <gux-input-text-like slot="input">
+          <gux-input-text-like slot="input" clearable={clearable}>
             <slot name="input" />
           </gux-input-text-like>
         </div>
@@ -114,10 +117,11 @@ export class GuxFormField {
       case 'email':
       case 'number':
       case 'password':
-      case 'search':
       case 'select':
       case 'text':
-        return this.getInputTextLike();
+        return this.getInputTextLike(this.clearable);
+      case 'search':
+        return this.getInputTextLike(false);
       default:
         return (
           <div>
