@@ -99,11 +99,8 @@ export class GuxInputColor {
   }
 
   private setOpened(opened: boolean): void {
-    this.opened = opened;
-
-    if (opened) {
+    if (this.colorOnOpen && this.colorOnOpen !== this.color) {
       this.colorOnOpen = this.color;
-    } else if (this.colorOnOpen && this.colorOnOpen !== this.color) {
       this.input.dispatchEvent(
         new Event('change', {
           bubbles: true
@@ -111,6 +108,7 @@ export class GuxInputColor {
       );
     }
 
+    this.colorOnOpen = this.color;
     this.opened = opened;
   }
 
