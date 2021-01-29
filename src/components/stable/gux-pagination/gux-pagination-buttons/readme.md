@@ -40,6 +40,7 @@ graph TD;
   gux-pagination-buttons --> gux-input-text-like
   gux-pagination-buttons --> gux-button
   gux-pagination-buttons --> gux-icon
+  gux-input-text-like --> gux-icon
   gux-pagination --> gux-pagination-buttons
   style gux-pagination-buttons fill:#f9f,stroke:#333,stroke-width:4px
 ```
