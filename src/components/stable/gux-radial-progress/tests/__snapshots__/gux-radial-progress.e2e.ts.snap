@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`gux-radial-progress should display component as expected (1) 1`] = `"<gux-radial-loading-beta class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading-beta>"`;
+exports[`gux-radial-progress should display component as expected (1) 1`] = `"<gux-radial-loading class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading>"`;
 
-exports[`gux-radial-progress should display component as expected (2) 1`] = `"<gux-radial-loading-beta class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading-beta>"`;
+exports[`gux-radial-progress should display component as expected (2) 1`] = `"<gux-radial-loading class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading>"`;
 
-exports[`gux-radial-progress should display component as expected (3) 1`] = `"<gux-radial-loading-beta class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading-beta>"`;
+exports[`gux-radial-progress should display component as expected (3) 1`] = `"<gux-radial-loading class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading>"`;
 
-exports[`gux-radial-progress should display component as expected (4) 1`] = `"<gux-radial-loading-beta class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading-beta>"`;
+exports[`gux-radial-progress should display component as expected (4) 1`] = `"<gux-radial-loading class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading>"`;
 
-exports[`gux-radial-progress should display component as expected (5) 1`] = `"<gux-radial-loading-beta class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading-beta>"`;
+exports[`gux-radial-progress should display component as expected (5) 1`] = `"<gux-radial-loading class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading>"`;
 
-exports[`gux-radial-progress should display component as expected (6) 1`] = `"<gux-radial-loading-beta class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading-beta>"`;
+exports[`gux-radial-progress should display component as expected (6) 1`] = `"<gux-radial-loading class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading>"`;
 
-exports[`gux-radial-progress should display component as expected (7) 1`] = `"<gux-radial-loading-beta class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading-beta>"`;
+exports[`gux-radial-progress should display component as expected (7) 1`] = `"<gux-radial-loading class=\\"hydrated\\"><div class=\\"gux-spinner-container gux-modal\\" aria-busy=\\"true\\"><div class=\\"gux-spin-circle\\"></div></div></gux-radial-loading>"`;
 
 exports[`gux-radial-progress should display component as expected (8) 1`] = `"<div role=\\"progressbar\\" aria-valuenow=\\"0\\" aria-valuemin=\\"0\\" aria-valuemax=\\"100\\"><svg class=\\"gux-svg-container\\" width=\\"60px\\" height=\\"60px\\" viewBox=\\"0 0 60 60\\"><filter id=\\"dropshadow-0\\"><feGaussianBlur in=\\"SourceGraphic\\" stdDeviation=\\"2\\"></feGaussianBlur><feOffset dx=\\"0\\" dy=\\"0\\" result=\\"offsetblur\\"></feOffset><feMerge><feMergeNode></feMergeNode><feMergeNode in=\\"SourceGraphic\\"></feMergeNode></feMerge></filter><circle cx=\\"50%\\" cy=\\"50%\\" r=\\"23.5\\" class=\\"gux-static-circle\\"></circle><circle cx=\\"50%\\" cy=\\"50%\\" r=\\"23.5\\" class=\\"gux-dynamic-circle\\" stroke-dashoffset=\\"147.6548547187203\\" stroke-dasharray=\\"147.6548547187203\\" filter=\\"url(#dropshadow-0)\\"></circle><text x=\\"50%\\" y=\\"50%\\" dominant-baseline=\\"central\\" class=\\"gux-percentage\\">0%</text></svg></div>"`;
 

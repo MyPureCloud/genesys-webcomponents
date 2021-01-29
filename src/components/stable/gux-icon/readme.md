@@ -21,10 +21,10 @@
  - [gux-accordion](../gux-accordion)
  - [gux-action-button](../gux-action-button)
  - [gux-advanced-dropdown](../gux-advanced-dropdown)
- - [gux-breadcrumb-item](../../beta/gux-breadcrumbs/breadcrumb-item)
+ - [gux-breadcrumb-item](../gux-breadcrumbs/breadcrumb-item)
  - [gux-calendar](../gux-calendar)
  - [gux-color-picker-legacy](../../legacy/gux-color-picker-legacy)
- - [gux-content-search-beta](../../beta/gux-content-search)
+ - [gux-content-search](../gux-content-search)
  - [gux-datepicker](../gux-datepicker)
  - [gux-disclosure-button](../gux-disclosure-button)
  - [gux-dropdown](../gux-dropdown)
@@ -35,16 +35,16 @@
  - [gux-notification-toast](../gux-notification-toast)
  - [gux-pagination-buttons](../gux-pagination/gux-pagination-buttons)
  - [gux-popover](../gux-popover)
- - [gux-rating-beta](../../beta/gux-rating)
+ - [gux-rating](../gux-rating)
  - [gux-search-beta](../../beta/gux-search)
  - [gux-side-panel-button](../../beta/gux-side-panel/buttons)
  - [gux-simple-toast](../gux-simple-toast)
  - [gux-spin-button-legacy](../../legacy/gux-spin-button-legacy)
  - [gux-submenu](../../beta/gux-flyout-menu/gux-menu/gux-submenu)
- - [gux-tab](../../beta/gux-tabs/gux-tab)
- - [gux-tab-dropdown-option](../../beta/gux-tabs/gux-tab-dropdown-option)
+ - [gux-tab](../gux-tabs/gux-tab)
+ - [gux-tab-dropdown-option](../gux-tabs/gux-tab-dropdown-option)
  - [gux-table-beta](../../beta/gux-table)
- - [gux-tabs-beta](../../beta/gux-tabs)
+ - [gux-tabs](../gux-tabs)
  - [gux-tag-beta](../../beta/gux-tag)
  - [gux-text-field-legacy](../../legacy/gux-text-field-legacy)
 
@@ -57,7 +57,7 @@ graph TD;
   gux-breadcrumb-item --> gux-icon
   gux-calendar --> gux-icon
   gux-color-picker-legacy --> gux-icon
-  gux-content-search-beta --> gux-icon
+  gux-content-search --> gux-icon
   gux-datepicker --> gux-icon
   gux-disclosure-button --> gux-icon
   gux-dropdown --> gux-icon
@@ -68,7 +68,7 @@ graph TD;
   gux-notification-toast --> gux-icon
   gux-pagination-buttons --> gux-icon
   gux-popover --> gux-icon
-  gux-rating-beta --> gux-icon
+  gux-rating --> gux-icon
   gux-search-beta --> gux-icon
   gux-side-panel-button --> gux-icon
   gux-simple-toast --> gux-icon
@@ -77,7 +77,7 @@ graph TD;
   gux-tab --> gux-icon
   gux-tab-dropdown-option --> gux-icon
   gux-table-beta --> gux-icon
-  gux-tabs-beta --> gux-icon
+  gux-tabs --> gux-icon
   gux-tag-beta --> gux-icon
   gux-text-field-legacy --> gux-icon
   style gux-icon fill:#f9f,stroke:#333,stroke-width:4px

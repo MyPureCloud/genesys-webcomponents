@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gux-tooltip #remove should remove component as expected (1) 1`] = `
+<body>
+  <div>
+    <div>
+      Element
+    </div>
+  </div>
+</body>
+`;
+
+exports[`gux-tooltip #remove should remove component as expected (2) 1`] = `
+<body>
+  <div>
+    <div id="element">
+      Element
+    </div>
+  </div>
+</body>
+`;
+
+exports[`gux-tooltip #render should render component as expected (1) 1`] = `
+<body>
+  <div aria-describedby="gux-tooltip-i" class="gux-tooltip-for-element">
+    <div>
+      Element
+    </div>
+    <gux-tooltip id="gux-tooltip-i" role="tooltip" tabindex="0">
+      <!---->
+      Tooltip
+    </gux-tooltip>
+  </div>
+</body>
+`;
+
+exports[`gux-tooltip #render should render component as expected (2) 1`] = `
+<body>
+  <div>
+    <div aria-describedby="gux-tooltip-i" class="gux-tooltip-for-element" id="element">
+      Element
+    </div>
+    <gux-tooltip for="element" id="gux-tooltip-i" role="tooltip" tabindex="0">
+      <!---->
+      Tooltip
+    </gux-tooltip>
+  </div>
+</body>
+`;

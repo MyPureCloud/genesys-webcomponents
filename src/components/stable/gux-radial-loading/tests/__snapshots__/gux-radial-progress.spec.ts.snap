@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gux-radial-loading #render should render component as expected (1) 1`] = `
+<gux-radial-loading>
+  <div aria-busy="true" class="gux-modal gux-spinner-container">
+    <div class="gux-spin-circle"></div>
+  </div>
+</gux-radial-loading>
+`;
+
+exports[`gux-radial-loading #render should render component as expected (2) 1`] = `
+<gux-radial-loading context="modal">
+  <div aria-busy="true" class="gux-modal gux-spinner-container">
+    <div class="gux-spin-circle"></div>
+  </div>
+</gux-radial-loading>
+`;
+
+exports[`gux-radial-loading #render should render component as expected (3) 1`] = `
+<gux-radial-loading context="full-page">
+  <div aria-busy="true" class="gux-full-page gux-spinner-container">
+    <div class="gux-spin-circle"></div>
+  </div>
+</gux-radial-loading>
+`;
+
+exports[`gux-radial-loading #render should render component as expected (4) 1`] = `
+<gux-radial-loading context="input">
+  <div aria-busy="true" class="gux-input gux-spinner-container">
+    <div class="gux-spin-circle"></div>
+  </div>
+</gux-radial-loading>
+`;
