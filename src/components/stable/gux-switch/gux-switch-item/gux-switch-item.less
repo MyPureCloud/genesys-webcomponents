@@ -1,0 +1,105 @@
+@import (reference) '../../../../style/color.less';
+@import (reference) '../../../../style/spacing.less';
+@import (reference) '../../../../style/typography.less';
+
+@icon-off: @expalette-grey;
+@icon-on: @gux-black-50;
+@hover-on: @gux-blue-60;
+@inactive-small: @gux-grey-60;
+@active-tab: @gux-blue-80;
+
+gux-switch-item {
+  > .gux-switch-item {
+    .body-font();
+
+    background: none;
+    border: none;
+    text-align: center;
+    font: unset;
+    color: @gux-type;
+    outline: none;
+
+    > gux-icon {
+      svg {
+        fill: @icon-off;
+      }
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.gux-selected {
+    .bold-font();
+  }
+}
+
+gux-switch {
+  // Default
+  > gux-switch-item {
+    .gux-switch-item {
+      border-bottom: 1px solid @inactive-small;
+      padding: 0 @spacing-xs @spacing-2xs;
+
+      &:focus,
+      &:hover {
+        outline: none;
+        border-bottom: @spacing-2xs solid @gux-blue-60;
+        padding: 0 @spacing-xs 1px;
+
+        > gux-icon {
+          svg {
+            fill: @icon-on;
+          }
+        }
+      }
+
+      > gux-icon {
+        height: 32px;
+        width: 32px;
+      }
+    }
+
+    &.gux-selected {
+      .gux-switch-item {
+        border-bottom: @spacing-2xs solid @gux-blue-60;
+        padding: 0 @spacing-xs 1px;
+
+        > gux-icon {
+          svg {
+            fill: @icon-on;
+          }
+        }
+      }
+    }
+  }
+
+  &.gux-small {
+    > gux-switch-item {
+      .gux-switch-item {
+        .gux-small-text();
+
+        border-bottom: 1px solid @inactive-small;
+        padding: 0 @spacing-2xs;
+
+        &:focus,
+        &:hover {
+          border-bottom-color: @icon-on;
+        }
+
+        > gux-icon {
+          height: 24px;
+          width: 24px;
+        }
+      }
+
+      &.gux-selected {
+        .gux-switch-item {
+          border-bottom-color: @icon-on;
+        }
+      }
+    }
+  }
+}

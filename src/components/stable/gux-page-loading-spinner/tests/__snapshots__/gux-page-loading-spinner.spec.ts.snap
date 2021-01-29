@@ -2,6 +2,6 @@
 
 exports[`gux-page-loading-spinner should render as expected 1`] = `
 <gux-page-loading-spinner>
-  <gux-radial-loading-beta context="full-page"></gux-radial-loading-beta>
+  <gux-radial-loading context="full-page"></gux-radial-loading>
 </gux-page-loading-spinner>
 `;

@@ -31,7 +31,7 @@
 
 ### Used by
 
- - [gux-tab](../../beta/gux-tabs/gux-tab)
+ - [gux-tab](../gux-tabs/gux-tab)
 
 ### Depends on
 

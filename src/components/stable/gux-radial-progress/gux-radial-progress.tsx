@@ -81,6 +81,6 @@ export class GuxRadialProgress {
   }
 
   private showSpinnerState(): JSX.Element {
-    return <gux-radial-loading-beta context="modal"></gux-radial-loading-beta>;
+    return <gux-radial-loading context="modal"></gux-radial-loading>;
   }
 }
