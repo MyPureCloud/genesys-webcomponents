@@ -28,6 +28,7 @@
 - [gux-input-radio](./components/gux-input-radio)
 - [gux-input-color](./components/gux-input-color)
 - [gux-input-range](./components/gux-input-range)
+- [gux-input-number](./components/gux-input-number)
 - [gux-input-text-like](./components/gux-input-text-like)
 
 ### Graph
@@ -37,10 +38,12 @@ graph TD;
   gux-form-field --> gux-input-radio
   gux-form-field --> gux-input-color
   gux-form-field --> gux-input-range
+  gux-form-field --> gux-input-number
   gux-form-field --> gux-input-text-like
   gux-input-color --> gux-icon
   gux-input-color --> gux-color-select
   gux-color-select --> gux-input-color-option
+  gux-input-number --> gux-icon
   gux-input-text-like --> gux-icon
   style gux-form-field fill:#f9f,stroke:#333,stroke-width:4px
 ```

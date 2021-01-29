@@ -1,0 +1,198 @@
+@import (reference) '../../../../../style/color.less';
+
+// Variables part
+@dark-background-color: @gux-type;
+@dark-text-color: @gux-type-dark;
+@dark-border: @gux-black-30;
+
+gux-input-number {
+  display: block;
+  position: relative;
+
+  .gux-input-number-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+
+    .gux-input-container {
+      font-family: inherit;
+      height: 32px;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 4px 12px 4px 12px;
+      background-color: @gux-grey-100;
+      background-image: none;
+      border: 1px solid @gux-grey-60;
+      border-radius: 2px;
+      font-size: 12px;
+      line-height: 1.66666667;
+      color: @gux-black-50;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-content: stretch;
+      align-items: center;
+      order: 0;
+      flex: 1 1 auto;
+      align-self: auto;
+
+      input {
+        border: none;
+        outline: none;
+        order: 0;
+        flex: 1 1 auto;
+        align-self: auto;
+
+        &::placeholder {
+          color: @gux-black-90;
+        }
+
+        &::-webkit-input-placeholder {
+          color: @gux-black-90;
+        }
+
+        &::-ms-input-placeholder {
+          color: @gux-black-90;
+        }
+
+        &::-moz-placeholder {
+          color: @gux-black-90;
+        }
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        /* Firefox */
+        &[type='number'] {
+          -moz-appearance: textfield;
+        }
+      }
+
+      .gux-clear-button {
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+        padding: 2px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        color: @gux-black-90;
+
+        &:focus,
+        &:hover {
+          color: @gux-blue-60;
+        }
+
+        gux-icon {
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+
+    .gux-step-buttons-container {
+      order: 0;
+      flex: 0 1 16px;
+      align-self: auto;
+      margin: 0 4px;
+
+      .gux-step-button {
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+        padding: 2px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        color: @gux-black-90;
+
+        &:focus,
+        &:hover {
+          color: @gux-blue-60;
+        }
+
+        gux-icon {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+
+    &:focus-within {
+      .gux-input-container {
+        border: 1px solid @gux-blue-60;
+        outline: none;
+        box-shadow: 0 0 4px fade(@gux-blue-80, 50%);
+      }
+    }
+  }
+}
+
+// Theming
+
+// Dark
+.gux-input-number-dark-theme {
+  .gux-input-number-container {
+    .gux-input-container {
+      background-color: @dark-background-color;
+      border: 1px solid @dark-border;
+      color: @dark-text-color;
+
+      &:focus-within {
+        border: 1px solid @gux-blue-80;
+        outline: 3px @gux-blue-80;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.gux-dark-theme {
+  gux-input-number {
+    .gux-input-number-dark-theme();
+  }
+}
+
+gux-input-number.gux-dark-theme {
+  .gux-input-number-dark-theme();
+}
+
+// Light
+.gux-input-number-light-theme {
+  .gux-input-number-container {
+    .gux-input-container {
+      background-color: @gux-grey-100;
+      border: 1px solid @gux-grey-60;
+      color: @gux-black-50;
+    }
+
+    &:focus-within {
+      .gux-input-container {
+        border: 1px solid @gux-blue-60;
+        box-shadow: 0 0 4px fade(@gux-blue-80, 50%);
+      }
+    }
+  }
+}
+
+.gux-light-theme {
+  gux-input-number {
+    .gux-input-number-light-theme();
+  }
+}
+
+gux-input-number.gux-light-theme {
+  .gux-input-number-light-theme();
+}
+
+// Default Theme
+gux-input-number {
+  .gux-input-number-light-theme();
+}

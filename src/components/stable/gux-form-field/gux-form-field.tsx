@@ -88,6 +88,22 @@ export class GuxFormField {
     );
   }
 
+  private getInputNumber(clearable: boolean): JSX.Element {
+    return (
+      <div class="gux-label-and-input-and-error-container">
+        <div class={`gux-label-and-input-container gux-${this.labelPosition}`}>
+          <slot name="label" slot="label" />
+          <gux-input-number slot="input" clearable={clearable}>
+            <slot name="input" />
+          </gux-input-number>
+        </div>
+        <div class="gux-error">
+          <slot name="error" />
+        </div>
+      </div>
+    );
+  }
+
   private getInputTextLike(clearable: boolean): JSX.Element {
     return (
       <div class="gux-label-and-input-and-error-container">
@@ -115,11 +131,12 @@ export class GuxFormField {
       case 'range':
         return this.getInputRange();
       case 'email':
-      case 'number':
       case 'password':
       case 'select':
       case 'text':
         return this.getInputTextLike(this.clearable);
+      case 'number':
+        return this.getInputNumber(this.clearable);
       case 'search':
         return this.getInputTextLike(false);
       default:
