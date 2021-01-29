@@ -43,10 +43,7 @@ export class GuxInputTextLike {
           title={this.getI18nValue('clear')}
           onClick={this.clearInput.bind(this)}
         >
-          <gux-icon
-            screenreaderText={this.getI18nValue('clear')}
-            iconName="ic-close"
-          ></gux-icon>
+          <gux-icon iconName="ic-close" decorative></gux-icon>
         </button>
       );
     }

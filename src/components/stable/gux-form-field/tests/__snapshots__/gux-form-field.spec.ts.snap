@@ -72,12 +72,9 @@ exports[`gux-form-field #render input tag should render component type "number" 
       <label for="test" slot="label">
         Test
       </label>
-      <gux-input-text-like slot="input">
-        <!---->
-        <div class="gux-input-container">
-          <input id="test" slot="input" type="number" value="test">
-        </div>
-      </gux-input-text-like>
+      <gux-input-number slot="input">
+        <input id="test" slot="input" type="number" value="test">
+      </gux-input-number>
     </div>
     <div class="gux-error"></div>
   </div>
