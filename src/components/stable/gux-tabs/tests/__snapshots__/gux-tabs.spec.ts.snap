@@ -25,7 +25,7 @@ exports[`gux-tabs should render 1`] = `
       <button class="tab-dropdown-container" id="1">
         <gux-icon decorative="" iconname="ellipsis-v"></gux-icon>
       </button>
-      <gux-popover closeonclickoutside="" for="1" hidden="" position="top-start">
+      <gux-popover closeonclickoutside="" for="1" hidden="" position="top">
         <div>
           <span slot="dropdown-options">
             <gux-tab-dropdown-option icon-name="ic-pencil" onclick="notify(event)" option-id="1">
