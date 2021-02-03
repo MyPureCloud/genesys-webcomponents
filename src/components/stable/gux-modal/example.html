@@ -1,5 +1,5 @@
 <div id="modal-container">
-  <gux-modal size="small">
+  <gux-modal>
     <div slot="title">Modal Title</div>
     <div slot="content">This contains the modal content.</div>
     <div slot="left-align-buttons">
@@ -17,7 +17,7 @@
     accent="primary"
     onClick='(function() {
         const html = window.toHTML(`
-            <gux-modal size="small">
+            <gux-modal>
                 <div slot="title">Modal Title</div>
                 <div slot="content">This contains the modal content.</div>
                 <div slot="left-align-buttons">
@@ -41,7 +41,7 @@
     accent="primary"
     onClick='(function() {
         const html = window.toHTML(`
-            <gux-modal size="small">
+            <gux-modal>
                 <div slot="content">This contains the modal content.</div>
                 <div slot="left-align-buttons">
                     <gux-button title="Cancel">Cancel</gux-button>
@@ -65,7 +65,7 @@
     accent="primary"
     onClick='(function() {
         const html = window.toHTML(`
-            <gux-modal size="dynamic">
+            <gux-modal>
                 <div slot="title">Modal Title</div>
                 <div slot="content">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis, purus id viverra tincidunt, diam dui iaculis metus, a vestibulum tortor leo sed lorem. Cras eget purus condimentum, eleifend quam sit amet, pharetra leo. Nulla facilisi. Integer sollicitudin risus sit amet magna gravida consectetur. Phasellus tempor erat ex, in mollis nisi fringilla id. Fusce quis elit et nisi efficitur consequat et ut tortor. Etiam mauris orci, iaculis id enim eu, ornare scelerisque risus. Suspendisse aliquet mauris fringilla felis sollicitudin scelerisque. Etiam id arcu rhoncus, fringilla tellus id, finibus purus. Fusce fermentum laoreet suscipit. Curabitur a erat finibus, mattis leo et, pretium nisl. Sed dictum magna mauris, et semper dolor aliquet eget.
@@ -89,9 +89,39 @@
 
         document.getElementById("modal-container").appendChild(html);
     })()'
-    >Dynamic (Default)</gux-button
+    >Default (Dynamic)</gux-button
   >
 
+  <gux-button
+    accent="primary"
+    onClick='(function() {
+      const html = window.toHTML(`
+          <gux-modal size="dynamic">
+              <div slot="title">Modal Title</div>
+              <div slot="content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis, purus id viverra tincidunt, diam dui iaculis metus, a vestibulum tortor leo sed lorem. Cras eget purus condimentum, eleifend quam sit amet, pharetra leo. Nulla facilisi. Integer sollicitudin risus sit amet magna gravida consectetur. Phasellus tempor erat ex, in mollis nisi fringilla id. Fusce quis elit et nisi efficitur consequat et ut tortor. Etiam mauris orci, iaculis id enim eu, ornare scelerisque risus. Suspendisse aliquet mauris fringilla felis sollicitudin scelerisque. Etiam id arcu rhoncus, fringilla tellus id, finibus purus. Fusce fermentum laoreet suscipit. Curabitur a erat finibus, mattis leo et, pretium nisl. Sed dictum magna mauris, et semper dolor aliquet eget.
+
+                  Vestibulum ex nisl, fermentum ac finibus sit amet, laoreet ut magna. Pellentesque ex quam, interdum eget dui tristique, sagittis varius orci. Phasellus vel volutpat turpis, a egestas elit. Praesent et rutrum lorem, id auctor lorem. Sed nec enim ante. Aliquam erat volutpat. Vestibulum mattis diam at nulla fermentum, eu aliquam purus feugiat. Vivamus felis ligula, pretium nec aliquet sit amet, consequat sed tellus. Donec posuere convallis nunc, nec tristique neque malesuada quis. In vel blandit tortor. Cras sit amet venenatis purus, at pellentesque urna. Donec nec varius orci. Duis finibus mauris sed nibh porta auctor. Duis dignissim ex ac lectus vestibulum, vel cursus purus accumsan. Morbi quis justo quis dolor pellentesque molestie sed vel elit. Suspendisse porttitor venenatis turpis, id maximus elit lacinia id.
+
+                  Aliquam tellus ipsum, dapibus eu quam vitae, accumsan tempus neque. Donec vitae velit at augue venenatis varius eget sit amet tellus. Pellentesque est ligula, hendrerit nec dolor sit amet, egestas posuere urna. Duis a lorem ornare, placerat erat et, commodo urna. Quisque suscipit dolor a urna egestas, sed tincidunt libero ornare. Proin sit amet sem tincidunt, auctor sapien non, finibus augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin semper metus a tristique pretium. Suspendisse mattis, sem id vulputate convallis, massa elit ultricies turpis, nec placerat tellus lorem et odio. Nulla consequat nisl ut arcu pretium cursus. Ut sed maximus eros, in facilisis ligula. Sed pharetra pellentesque tellus, ut consectetur est vulputate ut. Maecenas rutrum dolor justo, eu finibus quam porttitor in. Donec tincidunt volutpat est.
+
+                  Nulla a aliquam tortor. Nulla at dolor a nibh lacinia aliquam. Nam quis placerat nisl. Vivamus lectus tellus, ornare et dui vitae, iaculis vulputate erat. Nunc id venenatis nulla. Vivamus viverra sem eu rhoncus feugiat. In et hendrerit nibh, in blandit orci. Quisque ornare aliquam dui, sed facilisis lorem efficitur vel. Aenean nisl nulla, iaculis at erat in, varius ultricies ligula. Vestibulum maximus quam eu libero viverra gravida eget ut arcu. Fusce vulputate odio sed blandit congue. Phasellus pharetra at orci maximus placerat. Quisque maximus tempus aliquet. Fusce rhoncus, augue at finibus cursus, risus ante venenatis eros, sit amet finibus lacus justo sagittis augue.
+
+                  Nulla facilisi. Fusce sit amet quam congue, sodales purus vitae, pretium lorem. Curabitur quis volutpat augue, non efficitur quam. Curabitur leo est, feugiat eu ligula quis, gravida convallis tortor. In consectetur justo at faucibus rhoncus. Quisque pellentesque dolor lectus, ac malesuada nibh fermentum ut. Nunc libero dolor, laoreet tincidunt urna a, cursus vestibulum elit. Pellentesque sed ornare massa, non blandit est. Vestibulum semper sem at mauris iaculis pulvinar.
+              </div>
+              <div slot="left-align-buttons">
+                  <gux-button title="Cancel">Cancel</gux-button>
+              </div>
+              <div slot="right-align-buttons">
+                  <gux-button title="Accept" accent="primary">Accept</gux-button>
+              </div>
+          </gux-modal>
+      `);
+
+      document.getElementById("modal-container").appendChild(html);
+  })()'
+    >Dynamic</gux-button
+  >
   <gux-button
     accent="primary"
     onClick='(function() {
@@ -192,7 +222,7 @@
     accent="primary"
     onClick='(function() {
         const html = window.toHTML(`
-            <gux-modal size="small">
+            <gux-modal>
                 <div slot="content">
                     Fusce sit amet quam congue, sodales purus vitae, pretium lorem. Curabitur quis volutpat augue, non efficitur quam. Curabitur leo est, feugiat eu ligula quis, gravida convallis tortor. In consectetur justo at faucibus rhoncus. Quisque pellentesque dolor lectus, ac malesuada nibh fermentum ut. Nunc libero dolor, laoreet tincidunt urna a, cursus vestibulum elit. Pellentesque sed ornare massa, non blandit est.
                 </div>
