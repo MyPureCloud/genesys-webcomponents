@@ -6,7 +6,9 @@ describe('gux-text-label', () => {
 
     await page.setContent(`
       <gux-text-label lang="en" label="Test Item">
-        <gux-text-field-legacy></gux-text-field-legacy>
+        <gux-input-text-like>
+          <input slot="input" type="text">
+        </gux-input-text-like>
       </gux-text-label>
     `);
     await page.waitForChanges();
@@ -20,7 +22,9 @@ describe('gux-text-label', () => {
 
     await page.setContent(`
       <gux-text-label lang="en" label="Test Item">
-        <gux-text-field-legacy></gux-text-field-legacy>
+        <gux-input-text-like>
+          <input slot="input" type="text">
+        </gux-input-text-like>
       </gux-text-label>
     `);
     await page.waitForChanges();
@@ -35,7 +39,9 @@ describe('gux-text-label', () => {
     await page.setContent(`
       <gux-text-label lang="en">
         <div slot="label">Test Item</div>
-        <gux-text-field-legacy></gux-text-field-legacy>
+        <gux-input-text-like>
+          <input slot="input" type="text">
+        </gux-input-text-like>
       </gux-text-label>
     `);
     await page.waitForChanges();
@@ -47,17 +53,19 @@ describe('gux-text-label', () => {
   it('provides an aria-labelledby on its content', async () => {
     const page = await newE2EPage();
 
-    await page.setContent(
-      '<gux-text-label lang="en" label="Test Item"><gux-text-field-legacy></gux-text-field-legacy></gux-text-label>'
-    );
+    await page.setContent(`
+      <gux-text-label lang="en" label="Test Item">
+        <gux-input-text-like>
+          <input slot="input" type="text">
+        </gux-input-text-like>
+      </gux-text-label>
+    `);
     await page.waitForChanges();
 
     const textLabel = await page.find('gux-text-label label');
     const labelId = textLabel.id;
 
-    const textField = await page.find(
-      'gux-text-label gux-text-field-legacy input'
-    );
+    const textField = await page.find('gux-input-text-like');
     const label = textField.getAttribute('aria-labelledby');
     expect(label).toEqual(labelId);
   });

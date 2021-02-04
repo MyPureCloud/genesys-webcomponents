@@ -31,17 +31,8 @@ export class GuxTextLabel {
     const labeledComponentSlot = this.labeledComponent.querySelector(
       '*'
     ) as any;
-    if (
-      typeof labeledComponentSlot.componentOnReady !== 'function' ||
-      typeof labeledComponentSlot.setLabelledBy !== 'function'
-    ) {
-      // Only set labeled by if its supported by the contained element.
-      return;
-    }
 
-    labeledComponentSlot.componentOnReady().then(() => {
-      labeledComponentSlot.setLabelledBy(this.id);
-    });
+    labeledComponentSlot.setAttribute('aria-labelledby', this.id);
   }
 
   render() {
