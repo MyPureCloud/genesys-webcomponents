@@ -112,6 +112,8 @@ export class GuxInputNumber {
     this.input.addEventListener('input', () => {
       this.setHasContent();
     });
+
+    this.setHasContent();
   }
 
   render(): JSX.Element {

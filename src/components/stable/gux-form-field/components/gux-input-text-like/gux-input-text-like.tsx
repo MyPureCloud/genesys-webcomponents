@@ -64,6 +64,8 @@ export class GuxInputTextLike {
     this.input.addEventListener('input', () => {
       this.setHasContent();
     });
+
+    this.setHasContent();
   }
 
   render(): JSX.Element {
