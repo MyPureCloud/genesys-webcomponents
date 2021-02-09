@@ -1,4 +1,4 @@
-import { Component, Element, h, JSX, State } from '@stencil/core';
+import { Component, Element, h, JSX } from '@stencil/core';
 
 /**
  * @slot input - Required slot for input[type="checkbox"]
@@ -14,12 +14,6 @@ export class GuxInputCheckbox {
 
   @Element()
   private root: HTMLElement;
-
-  @State()
-  private checked: boolean;
-
-  @State()
-  private indeterminate: boolean;
 
   componentWillLoad() {
     this.input = this.root.querySelector('input[slot="input"]');
@@ -42,16 +36,9 @@ export class GuxInputCheckbox {
   }
 
   private setLabelClassForCheckedState(): void {
-    this.checked = this.input.checked;
-    this.indeterminate = this.input.indeterminate;
-
-    this.label.classList.remove('gux-mixed', 'gux-checked', 'gux-unchecked');
+    this.label.classList.remove('gux-checked', 'gux-unchecked');
     this.label.classList.add(
-      this.indeterminate
-        ? 'gux-mixed'
-        : this.checked
-        ? 'gux-checked'
-        : 'gux-unchecked'
+      this.input.checked ? 'gux-checked' : 'gux-unchecked'
     );
   }
 }

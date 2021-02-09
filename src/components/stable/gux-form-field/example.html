@@ -30,7 +30,6 @@
         id="hamburger"
         name="food"
         value="hamburger"
-        indeterminate
       />
       <label slot="label" for="hamburger">Hamburger</label>
     </gux-form-field>
@@ -45,6 +44,16 @@
       />
       <label slot="label" for="sandwich">Sandwich</label>
     </gux-form-field>
+
+    <style
+      onload="(function () {
+        document.getElementById('hamburger').indeterminate = true;
+      })()"
+    >
+      .not-used {
+        -custom-noop: noop;
+      }
+    </style>
   </div>
 
   <h1>Radio</h1>
@@ -80,7 +89,6 @@
         id="dinner-hamburger"
         name="dinner"
         value="hamburger"
-        indeterminate
       />
       <label slot="label" for="dinner-hamburger">Hamburger</label>
     </gux-form-field>
