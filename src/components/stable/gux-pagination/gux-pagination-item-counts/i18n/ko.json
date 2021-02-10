@@ -1,4 +1,4 @@
 {
   "itemCountDisplay": "{firstItem, number} - {lastItem, number}",
-  "totalItems": "{totalItems, number}의"
+  "totalItems": "/{totalItems, number}"
 }
