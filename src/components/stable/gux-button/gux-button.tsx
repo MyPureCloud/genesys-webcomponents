@@ -1,6 +1,6 @@
 import { Component, Element, h, JSX, Prop } from '@stencil/core';
 
-import { GuxButtonAccent } from './gux-button.types';
+import { GuxButtonAccent, GuxButtonType } from './gux-button.types';
 
 @Component({
   styleUrl: 'gux-button.less',
@@ -9,6 +9,12 @@ import { GuxButtonAccent } from './gux-button.types';
 export class GuxButton {
   @Element()
   private root: HTMLElement;
+
+  /**
+   * The component button type
+   */
+  @Prop()
+  type: GuxButtonType = 'button';
 
   /**
    * The component title
@@ -35,6 +41,7 @@ export class GuxButton {
   render(): JSX.Element {
     return (
       <button
+        type={this.type}
         title={this.title}
         disabled={this.disabled}
         class={this.accent === 'primary' ? 'gux-primary' : 'gux-secondary'}

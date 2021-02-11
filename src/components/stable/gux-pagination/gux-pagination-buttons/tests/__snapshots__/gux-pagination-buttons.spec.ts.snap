@@ -6,13 +6,13 @@ exports[`gux-pagination-item-counts #render should render as expected (1) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="First">
+        <button class="gux-secondary" disabled="" title="First" type="button">
           <gux-icon decorative="" iconname="ic-arrow-left-dbl"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="Previous">
+        <button class="gux-secondary" disabled="" title="Previous" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-left"></gux-icon>
         </button>
       </gux-button>
@@ -37,13 +37,13 @@ exports[`gux-pagination-item-counts #render should render as expected (1) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="Next">
+        <button class="gux-secondary" disabled="" title="Next" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-right"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="Last">
+        <button class="gux-secondary" disabled="" title="Last" type="button">
           <gux-icon decorative="" iconname="ic-arrow-right-dbl"></gux-icon>
         </button>
       </gux-button>
@@ -58,13 +58,13 @@ exports[`gux-pagination-item-counts #render should render as expected (2) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="First">
+        <button class="gux-secondary" disabled="" title="First" type="button">
           <gux-icon decorative="" iconname="ic-arrow-left-dbl"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="Previous">
+        <button class="gux-secondary" disabled="" title="Previous" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-left"></gux-icon>
         </button>
       </gux-button>
@@ -89,13 +89,13 @@ exports[`gux-pagination-item-counts #render should render as expected (2) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Next">
+        <button class="gux-secondary" title="Next" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-right"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Last">
+        <button class="gux-secondary" title="Last" type="button">
           <gux-icon decorative="" iconname="ic-arrow-right-dbl"></gux-icon>
         </button>
       </gux-button>
@@ -110,13 +110,13 @@ exports[`gux-pagination-item-counts #render should render as expected (3) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="First">
+        <button class="gux-secondary" title="First" type="button">
           <gux-icon decorative="" iconname="ic-arrow-left-dbl"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Previous">
+        <button class="gux-secondary" title="Previous" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-left"></gux-icon>
         </button>
       </gux-button>
@@ -141,13 +141,13 @@ exports[`gux-pagination-item-counts #render should render as expected (3) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Next">
+        <button class="gux-secondary" title="Next" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-right"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Last">
+        <button class="gux-secondary" title="Last" type="button">
           <gux-icon decorative="" iconname="ic-arrow-right-dbl"></gux-icon>
         </button>
       </gux-button>
@@ -162,13 +162,13 @@ exports[`gux-pagination-item-counts #render should render as expected (4) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="First">
+        <button class="gux-secondary" disabled="" title="First" type="button">
           <gux-icon decorative="" iconname="ic-arrow-left-dbl"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="Previous">
+        <button class="gux-secondary" disabled="" title="Previous" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-left"></gux-icon>
         </button>
       </gux-button>
@@ -177,13 +177,13 @@ exports[`gux-pagination-item-counts #render should render as expected (4) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="Next">
+        <button class="gux-secondary" disabled="" title="Next" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-right"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="Last">
+        <button class="gux-secondary" disabled="" title="Last" type="button">
           <gux-icon decorative="" iconname="ic-arrow-right-dbl"></gux-icon>
         </button>
       </gux-button>
@@ -198,13 +198,13 @@ exports[`gux-pagination-item-counts #render should render as expected (5) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="First">
+        <button class="gux-secondary" disabled="" title="First" type="button">
           <gux-icon decorative="" iconname="ic-arrow-left-dbl"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="Previous">
+        <button class="gux-secondary" disabled="" title="Previous" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-left"></gux-icon>
         </button>
       </gux-button>
@@ -213,13 +213,13 @@ exports[`gux-pagination-item-counts #render should render as expected (5) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Next">
+        <button class="gux-secondary" title="Next" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-right"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Last">
+        <button class="gux-secondary" title="Last" type="button">
           <gux-icon decorative="" iconname="ic-arrow-right-dbl"></gux-icon>
         </button>
       </gux-button>
@@ -234,13 +234,13 @@ exports[`gux-pagination-item-counts #render should render as expected (6) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="First">
+        <button class="gux-secondary" title="First" type="button">
           <gux-icon decorative="" iconname="ic-arrow-left-dbl"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Previous">
+        <button class="gux-secondary" title="Previous" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-left"></gux-icon>
         </button>
       </gux-button>
@@ -249,13 +249,13 @@ exports[`gux-pagination-item-counts #render should render as expected (6) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Next">
+        <button class="gux-secondary" title="Next" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-right"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Last">
+        <button class="gux-secondary" title="Last" type="button">
           <gux-icon decorative="" iconname="ic-arrow-right-dbl"></gux-icon>
         </button>
       </gux-button>
@@ -270,13 +270,13 @@ exports[`gux-pagination-item-counts #render should render as expected (7) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="First">
+        <button class="gux-secondary" disabled="" title="First" type="button">
           <gux-icon decorative="" iconname="ic-arrow-left-dbl"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="Previous">
+        <button class="gux-secondary" disabled="" title="Previous" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-left"></gux-icon>
         </button>
       </gux-button>
@@ -285,13 +285,13 @@ exports[`gux-pagination-item-counts #render should render as expected (7) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="Next">
+        <button class="gux-secondary" disabled="" title="Next" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-right"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="Last">
+        <button class="gux-secondary" disabled="" title="Last" type="button">
           <gux-icon decorative="" iconname="ic-arrow-right-dbl"></gux-icon>
         </button>
       </gux-button>
@@ -306,13 +306,13 @@ exports[`gux-pagination-item-counts #render should render as expected (8) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="First">
+        <button class="gux-secondary" disabled="" title="First" type="button">
           <gux-icon decorative="" iconname="ic-arrow-left-dbl"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" disabled="" title="Previous">
+        <button class="gux-secondary" disabled="" title="Previous" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-left"></gux-icon>
         </button>
       </gux-button>
@@ -352,13 +352,13 @@ exports[`gux-pagination-item-counts #render should render as expected (8) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Next">
+        <button class="gux-secondary" title="Next" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-right"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Last">
+        <button class="gux-secondary" title="Last" type="button">
           <gux-icon decorative="" iconname="ic-arrow-right-dbl"></gux-icon>
         </button>
       </gux-button>
@@ -373,13 +373,13 @@ exports[`gux-pagination-item-counts #render should render as expected (9) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="First">
+        <button class="gux-secondary" title="First" type="button">
           <gux-icon decorative="" iconname="ic-arrow-left-dbl"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Previous">
+        <button class="gux-secondary" title="Previous" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-left"></gux-icon>
         </button>
       </gux-button>
@@ -419,13 +419,13 @@ exports[`gux-pagination-item-counts #render should render as expected (9) 1`] = 
     <div class="gux-pagination-buttons-group">
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Next">
+        <button class="gux-secondary" title="Next" type="button">
           <gux-icon decorative="" iconname="ic-chevron-small-right"></gux-icon>
         </button>
       </gux-button>
       <gux-button>
         <!---->
-        <button class="gux-secondary" title="Last">
+        <button class="gux-secondary" title="Last" type="button">
           <gux-icon decorative="" iconname="ic-arrow-right-dbl"></gux-icon>
         </button>
       </gux-button>

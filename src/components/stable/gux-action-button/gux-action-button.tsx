@@ -9,7 +9,7 @@ import {
   Watch
 } from '@stencil/core';
 
-import { ButtonAccents } from '../../../common-enums';
+import { GuxButtonAccent, GuxButtonType } from '../gux-button/gux-button.types';
 
 @Component({
   styleUrl: 'gux-action-button.less',
@@ -18,6 +18,12 @@ import { ButtonAccents } from '../../../common-enums';
 export class GuxActionButton {
   listElement: HTMLGuxListElement;
   dropdownButton: HTMLElement;
+
+  /**
+   * The component button type
+   */
+  @Prop()
+  type: GuxButtonType = 'button';
 
   /**
    * Triggered when the menu is open
@@ -53,7 +59,7 @@ export class GuxActionButton {
    * The component accent (secondary or primary).
    */
   @Prop()
-  accent: ButtonAccents = ButtonAccents.Secondary;
+  accent: GuxButtonAccent = 'secondary';
 
   /**
    * It is used to open or not the list.
@@ -121,6 +127,7 @@ export class GuxActionButton {
         class={'gux-action-button-container' + (this.isOpen ? ' gux-open' : '')}
       >
         <gux-button
+          type={this.type}
           accent={this.accent}
           disabled={this.disabled}
           onClick={() => this.onActionClick()}

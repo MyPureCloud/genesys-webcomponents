@@ -8,11 +8,12 @@ You can choose between two type (secondary and primary).
 
 ## Properties
 
-| Property   | Attribute  | Description                                  | Type                       | Default       |
-| ---------- | ---------- | -------------------------------------------- | -------------------------- | ------------- |
-| `accent`   | `accent`   | The component accent (secondary or primary). | `"primary" \| "secondary"` | `'secondary'` |
-| `disabled` | `disabled` | Indicate if the button is disabled or not    | `boolean`                  | `false`       |
-| `title`    | `title`    | The component title                          | `string`                   | `undefined`   |
+| Property   | Attribute  | Description                                  | Type                              | Default       |
+| ---------- | ---------- | -------------------------------------------- | --------------------------------- | ------------- |
+| `accent`   | `accent`   | The component accent (secondary or primary). | `"primary" \| "secondary"`        | `'secondary'` |
+| `disabled` | `disabled` | Indicate if the button is disabled or not    | `boolean`                         | `false`       |
+| `title`    | `title`    | The component title                          | `string`                          | `undefined`   |
+| `type`     | `type`     | The component button type                    | `"button" \| "reset" \| "submit"` | `'button'`    |
 
 
 ## Dependencies

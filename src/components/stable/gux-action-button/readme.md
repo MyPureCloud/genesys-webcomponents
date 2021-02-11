@@ -15,12 +15,13 @@ Example usage
 
 ## Properties
 
-| Property   | Attribute  | Description                                  | Type                                               | Default                   |
-| ---------- | ---------- | -------------------------------------------- | -------------------------------------------------- | ------------------------- |
-| `accent`   | `accent`   | The component accent (secondary or primary). | `ButtonAccents.Primary \| ButtonAccents.Secondary` | `ButtonAccents.Secondary` |
-| `disabled` | `disabled` | Disables the action button.                  | `boolean`                                          | `false`                   |
-| `isOpen`   | `is-open`  | It is used to open or not the list.          | `boolean`                                          | `false`                   |
-| `text`     | `text`     | The component text.                          | `string`                                           | `undefined`               |
+| Property   | Attribute  | Description                                  | Type                              | Default       |
+| ---------- | ---------- | -------------------------------------------- | --------------------------------- | ------------- |
+| `accent`   | `accent`   | The component accent (secondary or primary). | `"primary" \| "secondary"`        | `'secondary'` |
+| `disabled` | `disabled` | Disables the action button.                  | `boolean`                         | `false`       |
+| `isOpen`   | `is-open`  | It is used to open or not the list.          | `boolean`                         | `false`       |
+| `text`     | `text`     | The component text.                          | `string`                          | `undefined`   |
+| `type`     | `type`     | The component button type                    | `"button" \| "reset" \| "submit"` | `'button'`    |
 
 
 ## Events
