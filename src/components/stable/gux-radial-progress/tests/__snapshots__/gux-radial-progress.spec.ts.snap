@@ -2,7 +2,7 @@
 
 exports[`gux-radial-progress #render should render component as expected (1) 1`] = `
 <gux-radial-progress>
-  <gux-radial-loading-beta context="modal"></gux-radial-loading-beta>
+  <gux-radial-loading context="modal"></gux-radial-loading>
 </gux-radial-progress>
 `;
 
@@ -74,13 +74,13 @@ exports[`gux-radial-progress #render should render component as expected (4) 1`]
 
 exports[`gux-radial-progress #render should render component as expected (5) 1`] = `
 <gux-radial-progress value="123">
-  <gux-radial-loading-beta context="modal"></gux-radial-loading-beta>
+  <gux-radial-loading context="modal"></gux-radial-loading>
 </gux-radial-progress>
 `;
 
 exports[`gux-radial-progress #render should render component as expected (6) 1`] = `
 <gux-radial-progress value="200">
-  <gux-radial-loading-beta context="modal"></gux-radial-loading-beta>
+  <gux-radial-loading context="modal"></gux-radial-loading>
 </gux-radial-progress>
 `;
 
@@ -130,24 +130,24 @@ exports[`gux-radial-progress #render should render component as expected (8) 1`]
 
 exports[`gux-radial-progress #render should render component as expected (9) 1`] = `
 <gux-radial-progress max="100" value="test">
-  <gux-radial-loading-beta context="modal"></gux-radial-loading-beta>
+  <gux-radial-loading context="modal"></gux-radial-loading>
 </gux-radial-progress>
 `;
 
 exports[`gux-radial-progress #render should render component as expected (10) 1`] = `
 <gux-radial-progress max="100" value="-123">
-  <gux-radial-loading-beta context="modal"></gux-radial-loading-beta>
+  <gux-radial-loading context="modal"></gux-radial-loading>
 </gux-radial-progress>
 `;
 
 exports[`gux-radial-progress #render should render component as expected (11) 1`] = `
 <gux-radial-progress max="100" value="200">
-  <gux-radial-loading-beta context="modal"></gux-radial-loading-beta>
+  <gux-radial-loading context="modal"></gux-radial-loading>
 </gux-radial-progress>
 `;
 
 exports[`gux-radial-progress #render should render component as expected (12) 1`] = `
 <gux-radial-progress max="test" value="10">
-  <gux-radial-loading-beta context="modal"></gux-radial-loading-beta>
+  <gux-radial-loading context="modal"></gux-radial-loading>
 </gux-radial-progress>
 `;

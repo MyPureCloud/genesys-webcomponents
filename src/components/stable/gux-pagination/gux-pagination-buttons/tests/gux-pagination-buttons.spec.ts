@@ -1,9 +1,9 @@
 import { newSpecPage } from '@stencil/core/testing';
 import { GuxPaginationButtons } from '../gux-pagination-buttons';
 import { GuxButton } from '../../../gux-button/gux-button';
-import { GuxTextField } from '../../../gux-text-field/gux-text-field';
+import { GuxTextFieldLegacy } from '../../../../legacy/gux-text-field-legacy/gux-text-field';
 
-const components = [GuxPaginationButtons, GuxButton, GuxTextField];
+const components = [GuxPaginationButtons, GuxButton, GuxTextFieldLegacy];
 const language = 'en';
 
 describe('gux-pagination-item-counts', () => {

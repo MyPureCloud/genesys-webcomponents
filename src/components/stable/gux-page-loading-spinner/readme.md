@@ -9,12 +9,12 @@ A simple loading spinner for loading pages.
 
 ### Depends on
 
-- [gux-radial-loading-beta](../../beta/gux-radial-loading)
+- [gux-radial-loading](../gux-radial-loading)
 
 ### Graph
 ```mermaid
 graph TD;
-  gux-page-loading-spinner --> gux-radial-loading-beta
+  gux-page-loading-spinner --> gux-radial-loading
   style gux-page-loading-spinner fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.19.6](http://inindca///compare/v1.19.5...v1.19.6) (2021-02-12)
+
+
+### Bug Fixes
+
+* **gux-button:** added type property ([06d550d](http://inindca///commit/06d550dd50fd086ad12c21e9d7f15e7bfde20e8d))
+
 ### [1.19.5](http://inindca///compare/v1.19.4...v1.19.5) (2021-02-11)
 
 ### [1.19.4](http://inindca///compare/v1.19.3...v1.19.4) (2021-02-03)

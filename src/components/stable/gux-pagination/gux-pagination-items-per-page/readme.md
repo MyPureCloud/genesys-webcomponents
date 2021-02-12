@@ -36,9 +36,9 @@ An internal component used by the gux-pagination component.
 graph TD;
   gux-pagination-items-per-page --> gux-dropdown
   gux-pagination-items-per-page --> gux-option
-  gux-dropdown --> gux-text-field
+  gux-dropdown --> gux-text-field-legacy
   gux-dropdown --> gux-icon
-  gux-text-field --> gux-icon
+  gux-text-field-legacy --> gux-icon
   gux-option --> gux-text-highlight
   gux-pagination --> gux-pagination-items-per-page
   style gux-pagination-items-per-page fill:#f9f,stroke:#333,stroke-width:4px

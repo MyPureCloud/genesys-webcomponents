@@ -54,15 +54,15 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [gux-text-field](../gux-text-field)
+- [gux-text-field-legacy](../../legacy/gux-text-field-legacy)
 - [gux-icon](../gux-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  gux-dropdown --> gux-text-field
+  gux-dropdown --> gux-text-field-legacy
   gux-dropdown --> gux-icon
-  gux-text-field --> gux-icon
+  gux-text-field-legacy --> gux-icon
   gux-pagination-items-per-page --> gux-dropdown
   style gux-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```

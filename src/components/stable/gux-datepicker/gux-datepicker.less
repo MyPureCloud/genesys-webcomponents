@@ -20,7 +20,7 @@ gux-datepicker {
       width: 200px;
       margin-right: 20px;
 
-      gux-text-field {
+      gux-text-field-legacy {
         position: relative;
 
         &:hover {
@@ -50,7 +50,7 @@ gux-datepicker {
     }
 
     &.gux-active {
-      > div.gux-datepicker-field > gux-text-field > button {
+      > div.gux-datepicker-field > gux-text-field-legacy > button {
         color: @gux-blue-60;
       }
 
@@ -89,7 +89,7 @@ gux-datepicker.gux-light-theme {
 .gux-datepicker-dark-theme {
   > div.gux-datepicker {
     > div.gux-datepicker-field {
-      gux-text-field {
+      gux-text-field-legacy {
         label {
           color: @gux-type-dark;
         }

@@ -20,7 +20,7 @@ export class GuxDropdown {
   @Element()
   root: HTMLElement;
 
-  textFieldElement: HTMLGuxTextFieldElement;
+  textFieldElement: HTMLGuxTextFieldLegacyElement;
 
   /**
    * Sets the select mode (default, page or palette).
@@ -273,9 +273,11 @@ export class GuxDropdown {
           <span class="gux-ghost" aria-hidden="true">
             {this.getGhost()}
           </span>
-          <gux-text-field
+          <gux-text-field-legacy
             title={this.value}
-            ref={el => (this.textFieldElement = el as HTMLGuxTextFieldElement)}
+            ref={el =>
+              (this.textFieldElement = el as HTMLGuxTextFieldLegacyElement)
+            }
             onMouseDown={() => {
               this._clickHandler();
             }}

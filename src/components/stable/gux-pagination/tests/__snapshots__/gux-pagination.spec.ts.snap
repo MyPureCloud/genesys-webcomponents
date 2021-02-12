@@ -22,13 +22,13 @@ exports[`gux-pagination #render should render as expected (1) 1`] = `
               <div class="gux-default gux-dropdown">
                 <div class="gux-select-field">
                   <span aria-hidden="true" class="gux-ghost"></span>
-                  <gux-text-field class="gux-unclearable" title="25" value="25">
+                  <gux-text-field-legacy class="gux-unclearable" title="25" value="25">
                     <div>
                       <div class="gux-field">
                         <input readonly="" type="text" value="25">
                       </div>
                     </div>
-                  </gux-text-field>
+                  </gux-text-field-legacy>
                   <button aria-hidden="true" class="gux-dropdown-indicator" tabindex="-1" type="button">
                     <gux-icon decorative="" iconname="ic-dropdown-arrow"></gux-icon>
                   </button>
@@ -102,13 +102,9 @@ exports[`gux-pagination #render should render as expected (1) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field use-clear-button="false" value="1">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="1">
-                  </div>
-                </div>
-              </gux-text-field>
+              <gux-input-text-like>
+                <input slot="input" value="1">
+              </gux-input-text-like>
             </div>
             <div>
               of 40
@@ -157,13 +153,13 @@ exports[`gux-pagination #render should render as expected (2) 1`] = `
               <div class="gux-default gux-dropdown">
                 <div class="gux-select-field">
                   <span aria-hidden="true" class="gux-ghost"></span>
-                  <gux-text-field class="gux-unclearable" title="50" value="50">
+                  <gux-text-field-legacy class="gux-unclearable" title="50" value="50">
                     <div>
                       <div class="gux-field">
                         <input readonly="" type="text" value="50">
                       </div>
                     </div>
-                  </gux-text-field>
+                  </gux-text-field-legacy>
                   <button aria-hidden="true" class="gux-dropdown-indicator" tabindex="-1" type="button">
                     <gux-icon decorative="" iconname="ic-dropdown-arrow"></gux-icon>
                   </button>
@@ -237,13 +233,9 @@ exports[`gux-pagination #render should render as expected (2) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field use-clear-button="false" value="1">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="1">
-                  </div>
-                </div>
-              </gux-text-field>
+              <gux-input-text-like>
+                <input slot="input" value="1">
+              </gux-input-text-like>
             </div>
             <div>
               of 20
@@ -292,13 +284,13 @@ exports[`gux-pagination #render should render as expected (3) 1`] = `
               <div class="gux-default gux-dropdown">
                 <div class="gux-select-field">
                   <span aria-hidden="true" class="gux-ghost"></span>
-                  <gux-text-field class="gux-unclearable" title="75" value="75">
+                  <gux-text-field-legacy class="gux-unclearable" title="75" value="75">
                     <div>
                       <div class="gux-field">
                         <input readonly="" type="text" value="75">
                       </div>
                     </div>
-                  </gux-text-field>
+                  </gux-text-field-legacy>
                   <button aria-hidden="true" class="gux-dropdown-indicator" tabindex="-1" type="button">
                     <gux-icon decorative="" iconname="ic-dropdown-arrow"></gux-icon>
                   </button>
@@ -372,13 +364,9 @@ exports[`gux-pagination #render should render as expected (3) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field use-clear-button="false" value="1">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="1">
-                  </div>
-                </div>
-              </gux-text-field>
+              <gux-input-text-like>
+                <input slot="input" value="1">
+              </gux-input-text-like>
             </div>
             <div>
               of 14
@@ -427,13 +415,13 @@ exports[`gux-pagination #render should render as expected (4) 1`] = `
               <div class="gux-default gux-dropdown">
                 <div class="gux-select-field">
                   <span aria-hidden="true" class="gux-ghost"></span>
-                  <gux-text-field class="gux-unclearable" title="100" value="100">
+                  <gux-text-field-legacy class="gux-unclearable" title="100" value="100">
                     <div>
                       <div class="gux-field">
                         <input readonly="" type="text" value="100">
                       </div>
                     </div>
-                  </gux-text-field>
+                  </gux-text-field-legacy>
                   <button aria-hidden="true" class="gux-dropdown-indicator" tabindex="-1" type="button">
                     <gux-icon decorative="" iconname="ic-dropdown-arrow"></gux-icon>
                   </button>
@@ -507,13 +495,9 @@ exports[`gux-pagination #render should render as expected (4) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field use-clear-button="false" value="1">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="1">
-                  </div>
-                </div>
-              </gux-text-field>
+              <gux-input-text-like>
+                <input slot="input" value="1">
+              </gux-input-text-like>
             </div>
             <div>
               of 10
@@ -562,13 +546,13 @@ exports[`gux-pagination #render should render as expected (5) 1`] = `
               <div class="gux-default gux-dropdown">
                 <div class="gux-select-field">
                   <span aria-hidden="true" class="gux-ghost"></span>
-                  <gux-text-field class="gux-unclearable" title="25" value="25">
+                  <gux-text-field-legacy class="gux-unclearable" title="25" value="25">
                     <div>
                       <div class="gux-field">
                         <input readonly="" type="text" value="25">
                       </div>
                     </div>
-                  </gux-text-field>
+                  </gux-text-field-legacy>
                   <button aria-hidden="true" class="gux-dropdown-indicator" tabindex="-1" type="button">
                     <gux-icon decorative="" iconname="ic-dropdown-arrow"></gux-icon>
                   </button>
@@ -642,13 +626,9 @@ exports[`gux-pagination #render should render as expected (5) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field use-clear-button="false" value="1">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="1">
-                  </div>
-                </div>
-              </gux-text-field>
+              <gux-input-text-like>
+                <input slot="input" value="1">
+              </gux-input-text-like>
             </div>
             <div>
               of 40
@@ -697,13 +677,13 @@ exports[`gux-pagination #render should render as expected (6) 1`] = `
               <div class="gux-default gux-dropdown">
                 <div class="gux-select-field">
                   <span aria-hidden="true" class="gux-ghost"></span>
-                  <gux-text-field class="gux-unclearable" title="25" value="25">
+                  <gux-text-field-legacy class="gux-unclearable" title="25" value="25">
                     <div>
                       <div class="gux-field">
                         <input readonly="" type="text" value="25">
                       </div>
                     </div>
-                  </gux-text-field>
+                  </gux-text-field-legacy>
                   <button aria-hidden="true" class="gux-dropdown-indicator" tabindex="-1" type="button">
                     <gux-icon decorative="" iconname="ic-dropdown-arrow"></gux-icon>
                   </button>
@@ -777,13 +757,9 @@ exports[`gux-pagination #render should render as expected (6) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field use-clear-button="false" value="10">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="10">
-                  </div>
-                </div>
-              </gux-text-field>
+              <gux-input-text-like>
+                <input slot="input" value="10">
+              </gux-input-text-like>
             </div>
             <div>
               of 40
@@ -832,13 +808,13 @@ exports[`gux-pagination #render should render as expected (7) 1`] = `
               <div class="gux-default gux-dropdown">
                 <div class="gux-select-field">
                   <span aria-hidden="true" class="gux-ghost"></span>
-                  <gux-text-field class="gux-unclearable" title="50" value="50">
+                  <gux-text-field-legacy class="gux-unclearable" title="50" value="50">
                     <div>
                       <div class="gux-field">
                         <input readonly="" type="text" value="50">
                       </div>
                     </div>
-                  </gux-text-field>
+                  </gux-text-field-legacy>
                   <button aria-hidden="true" class="gux-dropdown-indicator" tabindex="-1" type="button">
                     <gux-icon decorative="" iconname="ic-dropdown-arrow"></gux-icon>
                   </button>
@@ -912,13 +888,9 @@ exports[`gux-pagination #render should render as expected (7) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field use-clear-button="false" value="10">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="10">
-                  </div>
-                </div>
-              </gux-text-field>
+              <gux-input-text-like>
+                <input slot="input" value="10">
+              </gux-input-text-like>
             </div>
             <div>
               of 20
@@ -967,13 +939,13 @@ exports[`gux-pagination #render should render as expected (8) 1`] = `
               <div class="gux-default gux-dropdown">
                 <div class="gux-select-field">
                   <span aria-hidden="true" class="gux-ghost"></span>
-                  <gux-text-field class="gux-unclearable" title="75" value="75">
+                  <gux-text-field-legacy class="gux-unclearable" title="75" value="75">
                     <div>
                       <div class="gux-field">
                         <input readonly="" type="text" value="75">
                       </div>
                     </div>
-                  </gux-text-field>
+                  </gux-text-field-legacy>
                   <button aria-hidden="true" class="gux-dropdown-indicator" tabindex="-1" type="button">
                     <gux-icon decorative="" iconname="ic-dropdown-arrow"></gux-icon>
                   </button>
@@ -1047,13 +1019,9 @@ exports[`gux-pagination #render should render as expected (8) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field use-clear-button="false" value="10">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="10">
-                  </div>
-                </div>
-              </gux-text-field>
+              <gux-input-text-like>
+                <input slot="input" value="10">
+              </gux-input-text-like>
             </div>
             <div>
               of 14
@@ -1102,13 +1070,13 @@ exports[`gux-pagination #render should render as expected (9) 1`] = `
               <div class="gux-default gux-dropdown">
                 <div class="gux-select-field">
                   <span aria-hidden="true" class="gux-ghost"></span>
-                  <gux-text-field class="gux-unclearable" title="100" value="100">
+                  <gux-text-field-legacy class="gux-unclearable" title="100" value="100">
                     <div>
                       <div class="gux-field">
                         <input readonly="" type="text" value="100">
                       </div>
                     </div>
-                  </gux-text-field>
+                  </gux-text-field-legacy>
                   <button aria-hidden="true" class="gux-dropdown-indicator" tabindex="-1" type="button">
                     <gux-icon decorative="" iconname="ic-dropdown-arrow"></gux-icon>
                   </button>
@@ -1182,13 +1150,9 @@ exports[`gux-pagination #render should render as expected (9) 1`] = `
               Page
             </div>
             <div class="gux-pagination-buttons-input">
-              <gux-text-field use-clear-button="false" value="10">
-                <div>
-                  <div class="gux-field">
-                    <input type="text" value="10">
-                  </div>
-                </div>
-              </gux-text-field>
+              <gux-input-text-like>
+                <input slot="input" value="10">
+              </gux-input-text-like>
             </div>
             <div>
               of 10

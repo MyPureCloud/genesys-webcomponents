@@ -1,0 +1,33 @@
+@import (reference) '../../../style/color.less';
+
+gux-rating {
+  display: inline-flex;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px fade(@gux-blue-80, 50%);
+  }
+
+  .gux-rating-start-container {
+    &.gux-disabled {
+      opacity: 0.5;
+    }
+
+    gux-icon {
+      height: 24px;
+      width: 24px;
+    }
+
+    .gux-rating-star-empty {
+      color: @gux-black-100;
+    }
+
+    .gux-rating-star-half {
+      color: @gux-black-50;
+    }
+
+    .gux-rating-star-full {
+      color: @gux-black-50;
+    }
+  }
+}

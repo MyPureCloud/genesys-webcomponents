@@ -1,0 +1,236 @@
+<form onchange="notify(event)" oninput="notify(event)">
+  <h1>Checkbox</h1>
+
+  <div>
+    <gux-form-field>
+      <input
+        slot="input"
+        type="checkbox"
+        id="pizza"
+        name="food"
+        value="pizza"
+      />
+      <label slot="label" for="pizza">Pizza</label>
+    </gux-form-field>
+    <gux-form-field>
+      <input
+        slot="input"
+        type="checkbox"
+        id="pasta"
+        name="food"
+        value="pasta"
+        checked
+      />
+      <label slot="label" for="pasta">Pasta</label>
+    </gux-form-field>
+    <gux-form-field>
+      <input
+        slot="input"
+        type="checkbox"
+        id="hamburger"
+        name="food"
+        value="hamburger"
+        indeterminate
+      />
+      <label slot="label" for="hamburger">Hamburger</label>
+    </gux-form-field>
+    <gux-form-field>
+      <input
+        slot="input"
+        type="checkbox"
+        id="sandwich"
+        name="food"
+        value="sandwich"
+        disabled
+      />
+      <label slot="label" for="sandwich">Sandwich</label>
+    </gux-form-field>
+  </div>
+
+  <h1>Radio</h1>
+
+  <div>
+    <gux-form-field>
+      <input
+        slot="input"
+        type="radio"
+        id="dinner-pizza"
+        name="dinner"
+        value="pizza"
+      />
+      <label slot="label" for="dinner-pizza">Pizza</label>
+    </gux-form-field>
+
+    <gux-form-field>
+      <input
+        slot="input"
+        type="radio"
+        id="dinner-pasta"
+        name="dinner"
+        value="pasta"
+        checked
+      />
+      <label slot="label" for="dinner-pasta">Pasta</label>
+    </gux-form-field>
+
+    <gux-form-field>
+      <input
+        slot="input"
+        type="radio"
+        id="dinner-hamburger"
+        name="dinner"
+        value="hamburger"
+        indeterminate
+      />
+      <label slot="label" for="dinner-hamburger">Hamburger</label>
+    </gux-form-field>
+
+    <gux-form-field>
+      <input
+        slot="input"
+        type="radio"
+        id="dinner-sandwich"
+        name="dinner"
+        value="sandwich"
+        disabled
+      />
+      <label slot="label" for="dinner-sandwich">Sandwich</label>
+    </gux-form-field>
+  </div>
+
+  <h1>Color</h1>
+
+  <div>
+    <gux-form-field>
+      <input slot="input" name="color" type="color" value="#1da8b3" />
+      <label slot="label">Color</label>
+    </gux-form-field>
+  </div>
+
+  <h1>Number</h1>
+  <gux-form-field>
+    <input
+      slot="input"
+      name="number"
+      type="number"
+      step="5"
+      min="5"
+      max="100"
+      placeholder="Enter a number"
+    />
+    <label slot="label">Number</label>
+  </gux-form-field>
+
+  <gux-form-field clearable>
+    <input
+      slot="input"
+      name="number-clearable"
+      type="number"
+      step="5"
+      min="5"
+      max="100"
+      placeholder="Enter a number"
+    />
+    <label slot="label">Number</label>
+  </gux-form-field>
+
+  <h1>Text Like</h1>
+
+  <div>
+    <gux-form-field>
+      <input
+        slot="input"
+        name="email"
+        type="email"
+        placeholder="joe.bloggs@example.com"
+      />
+      <label slot="label">Email</label>
+    </gux-form-field>
+
+    <gux-form-field>
+      <input
+        slot="input"
+        name="password"
+        type="password"
+        placeholder="Enter a password"
+      />
+      <label slot="label">Password</label>
+    </gux-form-field>
+
+    <gux-form-field>
+      <input slot="input" name="search" type="search" />
+      <label slot="label">Search</label>
+    </gux-form-field>
+
+    <gux-form-field>
+      <input
+        slot="input"
+        name="text"
+        type="text"
+        placeholder="Enter a string"
+      />
+      <label slot="label">Text</label>
+    </gux-form-field>
+  </div>
+
+  <h1>Text Like (clearable)</h1>
+
+  <div>
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="email-clearable"
+        type="email"
+        placeholder="joe.bloggs@example.com"
+      />
+      <label slot="label">Email</label>
+    </gux-form-field>
+
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="password-clearable"
+        type="password"
+        placeholder="Enter a password"
+      />
+      <label slot="label">Password</label>
+    </gux-form-field>
+
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="text-clearable"
+        type="text"
+        placeholder="Enter a string"
+      />
+      <label slot="label">Text</label>
+    </gux-form-field>
+  </div>
+
+  <h1>Select</h1>
+
+  <div>
+    <gux-form-field>
+      <select slot="input" name="select" type="select">
+        <option value="option1">Option 1</option>
+        <option value="option1">Option 2</option>
+        <option value="option1">Option 3</option>
+      </select>
+      <label slot="label">Select</label>
+    </gux-form-field>
+  </div>
+
+  <h1>Range</h1>
+
+  <div>
+    <gux-form-field>
+      <label slot="label">Range</label>
+      <input slot="input" name="range" type="range" />
+    </gux-form-field>
+
+    <gux-form-field>
+      <label slot="label">Range</label>
+      <input slot="input" name="range-disabled" type="range" disabled />
+    </gux-form-field>
+  </div>
+</form>

@@ -9,7 +9,7 @@ describe('gux-text-label', () => {
       components: [GuxTextLabel],
       html: `
         <gux-text-label label="test">
-          <gux-text-field></gux-text-field>
+          <gux-text-field-legacy></gux-text-field-legacy>
         </gux-text-label>
       `,
       language: 'en'
