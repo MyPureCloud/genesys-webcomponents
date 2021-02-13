@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](http://inindca///compare/v1.19.6...v2.0.0) (2021-02-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* **version-2:** moved components from beta to stable and stable to legacy
+
+COMUI-343
+
+### Features
+
+* **version-2:** changes for version 2 ([5fa98d9](http://inindca///commit/5fa98d962e4364205ac7d1eacce7c35e4f74e66e))
+
 ### [1.19.6](http://inindca///compare/v1.19.5...v1.19.6) (2021-02-12)
 
 
