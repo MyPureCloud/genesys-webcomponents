@@ -3,14 +3,13 @@
 // Variables part
 @gux-table-scroll-btn-border: @expalette-secondary-border-color;
 @gux-table-scroll-btn-disabled-text: @expalette-grey-2;
-@gux-table-scroll-btn-shadow-left: 1px -1px 1px fade(@gux-black-30, 0.08);
-@gux-table-scroll-btn-shadow-right: -1px -1px 1px fade(@gux-black-30, 0.08);
-@gux-table-scroll-divider: fade(@gux-black-30, 0.1);
+@gux-table-scroll-btn-shadow-left: 1px -1px 1px fade(@gux-black-30, 8%);
+@gux-table-scroll-btn-shadow-right: -1px -1px 1px fade(@gux-black-30, 8%);
+@gux-table-scroll-divider: fade(@gux-black-30, 10%);
 @gux-table-scroll-thumb: @expalette-table-scroll-thumb;
 @gux-table-scroll-thumb-hover: @expalette-background-color-dark;
 @gux-table-row-hover-selection: fade(@gux-blue-80, 24%);
 @gux-table-background-secondary: @gux-grey-90;
-@gux-table-empty-message: @gux-grey-10;
 
 gux-table-beta * {
   box-sizing: content-box;
@@ -32,7 +31,7 @@ gux-table-beta {
 
       th,
       td {
-        border-color: @gux-border;
+        border-color: @gux-grey-60;
         border-style: solid;
         border-width: 0 1px 1px 0;
         padding-left: 12px;
@@ -66,7 +65,7 @@ gux-table-beta {
     .gux-table-scroll-left,
     .gux-table-scroll-right {
       align-items: center;
-      background: @gux-border;
+      background: @gux-grey-60;
       border: 1px solid @gux-table-scroll-btn-border;
       color: @gux-black-50;
       cursor: pointer;
@@ -106,7 +105,7 @@ gux-table-beta {
       max-height: 100%;
       overflow-x: hidden;
       overflow-y: auto;
-      scrollbar-color: @gux-table-scroll-thumb @gux-off-white;
+      scrollbar-color: @gux-table-scroll-thumb @gux-grey-100;
       scrollbar-width: thin;
       width: 100%;
 
@@ -115,7 +114,7 @@ gux-table-beta {
       }
 
       &::-webkit-scrollbar-track {
-        background: @gux-off-white;
+        background: @gux-grey-100;
       }
 
       &::-webkit-scrollbar-thumb {
@@ -166,7 +165,7 @@ gux-table-beta {
           th {
             position: sticky;
             top: 0;
-            background: @gux-off-white;
+            background: @gux-grey-100;
           }
 
           th[data-sort] {
@@ -196,11 +195,11 @@ gux-table-beta {
 
         tbody {
           tr {
-            background: @gux-table-background-secondary;
+            background: @gux-grey-90;
           }
 
           tr:nth-child(2n) {
-            background: @gux-off-white;
+            background: @gux-grey-100;
           }
         }
       }
@@ -230,8 +229,8 @@ gux-table-beta {
 
   .empty-table {
     align-items: center;
-    background: @gux-off-white;
-    color: @gux-table-empty-message;
+    background: @gux-grey-100;
+    color: @gux-black-90;
     display: flex;
     height: 150px;
     justify-content: center;

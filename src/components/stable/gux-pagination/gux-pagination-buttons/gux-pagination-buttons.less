@@ -1,6 +1,8 @@
-@import (reference) '../../../../style/color.less';
+@import (reference) '../../../../style/color-palette.less';
 
 gux-pagination-buttons {
+  color: @gux-black-50;
+
   .gux-pagination-buttons-container {
     display: flex;
     flex-direction: row;
@@ -49,6 +51,7 @@ gux-pagination-buttons {
 
         input {
           text-align: center;
+          width: inherit;
         }
       }
     }
@@ -72,7 +75,6 @@ gux-pagination-buttons {
       }
 
       .gux-pagination-buttons-list-current {
-        color: @gux-type;
         font-weight: 600;
       }
 
@@ -86,41 +88,4 @@ gux-pagination-buttons {
       width: 10px;
     }
   }
-}
-
-// Theming
-
-// Dark
-.gux-pagination-buttons-dark-theme {
-  color: @gux-off-white;
-}
-
-.gux-dark-theme {
-  gux-pagination-buttons {
-    .gux-pagination-buttons-dark-theme();
-  }
-}
-
-gux-pagination-buttons.gux-dark-theme {
-  .gux-pagination-buttons-dark-theme();
-}
-
-// Light
-.gux-pagination-buttons-light-theme {
-  color: @gux-type;
-}
-
-.gux-light-theme {
-  gux-pagination-buttons {
-    .gux-pagination-buttons-light-theme();
-  }
-}
-
-gux-pagination-buttons.gux-light-theme {
-  .gux-pagination-buttons-light-theme();
-}
-
-// Default Theme
-gux-pagination-buttons {
-  .gux-pagination-buttons-light-theme();
 }

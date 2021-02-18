@@ -155,6 +155,7 @@ export class GuxPaginationButtons {
       <div class={`gux-pagination-buttons-container gux-${this.layout}`}>
         <div class="gux-pagination-buttons-group">
           <gux-button
+            accent="secondary"
             title={this.i18n('first')}
             disabled={this.onFirstPage}
             onClick={this.handleClickFirst.bind(this)}
@@ -162,6 +163,7 @@ export class GuxPaginationButtons {
             <gux-icon decorative iconName="ic-arrow-left-dbl"></gux-icon>
           </gux-button>
           <gux-button
+            accent="secondary"
             title={this.i18n('previous')}
             disabled={this.onFirstPage}
             onClick={this.handleClickPrevious.bind(this)}
@@ -174,6 +176,7 @@ export class GuxPaginationButtons {
 
         <div class="gux-pagination-buttons-group">
           <gux-button
+            accent="secondary"
             title={this.i18n('next')}
             disabled={this.onLastPage}
             onClick={this.handleClickNext.bind(this)}
@@ -181,6 +184,7 @@ export class GuxPaginationButtons {
             <gux-icon decorative iconName="ic-chevron-small-right"></gux-icon>
           </gux-button>
           <gux-button
+            accent="secondary"
             title={this.i18n('last')}
             disabled={this.onLastPage}
             onClick={this.handleClickLast.bind(this)}

@@ -1,24 +1,10 @@
 @import (reference) '../../../style/color.less';
+@import (reference) '../../../style/mixins.less';
 
-// Variables part
-@box-shadow-checked: @gux-blue-80;
-@box-shadow: @gux-border-strong;
-@background: @expalette-grey;
-@background-before: @gux-off-white;
-@background-checked: @gux-blue-60;
-@box-shadow-focus: @gux-blue-80;
-
-@background-dark-theme: @expalette-background-color-dark;
-@background-checked-dark-theme: @gux-blue-60;
-@background-hover-dark-theme: @expalette-secondary-dark-hover-background-color;
-@background-checked-hover-dark-theme: @expalette-primary-dark-hover-background-color;
-@box-shadow-focus-dark-theme: @gux-blue-80;
-
-// Component main style
 gux-toggle {
-  /* The switch - the box around the slider */
   display: inline-block;
   height: 16px;
+  color: @gux-black-50;
 
   &[disabled] > * {
     opacity: 0.5;
@@ -40,23 +26,11 @@ gux-toggle {
 
     &:focus {
       outline: none;
-
-      .gux-slider::after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: -2px;
-        bottom: -2px;
-        left: -2px;
-        right: -2px;
-        border-radius: 34px;
-        border: 2px solid #ccc;
-      }
     }
   }
 
-  &:not([disabled]) * {
-    cursor: pointer;
+  &:focus-within {
+    .focus-ring();
   }
 
   .gux-switch {
@@ -73,6 +47,7 @@ gux-toggle {
 
   /* The slider */
   .gux-slider {
+    background-color: @gux-black-100;
     position: absolute;
     top: 0;
     left: 0;
@@ -89,13 +64,19 @@ gux-toggle {
     width: 14px;
     left: 2px;
     bottom: 1px;
-    background-color: @background-before;
+    background-color: @gux-grey-100;
     -webkit-transition: 0.4s;
     transition: 0.4s;
   }
 
+  &.gux-checked {
+    .gux-slider {
+      background-color: @gux-blue-60;
+    }
+  }
+
   input:checked + .gux-slider {
-    background-color: @background-checked;
+    background-color: @gux-blue-60;
   }
 
   input:checked + .gux-slider::before {
@@ -112,107 +93,4 @@ gux-toggle {
   .gux-slider.gux-round::before {
     border-radius: 50%;
   }
-}
-
-// Theming
-
-// Dark
-.gux-toggle-dark-theme {
-  > div {
-    .gux-slider {
-      background-color: @background-dark-theme;
-    }
-
-    &.gux-checked {
-      .gux-slider {
-        background-color: @background-checked-dark-theme;
-      }
-    }
-  }
-
-  &:not([disabled]) > div {
-    &:hover {
-      &.gux-checked {
-        .gux-slider {
-          background: @background-checked-hover-dark-theme;
-          box-shadow: none;
-        }
-      }
-
-      &:not(.gux-checked) {
-        .gux-slider {
-          background-color: @background-hover-dark-theme;
-          box-shadow: none;
-        }
-      }
-    }
-
-    &:focus {
-      .gux-slider::after {
-        border-color: @box-shadow-focus-dark-theme;
-      }
-    }
-  }
-}
-
-.gux-dark-theme {
-  gux-toggle {
-    .gux-toggle-dark-theme();
-  }
-}
-
-gux-toggle.gux-dark-theme {
-  .gux-toggle-dark-theme();
-}
-
-// Light
-.gux-toggle-light-theme {
-  > div {
-    .gux-slider {
-      background-color: @background;
-    }
-
-    &.gux-checked {
-      .gux-slider {
-        background-color: @background-checked-dark-theme;
-      }
-    }
-  }
-
-  &:not([disabled]) > div {
-    &:hover {
-      &.gux-checked {
-        .gux-slider {
-          box-shadow: 0 0 3px 0 @box-shadow-checked;
-        }
-      }
-
-      &:not(.gux-checked) {
-        .gux-slider {
-          box-shadow: 0 0 3px 0 @box-shadow;
-        }
-      }
-    }
-
-    &:focus {
-      .gux-slider::after {
-        border-color: @box-shadow-focus;
-      }
-    }
-  }
-}
-
-.gux-light-theme {
-  gux-toggle {
-    .gux-toggle-light-theme();
-  }
-}
-
-gux-toggle.gux-light-theme {
-  .gux-toggle-light-theme();
-}
-
-// Default Theme
-gux-toggle {
-  .gux-toggle-light-theme();
 }

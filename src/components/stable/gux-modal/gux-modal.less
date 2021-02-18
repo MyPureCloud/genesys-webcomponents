@@ -1,9 +1,7 @@
 @import (reference) '../../../style/typography.less';
 @import (reference) '../../../style/color.less';
 @import (reference) '../../../style/spacing.less';
-
-// Variables part
-@min-modal-inset: @spacing-large;
+@import (reference) '../../../style/mixins.less';
 
 // Style
 gux-modal {
@@ -16,37 +14,40 @@ gux-modal {
     bottom: 0;
     right: 0;
     left: 0;
-    background: fade(@gux-black-30, 0.8);
+    background: fade(@gux-black-30, 80%);
     z-index: 1;
+    color: @gux-black-50;
 
     .gux-modal-container {
+      .shadow-20();
+
       display: flex;
       flex-direction: column;
       position: relative;
       box-sizing: border-box;
       padding: 40px;
       justify-content: space-between;
-      background: @gux-background;
-      box-shadow: 0 0 2px fade(@gux-black-30, 24%);
+      background: @gux-grey-100;
+      border: 1px solid @gux-black-100;
 
       &.gux-small {
-        max-height: e(%('min(368px, 100vh - 2 * %s)', @min-modal-inset));
+        max-height: e(%('min(368px, 100vh - 2 * %s)', @spacing-large));
         width: 416px;
       }
 
       &.gux-medium {
-        max-height: e(%('min(640, 100vh - 2 * %s)', @min-modal-inset));
+        max-height: e(%('min(640, 100vh - 2 * %s)', @spacing-large));
         width: 672px;
       }
 
       &.gux-large {
-        max-height: e(%('min(640, 100vh - 2 * %s)', @min-modal-inset));
+        max-height: e(%('min(640, 100vh - 2 * %s)', @spacing-large));
         width: 940px;
       }
 
       &.gux-dynamic {
-        max-height: calc(100vh - 2 * @min-modal-inset);
-        max-width: calc(100vw - 2 * @min-modal-inset);
+        max-height: calc(100vh - 2 * @spacing-large);
+        max-width: calc(100vw - 2 * @spacing-large);
 
         .gux-modal-content {
           max-height: none;
@@ -61,7 +62,7 @@ gux-modal {
         border: none;
         background: transparent;
         font-size: 11px;
-        color: @gux-type;
+        color: @gux-black-90;
         cursor: pointer;
 
         gux-icon {
@@ -136,24 +137,4 @@ gux-modal {
 
 gux-modal.gux-dark-theme {
   .gux-modal-dark-theme();
-}
-
-// Light
-.gux-modal-light-theme {
-  color: @gux-type;
-}
-
-.gux-light-theme {
-  gux-modal {
-    .gux-modal-light-theme();
-  }
-}
-
-gux-modal.gux-light-theme {
-  .gux-modal-light-theme();
-}
-
-// Default Theme
-gux-modal {
-  .gux-modal-light-theme();
 }
