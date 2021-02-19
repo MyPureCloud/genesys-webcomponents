@@ -44,35 +44,33 @@ gux-button {
 // Theming
 .gux-button-dark-theme {
   > button {
-    &.gux-secondary {
-      background-color: @secondary-dark-background-color;
-      border: 1px solid @secondary-dark-border-color;
-      color: @secondary-dark-color;
+    background-color: @secondary-dark-background-color;
+    border: 1px solid @secondary-dark-border-color;
+    color: @secondary-dark-color;
 
+    &:hover {
+      background-color: @secondary-dark-hover-background-color;
+    }
+
+    &:active {
+      box-shadow: 0 0 0 3px @gux-blue-80;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px fade(@gux-blue-80, 50%);
+    }
+
+    &[disabled] {
       &:hover {
-        background-color: @secondary-dark-hover-background-color;
+        background-color: @secondary-dark-background-color;
       }
 
       &:active {
-        box-shadow: 0 0 0 3px @gux-blue-80;
+        box-shadow: none;
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px fade(@gux-blue-80, 50%);
-      }
-
-      &[disabled] {
-        &:hover {
-          background-color: @secondary-dark-background-color;
-        }
-
-        &:active {
-          box-shadow: none;
-        }
-
-        &:focus {
-          box-shadow: none;
-        }
+        box-shadow: none;
       }
     }
 
@@ -112,20 +110,34 @@ gux-button {
 
 .gux-button-light-theme {
   > button {
+    background-color: @gux-grey-60;
+    color: @gux-black-50;
+
+    &:hover:enabled {
+      background-color: @gux-grey-50;
+    }
+
+    &:active:enabled {
+      background-color: @gux-grey-40;
+    }
+
     &:focus:enabled {
       .focus-ring();
     }
 
-    &.gux-secondary {
-      background-color: @gux-grey-60;
-      color: @gux-black-50;
+    &.gux-tertiary {
+      background-color: @gux-grey-100;
+      color: @gux-blue-60;
+      border: 1px solid @gux-blue-60;
 
       &:hover:enabled {
-        background-color: @gux-grey-50;
+        background-color: @gux-blue-50;
+        color: @gux-grey-100;
       }
 
       &:active:enabled {
-        background-color: @gux-grey-40;
+        background-color: @gux-blue-40;
+        color: @gux-grey-100;
       }
     }
 

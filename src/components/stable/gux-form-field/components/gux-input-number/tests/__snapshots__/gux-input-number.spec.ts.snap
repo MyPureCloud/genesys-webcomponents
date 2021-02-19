@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gux-input-number should render 1`] = `
+<gux-input-number>
+  <!---->
+  <div class="gux-input-number-container">
+    <div class="gux-input-container">
+      <input slot="input" type="number">
+    </div>
+    <div class="gux-step-buttons-container">
+      <button class="gux-step-button" title="Increment" type="button">
+        <gux-icon decorative="" iconname="angle-up"></gux-icon>
+      </button>
+      <button class="gux-step-button" title="Decrement" type="button">
+        <gux-icon decorative="" iconname="angle-down"></gux-icon>
+      </button>
+    </div>
+  </div>
+</gux-input-number>
+`;

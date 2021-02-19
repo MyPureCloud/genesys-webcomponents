@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gux-input-text-like should render 1`] = `
+<gux-input-text-like>
+  <!---->
+  <div class="gux-input-container">
+    <input slot="input" type="text">
+  </div>
+</gux-input-text-like>
+`;

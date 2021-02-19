@@ -1,0 +1,4 @@
+{
+  "itemCountDisplay": "{firstItem, number} - {lastItem, number}",
+  "totalItems": " of {totalItems, number}"
+}

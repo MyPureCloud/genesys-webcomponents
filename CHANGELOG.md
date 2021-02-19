@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](http://inindca///compare/v2.0.0...v2.1.0) (2021-02-19)
+
+
+### Features
+
+* **style:** added shadow mixins ([724d02e](http://inindca///commit/724d02ee3919198c99ea93760068bbbeba74c873))
+
+
+### Bug Fixes
+
+* **color-input:** popup panel moved down to be similar to dropdown ([e89c789](http://inindca///commit/e89c7890b53602c3a8d5ffb72b72a1abdde74fd9))
+* **gux-modal:** updated colors ([681fe77](http://inindca///commit/681fe771f0157337ad38f39e78ca0c38dd010945))
+* **gux-pagination:** updated colors based on UX input ([f5ffb09](http://inindca///commit/f5ffb09091c158ec7b0208b5d211de6c32d78c65))
+* **gux-table:** updated colors ([1973af5](http://inindca///commit/1973af507ba04f13b831d94f4cd11080eb39edaa))
+* **gux-toggle:** updated colors ([bc4460b](http://inindca///commit/bc4460b2e7bd96964faaedc16f484e065cffe5b5))
+* **style:** fixed incorrect usage of less fade function ([e8bc16d](http://inindca///commit/e8bc16d42950be3772e837b619f5854ecaba7abd))
+
 ## [2.0.0](http://inindca///compare/v1.19.6...v2.0.0) (2021-02-13)
 
 

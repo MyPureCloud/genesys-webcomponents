@@ -11,13 +11,19 @@ describe('gux-button', () => {
       {
         clickable: true,
         description: 'should render primary button',
-        html: '<gux-button title="default" accent="primary">Button</gux-button>'
+        html: '<gux-button title="Primary" accent="primary">Button</gux-button>'
       },
       {
         clickable: true,
         description: 'should render secondary button',
         html:
-          '<gux-button title="default" accent="secondary">Button</gux-button>'
+          '<gux-button title="Secondary" accent="secondary">Button</gux-button>'
+      },
+      {
+        clickable: true,
+        description: 'should render tertiary button',
+        html:
+          '<gux-button title="Tertiary" accent="tertiary">Button</gux-button>'
       },
       {
         clickable: true,
@@ -41,6 +47,12 @@ describe('gux-button', () => {
         description: 'should render disabled secondary button',
         html:
           '<gux-button title="default" accent="secondary" disabled>Button</gux-button>'
+      },
+      {
+        clickable: false,
+        description: 'should render disabled tertiary button',
+        html:
+          '<gux-button title="Tertiary" accent="tertiary" disabled>Button</gux-button>'
       },
       {
         clickable: false,

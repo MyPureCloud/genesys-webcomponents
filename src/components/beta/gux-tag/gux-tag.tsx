@@ -46,6 +46,12 @@ export class GuxTag {
    * Tag is removable.
    */
   @Prop()
+  disabled: boolean = false;
+
+  /**
+   * Tag is removable.
+   */
+  @Prop()
   removable: boolean = false;
 
   /**
@@ -59,14 +65,15 @@ export class GuxTag {
     switch (event.key) {
       case 'Backspace':
       case 'Delete':
-        event.preventDefault();
-        event.stopPropagation();
-
         this.removeTag();
     }
   }
 
   private removeTag(): void {
+    if (this.disabled) {
+      return;
+    }
+
     this.guxdelete.emit(this.value);
   }
 
@@ -80,14 +87,22 @@ export class GuxTag {
     }
   }
 
+  private getText(): JSX.Element {
+    return (
+      <div class="gux-tag-text">
+        <slot />
+      </div>
+    );
+  }
+
   private getRemoveButton(): JSX.Element {
     if (this.removable) {
       return (
         <button
-          class={`gux-tag-remove-button gux-${this.color}`}
+          class="gux-tag-remove-button"
           onClick={this.removeTag.bind(this)}
-          tabindex="0"
           type="button"
+          disabled={this.disabled}
         >
           <gux-icon
             class="gux-tag-remove-icon"
@@ -105,13 +120,15 @@ export class GuxTag {
 
   render(): JSX.Element {
     return (
-      <div class="gux-tag">
-        <div class={`gux-tag-content gux-${this.color}`}>
-          {this.getIcon()}
-          <div class={`gux-tag-text`}>
-            <slot />
-          </div>
-        </div>
+      <div
+        class={{
+          'gux-tag': true,
+          [`gux-${this.color}`]: true,
+          'gux-disabled': this.disabled
+        }}
+      >
+        {this.getIcon()}
+        {this.getText()}
         {this.getRemoveButton()}
       </div>
     );

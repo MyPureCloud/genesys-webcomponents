@@ -3,6 +3,7 @@ import { Component, Element, h, JSX, Prop, State } from '@stencil/core';
 import { buildI18nForComponent, GetI18nValue } from '../../../../../i18n';
 import setInputValue from '../../../../../utils/dom/set-input-value';
 import simulateNativeEvent from '../../../../../utils/dom/simulate-native-event';
+import { onDisabledChange } from '../../../../../utils/dom/on-attribute-change';
 
 import modalComponentResources from './i18n/en.json';
 
@@ -17,6 +18,7 @@ import modalComponentResources from './i18n/en.json';
 export class GuxInputNumber {
   private input: HTMLInputElement;
   private getI18nValue: GetI18nValue;
+  private disabledObserver: MutationObserver;
 
   @Element()
   private root: HTMLElement;
@@ -26,6 +28,9 @@ export class GuxInputNumber {
 
   @State()
   private hasContent: boolean = false;
+
+  @State()
+  private disabled: boolean;
 
   private clearInput(): void {
     setInputValue(this.input, '', true);
@@ -59,12 +64,13 @@ export class GuxInputNumber {
   }
 
   private renderClearButton(): JSX.Element {
-    if (this.clearable && this.hasContent) {
+    if (this.clearable && this.hasContent && !this.disabled) {
       return (
         <button
           class="gux-clear-button"
           type="button"
           title={this.getI18nValue('clear')}
+          disabled={this.disabled}
           onClick={this.clearInput.bind(this)}
         >
           <gux-icon iconName="ic-close" decorative></gux-icon>
@@ -82,6 +88,7 @@ export class GuxInputNumber {
           class="gux-step-button"
           type="button"
           title={this.getI18nValue('increment')}
+          disabled={this.disabled}
           onClick={() => this.stepUp()}
         >
           <gux-icon iconName="angle-up" decorative></gux-icon>
@@ -91,6 +98,7 @@ export class GuxInputNumber {
           class="gux-step-button"
           type="button"
           title={this.getI18nValue('decrement')}
+          disabled={this.disabled}
           onClick={() => this.stepDown()}
         >
           <gux-icon iconName="angle-down" decorative></gux-icon>
@@ -109,14 +117,32 @@ export class GuxInputNumber {
       'input[slot="input"], select[slot="input"]'
     );
 
+    this.setHasContent();
+    this.disabled = this.input.disabled;
+
     this.input.addEventListener('input', () => {
       this.setHasContent();
     });
+    this.disabledObserver = onDisabledChange(
+      this.input,
+      (disabled: boolean) => {
+        this.disabled = disabled;
+      }
+    );
+  }
+
+  componentDidUnload(): void {
+    this.disabledObserver.disconnect();
   }
 
   render(): JSX.Element {
     return (
-      <div class="gux-input-number-container">
+      <div
+        class={{
+          'gux-input-number-container': true,
+          'gux-disabled': this.disabled
+        }}
+      >
         <div class="gux-input-container">
           <slot name="input" />
           {this.renderClearButton()}

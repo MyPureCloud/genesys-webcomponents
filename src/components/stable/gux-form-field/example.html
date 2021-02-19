@@ -107,6 +107,13 @@
     </gux-form-field>
   </div>
 
+  <div>
+    <gux-form-field>
+      <input slot="input" name="color" type="color" value="#1da8b3" disabled />
+      <label slot="label">Color</label>
+    </gux-form-field>
+  </div>
+
   <h1>Number</h1>
   <gux-form-field>
     <input
@@ -130,10 +137,39 @@
       min="5"
       max="100"
       placeholder="Enter a number"
+      value="50"
     />
     <label slot="label">Number</label>
   </gux-form-field>
 
+  <gux-form-field>
+    <input
+      slot="input"
+      name="number"
+      type="number"
+      step="5"
+      min="5"
+      max="100"
+      placeholder="Enter a number"
+      disabled
+    />
+    <label slot="label">Number</label>
+  </gux-form-field>
+
+  <gux-form-field clearable>
+    <input
+      slot="input"
+      name="number-clearable"
+      type="number"
+      step="5"
+      min="5"
+      max="100"
+      placeholder="Enter a number"
+      value="50"
+      disabled
+    />
+    <label slot="label">Number</label>
+  </gux-form-field>
   <h1>Text Like</h1>
 
   <div>
@@ -182,6 +218,7 @@
         name="email-clearable"
         type="email"
         placeholder="joe.bloggs@example.com"
+        value="daragh@example.com"
       />
       <label slot="label">Email</label>
     </gux-form-field>
@@ -207,11 +244,59 @@
     </gux-form-field>
   </div>
 
+  <h1>Text Like (disabled)</h1>
+
+  <div>
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="email-clearable"
+        type="email"
+        placeholder="joe.bloggs@example.com"
+        value="me@example.com"
+        disabled
+      />
+      <label slot="label">Email</label>
+    </gux-form-field>
+
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="password-clearable"
+        type="password"
+        placeholder="Enter a password"
+        value="password"
+        disabled
+      />
+      <label slot="label">Password</label>
+    </gux-form-field>
+
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="text-clearable"
+        type="text"
+        placeholder="Enter a string"
+        value="text"
+        disabled
+      />
+      <label slot="label">Text</label>
+    </gux-form-field>
+  </div>
   <h1>Select</h1>
 
   <div>
     <gux-form-field>
       <select slot="input" name="select" type="select">
+        <option value="option1">Option 1</option>
+        <option value="option1">Option 2</option>
+        <option value="option1">Option 3</option>
+      </select>
+      <label slot="label">Select</label>
+    </gux-form-field>
+
+    <gux-form-field>
+      <select slot="input" name="select" type="select" disabled>
         <option value="option1">Option 1</option>
         <option value="option1">Option 2</option>
         <option value="option1">Option 3</option>

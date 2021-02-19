@@ -90,6 +90,13 @@ export class GuxActionButton {
     this.isOpen = false;
   }
 
+  @Watch('disabled')
+  watchDisabled(disabled: boolean) {
+    if (disabled) {
+      this.isOpen = false;
+    }
+  }
+
   @Watch('isOpen')
   watchValue(newValue: boolean) {
     if (newValue) {
@@ -124,7 +131,10 @@ export class GuxActionButton {
   render() {
     return (
       <div
-        class={'gux-action-button-container' + (this.isOpen ? ' gux-open' : '')}
+        class={{
+          'gux-action-button-container': true,
+          'gux-open': this.isOpen
+        }}
       >
         <gux-button
           type={this.type}

@@ -7,13 +7,16 @@
   <gux-button title="Secondary" accent="secondary" onclick="notify(event)"
     >Secondary</gux-button
   >
+  <gux-button title="Tertiary" accent="tertiary" onclick="notify(event)"
+    >Tertiary</gux-button
+  >
   <gux-button title="Invalid accent" accent="invalid" onclick="notify(event)"
     >Invalid accent</gux-button
   >
-  <gux-button title="Slotted element" accent="invalid" onclick="notify(event)">
+  <gux-button title="Slotted element" onclick="notify(event)">
     <span>Text in a span element</span>
   </gux-button>
-  <gux-button title="Slotted element" accent="invalid" onclick="notify(event)">
+  <gux-button title="Slotted element" onclick="notify(event)">
     <span>Text in a span element</span>
     <span>More text in a span element</span>
   </gux-button>
@@ -21,40 +24,23 @@
 
 <h4>Disabled</h4>
 <div>
-  <gux-button title="default" disabled onclick="notify(event)"
-    >Default</gux-button
-  >
-  <gux-button title="Primary" accent="primary" disabled onclick="notify(event)"
+  <gux-button title="default" onclick="notify(event)">Default</gux-button>
+  <gux-button title="Primary" accent="primary" onclick="notify(event)"
     >Primary</gux-button
   >
-  <gux-button
-    title="Secondary"
-    accent="secondary"
-    disabled
-    onclick="notify(event)"
+  <gux-button title="Secondary" accent="secondary" onclick="notify(event)"
     >Secondary</gux-button
   >
-  <gux-button
-    title="Invalid accent"
-    accent="invalid"
-    disabled
-    onclick="notify(event)"
+  <gux-button title="Tertiary" accent="tertiary" onclick="notify(event)"
+    >Tertiary</gux-button
+  >
+  <gux-button title="Invalid accent" accent="invalid" onclick="notify(event)"
     >Invalid accent</gux-button
   >
-  <gux-button
-    title="Slotted element"
-    accent="invalid"
-    disabled
-    onclick="notify(event)"
-  >
+  <gux-button title="Slotted element" onclick="notify(event)">
     <span>Text in a span element</span>
   </gux-button>
-  <gux-button
-    title="Slotted element"
-    accent="invalid"
-    disabled
-    onclick="notify(event)"
-  >
+  <gux-button title="Slotted element" onclick="notify(event)">
     <span>Text in a span element</span>
     <span>More text in a span element</span>
   </gux-button>
@@ -62,6 +48,6 @@
 
 <style>
   gux-button {
-    margin: 10px;
+    margin: 5px;
   }
 </style>

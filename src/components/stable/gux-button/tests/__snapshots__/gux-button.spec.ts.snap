@@ -21,25 +21,34 @@ exports[`gux-modal #render should render disabled default button 1`] = `
 exports[`gux-modal #render should render disabled invalid accent button 1`] = `
 <gux-button accent="invalid" disabled="" title="Invalid accent">
   <!---->
-  <button class="gux-secondary" disabled="" title="Invalid accent" type="button">
+  <button class="gux-invalid" disabled="" title="Invalid accent" type="button">
     Invalid accent
   </button>
 </gux-button>
 `;
 
 exports[`gux-modal #render should render disabled primary button 1`] = `
-<gux-button accent="primary" disabled="" title="default">
+<gux-button accent="primary" disabled="" title="Primary">
   <!---->
-  <button class="gux-primary" disabled="" title="default" type="button">
+  <button class="gux-primary" disabled="" title="Primary" type="button">
     Button
   </button>
 </gux-button>
 `;
 
 exports[`gux-modal #render should render disabled secondary button 1`] = `
-<gux-button accent="secondary" disabled="" title="default">
+<gux-button accent="secondary" disabled="" title="Secondary">
   <!---->
-  <button class="gux-secondary" disabled="" title="default" type="button">
+  <button class="gux-secondary" disabled="" title="Secondary" type="button">
+    Button
+  </button>
+</gux-button>
+`;
+
+exports[`gux-modal #render should render disabled tertiary button 1`] = `
+<gux-button accent="tertiary" disabled="" title="Tertiary">
+  <!---->
+  <button class="gux-tertiary" disabled="" title="Tertiary" type="button">
     Button
   </button>
 </gux-button>
@@ -48,25 +57,34 @@ exports[`gux-modal #render should render disabled secondary button 1`] = `
 exports[`gux-modal #render should render invalid accent button 1`] = `
 <gux-button accent="invalid" title="Invalid accent">
   <!---->
-  <button class="gux-secondary" title="Invalid accent" type="button">
+  <button class="gux-invalid" title="Invalid accent" type="button">
     Invalid accent
   </button>
 </gux-button>
 `;
 
 exports[`gux-modal #render should render primary button 1`] = `
-<gux-button accent="primary" title="default">
+<gux-button accent="primary" title="Primary">
   <!---->
-  <button class="gux-primary" title="default" type="button">
+  <button class="gux-primary" title="Primary" type="button">
     Button
   </button>
 </gux-button>
 `;
 
 exports[`gux-modal #render should render secondary button 1`] = `
-<gux-button accent="secondary" title="default">
+<gux-button accent="secondary" title="Secondary">
   <!---->
-  <button class="gux-secondary" title="default" type="button">
+  <button class="gux-secondary" title="Secondary" type="button">
+    Button
+  </button>
+</gux-button>
+`;
+
+exports[`gux-modal #render should render tertiary button 1`] = `
+<gux-button accent="tertiary" title="Tertiary">
+  <!---->
+  <button class="gux-tertiary" title="Tertiary" type="button">
     Button
   </button>
 </gux-button>

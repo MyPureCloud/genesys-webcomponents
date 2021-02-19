@@ -1,35 +1,10 @@
 @import (reference) '../../../style/color.less';
+@import (reference) '../../../style/mixins.less';
 @import (reference) '../../../style/spacing.less';
-
-// Variables part
-@border-radius: 2px;
 
 // Style
 gux-tag-beta {
-  .gux-active-content-element {
-    border-radius: @border-radius 0 0 @border-radius;
-  }
-
-  .gux-show-remove-button {
-    width: 24px;
-
-    .gux-tag-remove-icon {
-      opacity: 1;
-    }
-  }
-
   display: inline-block;
-
-  &:hover {
-    .gux-tag {
-      .gux-tag-content {
-        .gux-active-content-element();
-      }
-      .gux-tag-remove-button {
-        .gux-show-remove-button();
-      }
-    }
-  }
 
   .gux-tag {
     display: flex;
@@ -38,158 +13,97 @@ gux-tag-beta {
     justify-content: flex-start;
     align-content: stretch;
     align-items: center;
+    color: @gux-grey-100;
+    border-radius: @spacing-3xs;
 
-    .gux-tag-content,
-    .gux-tag-remove-button {
+    &:focus-within {
+      .focus-ring();
+    }
+
+    .gux-tag-icon-container {
       height: 24px;
-      border-radius: @border-radius;
-      text-align: center;
-      color: @gux-off-white;
-      padding: 0;
+      width: 24px;
       flex: 0 1 auto;
       align-self: auto;
+      margin-right: (-1 * @spacing-xs);
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+
+      .gux-tag-icon {
+        height: 16px;
+        width: 16px;
+      }
     }
 
-    .gux-tag-content {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-content: stretch;
-      align-items: center;
-      padding: 0 @spacing-2xs;
-      flex: 1 1 auto;
-
-      .gux-tag-icon-container {
-        height: 24px;
-        width: 24px;
-        flex: 0 1 auto;
-        align-self: auto;
-        margin-right: (-1 * @spacing-2xs);
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
-
-        .gux-tag-icon {
-          height: 16px;
-          width: 16px;
-        }
-      }
-
-      .gux-tag-text {
-        flex: 0 1 auto;
-        align-self: auto;
-        white-space: nowrap;
-        padding: 0 @spacing-2xs;
-        line-height: 24px;
-
-        &:focus {
-          .gux-active-content-element();
-        }
-      }
+    .gux-tag-text {
+      flex: 0 1 auto;
+      align-self: auto;
+      white-space: nowrap;
+      padding: 0 @spacing-xs;
+      line-height: 24px;
     }
 
     .gux-tag-remove-button {
-      width: 0;
+      all: unset;
+      width: 24px;
       height: 24px;
       display: flex;
       justify-content: center;
       align-content: center;
       align-items: center;
-      border: none;
-      cursor: pointer;
-      border-radius: 0 @border-radius @border-radius 0;
-      margin-left: 1px;
-      transition: width 0.2s linear 0.2s;
+      margin-left: (-1 * @spacing-xs);
       overflow: hidden;
+
+      &:not(:disabled):hover {
+        cursor: pointer;
+      }
 
       .gux-tag-remove-icon {
         height: 12px;
         width: 12px;
-        opacity: 0;
-        transition: opacity 0.2s linear 0.1s;
       }
     }
 
-    .gux-tag-remove-button:focus {
-      .gux-show-remove-button();
+    &.gux-disabled {
+      opacity: 0.5;
     }
 
-    .gux-tag-content:focus ~ .gux-tag-remove-button {
-      .gux-show-remove-button();
+    &.gux-default {
+      background-color: @gux-black-50;
+    }
+    &.gux-navy {
+      background-color: @gux-navy-sec;
+    }
+    &.gux-blue {
+      background-color: @gux-blue-sec;
+    }
+    &.gux-electric-purple {
+      background-color: @gux-electric-purple-sec;
+    }
+    &.gux-aqua-green {
+      background-color: @gux-aqua-green-sec;
+    }
+    &.gux-fuscha {
+      background-color: @gux-fuscha-sec;
+    }
+    &.gux-dark-purple {
+      background-color: @gux-dark-purple-sec;
+    }
+    &.gux-bubblegum-pink {
+      background-color: @gux-bubblegum-pink-sec;
+    }
+    &.gux-olive-green {
+      background-color: @gux-olive-green-sec;
+    }
+    &.gux-lilac {
+      background-color: @gux-lilac-sec;
+      color: @gux-black-50;
+    }
+    &.gux-alert-yellow-green {
+      background-color: @gux-alert-yellow-green-sec;
+      color: @gux-black-50;
     }
   }
-
-  .gux-default {
-    background-color: @gux-black-50;
-  }
-  .gux-navy {
-    background-color: @gux-navy-sec;
-  }
-  .gux-blue {
-    background-color: @gux-blue-sec;
-  }
-  .gux-electric-purple {
-    background-color: @gux-electric-purple-sec;
-  }
-  .gux-aqua-green {
-    background-color: @gux-aqua-green-sec;
-  }
-  .gux-fuscha {
-    background-color: @gux-fuscha-sec;
-  }
-  .gux-dark-purple {
-    background-color: @gux-dark-purple-sec;
-  }
-  .gux-bubblegum-pink {
-    background-color: @gux-bubblegum-pink-sec;
-  }
-  .gux-olive-green {
-    background-color: @gux-olive-green-sec;
-  }
-  .gux-lilac {
-    background-color: @gux-lilac-sec;
-    color: @gux-black-50;
-  }
-  .gux-alert-yellow {
-    background-color: @gux-alert-yellow-green-sec;
-    color: @gux-black-50;
-  }
-}
-
-// Theming
-
-// Dark
-.gux-tag-dark-theme {
-  color: @gux-off-white;
-}
-
-.gux-dark-theme {
-  gux-tag-beta {
-    .gux-tag-dark-theme();
-  }
-}
-
-gux-tag-beta.gux-dark-theme {
-  .gux-tag-dark-theme();
-}
-
-// Light
-.gux-tag-light-theme {
-  color: @gux-black-50;
-}
-
-.gux-light-theme {
-  gux-tag-beta {
-    .gux-tag-light-theme();
-  }
-}
-
-gux-tag-beta.gux-light-theme {
-  .gux-tag-light-theme();
-}
-
-// Default Theme
-gux-tag-beta {
-  .gux-tag-light-theme();
 }

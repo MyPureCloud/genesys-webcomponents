@@ -44,7 +44,7 @@ export class GuxButton {
         type={this.type}
         title={this.title}
         disabled={this.disabled}
-        class={this.accent === 'primary' ? 'gux-primary' : 'gux-secondary'}
+        class={`gux-${this.accent}`}
       >
         <slot />
       </button>

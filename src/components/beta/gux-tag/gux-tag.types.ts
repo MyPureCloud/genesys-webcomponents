@@ -9,4 +9,4 @@ export type GuxTagColor =
   | 'bubblegum-pink'
   | 'olive-green'
   | 'lilac'
-  | 'yellow-green';
+  | 'alert-ellow-green';

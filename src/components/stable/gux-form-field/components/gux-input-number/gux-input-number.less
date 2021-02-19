@@ -17,6 +17,10 @@ gux-input-number {
     align-content: stretch;
     align-items: center;
 
+    &.gux-disabled {
+      opacity: 0.5;
+    }
+
     .gux-input-container {
       font-family: inherit;
       height: 32px;
@@ -46,6 +50,7 @@ gux-input-number {
         order: 0;
         flex: 1 1 auto;
         align-self: auto;
+        background-color: @gux-grey-100;
 
         &::placeholder {
           color: @gux-black-90;
@@ -82,11 +87,11 @@ gux-input-number {
         padding: 2px;
         border: none;
         background: transparent;
-        cursor: pointer;
         color: @gux-black-90;
 
-        &:focus,
-        &:hover {
+        &:not(:disabled):focus,
+        &:not(:disabled):hover {
+          cursor: pointer;
           color: @gux-blue-60;
         }
 
@@ -110,11 +115,11 @@ gux-input-number {
         padding: 2px;
         border: none;
         background: transparent;
-        cursor: pointer;
         color: @gux-black-90;
 
-        &:focus,
-        &:hover {
+        &:not(:disabled):focus,
+        &:not(:disabled):hover {
+          cursor: pointer;
           color: @gux-blue-60;
         }
 

@@ -29,6 +29,10 @@ gux-input-text-like {
     align-content: stretch;
     align-items: center;
 
+    &.gux-disabled {
+      opacity: 0.5;
+    }
+
     input,
     select {
       border: none;
@@ -36,6 +40,7 @@ gux-input-text-like {
       order: 0;
       flex: 1 1 auto;
       align-self: auto;
+      background-color: @gux-grey-100;
 
       &::placeholder {
         color: @gux-black-90;
@@ -61,11 +66,11 @@ gux-input-text-like {
       padding: 2px;
       border: none;
       background: transparent;
-      cursor: pointer;
       color: @gux-black-90;
 
-      &:focus,
-      &:hover {
+      &:not(:disabled):focus,
+      &:not(:disabled):hover {
+        cursor: pointer;
         color: @gux-blue-60;
       }
 

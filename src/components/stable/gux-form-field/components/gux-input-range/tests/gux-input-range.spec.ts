@@ -1,4 +1,4 @@
-import { newSpecPage } from '@stencil/core/testing';
+import { newSpecPage, SpecPage } from '@stencil/core/testing';
 import MutationObserver from 'mutation-observer';
 
 import { GuxInputRange } from '../gux-input-range';

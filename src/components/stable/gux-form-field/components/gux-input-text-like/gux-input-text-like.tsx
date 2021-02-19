@@ -2,6 +2,7 @@ import { Component, Element, h, JSX, Prop, State } from '@stencil/core';
 
 import { buildI18nForComponent, GetI18nValue } from '../../../../../i18n';
 import setInputValue from '../../../../../utils/dom/set-input-value';
+import { onDisabledChange } from '../../../../../utils/dom/on-attribute-change';
 
 import modalComponentResources from './i18n/en.json';
 
@@ -16,6 +17,7 @@ import modalComponentResources from './i18n/en.json';
 export class GuxInputTextLike {
   private input: HTMLInputElement;
   private getI18nValue: GetI18nValue;
+  private disabledObserver: MutationObserver;
 
   @Element()
   private root: HTMLElement;
@@ -26,6 +28,9 @@ export class GuxInputTextLike {
   @State()
   private hasContent: boolean = false;
 
+  @State()
+  private disabled: boolean;
+
   private clearInput(): void {
     setInputValue(this.input, '', true);
   }
@@ -35,12 +40,13 @@ export class GuxInputTextLike {
   }
 
   private renderClearButton(): JSX.Element {
-    if (this.clearable && this.hasContent) {
+    if (this.clearable && this.hasContent && !this.disabled) {
       return (
         <button
           class="gux-clear-button"
           type="button"
           title={this.getI18nValue('clear')}
+          disabled={this.disabled}
           onClick={this.clearInput.bind(this)}
         >
           <gux-icon iconName="ic-close" decorative></gux-icon>
@@ -61,14 +67,32 @@ export class GuxInputTextLike {
       'input[slot="input"], select[slot="input"]'
     );
 
+    this.setHasContent();
+    this.disabled = this.input.disabled;
+
     this.input.addEventListener('input', () => {
       this.setHasContent();
     });
+    this.disabledObserver = onDisabledChange(
+      this.input,
+      (disabled: boolean) => {
+        this.disabled = disabled;
+      }
+    );
+  }
+
+  componentDidUnload(): void {
+    this.disabledObserver.disconnect();
   }
 
   render(): JSX.Element {
     return (
-      <div class="gux-input-container">
+      <div
+        class={{
+          'gux-input-container': true,
+          'gux-disabled': this.disabled
+        }}
+      >
         <slot name="input" />
         {this.renderClearButton()}
       </div>

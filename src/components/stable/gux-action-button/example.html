@@ -1,19 +1,75 @@
-<gux-action-button text="Primary" accent="primary" is-open="true">
-  <gux-action-item text="test" onclick="notify(event)"></gux-action-item>
-  <gux-action-item text="test2" onclick="notify(event)"></gux-action-item>
-  <gux-action-item text="test3" onclick="notify(event)"></gux-action-item>
-  <gux-list-divider></gux-list-divider>
-  <gux-action-item onclick="notify(event)"
-    ><span>I am a span</span></gux-action-item
-  >
-</gux-action-button>
+<div class="layout">
+  <div>
+    <h1>Primary</h1>
+    <gux-action-button
+      id="example-1"
+      text="Primary"
+      accent="primary"
+      is-open="true"
+    >
+      <gux-action-item text="test" onclick="notify(event)"></gux-action-item>
+      <gux-action-item text="test2" onclick="notify(event)"></gux-action-item>
+      <gux-action-item text="test3" onclick="notify(event)"></gux-action-item>
+      <gux-list-divider></gux-list-divider>
+      <gux-action-item onclick="notify(event)"
+        ><span>I am a span</span></gux-action-item
+      >
+    </gux-action-button>
+  </div>
+  <div>
+    <h1>Secondary</h1>
+    <gux-action-button id="example-2" text="Secondary" accent="secondary">
+      <gux-action-item text="test" onclick="notify(event)"></gux-action-item>
+      <gux-action-item text="test2" onclick="notify(event)"></gux-action-item>
+      <gux-action-item text="test 3" onclick="notify(event)"></gux-action-item>
+      <gux-list-divider></gux-list-divider>
+      <gux-action-item onclick="notify(event)"
+        ><span>I am a span</span></gux-action-item
+      >
+    </gux-action-button>
+  </div>
+  <div>
+    <h1>Tertiary</h1>
+    <gux-action-button id="example-3" text="Tertiary" accent="tertiary">
+      <gux-action-item text="test" onclick="notify(event)"></gux-action-item>
+      <gux-action-item text="test2" onclick="notify(event)"></gux-action-item>
+      <gux-action-item text="test 3" onclick="notify(event)"></gux-action-item>
+      <gux-list-divider></gux-list-divider>
+      <gux-action-item onclick="notify(event)"
+        ><span>I am a span</span></gux-action-item
+      >
+    </gux-action-button>
+  </div>
+  <div>
+    <h1>Disabled</h1>
+    <gux-action-button id="example-4" text="Disabled" disabled>
+      <gux-action-item text="test" onclick="notify(event)"></gux-action-item>
+      <gux-action-item text="test2" onclick="notify(event)"></gux-action-item>
+      <gux-action-item text="test3" onclick="notify(event)"></gux-action-item>
+      <gux-list-divider></gux-list-divider>
+      <gux-action-item onclick="notify(event)"
+        ><span>I am a span</span></gux-action-item
+      >
+    </gux-action-button>
+  </div>
+</div>
 
-<gux-action-button text="Secondary">
-  <gux-action-item text="test" onclick="notify(event)"></gux-action-item>
-  <gux-action-item text="test2" onclick="notify(event)"></gux-action-item>
-  <gux-action-item text="test 3" onclick="notify(event)"></gux-action-item>
-  <gux-list-divider></gux-list-divider>
-  <gux-action-item onclick="notify(event)"
-    ><span>I am a span</span></gux-action-item
-  >
-</gux-action-button>
+<style
+  onload="(function () {
+    const example4 = document.getElementById('example-4');
+
+    setInterval(() => {
+      example4.disabled = !example4.disabled;
+    }, 5000);
+  }
+  )()"
+>
+  .layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: stretch;
+    align-items: flex-start;
+  }
+</style>

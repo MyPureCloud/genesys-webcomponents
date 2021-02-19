@@ -93,11 +93,9 @@ describe('gux-switch', () => {
       const inputEventSpy = jest.fn();
 
       element.addEventListener('change', () => {
-        console.info('change');
         changeEventSpy();
       });
       element.addEventListener('input', () => {
-        console.info('change');
         inputEventSpy();
       });
 
