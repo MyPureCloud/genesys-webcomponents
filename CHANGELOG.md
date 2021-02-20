@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](http://inindca///compare/v2.1.0...v2.2.0) (2021-02-20)
+
+
+### Features
+
+* **gux-button:** added tertiarty button accent ([17d43a3](http://inindca///commit/17d43a345f3169ef678908baec57626fd887a5bd))
+
+
+### Bug Fixes
+
+* **gux-action-button:** actions menu closes when button is disabled ([ab706ca](http://inindca///commit/ab706ca20b75e961a062c197b0831df1001f4f02))
+* **gux-form-field:** fixed disabled states ([f8bc7d2](http://inindca///commit/f8bc7d28d430923655f96067f8debe62f0f41a69))
+* **gux-tag:** improvements to component behaviour ([373a516](http://inindca///commit/373a51645badc53f93ac9ebaf726efc25b6ee715))
+
 ## [2.1.0](http://inindca///compare/v2.0.0...v2.1.0) (2021-02-19)
 
 
