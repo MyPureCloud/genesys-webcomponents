@@ -49,6 +49,7 @@
   "dependencies": {
     "@popperjs/core": "^2.6.0",
     "intl-messageformat": "^9.4.3",
+    "requestanimationframe-timer": "^3.0.3",
     "sortablejs": "^1.13.0",
     "stencil-click-outside": "^1.7.1"
   },

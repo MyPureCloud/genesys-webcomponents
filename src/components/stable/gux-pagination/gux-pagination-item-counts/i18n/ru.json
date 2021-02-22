@@ -1,4 +1,4 @@
 {
-  "itemCountDisplay": "{firstItem, number} - {lastItem, number}",
-  "totalItems": " of {totalItems, number}"
+  "itemCountDisplay": "{firstItem, number} – {lastItem, number}",
+  "totalItems": " из {totalItems, number}"
 }

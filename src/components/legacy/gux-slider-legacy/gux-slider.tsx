@@ -1,4 +1,14 @@
-import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
+import {
+  Component,
+  Event,
+  EventEmitter,
+  h,
+  JSX,
+  Prop,
+  State,
+  Watch
+} from '@stencil/core';
+import { setInterval, clearInterval } from 'requestanimationframe-timer';
 
 @Component({
   styleUrl: 'gux-slider.less',
@@ -48,6 +58,18 @@ export class GuxSliderLegacy {
   @Prop()
   srLabel: string = '';
 
+  @State()
+  private valueWatcherId: number;
+
+  @Watch('value')
+  valueChanged(newValue: number, oldValue: number) {
+    if (newValue === oldValue) {
+      return;
+    }
+
+    this.update.emit(this.value);
+    this.updatePosition();
+  }
   sliderInput: HTMLInputElement;
   sliderMask: HTMLElement;
   sliderTooltip: HTMLElement;
@@ -60,39 +82,41 @@ export class GuxSliderLegacy {
    * @return the current value
    */
   @Event()
-  update: EventEmitter;
+  update: EventEmitter<number>;
 
-  updateValue(event: InputEvent) {
+  updateValue(event: InputEvent): void {
     const target = event.target as HTMLInputElement;
     const value = Number(target.value);
 
     this.setValue(value);
   }
 
-  setValue(value: number) {
+  setValue(value: number): void {
     const resultValue = value || this.min;
-    const newValue = Math.min(Math.max(resultValue, this.min), this.max);
-    const upToDate = this.value === newValue;
-
-    this.value = newValue;
-
-    if (!upToDate) {
-      this.update.emit(this.value);
-      this.updatePosition();
-    }
+    this.value = Math.min(Math.max(resultValue, this.min), this.max);
   }
 
   /**
    * Once the component is loaded do the setup
    */
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.updatePosition();
+
+    this.valueWatcherId = setInterval(() => {
+      const inputValue = Number(this.sliderInput.value);
+      if (this.value !== inputValue) {
+        this.setValue(inputValue);
+      }
+    }, 100);
   }
 
+  componentDidUnload(): void {
+    clearInterval(this.valueWatcherId);
+  }
   /**
    * When position is changed, via slider or text box, update position
    */
-  updatePosition() {
+  updatePosition(): void {
     const placementPercentage =
       ((this.value - this.min) / (this.max - this.min)) * 100;
     if (this.sliderTooltip) {
@@ -104,7 +128,7 @@ export class GuxSliderLegacy {
     this.sliderMask.style.width = `${placementPercentage}%`;
   }
 
-  render() {
+  render(): JSX.Element {
     const value: string = this.isPercentage
       ? `${this.value}%`
       : `${this.value}`;

@@ -1,7 +1,7 @@
 {
-  "recentSearch": "Recently Searched:",
-  "commonSearch": "Common Searches:",
-  "limited": "Results limited, refine your search for more commands.",
-  "search": "Search for commands.",
-  "title": "Command Palette"
+  "recentSearch": "Недавние запросы поиска:",
+  "commonSearch": "Частые запросы поиска:",
+  "limited": "Результаты ограничены; уточните условия поиска для получения большего кол-ва команд.",
+  "search": "Поиск команд.",
+  "title": "Панель команд"
 }

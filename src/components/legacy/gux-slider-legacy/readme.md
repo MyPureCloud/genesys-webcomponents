@@ -23,9 +23,9 @@ The scroll bar users to increase or decrease the rating using arrow keys located
 
 ## Events
 
-| Event    | Description                         | Type               |
-| -------- | ----------------------------------- | ------------------ |
-| `update` | Triggered when the value is changed | `CustomEvent<any>` |
+| Event    | Description                         | Type                  |
+| -------- | ----------------------------------- | --------------------- |
+| `update` | Triggered when the value is changed | `CustomEvent<number>` |
 
 
 ----------------------------------------------
