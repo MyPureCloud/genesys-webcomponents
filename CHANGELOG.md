@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](http://inindca///compare/v2.2.0...v2.2.1) (2021-02-23)
+
+
+### Bug Fixes
+
+* **range:** range ui now update on programatic value change ([e8fc933](http://inindca///commit/e8fc933d1614c09d1d545da5833821c603dc1b03))
+
 ## [2.2.0](http://inindca///compare/v2.1.0...v2.2.0) (2021-02-20)
 
 
