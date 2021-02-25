@@ -1,9 +1,8 @@
 @import (reference) '../../../../../../../style/color.less';
 
-// Variables part
-
-// Style
 gux-input-color-option {
+  color: @gux-black-50;
+
   > button {
     margin: 4px;
     border: none;
@@ -35,41 +34,4 @@ gux-input-color-option {
   button::-moz-focus-inner {
     border: none;
   }
-}
-
-// Theming
-
-// Dark
-.gux-input-color-option-dark-theme {
-  color: @gux-type-dark;
-}
-
-.gux-dark-theme {
-  gux-input-color-option {
-    .gux-input-color-option-dark-theme();
-  }
-}
-
-gux-input-color-option.gux-dark-theme {
-  .gux-input-color-option-dark-theme();
-}
-
-// Light
-.gux-input-color-option-light-theme {
-  color: @gux-type;
-}
-
-.gux-light-theme {
-  gux-input-color-option {
-    .gux-input-color-option-light-theme();
-  }
-}
-
-gux-input-color-option.gux-light-theme {
-  .gux-input-color-option-light-theme();
-}
-
-// Default Theme
-gux-input-color-option {
-  .gux-input-color-option-light-theme();
 }

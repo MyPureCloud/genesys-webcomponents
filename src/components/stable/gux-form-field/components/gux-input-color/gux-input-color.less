@@ -1,10 +1,8 @@
 @import (reference) '../../../../../style/color.less';
 
-// Variables part
-@background: @expalette-dropdown-background-color;
-
-// Style
 gux-input-color {
+  color: @gux-black-50;
+
   > section {
     position: relative;
     display: inline-block;
@@ -26,8 +24,8 @@ gux-input-color {
     box-sizing: border-box;
     box-shadow: 0 0 0 0 transparent;
     transition: box-shadow 0.2s;
-    background-color: @background;
-    border: 1px solid @gux-border;
+    background-color: @gux-grey-90;
+    border: 1px solid @gux-black-100;
     border-radius: 2px;
     cursor: pointer;
 
@@ -55,7 +53,6 @@ gux-input-color {
     margin: 9px 0;
     float: left;
     font-size: 12px;
-    color: @gux-type;
   }
 
   .gux-input-color-color-select {
@@ -86,61 +83,6 @@ gux-input-color {
     height: 100%;
     pointer-events: none;
     padding: 0 7px;
+    color: @gux-black-90;
   }
-}
-
-// Theming
-
-// Dark
-.gux-input-color-dark-theme {
-  color: @gux-type-dark;
-
-  .gux-input-color-main-element {
-    border-color: @gux-black-30;
-    background-color: @expalette-background-color-dark;
-  }
-
-  .gux-input-color-main-element:focus,
-  .gux-input-color-opened {
-    border-color: @gux-blue-80;
-    box-shadow: none;
-  }
-
-  .gux-input-color-color-name {
-    color: @gux-type-dark;
-  }
-
-  gux-icon {
-    color: @gux-type-dark;
-  }
-}
-
-.gux-dark-theme {
-  gux-input-color {
-    .gux-input-color-dark-theme();
-  }
-}
-
-gux-input-color.gux-dark-theme {
-  .gux-input-color-dark-theme();
-}
-
-// Light
-.gux-input-color-light-theme {
-  color: @gux-type;
-}
-
-.gux-light-theme {
-  gux-input-color {
-    .gux-input-color-light-theme();
-  }
-}
-
-gux-input-color.gux-light-theme {
-  .gux-input-color-light-theme();
-}
-
-// Default Theme
-gux-input-color {
-  .gux-input-color-light-theme();
 }

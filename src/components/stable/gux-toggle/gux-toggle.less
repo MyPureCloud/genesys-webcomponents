@@ -1,5 +1,6 @@
 @import (reference) '../../../style/color.less';
 @import (reference) '../../../style/mixins.less';
+@import (reference) '../../../style/spacing.less';
 
 gux-toggle {
   display: inline-block;
@@ -10,18 +11,85 @@ gux-toggle {
     opacity: 0.5;
   }
 
-  > div {
+  .gux-switch-container {
     height: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    cursor: pointer;
 
-    &.gux-checked > span {
+    &.gux-switch-label-left {
+      flex-direction: row-reverse;
+    }
+
+    &.gux-checked > .gux-switch-label {
       font-weight: bold;
     }
 
-    > span {
-      vertical-align: top;
-      margin-left: 8px;
-      cursor: pointer;
+    .gux-switch {
+      order: 0;
+      flex: 0 1 auto;
+      align-self: auto;
+      position: relative;
+      display: inline-block;
+      width: 30px;
+      height: 16px;
+
+      & input {
+        display: none;
+
+        &:checked + .gux-slider {
+          background-color: @gux-blue-60;
+        }
+
+        &:checked + .gux-slider::before {
+          -webkit-transform: translateX(12px);
+          -ms-transform: translateX(12px);
+          transform: translateX(12px);
+        }
+      }
+
+      .gux-slider {
+        background-color: @gux-black-100;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+
+        &::before {
+          position: absolute;
+          content: '';
+          height: 14px;
+          width: 14px;
+          left: 2px;
+          bottom: 1px;
+          background-color: @gux-grey-100;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
+        }
+
+        &.gux-round {
+          border-radius: 34px;
+        }
+
+        &.gux-round::before {
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .gux-switch-label {
+      order: 0;
+      flex: 0 1 auto;
+      align-self: auto;
       text-transform: capitalize;
+      padding: 0 @spacing-2xs;
     }
 
     &:focus {
@@ -33,64 +101,9 @@ gux-toggle {
     .focus-ring();
   }
 
-  .gux-switch {
-    position: relative;
-    display: inline-block;
-    width: 30px;
-    height: 16px;
-  }
-
-  /* Hide default HTML checkbox */
-  .gux-switch input {
-    display: none;
-  }
-
-  /* The slider */
-  .gux-slider {
-    background-color: @gux-black-100;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-
-  .gux-slider::before {
-    position: absolute;
-    content: '';
-    height: 14px;
-    width: 14px;
-    left: 2px;
-    bottom: 1px;
-    background-color: @gux-grey-100;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-
   &.gux-checked {
     .gux-slider {
       background-color: @gux-blue-60;
     }
-  }
-
-  input:checked + .gux-slider {
-    background-color: @gux-blue-60;
-  }
-
-  input:checked + .gux-slider::before {
-    -webkit-transform: translateX(12px);
-    -ms-transform: translateX(12px);
-    transform: translateX(12px);
-  }
-
-  /* Rounded sliders */
-  .gux-slider.gux-round {
-    border-radius: 34px;
-  }
-
-  .gux-slider.gux-round::before {
-    border-radius: 50%;
   }
 }

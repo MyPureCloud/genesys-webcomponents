@@ -5,6 +5,7 @@ gux-datepicker {
   display: block;
   min-width: 200px;
   height: auto;
+  color: @gux-black-50;
 
   > div.gux-datepicker {
     button {
@@ -22,6 +23,7 @@ gux-datepicker {
 
       gux-text-field-legacy {
         position: relative;
+        color: @gux-blue-60;
 
         &:hover {
           > button {
@@ -34,7 +36,7 @@ gux-datepicker {
         }
 
         > button {
-          color: @gux-type;
+          color: @gux-black-90;
           position: absolute;
           height: 32px;
           font-size: 16px;
@@ -66,57 +68,4 @@ gux-datepicker {
     top: 35px;
     z-index: 2;
   }
-}
-
-// Theming
-
-// Light
-.gux-datepicker-light-theme {
-  color: @gux-type;
-}
-
-.gux-light-theme {
-  gux-datepicker {
-    .gux-datepicker-light-theme();
-  }
-}
-
-gux-datepicker.gux-light-theme {
-  .gux-datepicker-light-theme();
-}
-
-// Dark
-.gux-datepicker-dark-theme {
-  > div.gux-datepicker {
-    > div.gux-datepicker-field {
-      gux-text-field-legacy {
-        label {
-          color: @gux-type-dark;
-        }
-
-        > button {
-          color: @gux-type-dark;
-
-          &:hover {
-            color: @gux-type-dark;
-          }
-        }
-      }
-    }
-  }
-}
-
-.gux-dark-theme {
-  gux-datepicker {
-    .gux-datepicker-dark-theme();
-  }
-}
-
-gux-datepicker.gux-dark-theme {
-  .gux-datepicker-dark-theme();
-}
-
-// Default Theme
-gux-datepicker {
-  .gux-datepicker-light-theme();
 }

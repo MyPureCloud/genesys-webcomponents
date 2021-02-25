@@ -6,8 +6,8 @@ import {
   h,
   Prop
 } from '@stencil/core';
-const ENTER = 13;
-const SPACE = 32;
+
+import { GuxToggleLabelPosition } from './gux-toggle.types';
 
 @Component({
   styleUrl: 'gux-toggle.less',
@@ -22,13 +22,13 @@ export class GuxToggle {
   /**
    * Indicate if the toggle is checked or not
    */
-  @Prop({ mutable: true, reflectToAttr: true })
+  @Prop({ mutable: true })
   checked: boolean;
 
   /**
    * Indicate if the toggle is disabled or not
    */
-  @Prop({ reflectToAttr: true })
+  @Prop()
   disabled: boolean;
 
   /**
@@ -42,6 +42,9 @@ export class GuxToggle {
    */
   @Prop()
   uncheckedLabel: string;
+
+  @Prop()
+  labelPosition: GuxToggleLabelPosition = 'right';
 
   /**
    * Triggered when the state of the component changed.
@@ -63,7 +66,7 @@ export class GuxToggle {
   }
 
   onKeyDown(event: KeyboardEvent) {
-    if (event.keyCode === SPACE || event.keyCode === ENTER) {
+    if (event.keyCode === 32 || event.keyCode === 13) {
       this.toggle();
     }
   }
@@ -79,7 +82,11 @@ export class GuxToggle {
   render() {
     return (
       <div
-        class={this.checked ? 'gux-checked' : ''}
+        class={{
+          'gux-switch-container': true,
+          'gux-switch-label-left': this.labelPosition === 'left',
+          'gux-checked': this.checked
+        }}
         tabindex={this.disabled ? '' : '0'}
         role="checkbox"
         aria-checked={this.checked + ''}
@@ -98,7 +105,9 @@ export class GuxToggle {
           <span class="gux-slider gux-round" />
         </div>
         {this.uncheckedLabel && this.checkedLabel ? (
-          <span>{this.checked ? this.checkedLabel : this.uncheckedLabel}</span>
+          <div class="gux-switch-label">
+            {this.checked ? this.checkedLabel : this.uncheckedLabel}
+          </div>
         ) : (
           ''
         )}

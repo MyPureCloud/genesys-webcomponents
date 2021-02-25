@@ -7,6 +7,8 @@ gux-calendar {
   margin-top: -4px;
 
   div.gux-calendar {
+    border: 1px solid @gux-black-100;
+
     .gux-header {
       position: relative;
       display: flex;
@@ -14,6 +16,8 @@ gux-calendar {
       align-items: center;
       height: 16px;
       padding: 16px;
+      background-color: @gux-blue-60;
+      color: @gux-grey-100;
 
       button {
         position: absolute;
@@ -22,6 +26,11 @@ gux-calendar {
         background: none;
         outline: none;
         padding: 5px;
+        color: @gux-grey-100;
+
+        &:focus {
+          outline: @gux-blue-80 auto 5px;
+        }
 
         &.gux-left {
           left: 18px;
@@ -55,6 +64,8 @@ gux-calendar {
     .gux-content {
       display: flex;
       padding: 16px 22px 20px 22px;
+      background-color: @gux-grey-100;
+      color: @gux-black-50;
 
       table {
         table-layout: fixed;
@@ -89,65 +100,32 @@ gux-calendar {
             margin: 0;
             cursor: pointer;
             .body-font();
-          }
-        }
-      }
-    }
-  }
-}
 
-// Theming
-
-// Light
-.gux-calendar-light-theme {
-  div.gux-calendar {
-    border: 1px solid @gux-border;
-
-    .gux-header {
-      background-color: @gux-blue-60;
-      color: @gux-type-dark;
-
-      button {
-        color: @gux-type-dark;
-
-        &:focus {
-          outline: @gux-blue-80 auto 5px;
-        }
-      }
-    }
-
-    .gux-content {
-      background-color: @gux-type-dark;
-      color: @gux-type;
-
-      table {
-        tr {
-          td {
             &.gux-hovered {
               background-color: @gux-blue-100;
             }
 
             &.gux-selected {
               background-color: @gux-blue-60;
-              color: @gux-type-dark;
+              color: @gux-grey-100;
             }
 
             &:hover {
               background-color: @gux-blue-60;
-              color: @gux-type-dark;
+              color: @gux-grey-100;
             }
 
             &.gux-disabled {
-              opacity: 0.3;
+              opacity: 0.5;
               pointer-events: none;
             }
 
             &.gux-not-in-month {
-              color: @gux-placeholder;
+              color: @gux-grey-10;
 
               &:hover {
                 background-color: @gux-border;
-                color: @gux-type;
+                color: @gux-black-50;
               }
 
               &.gux-hidden {
@@ -159,35 +137,4 @@ gux-calendar {
       }
     }
   }
-}
-
-.gux-light-theme {
-  gux-calendar {
-    .gux-calendar-light-theme();
-  }
-}
-
-// Dark
-.gux-calendar-dark-theme {
-  // Same as light
-  .gux-calendar-light-theme();
-}
-
-.gux-dark-theme {
-  gux-calendar {
-    .gux-calendar-dark-theme();
-  }
-}
-
-gux-calendar.gux-dark-theme {
-  .gux-calendar-dark-theme();
-}
-
-gux-calendar.gux-light-theme {
-  .gux-calendar-light-theme();
-}
-
-// Default Theme
-gux-calendar {
-  .gux-calendar-light-theme();
 }
