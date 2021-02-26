@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](http://inindca///compare/v2.2.1...v2.3.0) (2021-02-26)
+
+
+### Features
+
+* **gux-toggle:** added label position property ([173171a](http://inindca///commit/173171ae8354ad195156567762d1890998926227))
+
+
+### Bug Fixes
+
+* **gux-datepicker:** updated colors ([a9a0d99](http://inindca///commit/a9a0d99e835f80a7ecce89174038429becedb148))
+* **gux-input-checkbox:** updated colors ([ef43fbe](http://inindca///commit/ef43fbee808de1342f53fe07015f214fe58c23a5))
+* **gux-input-color:** updated colors ([6f705a2](http://inindca///commit/6f705a20b9ce4056850e50a8bf14e486a41c1d3a))
+* **gux-input-radio:** updated colors ([3acf2d4](http://inindca///commit/3acf2d444b0168d3eab83643cc187a150c53d8fc))
+
 ### [2.2.1](http://inindca///compare/v2.2.0...v2.2.1) (2021-02-23)
 
 
