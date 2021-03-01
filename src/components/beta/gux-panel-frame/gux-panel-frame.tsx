@@ -1,5 +1,7 @@
 import { Component, Element, h, State } from '@stencil/core';
 
+import { trackComponent } from '../../../usage-tracking';
+
 @Component({
   styleUrl: 'gux-panel-frame.less',
   tag: 'gux-panel-frame-beta'
@@ -36,6 +38,7 @@ export class GuxPanelFrame {
   }
 
   componentWillLoad() {
+    trackComponent(this.root);
     this.initializeSections();
   }
 

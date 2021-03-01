@@ -1,10 +1,22 @@
-import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Prop
+} from '@stencil/core';
+
+import { trackComponent } from '../../../usage-tracking';
 
 @Component({
   styleUrl: 'gux-color-option.less',
   tag: 'gux-color-option-legacy'
 })
 export class GuxColorOptionBeta {
+  @Element()
+  private root: HTMLElement;
+
   /**
    * Indicate if the tile is active
    */
@@ -26,6 +38,10 @@ export class GuxColorOptionBeta {
   onTileClickHandler = (e: MouseEvent) => {
     this.tileClick.emit(e);
   };
+
+  componentWillLoad(): void {
+    trackComponent(this.root);
+  }
 
   render() {
     return (

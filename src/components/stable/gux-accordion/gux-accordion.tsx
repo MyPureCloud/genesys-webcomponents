@@ -1,5 +1,6 @@
 import { Component, Element, h, Method, Prop } from '@stencil/core';
 import { KeyCode } from '../../../common-enums';
+import { trackComponent } from '../../../usage-tracking';
 
 interface ISection {
   slotName: string;
@@ -45,6 +46,7 @@ export class GuxAccordion {
   }
 
   componentWillLoad() {
+    trackComponent(this.root);
     this.initializeSections();
   }
 

@@ -1,5 +1,6 @@
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
   h,
@@ -8,6 +9,8 @@ import {
   Watch
 } from '@stencil/core';
 
+import { trackComponent } from '../../../usage-tracking';
+
 import { GuxDisclosureButtonPosition } from './gux-disclosure-button.types';
 
 @Component({
@@ -15,6 +18,9 @@ import { GuxDisclosureButtonPosition } from './gux-disclosure-button.types';
   tag: 'gux-disclosure-button'
 })
 export class GuxDisclosureButton {
+  @Element()
+  private root: HTMLElement;
+
   /**
    * Indicates the position of the button panel
    */
@@ -69,6 +75,7 @@ export class GuxDisclosureButton {
   }
 
   componentWillLoad() {
+    trackComponent(this.root, { variant: this.position });
     this.updateIcon();
   }
 

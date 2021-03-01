@@ -3,6 +3,7 @@ import { Component, Element, h, Host, Listen, JSX, Prop } from '@stencil/core';
 import { GuxSwitchAllowedLayouts } from './gux-switch.types';
 
 import simulateNativeEvent from '../../../utils/dom/simulate-native-event';
+import { trackComponent } from '../../../usage-tracking';
 
 /**
  * @slot - list of gux-switch-item elements
@@ -49,6 +50,10 @@ export class GuxSwitch {
         switchItem.classList.remove('gux-selected');
       }
     });
+  }
+
+  componentWillLoad(): void {
+    trackComponent(this.root, { variant: this.layout });
   }
 
   render(): JSX.Element {

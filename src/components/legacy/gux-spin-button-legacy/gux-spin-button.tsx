@@ -10,6 +10,8 @@ import {
   Watch
 } from '@stencil/core';
 
+import { trackComponent } from '../../../usage-tracking';
+
 import { buildI18nForComponent, GetI18nValue } from '../../../i18n';
 import defaultResources from './i18n/en.json';
 
@@ -133,6 +135,7 @@ export class GuxSpinButtonLegacy {
   }
 
   async componentWillLoad() {
+    trackComponent(this.root);
     this.i18n = await buildI18nForComponent(this.root, defaultResources);
     this.validate();
   }

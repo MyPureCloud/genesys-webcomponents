@@ -1,5 +1,6 @@
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
   h,
@@ -7,12 +8,18 @@ import {
   Prop,
   Watch
 } from '@stencil/core';
+
+import { trackComponent } from '../../../usage-tracking';
+
 import { GuxRadioLegacy } from '../gux-radio-legacy/gux-radio';
 
 @Component({
   tag: 'gux-radio-group-legacy'
 })
 export class GuxRadioGroupLegacy {
+  @Element()
+  private root: HTMLElement;
+
   /**
    * Fires when the selected radio value changes, with the groups new value.
    */
@@ -74,6 +81,10 @@ export class GuxRadioGroupLegacy {
       // TODO: Should we include an optional header/label?
       // 'aria-labelledby': this.labelId
     };
+  }
+
+  componentWillLoad(): void {
+    trackComponent(this.root);
   }
 
   render() {

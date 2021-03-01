@@ -10,6 +10,7 @@ import {
   State
 } from '@stencil/core';
 
+import { trackComponent } from '../../../usage-tracking';
 import { buildI18nForComponent, GetI18nValue } from '../../../i18n';
 import contentSearchResources from './i18n/en.json';
 import { onDisabledChange } from '../../../utils/dom/on-attribute-change';
@@ -72,6 +73,7 @@ export class GuxContentSearch {
   }
 
   async componentWillLoad() {
+    trackComponent(this.root);
     this.i18n = await buildI18nForComponent(this.root, contentSearchResources);
     this.inputSlottedElement = this.root.querySelector('input');
     this.disabled = this.inputSlottedElement.disabled;

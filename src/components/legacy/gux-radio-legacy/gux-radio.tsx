@@ -1,5 +1,6 @@
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
   h,
@@ -8,6 +9,8 @@ import {
   Watch
 } from '@stencil/core';
 
+import { trackComponent } from '../../../usage-tracking';
+
 let nextRadioId = 1;
 
 @Component({
@@ -15,6 +18,9 @@ let nextRadioId = 1;
   tag: 'gux-radio-legacy'
 })
 export class GuxRadioLegacy {
+  @Element()
+  private root: HTMLElement;
+
   /**
    * The radio group name for this radio button.  Automatically
    * inherited/overwritten by a gux-radio-group-legacy.
@@ -77,6 +83,7 @@ export class GuxRadioLegacy {
   }
 
   componentWillLoad() {
+    trackComponent(this.root);
     this.id = nextRadioId++;
     this.guxRadioWillLoad.emit(this);
   }

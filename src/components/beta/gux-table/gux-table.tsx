@@ -15,6 +15,7 @@ import {
 
 import { buildI18nForComponent, GetI18nValue } from '../../../i18n';
 import { whenEventIsFrom } from '../../../utils/dom/when-event-is-from';
+import { trackComponent } from '../../../usage-tracking';
 
 import tableResources from './i18n/en.json';
 import {
@@ -477,6 +478,7 @@ export class GuxTable {
   }
 
   async componentWillLoad(): Promise<void> {
+    trackComponent(this.root);
     this.i18n = await buildI18nForComponent(this.root, tableResources);
 
     if (!this.emptyMessage) {

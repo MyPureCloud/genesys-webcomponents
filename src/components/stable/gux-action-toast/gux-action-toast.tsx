@@ -1,4 +1,5 @@
-import { Component, h, Host, JSX } from '@stencil/core';
+import { Component, h, Element, Host, JSX } from '@stencil/core';
+import { trackComponent } from '../../../usage-tracking';
 
 /**
  * @slot icon - Required slot for gux-icon
@@ -12,6 +13,13 @@ import { Component, h, Host, JSX } from '@stencil/core';
   tag: 'gux-action-toast'
 })
 export class GuxActionToast {
+  @Element()
+  private root: HTMLElement;
+
+  componentWillLoad() {
+    trackComponent(this.root);
+  }
+
   render(): JSX.Element {
     return (
       <Host>

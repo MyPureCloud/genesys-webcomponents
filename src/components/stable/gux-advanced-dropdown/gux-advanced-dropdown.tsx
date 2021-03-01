@@ -10,7 +10,10 @@ import {
   State,
   Watch
 } from '@stencil/core';
+
+import { trackComponent } from '../../../usage-tracking';
 import { buildI18nForComponent, GetI18nValue } from '../../../i18n';
+
 import advancedDropDownResources from './i18n/en.json';
 
 @Component({
@@ -103,6 +106,7 @@ export class GuxAdvancedDropdown {
   }
 
   async componentWillLoad() {
+    trackComponent(this.root);
     this.i18n = await buildI18nForComponent(
       this.root,
       advancedDropDownResources

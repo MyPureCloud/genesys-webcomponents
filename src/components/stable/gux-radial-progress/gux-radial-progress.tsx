@@ -1,4 +1,6 @@
-import { Component, h, JSX, Prop } from '@stencil/core';
+import { Component, Element, h, JSX, Prop } from '@stencil/core';
+
+import { trackComponent } from '../../../usage-tracking';
 
 const RADIUS = 23.5;
 const STROKE_DASH = 2 * Math.PI * RADIUS;
@@ -10,6 +12,9 @@ let idCounter = 0;
   tag: 'gux-radial-progress'
 })
 export class GuxRadialProgress {
+  @Element()
+  private root: HTMLElement;
+
   /**
    * The progress made in the progress spinner compared to the max value
    */
@@ -23,6 +28,10 @@ export class GuxRadialProgress {
   max: number = 100;
 
   private dropshadowId = `dropshadow-${idCounter++}`;
+
+  componentWillLoad(): void {
+    trackComponent(this.root);
+  }
 
   render(): JSX.Element {
     return this.canShowPercentage(this.value, this.max)

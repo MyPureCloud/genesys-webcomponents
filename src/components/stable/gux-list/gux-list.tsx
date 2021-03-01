@@ -10,6 +10,8 @@ import {
   State,
   Watch
 } from '@stencil/core';
+
+import { trackComponent } from '../../../usage-tracking';
 import { KeyCode } from '../../../common-enums';
 
 const validChildren = 'gux-list-item:not([disabled])';
@@ -109,6 +111,10 @@ export class GuxList {
   @Method()
   async isFirstItemSelected(): Promise<boolean> {
     return this.selectedIndex <= 0;
+  }
+
+  componentWillLoad(): void {
+    trackComponent(this.root);
   }
 
   /**

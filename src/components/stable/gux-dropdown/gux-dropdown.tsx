@@ -9,8 +9,10 @@ import {
   Prop,
   State
 } from '@stencil/core';
+
 import { KeyCode } from '../../../common-enums';
 import { whenEventIsFrom } from '../../../utils/dom/when-event-is-from';
+import { trackComponent } from '../../../usage-tracking';
 
 @Component({
   styleUrl: 'gux-dropdown.less',
@@ -231,6 +233,12 @@ export class GuxDropdown {
     const ghost = this.forcedGhostValue ? this.forcedGhostValue : valueGhost;
     const placeholder = !this.value ? this.placeholder : '';
     return this.opened && this.filterable ? ghost : placeholder;
+  }
+
+  componentWillLoad(): void {
+    trackComponent(this.root, {
+      variant: this.filterable ? 'filterable' : 'full'
+    });
   }
 
   componentDidLoad(): void {

@@ -1,6 +1,6 @@
 {
-  "eraseBtnAria": "Clear",
-  "navigateNextBtn": "Next",
-  "navigatePreviousBtn": "Previous",
-  "totalMatches": "{currentMatch, number} of {matchCount, number}"
+  "eraseBtnAria": "Очистить",
+  "navigateNextBtn": "Далее",
+  "navigatePreviousBtn": "Назад",
+  "totalMatches": "{currentMatch, number} из {matchCount, number}"
 }

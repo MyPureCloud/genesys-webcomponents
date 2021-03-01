@@ -10,6 +10,8 @@ import {
   Watch
 } from '@stencil/core';
 
+import { trackComponent } from '../../../usage-tracking';
+
 @Component({
   styleUrl: 'gux-search.less',
   tag: 'gux-search-beta'
@@ -100,6 +102,10 @@ export class GuxSearch {
   @Method()
   async setInputFocus() {
     this.textFieldElement.setInputFocus();
+  }
+
+  componentWillLoad(): void {
+    trackComponent(this.root);
   }
 
   render() {

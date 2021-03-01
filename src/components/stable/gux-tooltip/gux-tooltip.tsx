@@ -11,6 +11,7 @@ import {
 } from '@stencil/core';
 
 import { randomHTMLId } from '../../../utils/dom/random-html-id';
+import { trackComponent } from '../../../usage-tracking';
 
 /**
  * @slot - Content of the tooltip
@@ -63,6 +64,8 @@ export class GuxTooltip {
   }
 
   componentWillLoad(): void {
+    trackComponent(this.root);
+
     if (this.for) {
       this.forElement = document.getElementById(this.for);
     } else {

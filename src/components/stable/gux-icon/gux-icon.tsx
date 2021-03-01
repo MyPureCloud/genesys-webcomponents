@@ -1,4 +1,14 @@
-import { Component, getAssetPath, h, Prop, State, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  getAssetPath,
+  h,
+  Prop,
+  State,
+  Watch
+} from '@stencil/core';
+
+import { trackComponent } from '../../../usage-tracking';
 
 const svgHTMLCache: Map<string, Promise<string>> = new Map();
 
@@ -8,6 +18,9 @@ const svgHTMLCache: Map<string, Promise<string>> = new Map();
   tag: 'gux-icon'
 })
 export class GuxIcon {
+  @Element()
+  private root: HTMLElement;
+
   /**
    * Indicate which icon to display
    */
@@ -37,6 +50,7 @@ export class GuxIcon {
   }
 
   async componentWillLoad() {
+    trackComponent(this.root, { variant: this.iconName });
     await this.prepIcon(this.iconName);
   }
 

@@ -1,4 +1,5 @@
-import { Component, h } from '@stencil/core';
+import { Component, Element, h } from '@stencil/core';
+import { trackComponent } from '../../../usage-tracking';
 
 /**
  * @slot error - Required slot for error
@@ -8,6 +9,13 @@ import { Component, h } from '@stencil/core';
   tag: 'gux-error-message-beta'
 })
 export class GuxErrorMessageBeta {
+  @Element()
+  private root: HTMLElement;
+
+  componentWillLoad(): void {
+    trackComponent(this.root);
+  }
+
   render() {
     return (
       <div class="gux-container">

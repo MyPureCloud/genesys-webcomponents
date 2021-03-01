@@ -15,6 +15,7 @@ import { ClickOutside } from 'stencil-click-outside';
 
 import { buildI18nForComponent, GetI18nValue } from '../../../i18n';
 import { onHiddenChange } from '../../../utils/dom/on-attribute-change';
+import { trackComponent } from '../../../usage-tracking';
 
 import modalComponentResources from './i18n/en.json';
 import { PopperPosition } from './gux-popover.types';
@@ -136,6 +137,8 @@ export class GuxPopover {
   }
 
   async componentWillLoad(): Promise<void> {
+    trackComponent(this.root, { variant: this.position });
+
     this.forElement = document.getElementById(this.for);
 
     this.i18n = await buildI18nForComponent(this.root, modalComponentResources);

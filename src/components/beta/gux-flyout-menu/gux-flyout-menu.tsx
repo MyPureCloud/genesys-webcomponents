@@ -10,6 +10,8 @@ import {
   Watch
 } from '@stencil/core';
 
+import { trackComponent } from '../../../usage-tracking';
+
 import { HTMLGuxMenuItemElement, hideDelay } from './gux-menu/gux-menu.common';
 
 @Component({
@@ -141,6 +143,10 @@ export class GuxFlyoutMenu {
     const nextFocusableElement = menuItems[0] as HTMLGuxMenuItemElement;
 
     nextFocusableElement.guxFocus();
+  }
+
+  componentWillLoad(): void {
+    trackComponent(this.root);
   }
 
   componentDidLoad(): void {

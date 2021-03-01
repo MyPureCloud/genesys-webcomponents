@@ -1,5 +1,7 @@
 import { Component, Element, h, JSX, Prop, State } from '@stencil/core';
 
+import { trackComponent } from '../../../usage-tracking';
+
 /**
  * @slot input - Required slot for input tag
  * @slot label - Required slot for label tag
@@ -30,6 +32,8 @@ export class GuxFormField {
     );
     this.label = this.root.querySelector('label[slot="label"]');
     this.type = this.input.getAttribute('type');
+
+    trackComponent(this.root, { variant: this.type });
   }
 
   componentWillRender() {

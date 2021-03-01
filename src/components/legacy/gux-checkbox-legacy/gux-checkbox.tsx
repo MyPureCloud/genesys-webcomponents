@@ -1,4 +1,14 @@
-import { Component, Event, EventEmitter, h, Prop, State } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Prop,
+  State
+} from '@stencil/core';
+
+import { trackComponent } from '../../../usage-tracking';
 
 let nextCheckboxId = 1;
 const classForCheckedState = (checked: boolean, indeterminate: boolean) => {
@@ -14,6 +24,9 @@ const classForCheckedState = (checked: boolean, indeterminate: boolean) => {
   tag: 'gux-checkbox-legacy'
 })
 export class GuxCheckboxLegacy {
+  @Element()
+  private root: HTMLElement;
+
   /**
    * Whether or not the checkbox is checked.  Ignored when in an `indeterminate` state.
    */
@@ -43,6 +56,7 @@ export class GuxCheckboxLegacy {
   check: EventEmitter<boolean>;
 
   componentWillLoad() {
+    trackComponent(this.root);
     this.id = nextCheckboxId++;
   }
 

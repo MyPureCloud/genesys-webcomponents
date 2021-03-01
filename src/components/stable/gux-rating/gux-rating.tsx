@@ -2,6 +2,7 @@ import { Component, Element, h, Host, Listen, JSX, Prop } from '@stencil/core';
 
 import simulateNativeEvent from '../../../utils/dom/simulate-native-event';
 import clamp from '../../../utils/number/clamp';
+import { trackComponent } from '../../../usage-tracking';
 
 @Component({
   styleUrl: 'gux-rating.less',
@@ -125,6 +126,10 @@ export class GuxRating {
 
   private getTabIndex(): number {
     return this.disabled ? -1 : 0;
+  }
+
+  componentWillLoad(): void {
+    trackComponent(this.root);
   }
 
   render(): JSX.Element {

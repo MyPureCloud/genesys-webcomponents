@@ -1,4 +1,6 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, Element, h, Prop } from '@stencil/core';
+
+import { trackComponent } from '../../../usage-tracking';
 
 let nextLabelId = 1;
 @Component({
@@ -6,6 +8,9 @@ let nextLabelId = 1;
   tag: 'gux-text-label'
 })
 export class GuxTextLabel {
+  @Element()
+  private root: HTMLElement;
+
   labeledComponent: HTMLDivElement;
 
   /**
@@ -25,6 +30,10 @@ export class GuxTextLabel {
 
   constructor() {
     this.id = this.generateId();
+  }
+
+  componentWillLoad(): void {
+    trackComponent(this.root, { variant: this.position });
   }
 
   componentDidLoad() {

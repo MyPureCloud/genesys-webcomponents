@@ -11,6 +11,7 @@ import {
 } from '@stencil/core';
 import { KeyCode } from '../../../common-enums';
 import { fromIsoTime } from '../../../utils/date/from-iso-time-string';
+import { trackComponent } from '../../../usage-tracking';
 
 const MAX_TIME: string = '23:59:59';
 const MIN_TIME: string = '00:00:00';
@@ -227,6 +228,7 @@ export class GuxTimePicker {
   }
 
   componentWillLoad() {
+    trackComponent(this.root);
     this.validateBounds();
     this.value = this.validateValue(this.value);
   }

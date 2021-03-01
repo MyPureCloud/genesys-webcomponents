@@ -9,6 +9,7 @@ import {
   State
 } from '@stencil/core';
 
+import { trackComponent } from '../../../usage-tracking';
 import { CalendarModes, KeyCode } from '../../../common-enums';
 import {
   asIsoDateRange,
@@ -408,6 +409,7 @@ export class GuxCalendar {
   }
 
   componentWillLoad() {
+    trackComponent(this.root, { variant: this.mode });
     this.locale = getDesiredLocale(this.root);
 
     if (!this.value) {

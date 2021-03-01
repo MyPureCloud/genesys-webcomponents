@@ -10,12 +10,15 @@ import {
 } from '@stencil/core';
 
 import { GuxButtonAccent, GuxButtonType } from '../gux-button/gux-button.types';
+import { trackComponent } from '../../../usage-tracking';
 
 @Component({
   styleUrl: 'gux-action-button.less',
   tag: 'gux-action-button'
 })
 export class GuxActionButton {
+  @Element()
+  private root: HTMLElement;
   listElement: HTMLGuxListElement;
   dropdownButton: HTMLElement;
 
@@ -66,9 +69,6 @@ export class GuxActionButton {
    */
   @Prop({ mutable: true })
   isOpen: boolean = false;
-
-  @Element()
-  root: HTMLElement;
 
   toggle() {
     this.isOpen = !this.isOpen;
@@ -126,6 +126,10 @@ export class GuxActionButton {
       this.isOpen = true;
       this.listElement.setFocusOnFirstItem();
     }
+  }
+
+  componentWillLoad() {
+    trackComponent(this.root, { variant: this.type });
   }
 
   render() {

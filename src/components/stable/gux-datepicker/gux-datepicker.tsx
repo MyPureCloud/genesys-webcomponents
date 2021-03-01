@@ -10,6 +10,7 @@ import {
   Watch
 } from '@stencil/core';
 
+import { trackComponent } from '../../../usage-tracking';
 import { CalendarModes, KeyCode } from '../../../common-enums';
 import {
   asIsoDateRange,
@@ -562,6 +563,7 @@ export class GuxDatepicker {
   }
 
   async componentWillLoad() {
+    trackComponent(this.root, { variant: this.mode });
     this.i18n = await buildI18nForComponent(this.root, i18nStrings);
 
     if (!this.value) {

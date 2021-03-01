@@ -10,6 +10,7 @@ import {
 } from '@stencil/core';
 
 import { buildI18nForComponent, GetI18nValue } from '../../../i18n';
+import { trackComponent } from '../../../usage-tracking';
 
 import tagResources from './i18n/en.json';
 import { GuxTagColor } from './gux-tag.types';
@@ -112,6 +113,12 @@ export class GuxTag {
         </button>
       );
     }
+  }
+
+  componentWillLoad(): void {
+    trackComponent(this.root, {
+      variant: this.removable ? 'removable' : 'permenant'
+    });
   }
 
   async componentWillRender(): Promise<void> {

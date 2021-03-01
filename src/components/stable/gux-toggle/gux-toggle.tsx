@@ -7,6 +7,8 @@ import {
   Prop
 } from '@stencil/core';
 
+import { trackComponent } from '../../../usage-tracking';
+
 import { GuxToggleLabelPosition } from './gux-toggle.types';
 
 @Component({
@@ -77,6 +79,12 @@ export class GuxToggle {
       label = this.root.getAttribute('aria-label') || this.root.title;
     }
     return label;
+  }
+
+  componentWillLoad(): void {
+    trackComponent(this.root, {
+      variant: this.checkedLabel || this.uncheckedLabel ? 'labled' : 'unlabled'
+    });
   }
 
   render() {

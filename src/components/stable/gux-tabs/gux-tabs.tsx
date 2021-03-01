@@ -12,9 +12,12 @@ import {
   writeTask
 } from '@stencil/core';
 import Sortable, { MoveEvent } from 'sortablejs';
+
+import { trackComponent } from '../../../usage-tracking';
 import { buildI18nForComponent, GetI18nValue } from '../../../i18n';
-import tabsResources from './i18n/en.json';
 import { whenEventIsFrom } from '../../../utils/dom/when-event-is-from';
+
+import tabsResources from './i18n/en.json';
 
 @Component({
   styleUrl: 'gux-tabs.less',
@@ -128,6 +131,7 @@ export class GuxTabs {
   }
 
   async componentWillLoad(): Promise<void> {
+    trackComponent(this.root);
     this.i18n = await buildI18nForComponent(this.root, tabsResources);
   }
 

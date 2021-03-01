@@ -1,5 +1,6 @@
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
   h,
@@ -10,11 +11,16 @@ import {
 } from '@stencil/core';
 import { setInterval, clearInterval } from 'requestanimationframe-timer';
 
+import { trackComponent } from '../../../usage-tracking';
+
 @Component({
   styleUrl: 'gux-slider.less',
   tag: 'gux-slider-legacy'
 })
 export class GuxSliderLegacy {
+  @Element()
+  private root: HTMLElement;
+
   /**
    * Indicates the minimum value for the slider
    */
@@ -94,6 +100,12 @@ export class GuxSliderLegacy {
   setValue(value: number): void {
     const resultValue = value || this.min;
     this.value = Math.min(Math.max(resultValue, this.min), this.max);
+  }
+
+  componentWillLoad(): void {
+    trackComponent(this.root, {
+      variant: this.isPercentage ? 'percentage' : 'number'
+    });
   }
 
   /**

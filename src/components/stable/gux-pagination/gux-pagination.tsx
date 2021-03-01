@@ -1,6 +1,7 @@
 import {
   Component,
   ComponentInterface,
+  Element,
   Event,
   EventEmitter,
   h,
@@ -8,6 +9,8 @@ import {
   Prop,
   State
 } from '@stencil/core';
+
+import { trackComponent } from '../../../usage-tracking';
 
 import {
   GuxItemsPerPage,
@@ -20,6 +23,9 @@ import {
   tag: 'gux-pagination'
 })
 export class GuxPagination implements ComponentInterface {
+  @Element()
+  private root: HTMLElement;
+
   /**
    * The currently select page. Changes are watched by the component.
    */
@@ -110,6 +116,10 @@ export class GuxPagination implements ComponentInterface {
     }
 
     return <div class="gux-pagination-info">{content}</div>;
+  }
+
+  componentWillLoad(): void {
+    trackComponent(this.root, { variant: this.layout });
   }
 
   componentWillRender(): void {

@@ -1,5 +1,6 @@
 import { Component, Element, h, JSX, Prop } from '@stencil/core';
 
+import { trackComponent } from '../../../usage-tracking';
 import { GuxButtonAccent, GuxButtonType } from './gux-button.types';
 
 @Component({
@@ -35,6 +36,7 @@ export class GuxButton {
   accent: GuxButtonAccent = 'secondary';
 
   componentWillLoad() {
+    trackComponent(this.root, { variant: this.accent });
     this.makeSlotContentDisableable();
   }
 

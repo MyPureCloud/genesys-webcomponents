@@ -9,6 +9,7 @@ import {
 } from '@stencil/core';
 
 import { buildI18nForComponent, GetI18nValue } from '../../../i18n';
+import { trackComponent } from '../../../usage-tracking';
 
 import modalComponentResources from './i18n/en.json';
 import { GuxModalSize } from './gux-modal.types';
@@ -41,6 +42,7 @@ export class GuxModal {
   private root: HTMLElement;
 
   async componentWillLoad(): Promise<void> {
+    trackComponent(this.root, { variant: this.size });
     this.getI18nValue = await buildI18nForComponent(
       this.root,
       modalComponentResources

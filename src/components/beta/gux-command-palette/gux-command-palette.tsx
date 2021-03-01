@@ -3,6 +3,7 @@ import { KeyCode } from '../../../common-enums';
 import { matchesFuzzy } from '../../../utils/string/search';
 import { buildI18nForComponent, GetI18nValue } from '../../../i18n';
 import paletteResources from './i18n/en.json';
+import { trackComponent } from '../../../usage-tracking';
 
 const filterLimit = 50;
 const animationDuration = 300; // this 300ms duration must be kept in sync with the 300ms transition in the CSS
@@ -61,6 +62,7 @@ export class GuxCommandPalette {
   private i18n: GetI18nValue;
 
   async componentWillLoad() {
+    trackComponent(this.root);
     this.i18n = await buildI18nForComponent(this.root, paletteResources);
   }
 
