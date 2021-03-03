@@ -7,27 +7,30 @@ String[] mailingList = [
   "Daragh.King@genesys.com"
 ]
 
-def isRelease() {
+
+def isActiveReleaseBranch() {
   return env.SHORT_BRANCH.equals('master');
 }
-def isFeature() {
+
+def isMaintenanceReleaseBranch() {
+  return env.SHORT_BRANCH.startsWith('maintenance/');
+}
+
+def isFeatureBranch() {
   return env.SHORT_BRANCH.startsWith('feature/');
 }
 
-def shouldPublish() {
-  return isRelease();
+def isReleaseBranch() {
+  return isActiveReleaseBranch() || isMaintenanceReleaseBranch();
 }
 
-def shouldUploadDocs() {
-  isRelease() || isFeature();
-}
 
-def shouldUploadAssets() {
-  isRelease() || isFeature();
+def isPublicBranch() {
+  isReleaseBranch() || isFeatureBranch();
 }
 
 def uploadVersionOverride() {
-    if (isFeature()) {
+    if (isFeatureBranch()) {
         return "--version ${env.SHORT_BRANCH}"
     } else {
         return ""
@@ -117,7 +120,7 @@ pipeline {
 
     stage('Bump Version') {
       when {
-        expression { shouldPublish() }
+        expression { isReleaseBranch() }
       }
       steps {
         dir(env.REPO_DIR) {
@@ -148,7 +151,7 @@ pipeline {
 
     stage('Upload Assets') {
       when {
-        expression { shouldUploadAssets() }
+        expression { isPublicBranch() }
       }
       steps {
         dir(env.REPO_DIR) {
@@ -167,7 +170,7 @@ pipeline {
 
     stage('Publish Library') {
       when {
-        expression { shouldPublish()  }
+        expression { isReleaseBranch()  }
       }
       steps {
         dir(env.REPO_DIR) {
@@ -188,7 +191,7 @@ pipeline {
 
     stage('Upload Docs') {
       when {
-        expression { shouldUploadDocs() }
+        expression { isPublicBranch() }
       }
       steps {
         sh "echo Uploading release!"
@@ -208,7 +211,7 @@ pipeline {
 
     stage('Deploy Docs') {
       when {
-        expression { shouldPublish() }
+        expression { isActiveReleaseBranch() }
       }
       steps {
         dir (env.REPO_DIR) {

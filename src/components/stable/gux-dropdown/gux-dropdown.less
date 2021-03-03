@@ -1,24 +1,6 @@
 @import (reference) '../../../style/typography.less';
 @import (reference) '../../../style/color.less';
-
-// Variables part
-@background-color: @expalette-dropdown-background-color;
-@background-color-dark-theme: @expalette-background-color-dark;
-
-@text-color: @gux-type;
-@text-color-dark-theme: @gux-type-dark;
-
-@placeholder: @gux-placeholder;
-
-@border-color: @gux-border;
-@border-color-dark-theme: @gux-black-30;
-
-@focus-outline: fade(@gux-blue-80, 50%);
-@focus-outline-dark-theme: @gux-blue-80;
-@active-border: @gux-blue-60;
-
-@menu-background-color: @gux-type-dark;
-@menu-border-color: @gux-border;
+@import (reference) '../../../style/mixins.less';
 
 // Style
 gux-dropdown {
@@ -90,12 +72,12 @@ gux-dropdown {
       position: absolute;
       width: 100%;
       z-index: 1;
-      margin: 0;
+      margin: 1px 0;
       padding: 8px 0;
-      background: @menu-background-color;
-      border: 1px solid @menu-border-color;
-      box-shadow: none;
-      color: @text-color;
+      background: @gux-grey-100;
+      border: 1px solid @gux-black-100;
+      color: @gux-black-50;
+      .shadow-30();
 
       &.gux-opened {
         display: block;
@@ -133,7 +115,7 @@ gux-dropdown {
         &:not([disabled]) {
           &[selected] {
             background: @gux-blue-100;
-            color: @text-color;
+            color: @gux-black-50;
           }
 
           &:hover,
@@ -240,21 +222,21 @@ gux-dropdown {
   div.gux-dropdown {
     .gux-select-field {
       .gux-ghost {
-        background-color: @background-color;
-        color: @placeholder;
+        background-color: @gux-grey-90;
+        color: @gux-black-90;
       }
 
       gux-text-field-legacy input {
-        border-color: @border-color;
-        color: @text-color;
+        border-color: @gux-black-100;
+        color: @gux-black-50;
 
         &:focus {
-          box-shadow: 0 0 0 3px @focus-outline;
+          box-shadow: 0 0 0 3px fade(@gux-blue-80, 50%);
         }
       }
 
       button.gux-dropdown-indicator {
-        color: @text-color;
+        color: @gux-black-50;
       }
     }
 
@@ -262,8 +244,9 @@ gux-dropdown {
       .gux-select-field {
         .gux-field {
           input:focus {
-            border: 1px solid @active-border;
-            box-shadow: 0 0 4px @focus-outline;
+            background-color: @gux-grey-100;
+            border: 1px solid @gux-blue-60;
+            box-shadow: 0 0 4px fade(@gux-blue-80, 50%);
           }
         }
       }
@@ -277,7 +260,7 @@ gux-dropdown {
         }
 
         gux-text-field-legacy input {
-          border-bottom: 1px solid @gux-border;
+          border-bottom: 1px solid @gux-black-100;
         }
       }
 
@@ -297,7 +280,7 @@ gux-dropdown {
 
         gux-text-field-legacy {
           input {
-            border-bottom: 1px solid @gux-border;
+            border-bottom: 1px solid @gux-black-100;
           }
         }
       }
@@ -313,114 +296,6 @@ gux-dropdown {
   }
 }
 
-.gux-light-theme {
-  gux-dropdown {
-    .gux-dropdown-light-theme;
-  }
-}
-
-.gux-dropdown.gux-light-theme {
-  .gux-dropdown-light-theme;
-}
-
-// Dark
-.gux-dropdown-dark-theme {
-  color: @gux-type-dark;
-
-  div.gux-dropdown {
-    .gux-select-field {
-      .gux-ghost {
-        background-color: @background-color-dark-theme;
-        color: @gux-placeholder;
-      }
-
-      gux-text-field-legacy input {
-        border-color: @border-color-dark-theme;
-        color: @text-color-dark-theme;
-      }
-
-      button.gux-dropdown-indicator {
-        color: @text-color-dark-theme;
-      }
-    }
-
-    &.gux-default {
-      .gux-select-field {
-        gux-text-field-legacy input {
-          &:focus {
-            box-shadow: 0 0 1px 3px @focus-outline-dark-theme;
-          }
-        }
-      }
-
-      &.gux-active {
-        .gux-select-field {
-          .gux-field {
-            input:focus {
-              border-color: @border-color-dark-theme;
-              box-shadow: 0 0 1px 3px @focus-outline-dark-theme;
-            }
-          }
-        }
-      }
-    }
-
-    &.gux-page {
-      .gux-select-field {
-        .gux-ghost {
-          background-color: @gux-black-50;
-        }
-
-        gux-text-field-legacy input {
-          border-color: @gux-black-30;
-
-          &:focus {
-            border-color: fade(@gux-blue-80, 50%);
-          }
-        }
-      }
-
-      &.gux-active {
-        gux-text-field-legacy input:focus {
-          border-bottom: 1px solid @gux-blue-80;
-        }
-      }
-    }
-
-    &.gux-palette {
-      .gux-select-field {
-        .gux-ghost {
-          background-color: @gux-black-50;
-        }
-
-        gux-text-field-legacy input {
-          border-color: @gux-black-30;
-
-          &:focus {
-            border-color: fade(@gux-blue-80, 50%);
-          }
-        }
-      }
-
-      &.gux-active {
-        gux-text-field-legacy input:focus {
-          border-bottom: 1px solid @gux-blue-80;
-        }
-      }
-    }
-  }
-}
-
-.gux-dark-theme {
-  gux-dropdown {
-    .gux-dropdown-dark-theme;
-  }
-}
-
-.gux-dropdown.gux-dark-theme {
-  .gux-dropdown-dark-theme;
-}
-// Default Theme
 gux-dropdown {
   .gux-dropdown-light-theme;
 }
