@@ -6,51 +6,51 @@
 @dark-border: @gux-black-30;
 
 gux-input-number {
-  display: block;
   position: relative;
+  display: block;
 
   .gux-input-number-container {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
     align-content: stretch;
     align-items: center;
+    justify-content: center;
 
     &.gux-disabled {
       opacity: 0.5;
     }
 
     .gux-input-container {
-      font-family: inherit;
-      height: 32px;
-      width: 100%;
       box-sizing: border-box;
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: stretch;
+      align-items: center;
+      align-self: auto;
+      justify-content: center;
+      order: 0;
+      width: 100%;
+      height: 32px;
       padding: 4px 12px 4px 12px;
+      font-family: inherit;
+      font-size: 12px;
+      line-height: 1.66666667;
+      color: @gux-black-50;
       background-color: @gux-grey-100;
       background-image: none;
       border: 1px solid @gux-grey-60;
       border-radius: 2px;
-      font-size: 12px;
-      line-height: 1.66666667;
-      color: @gux-black-50;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: center;
-      align-content: stretch;
-      align-items: center;
-      order: 0;
-      flex: 1 1 auto;
-      align-self: auto;
 
       input {
-        border: none;
-        outline: none;
-        order: 0;
         flex: 1 1 auto;
         align-self: auto;
+        order: 0;
         background-color: @gux-grey-100;
+        border: none;
+        outline: none;
 
         &::placeholder {
           color: @gux-black-90;
@@ -70,8 +70,8 @@ gux-input-number {
 
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
-          -webkit-appearance: none;
           margin: 0;
+          -webkit-appearance: none;
         }
 
         /* Firefox */
@@ -81,18 +81,18 @@ gux-input-number {
       }
 
       .gux-clear-button {
-        order: 0;
         flex: 0 1 auto;
         align-self: auto;
+        order: 0;
         padding: 2px;
-        border: none;
-        background: transparent;
         color: @gux-black-90;
+        background: transparent;
+        border: none;
 
         &:not(:disabled):focus,
         &:not(:disabled):hover {
-          cursor: pointer;
           color: @gux-blue-60;
+          cursor: pointer;
         }
 
         gux-icon {
@@ -103,24 +103,24 @@ gux-input-number {
     }
 
     .gux-step-buttons-container {
-      order: 0;
       flex: 0 1 16px;
       align-self: auto;
+      order: 0;
       margin: 0 4px;
 
       .gux-step-button {
-        order: 0;
         flex: 0 1 auto;
         align-self: auto;
+        order: 0;
         padding: 2px;
-        border: none;
-        background: transparent;
         color: @gux-black-90;
+        background: transparent;
+        border: none;
 
         &:not(:disabled):focus,
         &:not(:disabled):hover {
-          cursor: pointer;
           color: @gux-blue-60;
+          cursor: pointer;
         }
 
         gux-icon {
@@ -146,9 +146,9 @@ gux-input-number {
 .gux-input-number-dark-theme {
   .gux-input-number-container {
     .gux-input-container {
+      color: @dark-text-color;
       background-color: @dark-background-color;
       border: 1px solid @dark-border;
-      color: @dark-text-color;
 
       &:focus-within {
         border: 1px solid @gux-blue-80;
@@ -173,9 +173,9 @@ gux-input-number.gux-dark-theme {
 .gux-input-number-light-theme {
   .gux-input-number-container {
     .gux-input-container {
+      color: @gux-black-50;
       background-color: @gux-grey-100;
       border: 1px solid @gux-grey-60;
-      color: @gux-black-50;
     }
 
     &:focus-within {

@@ -37,19 +37,19 @@ gux-content-search {
   }
 
   .gux-disabled {
-    opacity: 0.5;
     pointer-events: none;
     cursor: default;
+    opacity: 0.5;
   }
 
   .gux-content {
-    margin: 4px 0;
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    height: 32px;
     width: 100%;
-    box-sizing: border-box;
+    height: 32px;
     padding: 4px 0 4px 0;
+    margin: 4px 0;
     background-color: @background-color;
     background-image: none;
     border: 1px solid @border;
@@ -64,18 +64,18 @@ gux-content-search {
     }
 
     .gux-search-icon {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
       padding-top: 0;
+      padding-right: 4px;
       padding-bottom: 0;
       padding-left: 8px;
-      padding-right: 4px;
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
       color: @icon-color;
       &:disabled {
-        opacity: 0.5;
         pointer-events: none;
         cursor: default;
+        opacity: 0.5;
       }
     }
 
@@ -84,11 +84,11 @@ gux-content-search {
 
       flex-basis: 100%;
       flex-shrink: 1;
-      border: 0;
-      padding: 0;
-      border-radius: 0;
-      height: 22px;
       min-width: 0;
+      height: 22px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
 
       &.gux-focused,
       &:focus {
@@ -99,30 +99,30 @@ gux-content-search {
     }
 
     .gux-content-control-panel {
-      flex-grow: 1;
-      flex-shrink: 0;
-      line-height: 1.66666667;
-      height: 22px;
-      padding: 0;
       box-sizing: border-box;
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
+      flex-grow: 1;
+      flex-shrink: 0;
       align-content: center;
+      align-items: center;
+      justify-content: flex-end;
+      height: 22px;
+      padding: 0;
+      line-height: 1.66666667;
 
       button {
-        align-items: center;
-        border: none;
-        background: none;
-        cursor: pointer;
         display: block;
-        outline: none;
+        align-items: center;
         overflow: hidden;
         color: @icon-color;
+        cursor: pointer;
+        background: none;
+        border: none;
+        outline: none;
         &:disabled {
-          opacity: 0.5;
           pointer-events: none;
           cursor: default;
+          opacity: 0.5;
         }
         &:not(:disabled):hover,
         &:not(:disabled):focus {
@@ -132,36 +132,36 @@ gux-content-search {
 
       .gux-clear-button {
         flex-shrink: 0;
-        padding-left: 8px;
-        padding-right: 8px;
-        padding-top: 0;
-        padding-bottom: 0;
         align-items: center;
+        padding-top: 0;
+        padding-right: 8px;
+        padding-bottom: 0;
+        padding-left: 8px;
       }
 
       .gux-navigation-disabled {
-        opacity: 0.5;
         pointer-events: auto;
         cursor: default;
+        opacity: 0.5;
       }
 
       .gux-navigation-panel {
         display: flex;
-        justify-content: flex-end;
-        align-items: center;
         align-content: center;
+        align-items: center;
+        justify-content: flex-end;
         border-right: 1px solid @hair-line-color;
 
         .gux-navigation-result {
-          padding-right: 8px;
-          padding-left: 8px;
-          padding-top: 0;
-          padding-bottom: 0;
           align-items: center;
-          white-space: nowrap;
-          font-size: 12px;
+          padding-top: 0;
+          padding-right: 8px;
+          padding-bottom: 0;
+          padding-left: 8px;
           font-family: inherit;
+          font-size: 12px;
           color: @navigation-text-color;
+          white-space: nowrap;
           &:not(.gux-navigation-result-disabled):hover,
           &:not(.gux-navigation-result-disabled):focus {
             color: @navigation-text-hover-color;
@@ -170,20 +170,20 @@ gux-content-search {
 
         .gux-previous-button {
           flex-shrink: 0;
-          padding-right: 0;
-          padding-left: 0;
-          padding-top: 0;
-          padding-bottom: 0;
           align-items: center;
+          padding-top: 0;
+          padding-right: 0;
+          padding-bottom: 0;
+          padding-left: 0;
         }
 
         .gux-next-button {
           flex-shrink: 0;
-          padding-right: 0;
-          padding-left: 0;
-          padding-top: 0;
-          padding-bottom: 0;
           align-items: center;
+          padding-top: 0;
+          padding-right: 0;
+          padding-bottom: 0;
+          padding-left: 0;
         }
       }
     }
@@ -195,9 +195,9 @@ gux-content-search {
 // Dark
 .gux-content-search-dark-theme {
   .gux-content {
+    color: @dark-text-color;
     background-color: @dark-background-color;
     border: 1px solid @dark-border;
-    color: @dark-text-color;
 
     &.gux-focused,
     &:focus,
@@ -210,10 +210,10 @@ gux-content-search {
     input {
       .gux-input-dark-theme();
 
-      border: 0;
-      padding: 0;
-      border-radius: 0;
       height: 22px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
 
       &.gux-focused,
       &:focus {
@@ -268,8 +268,8 @@ gux-content-search.gux-dark-theme {
     }
 
     input {
-      background-color: @background-color;
       color: @text-color;
+      background-color: @background-color;
 
       &::placeholder {
         color: @placeholder;

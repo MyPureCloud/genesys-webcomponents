@@ -18,21 +18,21 @@ gux-button {
 
   > button {
     width: 100%;
-    padding: 0 16px;
     height: 32px;
-    border-radius: 2px;
-    border: none;
-    cursor: pointer;
+    padding: 0 16px;
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     font-size: 12px;
     font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     pointer-events: auto;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
 
     &[disabled] {
-      opacity: 0.5;
       cursor: default;
+      opacity: 0.5;
     }
 
     &:focus {
@@ -44,9 +44,9 @@ gux-button {
 // Theming
 .gux-button-dark-theme {
   > button {
+    color: @secondary-dark-color;
     background-color: @secondary-dark-background-color;
     border: 1px solid @secondary-dark-border-color;
-    color: @secondary-dark-color;
 
     &:hover {
       background-color: @secondary-dark-hover-background-color;
@@ -75,9 +75,9 @@ gux-button {
     }
 
     &.gux-primary {
+      color: @primary-dark-color;
       background-color: @primary-dark-background-color;
       border: 1px solid @primary-dark-border-color;
-      color: @primary-dark-color;
 
       &:hover {
         background-color: @primary-dark-hover-background-color;
@@ -110,8 +110,8 @@ gux-button {
 
 .gux-button-light-theme {
   > button {
-    background-color: @gux-grey-60;
     color: @gux-black-50;
+    background-color: @gux-grey-60;
 
     &:hover:enabled {
       background-color: @gux-grey-50;
@@ -126,24 +126,24 @@ gux-button {
     }
 
     &.gux-tertiary {
-      background-color: @gux-grey-100;
       color: @gux-blue-60;
+      background-color: @gux-grey-100;
       border: 1px solid @gux-blue-60;
 
       &:hover:enabled {
-        background-color: @gux-blue-50;
         color: @gux-grey-100;
+        background-color: @gux-blue-50;
       }
 
       &:active:enabled {
-        background-color: @gux-blue-40;
         color: @gux-grey-100;
+        background-color: @gux-blue-40;
       }
     }
 
     &.gux-primary {
-      background-color: @gux-blue-60;
       color: @gux-grey-100;
+      background-color: @gux-blue-60;
 
       &:hover:enabled {
         background-color: @gux-blue-50;

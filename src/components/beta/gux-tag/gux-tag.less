@@ -10,9 +10,9 @@ gux-tag-beta {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
     align-content: stretch;
     align-items: center;
+    justify-content: flex-start;
     color: @gux-grey-100;
     border-radius: @spacing-3xs;
 
@@ -21,38 +21,38 @@ gux-tag-beta {
     }
 
     .gux-tag-icon-container {
-      height: 24px;
-      width: 24px;
-      flex: 0 1 auto;
-      align-self: auto;
-      margin-right: (-1 * @spacing-xs);
       display: flex;
-      justify-content: center;
+      flex: 0 1 auto;
       align-content: center;
       align-items: center;
+      align-self: auto;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      margin-right: (-1 * @spacing-xs);
 
       .gux-tag-icon {
-        height: 16px;
         width: 16px;
+        height: 16px;
       }
     }
 
     .gux-tag-text {
       flex: 0 1 auto;
       align-self: auto;
-      white-space: nowrap;
       padding: 0 @spacing-xs;
       line-height: 24px;
+      white-space: nowrap;
     }
 
     .gux-tag-remove-button {
       all: unset;
-      width: 24px;
-      height: 24px;
       display: flex;
-      justify-content: center;
       align-content: center;
       align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
       margin-left: (-1 * @spacing-xs);
       overflow: hidden;
 
@@ -61,8 +61,8 @@ gux-tag-beta {
       }
 
       .gux-tag-remove-icon {
-        height: 12px;
         width: 12px;
+        height: 12px;
       }
     }
 
@@ -98,12 +98,12 @@ gux-tag-beta {
       background-color: @gux-olive-green-sec;
     }
     &.gux-lilac {
-      background-color: @gux-lilac-sec;
       color: @gux-black-50;
+      background-color: @gux-lilac-sec;
     }
     &.gux-alert-yellow-green {
-      background-color: @gux-alert-yellow-green-sec;
       color: @gux-black-50;
+      background-color: @gux-alert-yellow-green-sec;
     }
   }
 }

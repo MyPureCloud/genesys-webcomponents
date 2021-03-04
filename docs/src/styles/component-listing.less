@@ -4,10 +4,10 @@
 
 html,
 body {
+  width: 100%;
+  height: 100%;
   padding: 0;
   margin: 0;
-  height: 100%;
-  width: 100%;
   background-color: #fdfdfd;
 }
 
@@ -19,29 +19,29 @@ main {
 
 iframe {
   flex-grow: 1;
-  border: none;
   padding-left: 0;
+  border: none;
 }
 
 nav {
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #dae1e8;
-  overflow-y: auto;
   flex-shrink: 0;
   min-width: 180px;
+  overflow-y: auto;
+  border-right: 1px solid #dae1e8;
 
   header {
-    font-size: 16px;
     padding: 12px 15px 10px 15px;
+    font-size: 16px;
   }
 
   a {
-    line-height: 32px;
     padding: 0 16px;
     font-size: 12px;
-    text-decoration: none;
+    line-height: 32px;
     color: #33383d;
+    text-decoration: none;
     white-space: nowrap;
 
     &:hover {

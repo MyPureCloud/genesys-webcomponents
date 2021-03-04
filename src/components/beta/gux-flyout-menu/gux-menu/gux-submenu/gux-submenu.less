@@ -2,58 +2,58 @@
 @import (reference) '../gux-menu.common.less';
 
 gux-submenu {
+  display: block;
   flex: 1 1 auto;
   align-self: auto;
-  display: block;
 
   .gux-submenu-button {
     all: unset;
-    width: 100%;
-    height: 32px;
-    line-height: 32px;
-    padding: 0 16px;
-    background-color: @gux-off-white;
-    color: @gux-type;
-    width: @gux-menu-item-width;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
     align-content: stretch;
     align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    width: @gux-menu-item-width;
+    height: 32px;
+    padding: 0 16px;
+    line-height: 32px;
+    color: @gux-type;
+    background-color: @gux-off-white;
 
     &:focus-within,
     &:hover {
-      background-color: @gux-blue-60;
       color: @gux-type-dark;
+      background-color: @gux-blue-60;
     }
 
     .gux-submenu-button-text {
-      order: 0;
       flex: 1 1 auto;
       align-self: auto;
-      white-space: nowrap;
+      order: 0;
+      margin-right: 12px;
       overflow-x: hidden;
       text-overflow: ellipsis;
-      margin-right: 12px;
+      white-space: nowrap;
     }
 
     .gux-submenu-open-icon {
-      height: 10px;
-      width: 10px;
-      order: 0;
       flex: 0 0 auto;
       align-self: auto;
+      order: 0;
+      width: 10px;
+      height: 10px;
     }
   }
 
   .gux-submenu-wrapper {
     display: none;
     flex-direction: column;
+    padding: 8px 0;
+    background-color: @gux-type-dark;
     border: 1px @gux-border;
     box-shadow: 0 0 2px fade(@gux-black-30, 24%);
-    background-color: @gux-type-dark;
-    padding: 8px 0;
 
     &.gux-shown {
       display: flex;

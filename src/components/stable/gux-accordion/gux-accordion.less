@@ -13,17 +13,17 @@ gux-accordion {
         height: 40px;
 
         button {
+          display: block;
+          width: 100%;
+          padding: 0;
           font-family: inherit;
           font-size: inherit;
-          line-height: 40px;
           font-weight: bold;
-          border: none;
-          background: none;
-          display: block;
-          cursor: pointer;
-          width: 100%;
+          line-height: 40px;
           text-align: left;
-          padding: 0;
+          cursor: pointer;
+          background: none;
+          border: none;
 
           .gux-heading-text {
             padding: 0 0 0 16px;
@@ -31,11 +31,11 @@ gux-accordion {
         }
 
         .gux-toggle-arrow {
-          float: right;
-          padding: 0 12px;
-          height: 39px;
           display: flex;
           align-items: center;
+          float: right;
+          height: 39px;
+          padding: 0 12px;
 
           gux-icon {
             width: 16px;

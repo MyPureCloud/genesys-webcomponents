@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.2](http://inindca///compare/v2.4.1...v2.4.2) (2021-03-04)
+
+
+### Bug Fixes
+
+* **gux-dropdown:** update colors based on UX input ([62861a3](http://inindca///commit/62861a3aacfd6db0d2a783f9825f0c4618d4cdb2))
+* **gux-popover:** fixed class name missing gux prefix ([d53ffcf](http://inindca///commit/d53ffcfd329de4b4ba2100d7b346c74dd80fe070))
+
 ### [2.4.1](http://inindca///compare/v2.4.0...v2.4.1) (2021-03-03)
 
 ## [2.4.0](http://inindca///compare/v2.3.0...v2.4.0) (2021-03-02)

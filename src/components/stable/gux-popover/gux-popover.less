@@ -8,19 +8,19 @@ gux-popover {
   .gux-popover-wrapper {
     display: flex;
     flex-direction: column;
+    background-color: @gux-type-dark;
     border: 1px @gux-border;
     box-shadow: 0 0 2px fade(@gux-black-30, 24%);
-    background-color: @gux-type-dark;
   }
 
   .gux-arrow,
   .gux-arrow::after {
     position: absolute;
-    content: ' ';
-    height: 0;
     width: 0;
-    border-style: solid;
+    height: 0;
+    content: ' ';
     border-color: transparent;
+    border-style: solid;
   }
 
   .gux-arrow {
@@ -37,13 +37,13 @@ gux-popover {
     margin-top: 6px;
 
     .gux-arrow {
-      border-bottom-color: @gux-border;
       margin-top: -12px;
+      border-bottom-color: @gux-border;
 
       &::after {
-        border-bottom-color: @gux-type-dark;
         margin-top: -2px;
         margin-left: -4px;
+        border-bottom-color: @gux-type-dark;
       }
     }
   }
@@ -55,13 +55,13 @@ gux-popover {
 
     .gux-arrow {
       bottom: 0;
-      border-top-color: @gux-border;
       margin-bottom: -12px;
+      border-top-color: @gux-border;
 
       &::after {
-        border-top-color: @gux-type-dark;
         margin-top: -6px;
         margin-left: -4px;
+        border-top-color: @gux-type-dark;
       }
     }
   }
@@ -73,13 +73,13 @@ gux-popover {
 
     .gux-arrow {
       right: 0;
-      border-left-color: @gux-border;
       margin-right: -12px;
+      border-left-color: @gux-border;
 
       &::after {
-        border-left-color: @gux-type-dark;
         margin-top: -4px;
         margin-left: -6px;
+        border-left-color: @gux-type-dark;
       }
     }
   }
@@ -90,13 +90,13 @@ gux-popover {
     margin-left: 6px;
 
     .gux-arrow {
-      border-right-color: @gux-border;
       margin-left: -12px;
+      border-right-color: @gux-border;
 
       &::after {
-        border-right-color: @gux-type-dark;
         margin-top: -4px;
         margin-left: -2px;
+        border-right-color: @gux-type-dark;
       }
     }
   }
@@ -106,11 +106,11 @@ gux-popover {
     margin-bottom: -16px;
 
     .gux-dismiss {
-      height: 12px;
       width: 12px;
+      height: 12px;
       padding: 4px 4px 0 0;
-      cursor: pointer;
       color: @gux-type;
+      cursor: pointer;
 
       &:hover {
         color: @gux-blue-60;

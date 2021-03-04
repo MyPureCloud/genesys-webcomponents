@@ -7,17 +7,17 @@ gux-action-button {
   min-width: 128px;
 
   .gux-action-button-container {
-    display: flex;
     position: relative;
+    display: flex;
 
     .gux-action-button {
       flex: 1;
       margin-right: 1px;
 
       button {
+        width: 100%;
         max-width: none;
         text-align: center;
-        width: 100%;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
       }
@@ -39,11 +39,11 @@ gux-action-button {
     }
 
     .gux-dropdown-list {
+      position: absolute;
+      top: 32px;
+      z-index: 1;
       display: none;
       width: 100%;
-      position: absolute;
-      z-index: 1;
-      top: 32px;
     }
 
     &.gux-open {

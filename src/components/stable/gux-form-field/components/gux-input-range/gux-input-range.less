@@ -18,30 +18,30 @@
 }
 
 .gux-thumb() {
-  height: @thumb-diameter;
-  width: @thumb-diameter;
-  border-radius: 100%;
-  cursor: pointer;
   display: block;
+  width: @thumb-diameter;
+  height: @thumb-diameter;
+  cursor: pointer;
+  border-radius: 100%;
 }
 
 gux-input-range {
   .gux-container {
-    align-content: stretch;
-    align-items: center;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: center;
     justify-content: flex-start;
 
     &.gux-disabled {
-      opacity: 0.5;
       pointer-events: none;
+      opacity: 0.5;
     }
 
     .gux-range {
-      align-self: center;
       flex: 1 1 auto;
+      align-self: center;
       order: 0;
       padding-top: 4px;
 
@@ -57,12 +57,12 @@ gux-input-range {
 
       input[type='range'] {
         width: 100%;
-        -webkit-appearance: none;
-        background: transparent;
-        margin: @thumb-diameter / 2 0;
         width: @track-width;
         height: @track-height;
+        margin: @thumb-diameter / 2 0;
         margin-top: calc(-1 * (@thumb-diameter / 2 + @track-height));
+        background: transparent;
+        -webkit-appearance: none;
 
         &:focus {
           outline: none;
@@ -77,8 +77,8 @@ gux-input-range {
         &::-webkit-slider-thumb {
           .gux-thumb();
 
-          -webkit-appearance: none;
           margin-top: ((@track-height) / 2) - (@thumb-diameter / 2);
+          -webkit-appearance: none;
         }
 
         &:focus::-webkit-slider-runnable-track {
@@ -100,10 +100,10 @@ gux-input-range {
         &::-ms-track {
           .gux-track();
 
+          color: transparent;
           background: transparent;
           border-color: transparent;
           border-width: @thumb-diameter 0;
-          color: transparent;
         }
 
         &::-ms-fill-lower {
@@ -145,14 +145,14 @@ gux-input-range {
     }
 
     .gux-display {
-      align-self: auto;
       flex: 0 1 auto;
-      height: 32px;
-      line-height: 32px;
-      margin: 0 0 0 20px;
+      align-self: auto;
       order: 0;
-      text-align: center;
       width: 50px;
+      height: 32px;
+      margin: 0 0 0 20px;
+      line-height: 32px;
+      text-align: center;
       border-radius: 4px;
     }
   }
@@ -173,18 +173,18 @@ gux-input-range {
 
       input[type='range'] {
         &::-webkit-slider-thumb {
-          border: 0 solid @range-active; // For firefox
           background: @range-active;
+          border: 0 solid @range-active; // For firefox
         }
 
         &::-moz-range-thumb {
-          border: 0 solid @range-active; // For firefox
           background: @range-active;
+          border: 0 solid @range-active; // For firefox
         }
 
         &::-ms-thumb {
-          border: 0 solid @range-active; // For firefox
           background: @range-active;
+          border: 0 solid @range-active; // For firefox
         }
       }
     }
@@ -223,26 +223,26 @@ gux-input-range.gux-light-theme {
 
       input[type='range'] {
         &::-webkit-slider-thumb {
-          border: 0 solid @range-active-dark; // For firefox
           background: @range-active-dark;
+          border: 0 solid @range-active-dark; // For firefox
         }
 
         &::-moz-range-thumb {
-          border: 0 solid @range-active-dark; // For firefox
           background: @range-active-dark;
+          border: 0 solid @range-active-dark; // For firefox
         }
 
         &::-ms-thumb {
-          border: 0 solid @range-active-dark; // For firefox
           background: @range-active-dark;
+          border: 0 solid @range-active-dark; // For firefox
         }
       }
     }
 
     .gux-display {
-      border: 1px solid @range-inactive-dark;
-      background-color: @range-inactive-dark;
       color: @gux-type;
+      background-color: @range-inactive-dark;
+      border: 1px solid @range-inactive-dark;
 
       &.gux-active {
         border-color: @range-active-dark;

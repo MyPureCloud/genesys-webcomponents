@@ -2,31 +2,31 @@
 @import (reference) '../gux-menu.common.less';
 
 gux-menu-option {
+  display: block;
   flex: 1 1 auto;
   align-self: auto;
-  display: block;
 
   .gux-menu-option-button {
     all: unset;
     width: 100%;
-    height: 32px;
-    line-height: 32px;
-    padding: 0 16px;
-    background-color: @gux-off-white;
-    color: @gux-type;
     width: @gux-menu-item-width;
+    height: 32px;
+    padding: 0 16px;
+    line-height: 32px;
+    color: @gux-type;
+    background-color: @gux-off-white;
 
     &:focus-within,
     &:hover {
-      background-color: @gux-blue-60;
       color: @gux-type-dark;
+      background-color: @gux-blue-60;
     }
 
     .gux-menu-option-button-text {
       display: block;
-      white-space: nowrap;
       overflow-x: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }

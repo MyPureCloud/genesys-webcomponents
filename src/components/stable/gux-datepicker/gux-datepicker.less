@@ -10,8 +10,8 @@ gux-datepicker {
   > div.gux-datepicker {
     button {
       cursor: pointer;
-      border: none;
       background: none;
+      border: none;
       outline: none;
     }
 
@@ -36,13 +36,13 @@ gux-datepicker {
         }
 
         > button {
-          color: @gux-black-90;
           position: absolute;
+          right: 0;
+          bottom: 0;
+          z-index: 1;
           height: 32px;
           font-size: 16px;
-          bottom: 0;
-          right: 0;
-          z-index: 1;
+          color: @gux-black-90;
         }
 
         > div > div > button {
@@ -63,9 +63,9 @@ gux-datepicker {
   }
 
   gux-calendar {
-    display: none;
     position: absolute;
     top: 35px;
     z-index: 2;
+    display: none;
   }
 }

@@ -18,23 +18,23 @@ gux-color-picker-legacy {
   }
 
   .gux-color-picker-main-element {
-    width: 100%;
-    outline: none;
-    user-select: none;
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    box-shadow: 0 0 0 0 transparent;
-    transition: box-shadow 0.2s;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
     background-color: @background;
     border: 1px solid @gux-border;
     border-radius: 2px;
-    cursor: pointer;
+    outline: none;
+    box-shadow: 0 0 0 0 transparent;
+    transition: box-shadow 0.2s;
 
     &:disabled {
-      opacity: 0.5;
       pointer-events: none;
       cursor: default;
+      opacity: 0.5;
     }
   }
 
@@ -46,41 +46,41 @@ gux-color-picker-legacy {
   }
 
   .gux-color-picker-selected-color {
-    padding: 8px;
     float: left;
+    padding: 8px;
     margin: 8px 12px;
   }
 
   .gux-color-picker-color-name {
-    margin: 9px 0;
     float: left;
+    margin: 9px 0;
     font-size: 12px;
     color: @gux-type;
   }
 
   .gux-color-picker-color-select {
     position: absolute;
-    width: 100%;
-    z-index: 1;
-    left: 0;
     top: 100%;
+    left: 0;
+    z-index: 1;
+    width: 100%;
   }
 
   gux-icon {
     position: absolute;
     top: 0;
     right: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
     display: flex;
     align-items: center;
-    outline: none;
-    overflow: hidden;
     width: 16px;
     height: 100%;
-    pointer-events: none;
     padding: 0 7px;
+    overflow: hidden;
+    pointer-events: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
   }
 }
 
@@ -91,8 +91,8 @@ gux-color-picker-legacy {
   color: @gux-type-dark;
 
   .gux-color-picker-main-element {
-    border-color: @gux-black-30;
     background-color: @expalette-background-color-dark;
+    border-color: @gux-black-30;
   }
 
   .gux-color-picker-main-element:focus,

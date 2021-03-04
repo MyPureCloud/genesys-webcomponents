@@ -9,29 +9,29 @@ gux-dropdown {
     margin: 4px 0;
 
     &.gux-disabled {
-      opacity: 0.5;
       pointer-events: none;
       cursor: default;
+      opacity: 0.5;
     }
 
     .gux-select-field {
       position: relative;
-      height: 32px;
       width: 100%;
+      height: 32px;
 
       .gux-ghost {
         position: absolute;
-        height: 32px;
-        width: 100%;
         box-sizing: border-box;
+        width: 100%;
+        height: 32px;
         padding: 5px 25px 4px 12px;
-        border: 1px solid transparent;
-        border-radius: 2px;
+        overflow: hidden;
         font-size: 12px;
         line-height: 1.66666667;
-        white-space: nowrap;
-        overflow: hidden;
         text-overflow: ellipsis;
+        white-space: nowrap;
+        border: 1px solid transparent;
+        border-radius: 2px;
       }
 
       gux-text-field-legacy {
@@ -40,9 +40,9 @@ gux-dropdown {
         }
 
         input {
+          text-overflow: ellipsis;
           cursor: pointer;
           background-color: transparent;
-          text-overflow: ellipsis;
         }
 
         &.gux-unclearable {
@@ -57,26 +57,24 @@ gux-dropdown {
         top: 1px;
         right: 3px;
         bottom: 0;
-        border: none;
-        background: none;
-        cursor: pointer;
         display: block;
-        outline: none;
         overflow: hidden;
         pointer-events: none;
+        cursor: pointer;
+        background: none;
+        border: none;
+        outline: none;
       }
     }
 
     .gux-options {
-      display: none;
       position: absolute;
-      width: 100%;
       z-index: 1;
-      margin: 1px 0;
       padding: 8px 0;
+      margin: 1px 0;
+      color: @gux-black-50;
       background: @gux-grey-100;
       border: 1px solid @gux-black-100;
-      color: @gux-black-50;
       .shadow-30();
 
       &.gux-opened {
@@ -85,17 +83,17 @@ gux-dropdown {
 
       > gux-option {
         position: relative;
-        height: 32px;
-        line-height: 32px;
-        padding: 0 16px;
         display: flex;
+        height: 32px;
+        padding: 0 16px;
+        line-height: 32px;
         cursor: pointer;
 
         > div {
           position: relative;
           overflow: hidden;
-          white-space: nowrap;
           text-overflow: ellipsis;
+          white-space: nowrap;
 
           .gux-ghost {
             position: absolute;
@@ -103,9 +101,9 @@ gux-dropdown {
         }
 
         &[disabled] {
-          opacity: 0.5;
           pointer-events: none;
           cursor: default;
+          opacity: 0.5;
         }
 
         &.gux-filtered {
@@ -114,14 +112,14 @@ gux-dropdown {
 
         &:not([disabled]) {
           &[selected] {
-            background: @gux-blue-100;
             color: @gux-black-50;
+            background: @gux-blue-100;
           }
 
           &:hover,
           &:focus {
-            background: @gux-blue-60;
             color: @gux-type-dark;
+            background: @gux-blue-60;
           }
         }
       }
@@ -130,14 +128,13 @@ gux-dropdown {
     &.gux-page {
       .gux-select-field {
         .gux-ghost {
-          white-space: nowrap;
-          overflow: hidden;
-
-          .h1();
-
-          line-height: 1.66666667;
           height: 48px;
           padding: 2px 25px 4px 11px;
+          overflow: hidden;
+          line-height: 1.66666667;
+          white-space: nowrap;
+
+          .h1();
         }
 
         height: 48px;
@@ -150,15 +147,15 @@ gux-dropdown {
           input {
             .h1();
 
-            line-height: 1.66666667;
             height: 48px;
+            line-height: 1.66666667;
             border: none;
             border-bottom: 2px solid transparent;
 
             &:focus {
-              box-shadow: none;
               border: none;
               border-bottom: 2px solid fade(@gux-blue-80, 50%);
+              box-shadow: none;
             }
           }
         }
@@ -174,14 +171,13 @@ gux-dropdown {
     &.gux-palette {
       .gux-select-field {
         .gux-ghost {
-          white-space: nowrap;
-          overflow: hidden;
-
-          .h2();
-
-          line-height: 1.66666667;
           height: 52px;
           padding: 9px 25px 4px 11px;
+          overflow: hidden;
+          line-height: 1.66666667;
+          white-space: nowrap;
+
+          .h2();
         }
 
         height: 52px;
@@ -194,15 +190,15 @@ gux-dropdown {
           input {
             .h2();
 
-            line-height: 1.66666667;
             height: 52px;
+            line-height: 1.66666667;
             border: none;
             border-bottom: 2px solid transparent;
 
             &:focus {
-              box-shadow: none;
               border: none;
               border-bottom: 2px solid fade(@gux-blue-80, 50%);
+              box-shadow: none;
             }
           }
         }
@@ -222,13 +218,13 @@ gux-dropdown {
   div.gux-dropdown {
     .gux-select-field {
       .gux-ghost {
-        background-color: @gux-grey-90;
         color: @gux-black-90;
+        background-color: @gux-grey-90;
       }
 
       gux-text-field-legacy input {
-        border-color: @gux-black-100;
         color: @gux-black-50;
+        border-color: @gux-black-100;
 
         &:focus {
           box-shadow: 0 0 0 3px fade(@gux-blue-80, 50%);
@@ -255,8 +251,8 @@ gux-dropdown {
     &.gux-page {
       .gux-select-field {
         .gux-ghost {
-          background-color: @gux-background;
           color: @gux-grey-10;
+          background-color: @gux-background;
         }
 
         gux-text-field-legacy input {
@@ -274,8 +270,8 @@ gux-dropdown {
     &.gux-palette {
       .gux-select-field {
         .gux-ghost {
-          background-color: @gux-background;
           color: @gux-grey-10;
+          background-color: @gux-background;
         }
 
         gux-text-field-legacy {

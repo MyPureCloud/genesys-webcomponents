@@ -6,48 +6,48 @@
 // Style
 gux-modal {
   .gux-modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     top: 0;
-    bottom: 0;
     right: 0;
+    bottom: 0;
     left: 0;
-    background: fade(@gux-black-30, 80%);
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: @gux-black-50;
+    background: fade(@gux-black-30, 80%);
 
     .gux-modal-container {
       .shadow-20();
 
-      display: flex;
-      flex-direction: column;
       position: relative;
       box-sizing: border-box;
-      padding: 40px;
+      display: flex;
+      flex-direction: column;
       justify-content: space-between;
+      padding: 40px;
       background: @gux-grey-100;
       border: 1px solid @gux-black-100;
 
       &.gux-small {
-        max-height: e(%('min(368px, 100vh - 2 * %s)', @spacing-large));
         width: 416px;
+        max-height: e(%('min(368px, 100vh - 2 * %s)', @spacing-large));
       }
 
       &.gux-medium {
-        max-height: e(%('min(640, 100vh - 2 * %s)', @spacing-large));
         width: 672px;
+        max-height: e(%('min(640, 100vh - 2 * %s)', @spacing-large));
       }
 
       &.gux-large {
-        max-height: e(%('min(640, 100vh - 2 * %s)', @spacing-large));
         width: 940px;
+        max-height: e(%('min(640, 100vh - 2 * %s)', @spacing-large));
       }
 
       &.gux-dynamic {
-        max-height: calc(100vh - 2 * @spacing-large);
         max-width: calc(100vw - 2 * @spacing-large);
+        max-height: calc(100vh - 2 * @spacing-large);
 
         .gux-modal-content {
           max-height: none;
@@ -59,11 +59,11 @@ gux-modal {
         top: 15px;
         right: 15px;
         padding: 0;
-        border: none;
-        background: transparent;
         font-size: 11px;
         color: @gux-black-90;
         cursor: pointer;
+        background: transparent;
+        border: none;
 
         gux-icon {
           width: 12px;
@@ -72,14 +72,14 @@ gux-modal {
       }
 
       .gux-modal-header {
-        margin: 0;
         padding-bottom: 24px;
+        margin: 0;
         .h1();
       }
 
       .gux-modal-content {
-        margin: 0 8px 24px 8px;
         max-height: 432px;
+        margin: 0 8px 24px 8px;
         overflow-y: auto;
 
         &.gux-no-buttons {
@@ -110,8 +110,8 @@ gux-modal {
         &.gux-small,
         &.gux-medium,
         &.gux-large {
-          height: 100%;
           width: 100%;
+          height: 100%;
         }
       }
     }

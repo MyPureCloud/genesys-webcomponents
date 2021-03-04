@@ -12,11 +12,11 @@ gux-switch-item {
   > .gux-switch-item {
     .body-font();
 
-    background: none;
-    border: none;
-    text-align: center;
     font: unset;
     color: @gux-type;
+    text-align: center;
+    background: none;
+    border: none;
     outline: none;
 
     > gux-icon {
@@ -27,8 +27,8 @@ gux-switch-item {
   }
 
   &[disabled] {
-    opacity: 0.5;
     pointer-events: none;
+    opacity: 0.5;
   }
 
   &.gux-selected {
@@ -40,14 +40,14 @@ gux-switch {
   // Default
   > gux-switch-item {
     .gux-switch-item {
-      border-bottom: 1px solid @inactive-small;
       padding: 0 @spacing-xs @spacing-2xs;
+      border-bottom: 1px solid @inactive-small;
 
       &:focus,
       &:hover {
-        outline: none;
-        border-bottom: @spacing-2xs solid @gux-blue-60;
         padding: 0 @spacing-xs 1px;
+        border-bottom: @spacing-2xs solid @gux-blue-60;
+        outline: none;
 
         > gux-icon {
           svg {
@@ -57,15 +57,15 @@ gux-switch {
       }
 
       > gux-icon {
-        height: 32px;
         width: 32px;
+        height: 32px;
       }
     }
 
     &.gux-selected {
       .gux-switch-item {
-        border-bottom: @spacing-2xs solid @gux-blue-60;
         padding: 0 @spacing-xs 1px;
+        border-bottom: @spacing-2xs solid @gux-blue-60;
 
         > gux-icon {
           svg {
@@ -81,8 +81,8 @@ gux-switch {
       .gux-switch-item {
         .gux-small-text();
 
-        border-bottom: 1px solid @inactive-small;
         padding: 0 @spacing-2xs;
+        border-bottom: 1px solid @inactive-small;
 
         &:focus,
         &:hover {
@@ -90,8 +90,8 @@ gux-switch {
         }
 
         > gux-icon {
-          height: 24px;
           width: 24px;
+          height: 24px;
         }
       }
 

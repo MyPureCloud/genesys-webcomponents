@@ -17,40 +17,40 @@
     border-radius: 2px;
 
     .arrow-button {
-      height: 40px;
-      width: 24px;
-      border: none;
-      padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: color 0.25s;
-      border-radius: 2px;
+      width: 24px;
+      height: 40px;
+      padding: 0;
+      border: none;
       border-style: solid;
       border-width: 1px;
+      border-radius: 2px;
+      transition: color 0.25s;
 
       gux-icon {
-        height: 10px;
         width: 10px;
+        height: 10px;
       }
     }
 
     .add-tab {
-      height: 40px;
-      width: 40px;
-      border: none;
-      padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: color 0.25s;
-      border-radius: 2px;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: none;
       border-style: solid;
       border-width: 1px;
+      border-radius: 2px;
+      transition: color 0.25s;
 
       gux-icon {
-        height: 16px;
         width: 16px;
+        height: 16px;
       }
     }
   }
@@ -67,20 +67,20 @@
     }
 
     .add-tab {
-      height: 36px;
-      width: 36px;
-      min-width: 36px;
-      border: none;
-      padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 36px;
+      min-width: 36px;
+      height: 36px;
+      padding: 0;
       margin-left: 4px;
+      border: none;
       transition: color 0.25s;
 
       gux-icon {
-        height: 16px;
         width: 16px;
+        height: 16px;
       }
     }
   }
@@ -95,8 +95,8 @@
     background-color: @gux-off-tab-fill;
 
     .arrow-button {
-      background-color: @gux-tabs-background;
       color: @gux-black-30;
+      background-color: @gux-tabs-background;
       border-color: @gux-off-tab-fill;
 
       &:hover {
@@ -109,8 +109,8 @@
     }
 
     .add-tab {
-      background-color: @gux-tabs-background;
       color: @gux-black-30;
+      background-color: @gux-tabs-background;
       border-color: @gux-off-tab-fill;
 
       &:hover {
@@ -137,8 +137,8 @@
     }
 
     .add-tab {
-      background-color: @gux-off-tab-fill;
       color: @gux-black-30;
+      background-color: @gux-off-tab-fill;
 
       &:hover {
         color: @gux-blue-60;
@@ -159,20 +159,6 @@
 
 .gux-tabs.gux-light-theme {
   .gux-tabs-light-theme();
-}
-
-// Dark
-.gux-tabs-dark-theme {
-}
-
-.gux-dark-theme {
-  .gux-tabs {
-    .gux-tabs-dark-theme();
-  }
-}
-
-.gux-tabs.gux-dark-theme {
-  .gux-tabs-dark-theme();
 }
 
 // Default

@@ -6,15 +6,15 @@
 gux-tab-dropdown-option {
   .tab-dropdown-option {
     display: flex;
+    align-items: center;
     width: 120px;
     height: 36px;
-    align-items: center;
-    transition: color 0.25s, background-color 0.25s;
+    padding: 0;
+    font-size: 12px;
     cursor: pointer;
     background: none;
     border: none;
-    padding: 0;
-    font-size: 12px;
+    transition: color 0.25s, background-color 0.25s;
 
     &:hover,
     &:focus {
@@ -22,9 +22,9 @@ gux-tab-dropdown-option {
     }
 
     gux-icon {
-      margin: 0 10px;
-      height: 16px;
       width: 16px;
+      height: 16px;
+      margin: 0 10px;
     }
   }
 }
@@ -37,8 +37,8 @@ gux-tab-dropdown-option {
 
     &:hover,
     &:focus {
-      background-color: @gux-blue-60;
       color: @gux-type-dark;
+      background-color: @gux-blue-60;
     }
   }
 }
@@ -51,20 +51,6 @@ gux-tab-dropdown-option {
 
 gux-tab-dropdown-option.gux-light-theme {
   .gux-tab-dropdown-option-light-theme();
-}
-
-// Dark
-.gux-tab-dropdown-option-dark-theme {
-}
-
-.gux-dark-theme {
-  gux-tab-dropdown-option {
-    .gux-tab-dropdown-option-dark-theme();
-  }
-}
-
-gux-tab-dropdown-option.gux-dark-theme {
-  .gux-tab-dropdown-option-dark-theme();
 }
 
 // Default

@@ -1,21 +1,21 @@
 @import (reference) '../../../style/color.less';
 
 gux-simple-toast {
-  padding: 8px 12px;
-  width: 336px;
   position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-start;
   align-content: stretch;
   align-items: flex-start;
+  justify-content: flex-start;
+  width: 336px;
+  padding: 8px 12px;
   border-top: 1px solid;
 
   .gux-icon {
-    order: 0;
     flex: 0 1 auto;
     align-self: auto;
+    order: 0;
     margin: 6px;
 
     &.gux-alert {
@@ -41,14 +41,14 @@ gux-simple-toast {
   }
 
   .gux-message {
-    order: 0;
     flex: 1 1 auto;
     align-self: auto;
-    line-height: 24px;
+    order: 0;
+    max-height: 48px;
     margin: 0 12px 0 8px;
     overflow: hidden;
+    line-height: 24px;
     text-overflow: ellipsis;
-    max-height: 48px;
   }
 
   .gux-dismiss-button {
@@ -56,10 +56,10 @@ gux-simple-toast {
     top: 15px;
     right: 15px;
     padding: 0;
-    border: none;
-    background: transparent;
     font-size: 11px;
     cursor: pointer;
+    background: transparent;
+    border: none;
 
     gux-icon {
       width: 12px;
@@ -71,8 +71,8 @@ gux-simple-toast {
 // Theming
 // Light
 .gux-simple-toast-light-theme {
-  background: @expalette-background-color-dark-2;
   color: @gux-type-dark;
+  background: @expalette-background-color-dark-2;
   border-color: @gux-type;
 
   .gux-icon {
@@ -100,8 +100,8 @@ gux-simple-toast {
 
 // Dark
 .gux-simple-toast-dark-theme {
-  background: @gux-background;
   color: @gux-type;
+  background: @gux-background;
   border-color: @gux-border;
 
   .gux-icon {

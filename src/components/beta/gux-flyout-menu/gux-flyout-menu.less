@@ -8,9 +8,9 @@ gux-flyout-menu-beta {
   .gux-flyout-menu-wrapper {
     display: none;
     flex-direction: column;
+    background-color: @gux-type-dark;
     border: 1px @gux-border;
     box-shadow: 0 0 2px fade(@gux-black-30, 24%);
-    background-color: @gux-type-dark;
 
     &.gux-shown {
       display: flex;
@@ -20,11 +20,11 @@ gux-flyout-menu-beta {
   .gux-arrow,
   .gux-arrow::after {
     position: absolute;
-    content: ' ';
-    height: 0;
     width: 0;
-    border-style: solid;
+    height: 0;
+    content: ' ';
     border-color: transparent;
+    border-style: solid;
   }
 
   .gux-arrow {
@@ -41,14 +41,14 @@ gux-flyout-menu-beta {
     margin-top: 6px;
 
     .gux-arrow {
-      border-bottom-color: @gux-border;
       margin-top: -12px;
       margin-right: -12px;
+      border-bottom-color: @gux-border;
 
       &::after {
-        border-bottom-color: @gux-type-dark;
         margin-top: -2px;
         margin-left: -4px;
+        border-bottom-color: @gux-type-dark;
       }
     }
   }
@@ -60,13 +60,13 @@ gux-flyout-menu-beta {
 
     .gux-arrow {
       bottom: 0;
-      border-top-color: @gux-border;
       margin-bottom: -12px;
+      border-top-color: @gux-border;
 
       &::after {
-        border-top-color: @gux-type-dark;
         margin-top: -6px;
         margin-left: -4px;
+        border-top-color: @gux-type-dark;
       }
     }
   }
@@ -78,13 +78,13 @@ gux-flyout-menu-beta {
 
     .gux-arrow {
       right: 0;
-      border-left-color: @gux-border;
       margin-right: -12px;
+      border-left-color: @gux-border;
 
       &::after {
-        border-left-color: @gux-type-dark;
         margin-top: -4px;
         margin-left: -6px;
+        border-left-color: @gux-type-dark;
       }
     }
   }
@@ -95,13 +95,13 @@ gux-flyout-menu-beta {
     margin-left: 6px;
 
     .gux-arrow {
-      border-right-color: @gux-border;
       margin-left: -12px;
+      border-right-color: @gux-border;
 
       &::after {
-        border-right-color: @gux-type-dark;
         margin-top: -4px;
         margin-left: -2px;
+        border-right-color: @gux-type-dark;
       }
     }
   }

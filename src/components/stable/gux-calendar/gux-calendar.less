@@ -12,21 +12,21 @@ gux-calendar {
     .gux-header {
       position: relative;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       height: 16px;
       padding: 16px;
-      background-color: @gux-blue-60;
       color: @gux-grey-100;
+      background-color: @gux-blue-60;
 
       button {
         position: absolute;
-        cursor: pointer;
-        border: none;
-        background: none;
-        outline: none;
         padding: 5px;
         color: @gux-grey-100;
+        cursor: pointer;
+        background: none;
+        border: none;
+        outline: none;
 
         &:focus {
           outline: @gux-blue-80 auto 5px;
@@ -64,14 +64,14 @@ gux-calendar {
     .gux-content {
       display: flex;
       padding: 16px 22px 20px 22px;
-      background-color: @gux-grey-100;
       color: @gux-black-50;
+      background-color: @gux-grey-100;
 
       table {
-        table-layout: fixed;
-        text-align: left;
-        border-spacing: 0;
         width: 168px;
+        text-align: left;
+        table-layout: fixed;
+        border-spacing: 0;
         -ms-user-select: none;
         user-select: none;
 
@@ -87,17 +87,17 @@ gux-calendar {
           }
 
           th {
-            text-align: center;
             width: 24px;
             margin: 0;
+            text-align: center;
             .body-font();
             .bold-font();
           }
 
           td {
-            text-align: center;
             width: 24px;
             margin: 0;
+            text-align: center;
             cursor: pointer;
             .body-font();
 
@@ -106,26 +106,26 @@ gux-calendar {
             }
 
             &.gux-selected {
-              background-color: @gux-blue-60;
               color: @gux-grey-100;
+              background-color: @gux-blue-60;
             }
 
             &:hover {
-              background-color: @gux-blue-60;
               color: @gux-grey-100;
+              background-color: @gux-blue-60;
             }
 
             &.gux-disabled {
-              opacity: 0.5;
               pointer-events: none;
+              opacity: 0.5;
             }
 
             &.gux-not-in-month {
               color: @gux-grey-10;
 
               &:hover {
-                background-color: @gux-border;
                 color: @gux-black-50;
+                background-color: @gux-border;
               }
 
               &.gux-hidden {

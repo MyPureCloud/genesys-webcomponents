@@ -2,21 +2,21 @@
 @import (reference) '../../../style/color.less';
 
 gux-notification-toast {
-  padding: 16px 8px 16px 16px;
-  width: 336px;
   position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-start;
   align-content: stretch;
   align-items: flex-start;
+  justify-content: flex-start;
+  width: 336px;
+  padding: 16px 8px 16px 16px;
   border-top: 1px solid;
 
   .gux-icon {
-    order: 0;
     flex: 0 1 auto;
     align-self: auto;
+    order: 0;
     margin: 4px;
 
     gux-icon {
@@ -26,37 +26,37 @@ gux-notification-toast {
   }
 
   .gux-content {
-    order: 0;
-    flex: 1 1 auto;
-    align-self: auto;
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: flex-start;
     align-content: stretch;
     align-items: flex-start;
+    align-self: auto;
+    justify-content: flex-start;
+    order: 0;
 
     .gux-title {
-      order: 0;
       flex: 1 1 auto;
       align-self: auto;
-      font-size: 14px;
-      line-height: 20px;
+      order: 0;
+      max-height: 48px;
       margin: 0 12px 0 8px;
       overflow: hidden;
+      font-size: 14px;
+      line-height: 20px;
       text-overflow: ellipsis;
-      max-height: 48px;
     }
 
     .gux-message {
-      order: 0;
       flex: 1 1 auto;
       align-self: auto;
-      line-height: 24px;
+      order: 0;
+      max-height: 24px;
       margin: 0 12px 0 8px;
       overflow: hidden;
+      line-height: 24px;
       text-overflow: ellipsis;
-      max-height: 24px;
     }
   }
 
@@ -65,10 +65,10 @@ gux-notification-toast {
     top: 8px;
     right: 8px;
     padding: 0;
-    border: none;
-    background: transparent;
     font-size: 11px;
     cursor: pointer;
+    background: transparent;
+    border: none;
 
     gux-icon {
       width: 12px;
@@ -80,8 +80,8 @@ gux-notification-toast {
 // Theming
 // Light
 .gux-notification-toast-light-theme {
-  background: @expalette-background-color-dark-2;
   color: @gux-type-dark;
+  background: @expalette-background-color-dark-2;
   border-color: @gux-type;
 
   .gux-icon {
@@ -117,8 +117,8 @@ gux-notification-toast {
 
 // Dark
 .gux-notification-toast-dark-theme {
-  background: @gux-background;
   color: @gux-type;
+  background: @gux-background;
   border-color: @gux-border;
 
   .gux-icon {

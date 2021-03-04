@@ -2,19 +2,19 @@
 
 // Style
 gux-tooltip {
+  z-index: 1;
+  box-sizing: border-box;
+  max-width: 500px;
+  padding: 0 12px;
+  overflow: hidden;
   font-size: 12px;
   line-height: 32px;
-  padding: 0 12px;
-  max-width: 500px;
-  white-space: nowrap;
-  background-color: @gux-background;
   color: @gux-type;
-  overflow: hidden;
   text-overflow: ellipsis;
-  box-sizing: border-box;
+  white-space: nowrap;
   pointer-events: none;
-  z-index: 1;
   visibility: hidden !important;
+  background-color: @gux-background;
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
 

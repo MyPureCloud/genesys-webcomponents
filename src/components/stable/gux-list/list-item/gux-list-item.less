@@ -4,10 +4,10 @@
 
 gux-list-item {
   .gux-list-item {
-    height: max-content;
-    word-wrap: break-word;
-    padding: 8px 16px;
     display: flex;
+    height: max-content;
+    padding: 8px 16px;
+    word-wrap: break-word;
     cursor: pointer;
 
     gux-text-highlight {
@@ -17,9 +17,9 @@ gux-list-item {
 
   &[disabled] {
     .gux-list-item {
-      opacity: 0.5;
       pointer-events: none;
       cursor: default;
+      opacity: 0.5;
     }
   }
 }
@@ -32,8 +32,8 @@ gux-list-item {
   &:active,
   &:hover:not([disabled]) {
     .gux-list-item {
-      background: @gux-blue-60;
       color: @gux-type-dark;
+      background: @gux-blue-60;
     }
   }
 }
@@ -54,8 +54,8 @@ gux-list-item.gux-dark-theme {
   &:active,
   &:hover:not([disabled]) {
     .gux-list-item {
-      background: @gux-blue-60;
       color: @gux-type-dark;
+      background: @gux-blue-60;
     }
   }
 }

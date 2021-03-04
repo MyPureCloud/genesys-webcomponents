@@ -81,28 +81,28 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: space-between;
     align-content: stretch;
     align-items: flex-start;
+    justify-content: space-between;
     height: 100%;
   }
 
   .section {
-    order: 0;
-    flex: 0 1 auto;
-    align-self: center;
     display: flex;
+    flex: 0 1 auto;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
     align-content: stretch;
     align-items: flex-start;
+    align-self: center;
+    justify-content: space-between;
+    order: 0;
     width: 100%;
   }
 
   .no-overflow {
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
   }
 
   p {

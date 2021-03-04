@@ -42,22 +42,22 @@ gux-checkbox-legacy {
 
   label::before {
     position: absolute;
-    display: inline-block;
-    content: '';
-    height: 11px;
-    width: 11px;
-    left: 6px;
     top: 7px;
+    left: 6px;
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    content: '';
   }
 
   label::after {
-    display: block;
-    content: '';
     position: absolute;
-    left: 4px;
     top: 6px;
+    left: 4px;
+    display: block;
     width: @gux-icon-size-default-global;
     height: @gux-icon-size-default-global;
+    content: '';
   }
 
   label.gux-unchecked::after {
@@ -70,14 +70,14 @@ gux-checkbox-legacy {
 
   input:disabled ~ label::after,
   input:disabled ~ label {
-    opacity: 0.5;
     cursor: not-allowed;
+    opacity: 0.5;
   }
 
   label.gux-checked::after {
-    transform: scaleY(-1);
     top: 3px;
     background-image: @gux-icon-checkbox-checked;
+    transform: scaleY(-1);
   }
 
   label.gux-mixed::after {

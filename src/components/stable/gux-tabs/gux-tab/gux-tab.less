@@ -15,11 +15,11 @@ gux-tab {
   .gux-tab {
     display: flex;
     align-items: center;
-    margin-left: 4px;
-    height: 36px;
     width: 0;
-    overflow: hidden;
+    height: 36px;
     padding: 10px 5px 10px 10px;
+    margin-left: 4px;
+    overflow: hidden;
     border: none;
     transition: width 0.4s ease-out;
 
@@ -28,52 +28,52 @@ gux-tab {
     }
 
     .tab-title {
+      position: relative;
       flex: 1 1 auto;
       height: 14px;
-      white-space: nowrap;
-      overflow: hidden;
-      cursor: default;
-      position: relative;
       padding-bottom: 2px;
-      text-align: left;
+      overflow: hidden;
       font-size: 12px;
+      text-align: left;
+      white-space: nowrap;
+      cursor: default;
 
       &::after {
-        content: '';
-        display: block;
         position: absolute;
+        right: 0;
+        bottom: 0;
+        display: block;
         width: 14px;
         height: 15px;
-        bottom: 0;
-        right: 0;
+        content: '';
       }
     }
 
     .tab-dropdown-container {
-      flex: 0 0 16px;
-      height: 16px;
+      z-index: 1;
       display: flex;
+      flex: 0 0 16px;
       align-items: center;
       justify-content: center;
-      background: none;
+      height: 16px;
       padding: 0;
-      border: none;
-      z-index: 1;
       cursor: pointer;
+      background: none;
+      border: none;
 
       gux-icon {
-        transition: color 0.25s;
         width: 12px;
         height: 12px;
+        transition: color 0.25s;
       }
     }
 
     .tab-icon-container {
-      flex: 0 0 16px;
       display: flex;
-      height: 14px;
+      flex: 0 0 16px;
       align-items: center;
       justify-content: center;
+      height: 14px;
       padding-bottom: 2px;
       margin-right: 10px;
 
@@ -161,20 +161,6 @@ gux-tab {
 
 gux-tab.gux-light-theme {
   .gux-tab-light-theme();
-}
-
-// Dark
-.gux-tab-dark-theme {
-}
-
-.gux-dark-theme {
-  gux-tab {
-    .gux-tab-dark-theme();
-  }
-}
-
-gux-tab.gux-dark-theme {
-  .gux-tab-dark-theme();
 }
 
 // Default

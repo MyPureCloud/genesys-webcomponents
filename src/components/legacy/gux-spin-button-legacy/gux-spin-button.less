@@ -40,18 +40,18 @@ gux-spin-button-legacy {
     .gux-spin-button-container {
       display: flex;
       flex-direction: column;
-      margin-left: 8px;
       height: 32px;
       margin-top: 4px;
+      margin-left: 8px;
 
       .gux-spin-button {
-        background: none;
-        color: @gux-type;
-        border: none;
-        margin: auto 0;
-        padding: 0;
         width: 16px;
         height: 16px;
+        padding: 0;
+        margin: auto 0;
+        color: @gux-type;
+        background: none;
+        border: none;
       }
 
       .gux-spin-button:hover {
@@ -61,8 +61,8 @@ gux-spin-button-legacy {
 
       .gux-spin-button[disabled] {
         color: @gux-type;
-        opacity: 0.25;
         cursor: default;
+        opacity: 0.25;
       }
 
       .gux-spin-button:focus {
@@ -73,23 +73,6 @@ gux-spin-button-legacy {
       }
     }
   }
-}
-
-// Theming
-// Light
-.gux-spin-button-light-theme {
-  div.gux-spin-button {
-  }
-}
-
-.gux-light-theme {
-  gux-spin-button-legacy {
-    .gux-spin-button-light-theme();
-  }
-}
-
-gux-spin-button-legacy.gux-light-theme {
-  .gux-spin-button-light-theme();
 }
 
 // Dark
@@ -110,9 +93,4 @@ gux-spin-button-legacy.gux-light-theme {
       }
     }
   }
-}
-
-// Default
-gux-spin-button-legacy {
-  .gux-spin-button-light-theme();
 }

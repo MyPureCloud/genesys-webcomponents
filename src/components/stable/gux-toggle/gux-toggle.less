@@ -12,13 +12,13 @@ gux-toggle {
   }
 
   .gux-switch-container {
-    height: 16px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
     align-content: stretch;
     align-items: center;
+    justify-content: center;
+    height: 16px;
     cursor: pointer;
 
     &.gux-switch-label-left {
@@ -30,11 +30,11 @@ gux-toggle {
     }
 
     .gux-switch {
-      order: 0;
-      flex: 0 1 auto;
-      align-self: auto;
       position: relative;
       display: inline-block;
+      flex: 0 1 auto;
+      align-self: auto;
+      order: 0;
       width: 30px;
       height: 16px;
 
@@ -53,22 +53,22 @@ gux-toggle {
       }
 
       .gux-slider {
-        background-color: @gux-black-100;
         position: absolute;
         top: 0;
-        left: 0;
         right: 0;
         bottom: 0;
+        left: 0;
+        background-color: @gux-black-100;
         -webkit-transition: 0.4s;
         transition: 0.4s;
 
         &::before {
           position: absolute;
-          content: '';
-          height: 14px;
-          width: 14px;
-          left: 2px;
           bottom: 1px;
+          left: 2px;
+          width: 14px;
+          height: 14px;
+          content: '';
           background-color: @gux-grey-100;
           -webkit-transition: 0.4s;
           transition: 0.4s;
@@ -85,11 +85,11 @@ gux-toggle {
     }
 
     .gux-switch-label {
-      order: 0;
       flex: 0 1 auto;
       align-self: auto;
-      text-transform: capitalize;
+      order: 0;
       padding: 0 @spacing-2xs;
+      text-transform: capitalize;
     }
 
     &:focus {

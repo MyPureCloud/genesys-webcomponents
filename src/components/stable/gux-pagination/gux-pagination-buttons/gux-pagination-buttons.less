@@ -7,18 +7,18 @@ gux-pagination-buttons {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-end;
     align-content: stretch;
     align-items: center;
+    justify-content: flex-end;
 
     &.gux-expanded {
       justify-content: center;
     }
 
     & > div {
-      order: 0;
       flex: 0 1 auto;
       align-self: auto;
+      order: 0;
     }
 
     .gux-pagination-buttons-group {
@@ -30,18 +30,18 @@ gux-pagination-buttons {
     }
 
     .gux-pagination-buttons-input-container {
-      margin: 0 16px;
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
-      justify-content: center;
       align-content: stretch;
       align-items: center;
+      justify-content: center;
+      margin: 0 16px;
 
       & > div {
-        order: 0;
         flex: 0 1 auto;
         align-self: auto;
+        order: 0;
         white-space: nowrap;
       }
 
@@ -50,28 +50,28 @@ gux-pagination-buttons {
         margin: 0 8px;
 
         input {
-          text-align: center;
           width: inherit;
+          text-align: center;
         }
       }
     }
 
     .gux-pagination-buttons-list-container {
-      margin: 0 16px;
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
-      justify-content: center;
       align-content: stretch;
       align-items: center;
+      justify-content: center;
+      margin: 0 16px;
 
       .gux-pagination-buttons-list-current,
       .gux-pagination-buttons-list-target {
-        margin: 0;
-        padding: 0 8px;
-        border: none;
-        background: inherit;
         height: 32px;
+        padding: 0 8px;
+        margin: 0;
+        background: inherit;
+        border: none;
       }
 
       .gux-pagination-buttons-list-current {

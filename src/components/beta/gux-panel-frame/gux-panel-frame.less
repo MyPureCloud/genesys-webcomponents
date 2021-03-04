@@ -5,36 +5,36 @@
 // Style
 gux-panel-frame-beta {
   .gux-panel-container {
-    border: 1px solid @gux-border;
-    background-color: @gux-type-dark;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: 8px 15px;
-    box-sizing: border-box;
     height: 100%;
+    padding: 8px 15px;
+    background-color: @gux-type-dark;
+    border: 1px solid @gux-border;
 
     .gux-panel-header {
+      box-sizing: border-box;
+      flex-shrink: 0;
       width: 100%;
       padding: 0 8px;
       border-bottom: 1px solid @gux-border;
-      flex-shrink: 0;
-      box-sizing: border-box;
     }
 
     .gux-panel-body {
+      box-sizing: border-box;
+      flex-grow: 1;
       width: 100%;
       padding: 8px 8px;
-      flex-grow: 1;
       overflow-y: auto;
-      box-sizing: border-box;
     }
 
     .gux-panel-footer {
+      box-sizing: border-box;
+      flex-shrink: 0;
       width: 100%;
       padding: 12px 8px;
       border-top: 1px solid @gux-border;
-      flex-shrink: 0;
-      box-sizing: border-box;
     }
   }
 }
@@ -48,8 +48,8 @@ gux-panel-frame-beta {
   > div,
   .gux-panel-header,
   .gux-panel-footer {
-    border-color: @gux-black-30;
     background-color: @gux-black-50;
+    border-color: @gux-black-30;
   }
 }
 

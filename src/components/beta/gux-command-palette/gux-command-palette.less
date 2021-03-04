@@ -9,38 +9,38 @@
 
 // Style
 gux-command-palette-beta .gux-command-palette {
-  border-color: 1px solid @palette-border-color;
-  box-shadow: 0 0 2px 0 @palette-shadow;
   position: absolute;
-  left: 0;
   right: 0;
-  margin: 0 auto;
+  left: 0;
   max-width: 750px;
   padding: 12px;
+  margin: 0 auto;
+  border-color: 1px solid @palette-border-color;
+  box-shadow: 0 0 2px 0 @palette-shadow;
 
   &.gux-hidden {
-    display: none;
     top: 0;
+    display: none;
   }
 
   &:not(.gux-hidden) {
     top: 40px;
     animation-name: fadeIn;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in;
     // this 300ms duration must be kept in sync with the 300 second focus timeout in the TypeScript
     animation-duration: 300ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
   }
 
   @keyframes fadeIn {
     0% {
-      opacity: 0;
       top: 0;
+      opacity: 0;
     }
 
     100% {
-      opacity: 1;
       top: 40px;
+      opacity: 1;
     }
   }
 
@@ -50,8 +50,8 @@ gux-command-palette-beta .gux-command-palette {
 
   gux-list > div[role='list'] > strong {
     height: 32px;
-    line-height: 32px;
     padding: 0 16px;
+    line-height: 32px;
   }
 
   gux-text-field,
@@ -81,9 +81,9 @@ gux-command-palette-beta .gux-command-palette {
 
       & div {
         display: flex;
+        padding: 0;
         border: none;
         box-shadow: none;
-        padding: 0;
 
         gux-text-highlight {
           flex: 1 1 auto;
@@ -99,8 +99,8 @@ gux-command-palette-beta .gux-command-palette {
       }
 
       .gux-details {
-        font-size: 11px;
         margin-left: 4px;
+        font-size: 11px;
       }
     }
 
@@ -118,15 +118,15 @@ gux-command-palette-beta .gux-command-palette {
 // Dark
 .gux-command-palette-dark-theme {
   .gux-command-palette {
-    background: @palette-background-color-dark;
     color: @gux-type-dark;
+    background: @palette-background-color-dark;
 
     gux-list gux-list-item:focus,
     gux-list gux-list-item:active,
     gux-list gux-list-item:hover {
       .gux-list-item div {
-        background: @gux-blue-60;
         color: @gux-type-dark;
+        background: @gux-blue-60;
       }
 
       .gux-list-item .gux-details {
@@ -153,15 +153,15 @@ gux-command-palette-beta.gux-dark-theme {
 // Light
 .gux-command-palette-light-theme {
   .gux-command-palette {
-    background: @palette-background-color;
     color: @gux-type;
+    background: @palette-background-color;
 
     gux-list gux-list-item:focus,
     gux-list gux-list-item:active,
     gux-list gux-list-item:hover {
       .gux-list-item div {
-        background: @gux-blue-60;
         color: @gux-type-dark;
+        background: @gux-blue-60;
       }
 
       .gux-list-item .gux-details {

@@ -26,9 +26,9 @@ gux-text-field-legacy {
     margin: 4px 0;
 
     &.gux-disabled {
-      opacity: 0.5;
       pointer-events: none;
       cursor: default;
+      opacity: 0.5;
     }
 
     &.gux-error,
@@ -79,17 +79,17 @@ gux-text-field-legacy {
     }
 
     button {
-      color: @icon-color;
       position: absolute;
       top: 1px;
       right: 3px;
       bottom: 0;
-      border: none;
-      background: none;
-      cursor: pointer;
       display: block;
-      outline: none;
       overflow: hidden;
+      color: @icon-color;
+      cursor: pointer;
+      background: none;
+      border: none;
+      outline: none;
     }
   }
 }
@@ -188,9 +188,9 @@ gux-text-field-legacy {
 
   .gux-field {
     input {
+      color: @text-color;
       background-color: @background-color;
       border: 1px solid @border;
-      color: @text-color;
 
       &::placeholder {
         color: @placeholder;

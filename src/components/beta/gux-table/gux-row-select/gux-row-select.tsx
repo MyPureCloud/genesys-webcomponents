@@ -27,6 +27,6 @@ export class GuxRowSelect {
   }
 
   render(): JSX.Element {
-    return <gux-checkbox checked={this.selected}></gux-checkbox>;
+    return <gux-checkbox-legacy checked={this.selected}></gux-checkbox-legacy>;
   }
 }

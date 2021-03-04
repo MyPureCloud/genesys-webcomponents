@@ -5,38 +5,38 @@ gux-pagination {
   border-top: 1px solid @gux-grey-60;
 
   .gux-pagination-container {
-    margin-top: 12px;
-    height: 32px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
     align-content: stretch;
     align-items: center;
+    justify-content: space-between;
+    height: 32px;
+    margin-top: 12px;
 
     .gux-pagination-info {
       display: flex;
+      flex: 1 1 auto;
       flex-direction: row;
       flex-wrap: nowrap;
-      justify-content: flex-start;
       align-content: stretch;
       align-items: center;
-      order: 0;
-      flex: 1 1 auto;
       align-self: auto;
+      justify-content: flex-start;
+      order: 0;
 
       & > * {
-        order: 0;
         flex: 0 1 auto;
         align-self: auto;
+        order: 0;
       }
     }
 
     .gux-pagination-change {
-      margin-left: 16px;
-      order: 0;
       flex: 1 1 auto;
       align-self: auto;
+      order: 0;
+      margin-left: 16px;
     }
 
     .gux-pagination-change:first-child {
