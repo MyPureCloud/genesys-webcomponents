@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](http://inindca///compare/v2.4.2...v2.5.0) (2021-03-05)
+
+
+### Features
+
+* **stylelint:** add stylelint-config-recess-order package ([a2a8085](http://inindca///commit/a2a80857931b5f38a3a33c6874969b4936e171ff))
+
+
+### Bug Fixes
+
+* **gux-row-select:** update gux-row-select to use gux-checkbox-legacy instead of gux-checkbox ([8ef0d06](http://inindca///commit/8ef0d06d7e82b287abfb67087fc4ff7f18860b0b))
+* **stylelint:** fixed stylelint issues ([667043f](http://inindca///commit/667043f9f5e7191e3b947cbcdfdcc4293a26e0ad))
+
 ### [2.4.2](http://inindca///compare/v2.4.1...v2.4.2) (2021-03-04)
 
 
