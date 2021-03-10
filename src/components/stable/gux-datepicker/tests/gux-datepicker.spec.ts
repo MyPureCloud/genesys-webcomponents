@@ -1,4 +1,4 @@
-import { CalendarModes, KeyCode } from '../../../../common-enums';
+import { CalendarModes } from '../../../../common-enums';
 import { GuxDatepicker } from '../gux-datepicker';
 
 describe('gux-datepicker', () => {
@@ -89,14 +89,6 @@ describe('gux-datepicker', () => {
         ]);
       });
 
-      it('replaceUndefinedChars', () => {
-        component.inputElement.value = '1 /22/1970';
-        component.toInputElement.value = '11/2 /1970';
-        component.replaceUndefinedChars();
-        expect(component.inputElement.value).toEqual('10/22/1970');
-        expect(component.toInputElement.value).toEqual('11/20/1970');
-      });
-
       describe('onDaySelect', () => {
         it('selecting a single day', () => {
           const calendarEvent = {
@@ -125,74 +117,57 @@ describe('gux-datepicker', () => {
         });
       });
 
-      it('getPreviousSep/getNextSep', async () => {
-        await component.componentWillLoad();
-        component.componentDidLoad();
-        expect(component.getPreviousSep('d')).toEqual('m');
-        expect(component.getPreviousSep('m')).toEqual('y');
-        expect(component.getNextSep('y')).toEqual('m');
-        expect(component.getNextSep('m')).toEqual('d');
-      });
-
       it('onKeyDown', async () => {
         await component.componentWillLoad();
         component.componentDidLoad();
         spyOn(component, 'setCursorRange').and.callThrough();
         let event = {
-          keyCode: KeyCode.Enter,
+          key: 'Enter',
           preventDefault: jest.fn()
         } as any;
         component.onKeyDown(event);
         event = {
-          keyCode: KeyCode.Enter,
+          key: 'Enter',
           preventDefault: jest.fn(),
           target: component.inputElement
         } as any;
         component.onKeyDown(event);
         expect(component.active).toEqual(false);
         event = {
-          keyCode: KeyCode.Tab,
+          key: 'Tab',
           preventDefault: jest.fn(),
           target: component.inputElement
         } as any;
         component.onKeyDown(event);
         expect(component.calendarElement.focusPreviewDate).toHaveBeenCalled();
         event = {
-          keyCode: KeyCode.Up,
+          key: 'ArrowUp',
           preventDefault: jest.fn(),
           target: component.inputElement
         } as any;
         component.onKeyDown(event);
         expect(component.setCursorRange).toHaveBeenCalledTimes(1);
         event = {
-          keyCode: KeyCode.Right,
+          key: 'ArrowRight',
           preventDefault: jest.fn(),
           target: component.inputElement
         } as any;
         component.onKeyDown(event);
         expect(component.setCursorRange).toHaveBeenCalledTimes(2);
         event = {
-          keyCode: KeyCode.Down,
+          key: 'ArrowDown',
           preventDefault: jest.fn(),
           target: component.inputElement
         } as any;
         component.onKeyDown(event);
         expect(component.setCursorRange).toHaveBeenCalledTimes(3);
         event = {
-          keyCode: KeyCode.Left,
+          key: 'ArrowLeft',
           preventDefault: jest.fn(),
           target: component.inputElement
         } as any;
         component.onKeyDown(event);
         expect(component.setCursorRange).toHaveBeenCalledTimes(4);
-        // 1
-        event = {
-          keyCode: 97,
-          preventDefault: jest.fn(),
-          target: component.inputElement
-        } as any;
-        component.onKeyDown(event);
-        expect(event.preventDefault).toHaveBeenCalled();
       });
     });
 

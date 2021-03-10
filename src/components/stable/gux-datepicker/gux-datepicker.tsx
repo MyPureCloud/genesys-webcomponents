@@ -11,7 +11,7 @@ import {
 } from '@stencil/core';
 
 import { trackComponent } from '../../../usage-tracking';
-import { CalendarModes, KeyCode } from '../../../common-enums';
+import { CalendarModes } from '../../../common-enums';
 import {
   asIsoDateRange,
   asIsoDate,
@@ -20,41 +20,69 @@ import {
 } from '../../../utils/date/iso-dates';
 import { buildI18nForComponent, GetI18nValue } from '../../../i18n';
 
-import i18nStrings from './i18n/en.json';
-import { GuxDatepickerMode } from './gux-datepicker.types';
+import translationResources from './i18n/en.json';
+import {
+  GuxDatepickerMode,
+  GuxDatepickerIntervalRange
+} from './gux-datepicker.types';
+import {
+  getCalendarLabels,
+  isOutOfBoundsDate,
+  incrementDay,
+  incrementMonth,
+  incrementYear,
+  getFormattedDay,
+  getFormattedMonth,
+  getFormattedYear,
+  getIntervalLetter,
+  getFormatSeparator,
+  getPreviousIntervalRange,
+  getNextIntervalRange,
+  getIntervalOrder,
+  getIntervalRange
+} from './gux-datepicker.service';
 
 @Component({
   styleUrl: 'gux-datepicker.less',
   tag: 'gux-datepicker'
 })
 export class GuxDatepicker {
+  yearFormat: string = 'yyyy';
+  intervalOrder: string[];
+  textFieldElement: HTMLGuxTextFieldLegacyElement;
+  toTextFieldElement: HTMLGuxTextFieldLegacyElement;
+  inputElement: HTMLInputElement;
+  toInputElement: HTMLInputElement;
+  calendarElement: HTMLGuxCalendarElement;
+  fieldDatepickerElement: HTMLDivElement;
+  intervalRange: GuxDatepickerIntervalRange;
+  focusingRange: boolean = false;
+  focusedField: HTMLInputElement;
+  isSelectingRange: boolean = false;
+  lastIntervalRange: GuxDatepickerIntervalRange;
+  lastYear: number = new Date().getFullYear();
+  i18n: GetI18nValue;
+
   @Element()
   root: HTMLElement;
+
   /**
    * The datepicker current value
    */
   @Prop({ mutable: true })
   value: string;
+
   /**
    * The datepicker label (can be a single label, or an array of two if it's a range datepicker)
    */
   @Prop()
   label: string | string[] = '';
+
   /**
    * The datepicker number of months displayed
    */
   @Prop({ mutable: true })
   numberOfMonths: number = 1;
-  /**
-   * The datepicker current value
-   */
-  @State()
-  formatedValue: string = '';
-  /**
-   * The datepicker current value
-   */
-  @State()
-  toFormatedValue: string = '';
 
   /**
    * The min date selectable
@@ -73,38 +101,76 @@ export class GuxDatepicker {
    */
   @Prop()
   mode: GuxDatepickerMode = CalendarModes.Single;
+
   /**
    * The datepicker date format (default to mm/dd/yyyy, or specified)
    */
   @Prop()
   format: string = 'mm/dd/yyyy';
+
   /**
    * The datepicker first week day (default to 0 (sunday))
    */
   @Prop()
   firstDayOfWeek: number = 0;
 
+  /**
+   * The datepicker current value
+   */
+  @State()
+  formatedValue: string = '';
+
+  @State()
+  minDateDate: Date;
+
+  @State()
+  maxDateDate: Date;
+
+  /**
+   * The datepicker current value
+   */
+  @State()
+  toFormatedValue: string = '';
+
   @State()
   active: boolean = false;
 
-  yearFormat: string = 'yyyy';
-  sepArr: string[];
+  @Watch('value')
+  watchValue() {
+    this.updateDate();
+  }
 
-  textFieldElement: HTMLGuxTextFieldLegacyElement;
-  toTextFieldElement: HTMLGuxTextFieldLegacyElement;
-  inputElement: HTMLInputElement;
-  toInputElement: HTMLInputElement;
-  calendarElement: HTMLGuxCalendarElement;
-  fieldDatepickerElement: HTMLDivElement;
-  selectionRange: number[];
-  focusingRange: boolean = false;
-  focusedField: HTMLInputElement;
+  @Watch('minDate')
+  watchMinDate(newDate: string) {
+    if (newDate) {
+      this.minDateDate = fromIsoDate(newDate);
+    } else {
+      this.minDateDate = null;
+    }
+  }
 
-  isSelectingRange: boolean = false;
-  lastSelection: number = 0;
-  lastYear: number = new Date().getFullYear();
+  @Watch('maxDate')
+  watchMaxDate(newDate: string) {
+    if (newDate) {
+      this.maxDateDate = fromIsoDate(newDate);
+    } else {
+      this.maxDateDate = null;
+    }
+  }
 
-  private i18n: GetI18nValue;
+  @Watch('format')
+  watchFormat(newFormat: string) {
+    if (!newFormat.includes('yyyy')) {
+      this.yearFormat = 'yy';
+    }
+
+    this.intervalOrder = getIntervalOrder(newFormat);
+
+    this.lastIntervalRange = getIntervalRange(
+      this.format,
+      getIntervalLetter(this.format, 0)
+    );
+  }
 
   /**
    * Triggered when user selects a date
@@ -112,34 +178,174 @@ export class GuxDatepicker {
   @Event()
   input: EventEmitter<string>;
 
-  getCalendarLabels() {
-    const labels: string[] = [].concat(this.label || []);
-    if (this.mode === CalendarModes.Range) {
-      return [labels[0] || this.i18n('start'), labels[1] || this.i18n('end')];
-    } else {
-      return [labels[0]];
+  @Listen('keydown', { passive: false })
+  onKeyDown(event: KeyboardEvent) {
+    if (this.isFocusedFieldEvent(event)) {
+      this.focusedField = this.getInputFieldFromEvent(event);
+
+      switch (event.key) {
+        case 'Enter':
+        case 'Escape':
+          this.focusedField.blur();
+          this.active = false;
+          break;
+        case 'Tab':
+          if (!event.shiftKey) {
+            event.preventDefault();
+            this.calendarElement.focusPreviewDate();
+          }
+          break;
+        case 'ArrowDown':
+          event.preventDefault();
+          this.increment(-1);
+          this.setCursorRange();
+          break;
+        case 'ArrowUp':
+          event.preventDefault();
+          this.increment(1);
+          this.setCursorRange();
+          break;
+        case 'ArrowLeft':
+          event.preventDefault();
+
+          const previousIntervalRange = getPreviousIntervalRange(
+            this.format,
+            this.intervalRange
+          );
+          this.setIntervalRange(previousIntervalRange);
+          this.setCursorRange();
+          break;
+        case 'ArrowRight':
+          event.preventDefault();
+
+          const nextIntervalRange = getNextIntervalRange(
+            this.format,
+            this.intervalRange
+          );
+          this.setIntervalRange(nextIntervalRange);
+          this.setCursorRange();
+          break;
+        default:
+          event.preventDefault();
+
+          this.setIntervalRange({
+            selectionStart: this.focusedField.selectionStart,
+            selectionEnd: this.focusedField.selectionEnd
+          });
+          this.updateIntervalValue(event);
+
+          this.setCursorRange();
+          break;
+      }
     }
   }
 
-  replaceUndefinedChars() {
-    this.inputElement.value = this.inputElement.value.replace(/ /g, '0');
-    this.inputElement.value = this.inputElement.value.replace(/00/g, '01');
-    if (this.toInputElement) {
-      this.toInputElement.value = this.toInputElement.value.replace(/ /g, '0');
-      this.toInputElement.value = this.toInputElement.value.replace(
-        /00/g,
-        '01'
+  @Listen('focusin')
+  onFocusIn(event: FocusEvent) {
+    if (this.isFocusedFieldEvent(event)) {
+      if (!this.isSelectingRange) {
+        this.focusedField = this.getInputFieldFromEvent(event);
+        this.setRange();
+      }
+    }
+  }
+
+  @Listen('focusout')
+  onFocusOut(event: FocusEvent) {
+    if (!this.root.contains(event.relatedTarget as Node)) {
+      this.lastIntervalRange = getIntervalRange(
+        this.format,
+        getIntervalLetter(this.format, 0)
       );
+      this.active = false;
     }
   }
 
-  stringToDate(stringDate) {
-    const formatSeperator = this.format.match(/\W/)[0];
+  @Listen('mousedown')
+  onMouseDown(event: MouseEvent) {
+    if (this.isFocusedFieldEvent(event)) {
+      this.isSelectingRange = true;
+    }
+  }
+
+  @Listen('mouseup', { passive: false })
+  onMouseUp(event: MouseEvent) {
+    event.preventDefault();
+
+    if (this.isSelectingRange && this.isFocusedFieldEvent(event)) {
+      this.focusedField = this.getInputFieldFromEvent(event);
+      this.lastIntervalRange = getIntervalRange(
+        this.format,
+        getIntervalLetter(this.format, this.focusedField.selectionStart)
+      );
+      this.setRange();
+    }
+  }
+
+  isFocusedFieldEvent(event: Event): boolean {
+    return (
+      event.target === this.inputElement || event.target === this.toInputElement
+    );
+  }
+
+  getInputFieldFromEvent(event: Event): HTMLInputElement {
+    return event.target as HTMLInputElement;
+  }
+
+  updateIntervalValue(event: KeyboardEvent): void {
+    const inputNumber = parseInt(event.key, 10);
+
+    if (!isNaN(inputNumber)) {
+      const currentSectionValue = this.focusedField.value.slice(
+        this.focusedField.selectionStart,
+        this.focusedField.selectionEnd
+      );
+
+      if (
+        getIntervalLetter(this.format, this.focusedField.selectionStart) ===
+          'y' &&
+        this.yearFormat === 'yyyy'
+      ) {
+        this.typeYearValue(currentSectionValue, event.key);
+      } else {
+        if (this.canSetDate(inputNumber)) {
+          this.updateSelection(
+            this.focusedField,
+            `${currentSectionValue[1]}${event.key}`
+          );
+          this.setValue();
+        } else {
+          this.updateSelection(
+            this.focusedField,
+            `0${event.key}`.replace('00', '01')
+          );
+          this.setValue();
+        }
+      }
+    }
+  }
+
+  updateSelection(field: HTMLInputElement, text: string): void {
+    field.value =
+      field.value.substr(0, this.intervalRange.selectionStart) +
+      text +
+      field.value.substr(this.intervalRange.selectionEnd);
+  }
+
+  getCalendarLabels(): string[] {
+    return getCalendarLabels([].concat(this.label || []), this.mode, [
+      this.i18n('start'),
+      this.i18n('end')
+    ]);
+  }
+
+  stringToDate(stringDate: string) {
+    const formatSeperator = getFormatSeparator(this.format);
     const formatItems = this.format.toLowerCase().split(formatSeperator);
     const dateItems = stringDate.split(formatSeperator);
-    const year = dateItems[formatItems.indexOf(this.yearFormat)];
+    const year = parseInt(dateItems[formatItems.indexOf(this.yearFormat)], 10);
     const month = parseInt(dateItems[formatItems.indexOf('mm')], 10) - 1;
-    const day = dateItems[formatItems.indexOf('dd')];
+    const day = parseInt(dateItems[formatItems.indexOf('dd')], 10);
     const date = new Date(year, month, day);
 
     if (
@@ -171,16 +377,7 @@ export class GuxDatepicker {
     }
   }
 
-  outOfBounds(date: Date): boolean {
-    return (
-      (this.maxDate !== '' && fromIsoDate(this.maxDate) < date) ||
-      (this.minDate !== '' && fromIsoDate(this.minDate) > date)
-    );
-  }
-
   setValue() {
-    this.replaceUndefinedChars();
-
     if (this.mode === CalendarModes.Range) {
       const fromValue = this.stringToDate(this.inputElement.value);
       const toValue = this.stringToDate(this.toInputElement.value);
@@ -196,161 +393,18 @@ export class GuxDatepicker {
     this.input.emit(this.value);
   }
 
-  getPreviousSep(sep: string) {
-    if (this.sepArr[this.sepArr.indexOf(sep) - 1]) {
-      return this.sepArr[this.sepArr.indexOf(sep) - 1];
-    } else {
-      return this.sepArr[2];
-    }
-  }
-  getNextSep(sep: string) {
-    if (this.sepArr[this.sepArr.indexOf(sep) + 1]) {
-      return this.sepArr[this.sepArr.indexOf(sep) + 1];
-    } else {
-      return this.sepArr[0];
-    }
-  }
-
-  @Listen('keydown', { passive: false })
-  onKeyDown(e: KeyboardEvent) {
-    if (e.target === this.inputElement || e.target === this.toInputElement) {
-      this.focusedField = e.target as HTMLInputElement;
-      switch (e.keyCode) {
-        case KeyCode.Enter:
-        case KeyCode.Esc:
-          this.focusedField.blur();
-          this.active = false;
-          break;
-        case KeyCode.Tab:
-          if (!e.shiftKey) {
-            e.preventDefault();
-            this.calendarElement.focusPreviewDate();
-          }
-          break;
-        case KeyCode.Down:
-          e.preventDefault();
-          this.increment(-1);
-          this.setCursorRange();
-          break;
-        case KeyCode.Up:
-          e.preventDefault();
-          this.increment(1);
-          this.setCursorRange();
-          break;
-        case KeyCode.Left:
-          e.preventDefault();
-          this.setSelectionRange(
-            this.format.indexOf(
-              this.getPreviousSep(this.format[this.selectionRange[0]])
-            )
-          );
-          this.setCursorRange();
-          break;
-        case KeyCode.Right:
-          e.preventDefault();
-          this.setSelectionRange(
-            this.format.indexOf(
-              this.getNextSep(this.format[this.selectionRange[0]])
-            )
-          );
-          this.setCursorRange();
-          break;
-        default:
-          const inputNumber = parseInt(e.key, 10);
-          const selectionStart = this.focusedField.selectionStart;
-          if (!isNaN(inputNumber)) {
-            const currentSectionValue = this.focusedField.value.slice(
-              this.focusedField.selectionStart,
-              this.focusedField.selectionEnd
-            );
-            if (
-              this.format[this.selectionRange[0]] === 'y' &&
-              this.yearFormat === 'yyyy'
-            ) {
-              this.typeYearValue(currentSectionValue, e.key);
-            } else {
-              if (!this.canSetDate(inputNumber)) {
-                this.focusedField.value =
-                  this.focusedField.value.substr(0, this.selectionRange[0]) +
-                  '0' +
-                  e.key +
-                  this.focusedField.value.substr(this.selectionRange[1]);
-                this.setValue();
-              } else {
-                this.focusedField.value =
-                  this.focusedField.value.substr(0, this.selectionRange[0]) +
-                  currentSectionValue[1] +
-                  e.key +
-                  this.focusedField.value.substr(this.selectionRange[1]);
-                this.setValue();
-              }
-            }
-          }
-          this.setSelectionRange(selectionStart);
-          this.setCursorRange();
-          e.preventDefault();
-          break;
-      }
-    }
-  }
-
-  @Listen('focusin')
-  onFocusIn(e: FocusEvent) {
-    if (e.target === this.inputElement || e.target === this.toInputElement) {
-      if (!this.isSelectingRange) {
-        this.focusedField = e.target as HTMLInputElement;
-        this.setRange();
-      }
-    }
-  }
-
-  @Listen('focusout')
-  onFocusOut(e: FocusEvent) {
-    if (!this.root.contains(e.relatedTarget as Node)) {
-      this.active = false;
-    }
-  }
-
-  @Listen('mousedown')
-  onMouseDown(e: MouseEvent) {
-    if (e.target === this.inputElement || e.target === this.toInputElement) {
-      this.isSelectingRange = true;
-    }
-  }
-
-  @Listen('mouseup', { passive: false })
-  onMouseUp(e: MouseEvent) {
-    e.preventDefault();
-    if (
-      this.isSelectingRange &&
-      (e.target === this.inputElement || e.target === this.toInputElement)
-    ) {
-      this.focusedField = e.target as HTMLInputElement;
-      this.lastSelection = this.focusedField.selectionStart;
-      this.setRange();
-    }
-  }
-
   setRange() {
     this.active = true;
     this.isSelectingRange = false;
-    this.setSelectionRange(this.lastSelection);
+    this.setIntervalRange(this.lastIntervalRange);
     this.setCursorRange();
   }
 
   typeYearValue(selection: string, key: string) {
     if (selection[0] !== ' ') {
-      this.focusedField.value =
-        this.focusedField.value.substr(0, this.selectionRange[0]) +
-        '   ' +
-        key +
-        this.focusedField.value.substr(this.selectionRange[1]);
+      this.updateSelection(this.focusedField, `   ${key}`);
     } else {
-      this.focusedField.value =
-        this.focusedField.value.substr(0, this.selectionRange[0]) +
-        selection.substr(1) +
-        key +
-        this.focusedField.value.substr(this.selectionRange[1]);
+      this.updateSelection(this.focusedField, `${selection.substr(1)}${key}`);
       if (!(selection.substr(1) + key).includes(' ')) {
         this.setValue();
       }
@@ -360,15 +414,17 @@ export class GuxDatepicker {
   canSetDate(key: number) {
     const newValue = parseInt(
       [
-        this.focusedField.value[this.selectionRange[1] - 1].toString(),
+        this.focusedField.value[this.intervalRange.selectionEnd - 1].toString(),
         key
       ].join(''),
       10
     );
+
     if (newValue) {
-      switch (this.format[this.selectionRange[0]]) {
+      switch (
+        getIntervalLetter(this.format, this.focusedField.selectionStart)
+      ) {
         case 'd':
-          // TODO check depending on focusedField
           const dateValue = fromIsoDate(this.value);
           if (
             newValue <=
@@ -380,16 +436,17 @@ export class GuxDatepicker {
           ) {
             return true;
           }
-          return false;
+          break;
         case 'm':
           if (newValue <= 12) {
             return true;
           }
-          return false;
+          break;
         case 'y':
           return true;
       }
     }
+
     return false;
   }
 
@@ -433,10 +490,10 @@ export class GuxDatepicker {
   }
 
   setCursorRange() {
-    if (this.selectionRange) {
+    if (this.intervalRange) {
       this.focusedField.setSelectionRange(
-        this.selectionRange[0],
-        this.selectionRange[1]
+        this.intervalRange.selectionStart,
+        this.intervalRange.selectionEnd
       );
     }
   }
@@ -451,120 +508,99 @@ export class GuxDatepicker {
     }
   }
 
-  @Watch('value')
-  watchValue() {
-    this.updateDate();
+  setIntervalRange(intervalRange: GuxDatepickerIntervalRange): void {
+    this.intervalRange = intervalRange;
   }
 
-  setSelectionRange(index: number) {
-    let sep = this.format[index];
-    if (!sep || sep === '/') {
-      sep = this.format[index - 1];
-    }
-    const first = this.format.indexOf(sep);
-    const last = this.format.lastIndexOf(sep) + 1;
-    this.selectionRange = [first, last];
-    return sep;
+  getCombinedFocusedDateValue(): Date {
+    return this.mode === CalendarModes.Range
+      ? this.getRangeFocusedDateValue()
+      : this.getFocusedDateValue();
   }
 
-  getRefValue(): Date {
-    if (this.mode === CalendarModes.Range) {
-      const [start, end] = fromIsoDateRange(this.value);
-      return this.focusedField === this.inputElement ? start : end;
-    } else {
-      return fromIsoDate(this.value);
-    }
+  getFocusedDateValue(): Date {
+    return fromIsoDate(this.value);
   }
 
-  increment(value: number) {
+  getRangeFocusedDateValue(): Date {
+    const [start, end] = fromIsoDateRange(this.value);
+
+    return this.focusedField === this.inputElement ? start : end;
+  }
+
+  increment(delta: number) {
     let selectionText = document.getSelection().toString();
-    const type = this.setSelectionRange(this.focusedField.selectionStart);
-    const refValue = this.getRefValue();
 
-    switch (type) {
+    const interval = getIntervalLetter(
+      this.format,
+      this.focusedField.selectionStart
+    );
+    const focusedDateValue = this.getCombinedFocusedDateValue();
+
+    switch (interval) {
       case 'd':
-        selectionText = this.incrementDay(value, refValue);
+        selectionText = this.incrementDay(delta, focusedDateValue);
         break;
       case 'm':
-        selectionText = this.incrementMonth(value, refValue);
+        selectionText = this.incrementMonth(delta, focusedDateValue);
         break;
       case 'y':
-        selectionText = this.incrementYear(value, refValue);
+        selectionText = this.incrementYear(delta, focusedDateValue);
         break;
     }
 
-    this.focusedField.value =
-      this.focusedField.value.substr(0, this.selectionRange[0]) +
-      selectionText +
-      this.focusedField.value.substr(this.selectionRange[1]);
+    this.setIntervalRange({
+      selectionStart: this.focusedField.selectionStart,
+      selectionEnd: this.focusedField.selectionEnd
+    });
 
+    this.updateSelection(this.focusedField, selectionText);
     this.setValue();
   }
 
-  incrementDay(value: number, ref: Date): string {
-    let newDay = new Date(ref.valueOf());
-    newDay.setDate(newDay.getDate() + value);
+  incrementDay(delta: number, focusedDateValue: Date): string {
+    const incrementedDay = incrementDay(delta, focusedDateValue);
 
-    if (value < 0) {
-      if (newDay.getDate() > ref.getDate()) {
-        newDay = new Date(ref.getFullYear(), ref.getMonth() + 1, 0, 0, 0, 0);
-      }
-    } else {
-      if (newDay.getDate() < ref.getDate()) {
-        newDay.setMonth(newDay.getMonth() - 1);
-      }
+    if (isOutOfBoundsDate(incrementedDay, this.minDateDate, this.maxDateDate)) {
+      return getFormattedDay(focusedDateValue);
     }
 
-    // Reset date if out of bounds
-    if (this.outOfBounds(newDay)) {
-      newDay = ref;
-    }
-
-    return `0${newDay.getDate().toString()}`.slice(-2);
+    return getFormattedDay(incrementedDay);
   }
 
-  incrementMonth(value: number, ref: Date): string {
-    let newMonth = new Date(ref.valueOf());
-    newMonth.setMonth(newMonth.getMonth() + value);
+  incrementMonth(delta: number, focusedDateValue: Date): string {
+    const incrementedMonth = incrementMonth(delta, focusedDateValue);
 
-    if (value < 0) {
-      if (newMonth.getMonth() > ref.getMonth()) {
-        newMonth.setFullYear(newMonth.getFullYear() + 1);
-      }
-    } else {
-      if (newMonth.getMonth() < ref.getMonth()) {
-        newMonth.setFullYear(newMonth.getFullYear() - 1);
-      }
+    if (
+      isOutOfBoundsDate(incrementedMonth, this.minDateDate, this.maxDateDate)
+    ) {
+      return getFormattedMonth(focusedDateValue);
     }
 
-    // Reset date if out of bounds
-    if (this.outOfBounds(newMonth)) {
-      newMonth = ref;
-    }
-
-    return `0${(newMonth.getMonth() + 1).toString()}`.slice(-2);
+    return getFormattedMonth(incrementedMonth);
   }
 
-  incrementYear(value: number, ref: Date): string {
-    let newYear = new Date(ref.valueOf());
-    newYear.setFullYear(ref.getFullYear() + value);
-    this.lastYear = newYear.getFullYear();
+  incrementYear(delta: number, focusedDateValue: Date): string {
+    const incrementedYear = incrementYear(delta, focusedDateValue);
 
-    // Reset date if out of bounds
-    if (this.outOfBounds(newYear)) {
-      newYear = ref;
+    if (
+      isOutOfBoundsDate(incrementedYear, this.minDateDate, this.maxDateDate)
+    ) {
+      return getFormattedYear(focusedDateValue, this.yearFormat);
     }
 
-    if (this.yearFormat === 'yyyy') {
-      return newYear.getFullYear().toString();
-    } else {
-      return newYear.getFullYear().toString().slice(-2);
-    }
+    this.lastYear = incrementedYear.getFullYear();
+
+    return getFormattedYear(incrementedYear, this.yearFormat);
   }
 
   async componentWillLoad() {
     trackComponent(this.root, { variant: this.mode });
-    this.i18n = await buildI18nForComponent(this.root, i18nStrings);
+    this.i18n = await buildI18nForComponent(this.root, translationResources);
+
+    this.watchMinDate(this.minDate);
+    this.watchMaxDate(this.maxDate);
+    this.watchFormat(this.format);
 
     if (!this.value) {
       const now = new Date();
@@ -582,19 +618,11 @@ export class GuxDatepicker {
 
   componentDidLoad() {
     this.inputElement = this.textFieldElement.querySelector('input');
+
     if (this.mode === CalendarModes.Range) {
       this.toInputElement = this.toTextFieldElement.querySelector('input');
     }
-    if (!this.format.includes('yyyy')) {
-      this.yearFormat = 'yy';
-    }
 
-    const formatSeperator = this.format.match(/\W/)[0];
-
-    this.sepArr = [];
-    this.format.split(formatSeperator).map(sep => {
-      this.sepArr.push(sep[0]);
-    });
     this.updateDate();
   }
 
@@ -629,7 +657,7 @@ export class GuxDatepicker {
                 }
                 value={this.value}
                 mode={this.mode}
-                onInput={(e: CustomEvent) => this.onCalendarSelect(e)}
+                onInput={(event: CustomEvent) => this.onCalendarSelect(event)}
                 minDate={this.minDate}
                 maxDate={this.maxDate}
                 firstDayOfWeek={this.firstDayOfWeek}

@@ -19,6 +19,19 @@
 | `internalrowselectchange` |             | `CustomEvent<any>` |
 
 
+## Dependencies
+
+### Depends on
+
+- [gux-checkbox-legacy](../../../legacy/gux-checkbox-legacy)
+
+### Graph
+```mermaid
+graph TD;
+  gux-row-select --> gux-checkbox-legacy
+  style gux-row-select fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

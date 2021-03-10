@@ -2,34 +2,11 @@
 @import (reference) '../../../style/shared/text-input.less';
 @import (reference) '../../../style/color.less';
 
-@background-color: @gux-type-dark;
-@text-color: @gux-type;
-@border: @gux-border;
-@placeholder: @gux-placeholder;
-@icon-color: @gux-grey-10;
-@icon-hover-color: @gux-black-50;
-@navigation-text-color: @gux-grey-10;
-@navigation-text-hover-color: @gux-black-50;
-@hair-line-color: @gux-border;
-
-@dark-background-color: @gux-type;
-@dark-text-color: @gux-type-dark;
-@dark-border: @gux-black-30;
-@dark-placeholder: @gux-placeholder;
-@dark-icon-color: @expalette-icon-color;
-@dark-icon-hover-color: @gux-off-white;
-@dark-navigation-text-color: @expalette-icon-color;
-@dark-navigation-text-hover-color: @gux-off-white;
-
-@focus-outline: fade(@gux-blue-80, 50%);
-@focus-border: @gux-blue-60;
-@dark-focus-border: @gux-blue-80;
-@dark-focus-outline: @gux-blue-80;
-
 gux-content-search {
   display: inline-block;
   width: 300px;
   min-width: 300px;
+  color: @gux-black-90;
 
   gux-icon {
     width: 16px;
@@ -50,17 +27,17 @@ gux-content-search {
     height: 32px;
     padding: 4px 0 4px 0;
     margin: 4px 0;
-    background-color: @background-color;
+    background-color: @gux-grey-90;
     background-image: none;
-    border: 1px solid @border;
+    border: 1px solid @gux-black-100;
     border-radius: 2px;
 
     &.gux-focused,
     &:focus,
     &:focus-within {
-      border: 1px solid @focus-border;
+      border: 1px solid @gux-blue-60;
       outline: none;
-      box-shadow: 0 0 4px @focus-outline;
+      box-shadow: 0 0 4px @gux-blue-80;
     }
 
     .gux-search-icon {
@@ -71,7 +48,7 @@ gux-content-search {
       padding-right: 4px;
       padding-bottom: 0;
       padding-left: 8px;
-      color: @icon-color;
+
       &:disabled {
         pointer-events: none;
         cursor: default;
@@ -87,6 +64,8 @@ gux-content-search {
       min-width: 0;
       height: 22px;
       padding: 0;
+      color: @gux-black-50;
+      background-color: @gux-grey-90;
       border: 0;
       border-radius: 0;
 
@@ -114,19 +93,21 @@ gux-content-search {
         display: block;
         align-items: center;
         overflow: hidden;
-        color: @icon-color;
+        color: @gux-black-90;
         cursor: pointer;
         background: none;
         border: none;
         outline: none;
+
         &:disabled {
           pointer-events: none;
           cursor: default;
           opacity: 0.5;
         }
+
         &:not(:disabled):hover,
         &:not(:disabled):focus {
-          color: @icon-hover-color;
+          color: @gux-blue-60;
         }
       }
 
@@ -150,7 +131,7 @@ gux-content-search {
         align-content: center;
         align-items: center;
         justify-content: flex-end;
-        border-right: 1px solid @hair-line-color;
+        border-right: 1px solid @gux-black-90;
 
         .gux-navigation-result {
           align-items: center;
@@ -160,12 +141,7 @@ gux-content-search {
           padding-left: 8px;
           font-family: inherit;
           font-size: 12px;
-          color: @navigation-text-color;
           white-space: nowrap;
-          &:not(.gux-navigation-result-disabled):hover,
-          &:not(.gux-navigation-result-disabled):focus {
-            color: @navigation-text-hover-color;
-          }
         }
 
         .gux-previous-button {
@@ -188,139 +164,4 @@ gux-content-search {
       }
     }
   }
-}
-
-// Theming
-
-// Dark
-.gux-content-search-dark-theme {
-  .gux-content {
-    color: @dark-text-color;
-    background-color: @dark-background-color;
-    border: 1px solid @dark-border;
-
-    &.gux-focused,
-    &:focus,
-    &:focus-within {
-      border: 1px solid @dark-focus-border;
-      outline: 3px @dark-focus-outline;
-      box-shadow: none;
-    }
-
-    input {
-      .gux-input-dark-theme();
-
-      height: 22px;
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-
-      &.gux-focused,
-      &:focus {
-        border: 0;
-        outline: none;
-        box-shadow: none;
-      }
-    }
-
-    button {
-      color: @dark-icon-color;
-      &:not([disabled]):hover,
-      &:not([disabled]):focus {
-        color: @dark-icon-hover-color;
-      }
-    }
-
-    .gux-navigation-panel {
-      .gux-navigation-result {
-        color: @dark-navigation-text-color;
-        &:not(.gux-navigation-result-disabled):hover,
-        &:not(.gux-navigation-result-disabled):focus {
-          color: @dark-navigation-text-hover-color;
-        }
-      }
-    }
-  }
-}
-
-.gux-dark-theme {
-  gux-content-search {
-    .gux-content-search-dark-theme();
-  }
-}
-
-gux-content-search.gux-dark-theme {
-  .gux-content-search-dark-theme();
-}
-
-// Light
-.gux-content-search-light-theme {
-  .gux-content {
-    background-color: @background-color;
-    border: 1px solid @border;
-
-    &.gux-focused,
-    &:focus,
-    &:focus-within {
-      border: 1px solid @focus-border;
-      outline: none;
-      box-shadow: 0 0 4px @focus-outline;
-    }
-
-    input {
-      color: @text-color;
-      background-color: @background-color;
-
-      &::placeholder {
-        color: @placeholder;
-      }
-
-      &::-webkit-input-placeholder {
-        color: @placeholder;
-      }
-
-      &::-ms-input-placeholder {
-        color: @placeholder;
-      }
-
-      &::-moz-placeholder {
-        color: @placeholder;
-      }
-
-      &.gux-focused,
-      &:focus {
-        border: 0;
-        outline: none;
-        box-shadow: none;
-      }
-    }
-    button {
-      color: @icon-color;
-    }
-
-    .gux-navigation-panel {
-      .gux-navigation-result {
-        color: @navigation-text-color;
-        &:not(.gux-navigation-result-disabled):hover,
-        &:not(.gux-navigation-result-disabled):focus {
-          color: @navigation-text-hover-color;
-        }
-      }
-    }
-  }
-}
-
-.gux-light-theme {
-  gux-content-search {
-    .gux-content-search-light-theme();
-  }
-}
-
-gux-content-search.gux-light-theme {
-  .gux-content-search-light-theme();
-}
-
-// Default Theme
-gux-content-search {
-  .gux-content-search-light-theme();
 }
