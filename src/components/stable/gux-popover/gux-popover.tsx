@@ -89,7 +89,7 @@ export class GuxPopover {
     }
   }
 
-  @ClickOutside()
+  @ClickOutside({ triggerEvents: 'mousedown' })
   checkForClickOutside() {
     if (this.closeOnClickOutside && !this.hidden) {
       this.dismiss();
@@ -136,7 +136,7 @@ export class GuxPopover {
     }
   }
 
-  async componentWillLoad(): Promise<void> {
+  async connectedCallback(): Promise<void> {
     trackComponent(this.root, { variant: this.position });
 
     this.forElement = document.getElementById(this.for);
@@ -148,13 +148,11 @@ export class GuxPopover {
     });
 
     this.hidden = this.root.hidden;
-  }
 
-  componentDidLoad(): void {
     this.runPopper();
   }
 
-  componentDidUnload(): void {
+  disconnectedCallback(): void {
     this.destroyPopper();
     this.hiddenObserver.disconnect();
   }
