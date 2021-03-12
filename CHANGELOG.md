@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.2](http://inindca///compare/v2.5.1...v2.5.2) (2021-03-12)
+
+
+### Bug Fixes
+
+* **gux-popover:** now using connect and disconnect callbacks instead of willLoad and didUnload ([6545475](http://inindca///commit/65454755079c6b2f1747c316cb150f7d8985bf9c))
+
 ### [2.5.1](http://inindca///compare/v2.5.0...v2.5.1) (2021-03-11)
 
 
