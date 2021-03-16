@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.3](http://inindca///compare/v2.5.2...v2.5.3) (2021-03-15)
+
+
+### Bug Fixes
+
+* **gux-input-text-like:** color updates ([dd9c06a](http://inindca///commit/dd9c06ad979cad8d876048d8fa9a7ad04357e43e))
+* **gux-input-text-like:** remove readme changes ([586a977](http://inindca///commit/586a9778407ae89f9b402b9bd5fba7cf19b1999f))
+
 ### [2.5.2](http://inindca///compare/v2.5.1...v2.5.2) (2021-03-12)
 
 
