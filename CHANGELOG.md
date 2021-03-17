@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.4](http://inindca///compare/v2.5.3...v2.5.4) (2021-03-16)
+
+
+### Bug Fixes
+
+* **gux-dropdown:** fixed gux-options css issue ([1e54d7f](http://inindca///commit/1e54d7ffcae53571ab32974d4f55e055722e5306))
+
 ### [2.5.3](http://inindca///compare/v2.5.2...v2.5.3) (2021-03-15)
 
 
