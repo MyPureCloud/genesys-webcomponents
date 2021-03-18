@@ -20,6 +20,9 @@ export class GuxFormField {
   @Prop()
   clearable: boolean;
 
+  @Prop()
+  displayUnits: string;
+
   @State()
   private type: string;
 
@@ -76,12 +79,12 @@ export class GuxFormField {
     );
   }
 
-  private getInputRange(): JSX.Element {
+  private getInputRange(displayUnits: string): JSX.Element {
     return (
       <div class="guxlabel-and-input-and-error-container">
         <div class={`gux-label-and-input-container gux-${this.labelPosition}`}>
           <slot name="label" slot="label" />
-          <gux-input-range>
+          <gux-input-range display-units={displayUnits}>
             <slot name="input" />
           </gux-input-range>
         </div>
@@ -133,7 +136,7 @@ export class GuxFormField {
       case 'color':
         return this.getInputColor();
       case 'range':
-        return this.getInputRange();
+        return this.getInputRange(this.displayUnits);
       case 'email':
       case 'password':
       case 'select':

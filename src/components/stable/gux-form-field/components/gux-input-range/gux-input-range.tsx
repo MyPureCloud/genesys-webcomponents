@@ -1,4 +1,4 @@
-import { Component, Element, h, JSX, Listen, State } from '@stencil/core';
+import { Component, Element, h, JSX, Listen, Prop, State } from '@stencil/core';
 import { setInterval, clearInterval } from 'requestanimationframe-timer';
 
 import { onDisabledChange } from '../../../../../utils/dom/on-attribute-change';
@@ -18,6 +18,9 @@ export class GuxInputRange {
 
   @Element()
   private root: HTMLElement;
+
+  @Prop()
+  displayUnits: string;
 
   @State()
   private disabled: boolean;
@@ -51,12 +54,12 @@ export class GuxInputRange {
     this.active = false;
   }
 
-  updateValue(newValue: string): void {
+  private updateValue(newValue: string): void {
     this.value = newValue;
     this.updatePosition();
   }
 
-  updatePosition(): void {
+  private updatePosition(): void {
     const value = Number(this.input.value || 0);
     const min = Number(this.input.min || 0);
     const max = Number(this.input.max || 100);
@@ -65,7 +68,15 @@ export class GuxInputRange {
     this.progressElement.style.width = `${placementPercentage}%`;
   }
 
-  componentWillLoad(): void {
+  private getDisplayValue(): string {
+    if (this.displayUnits) {
+      return `${this.value}${this.displayUnits}`;
+    }
+
+    return this.value;
+  }
+
+  connectedCallback(): void {
     this.input = this.root.querySelector('input[slot="input"]');
     this.disabled = this.input.disabled;
     this.value = this.input.value;
@@ -76,10 +87,6 @@ export class GuxInputRange {
         this.disabled = disabled;
       }
     );
-  }
-
-  componentDidLoad(): void {
-    this.updatePosition();
 
     this.valueWatcherId = setInterval(() => {
       if (this.value !== this.input.value) {
@@ -88,7 +95,11 @@ export class GuxInputRange {
     }, 100);
   }
 
-  componentDidUnload(): void {
+  componentDidLoad(): void {
+    this.updatePosition();
+  }
+
+  disconnectedCallback(): void {
     this.disabledObserver.disconnect();
     clearInterval(this.valueWatcherId);
   }
@@ -121,7 +132,7 @@ export class GuxInputRange {
             'gux-active': this.active
           }}
         >
-          {this.value}
+          {this.getDisplayValue()}
         </div>
       </div>
     );
