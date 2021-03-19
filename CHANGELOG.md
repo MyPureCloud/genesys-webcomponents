@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](http://inindca///compare/v2.5.4...v2.6.0) (2021-03-18)
+
+
+### Features
+
+* **gux-input-range:** added valueDisplaySuffix property ([3a3b4e2](http://inindca///commit/3a3b4e265e5aff8dcc6f315553ebefd639541d3a))
+
+
+### Bug Fixes
+
+* **gux-table:** montior data slot for changes and force component to update ([6a7d29a](http://inindca///commit/6a7d29aa6a79afc7f082529ab199648c5e738aee))
+* **gux-table:** montior data slot for changes and force component to update ([4cbb5b7](http://inindca///commit/4cbb5b77ff4a661e78e0184018e415d613692a15))
+* **pr-comments:** addressed PR comment ([642ab35](http://inindca///commit/642ab352786a1be2fad5a3c7ec8bc4232ca58afa))
+
 ### [2.5.4](http://inindca///compare/v2.5.3...v2.5.4) (2021-03-16)
 
 

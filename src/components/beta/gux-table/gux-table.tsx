@@ -10,6 +10,7 @@ import {
   Method,
   Prop,
   readTask,
+  forceUpdate,
   State
 } from '@stencil/core';
 
@@ -35,6 +36,11 @@ export class GuxTable {
   root: HTMLElement;
 
   private resizeObserver: ResizeObserver;
+  private slotObserver = new MutationObserver(
+    function () {
+      forceUpdate(this);
+    }.bind(this)
+  );
   private i18n: GetI18nValue;
   private columnResizeState: GuxTableColumnResizeState | null;
   private tableId: string = this.generateTableId();
@@ -510,6 +516,11 @@ export class GuxTable {
         this.tableContainer.querySelector('.gux-table-container table')
       );
     }
+
+    this.slotObserver.observe(
+      document.querySelector(`div[id=${this.tableId}] table[slot='data']`),
+      { subtree: true, childList: true }
+    );
   }
 
   disconnectedCallback(): void {
