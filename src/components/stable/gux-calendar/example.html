@@ -8,3 +8,50 @@
 <h2>Range Selection</h2>
 <gux-calendar mode="range" number-of-months="2" value="2019-11-25/2019-12-02">
 </gux-calendar>
+
+<h2>Localised</h2>
+<div class="container">
+  <div class="item">
+    <h3>ar</h3>
+    <gux-calendar lang="ar" mode="single"></gux-calendar>
+  </div>
+  <div class="item">
+    <h3>de</h3>
+    <gux-calendar lang="de" mode="single"></gux-calendar>
+  </div>
+
+  <div class="item">
+    <h3>en</h3>
+    <gux-calendar lang="en" mode="single"></gux-calendar>
+  </div>
+
+  <div class="item">
+    <h3>ko</h3>
+    <gux-calendar lang="ko" mode="single"></gux-calendar>
+  </div>
+
+  <div class="item">
+    <h3>pt-br</h3>
+    <gux-calendar lang="pt-br" mode="single"></gux-calendar>
+  </div>
+
+  <div class="item">
+    <h3>ru</h3>
+    <gux-calendar lang="ru" mode="single"></gux-calendar>
+  </div>
+</div>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-between;
+  }
+
+  .item {
+    flex: 0 1 auto;
+    align-self: auto;
+  }
+</style>

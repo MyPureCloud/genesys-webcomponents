@@ -21,7 +21,8 @@ import {
   addClassToElements,
   removeClassToElements
 } from '../../../utils/dom/manipulate-elements-classes';
-import { getDesiredLocale } from '../../../i18n';
+import { getDesiredLocale, getStartOfWeek } from '../../../i18n';
+
 import { GuxCalendarMode, IDateElement } from './gux-calendar.types';
 
 @Component({
@@ -39,10 +40,10 @@ export class GuxCalendar {
   value: string = '';
 
   /**
-   * The calendar first week day (default to 0 (sunday))
+   * The calendar first week day
    */
   @Prop()
-  firstDayOfWeek: number = 0;
+  firstDayOfWeek: number;
 
   /**
    * The min date selectable
@@ -67,6 +68,9 @@ export class GuxCalendar {
    */
   @Prop()
   numberOfMonths: number = 1;
+
+  @State()
+  startDayOfWeek: number;
 
   @State()
   previewValue: Date = new Date();
@@ -145,7 +149,7 @@ export class GuxCalendar {
     const startDate = new Date(year, month, 1, 0, 0, 0, 0);
     const firstDayOfMonth = startDate.getDay();
     const firstDayOffset =
-      (-1 * (this.firstDayOfWeek - firstDayOfMonth - 7)) % 7;
+      (-1 * (this.startDayOfWeek - firstDayOfMonth - 7)) % 7;
     return new Date(startDate.getTime() - firstDayOffset * (86400 * 1000));
   }
 
@@ -405,12 +409,17 @@ export class GuxCalendar {
       days.push(weekday);
       day.setDate(day.getDate() + 1);
     }
-    return this.shiftArray(days, this.firstDayOfWeek);
+    return this.shiftArray(days, this.startDayOfWeek);
   }
 
   componentWillLoad() {
     trackComponent(this.root, { variant: this.mode });
     this.locale = getDesiredLocale(this.root);
+
+    this.startDayOfWeek =
+      this.firstDayOfWeek == null
+        ? getStartOfWeek(this.locale)
+        : this.firstDayOfWeek;
 
     if (!this.value) {
       const now = new Date();

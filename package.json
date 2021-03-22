@@ -23,13 +23,14 @@
     "format": "prettier \"./**/*.{ts,tsx,js,jsx,json,css,html,less}\"",
     "format.check": "npm run format -- --check",
     "format.fix": "npm run format -- --write",
-    "i18n": "./scripts/build-i18n.js",
+    "generate-start-of-week-file": "./scripts/generate-start-of-week-file.js",
+    "i18n": "npm run generate-start-of-week-file && ./scripts/build-i18n.js",
     "lint": "npm run lint.commit && npm run lint.ts && npm run lint.css && npm run lint.svg",
     "lint.commit": "commitlint -f 811627c6ed30490b975acc4cbc2c2f4bac32e8ae",
     "lint.css": "npx stylelint '**/*.{css,html,less}' --fix",
     "lint.fix": "npm run lint.commit && npm run lint.ts -- --fix && npm run lint.css -- --fix",
-    "lint.ts": "tslint --project .",
     "lint.svg": "svgo -f ./src/components/stable/gux-icon/icons --multipass -q",
+    "lint.ts": "tslint --project .",
     "list-component-tracking": "./scripts/list-component-tracking.js",
     "list-i18n-files": "./scripts/list-i18n-files.js",
     "predev": "npm run i18n",
@@ -106,7 +107,8 @@
     "typescript": "^3.9.7",
     "webpack": "^4.46.0",
     "webpack-dev-server": "^3.11.2",
-    "xmldom": "^0.3.0"
+    "weekstart": "^1.1.0",
+    "xmldom": "^0.5.0"
   },
   "repository": {
     "type": "git",

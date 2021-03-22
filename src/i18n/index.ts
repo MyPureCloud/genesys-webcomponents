@@ -2,6 +2,7 @@ import IntlMessageFormat from 'intl-messageformat';
 import { fetchResources, ILocalizedComponentResources } from './fetchResources';
 // If this import is failing, you should run the i18n script to generate the list of locales
 import locales from './locales.json';
+import startOfWeekData from './start-of-week.json';
 
 export type GetI18nValue = (resourceKey: string, context?: any) => string;
 
@@ -85,4 +86,10 @@ function findLocaleInDom(element: HTMLElement): string {
     );
     return DEFAULT_LOCALE;
   }
+}
+
+export function getStartOfWeek(locale: string = DEFAULT_LOCALE): number {
+  return startOfWeekData[locale]
+    ? startOfWeekData[locale]
+    : startOfWeekData[DEFAULT_LOCALE];
 }
