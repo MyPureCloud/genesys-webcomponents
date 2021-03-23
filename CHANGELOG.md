@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](http://inindca///compare/v2.6.0...v2.7.0) (2021-03-22)
+
+
+### Features
+
+* **gux-calendar:** added locale based start of week ([157b71d](http://inindca///commit/157b71d31e4fdc03a7acf7b0a0747520fb9251ed))
+
 ## [2.6.0](http://inindca///compare/v2.5.4...v2.6.0) (2021-03-18)
 
 
