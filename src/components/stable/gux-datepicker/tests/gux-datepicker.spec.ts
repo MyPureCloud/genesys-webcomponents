@@ -1,180 +1,41 @@
-import { CalendarModes } from '../../../../common-enums';
+import { newSpecPage } from '@stencil/core/testing';
+
+import { GuxTextFieldLegacy } from '../../../legacy/gux-text-field-legacy/gux-text-field';
+import { GuxTextLabel } from '../../gux-text-label/gux-text-label';
+
 import { GuxDatepicker } from '../gux-datepicker';
 
+const components = [GuxDatepicker, GuxTextFieldLegacy, GuxTextLabel];
+const language = 'en';
+
 describe('gux-datepicker', () => {
-  let component: GuxDatepicker;
-  let componentRoot: any;
-
-  beforeEach(async () => {
-    document.getSelection = () => {
-      return {
-        toString() {
-          return '';
-        }
-      } as any;
-    };
-    component = new GuxDatepicker();
-
-    component.inputElement = {
-      blur: jest.fn() as any,
-      setSelectionRange: jest.fn() as any,
-      value: ''
-    } as HTMLInputElement;
-
-    component.toInputElement = {
-      blur: jest.fn() as any,
-      setSelectionRange: jest.fn() as any,
-      value: ''
-    } as HTMLInputElement;
-
-    component.textFieldElement = {
-      querySelector() {
-        return component.inputElement;
-      }
-    } as any;
-
-    component.toTextFieldElement = {
-      querySelector() {
-        return component.toInputElement;
-      }
-    } as any;
-
-    component.calendarElement = {
-      focusPreviewDate: jest.fn(),
-      setValue: jest.fn()
-    } as any;
-
-    component.input = {
-      emit: jest.fn()
-    };
-
-    component.i18n = jest.fn();
-
-    componentRoot = component.root;
-
-    componentRoot.contains = () => {
-      return null;
-    };
-  });
-
-  it('builds', async () => {
-    await component.componentWillLoad();
-    component.componentDidLoad();
-    component.render();
-    expect(component).toBeTruthy();
-  });
-
-  // Methods
-  describe('methods', () => {
-    const value1str = '11/22/1970';
-    const value1Iso = '1970-11-22';
-    const value1date = new Date(1970, 10, 22);
-    const value2str = '11/25/1970';
-    const value2date = new Date(1970, 10, 25);
-    const rangeIso = '1970-11-22/1970-11-25';
-    // Private
-    describe('private', () => {
-      it('setValue', () => {
-        component.inputElement.value = value1str;
-        component.setValue();
-        expect(component.calendarElement.setValue).toHaveBeenCalledWith(
-          value1date
-        );
-        component.mode = CalendarModes.Range;
-        component.toInputElement.value = value2str;
-        component.setValue();
-        expect(component.calendarElement.setValue).toHaveBeenCalledWith([
-          value1date,
-          value2date
-        ]);
-      });
-
-      describe('onDaySelect', () => {
-        it('selecting a single day', () => {
-          const calendarEvent = {
-            stopPropagation: jest.fn(),
-            target: {
-              value: value1Iso
-            }
-          } as any;
-          component.onCalendarSelect(calendarEvent);
-          expect(component.inputElement.value).toEqual(value1str);
-          expect(calendarEvent.stopPropagation).toHaveBeenCalled();
-        });
-
-        it('selecting a range', () => {
-          component.mode = CalendarModes.Range;
-          const calendarRangeEvent = {
-            stopPropagation: jest.fn(),
-            target: {
-              value: rangeIso
-            }
-          } as any;
-          component.onCalendarSelect(calendarRangeEvent);
-          expect(component.inputElement.value).toEqual(value1str);
-          expect(component.toInputElement.value).toEqual(value2str);
-          expect(calendarRangeEvent.stopPropagation).toHaveBeenCalled();
-        });
-      });
-
-      it('onKeyDown', async () => {
-        await component.componentWillLoad();
-        component.componentDidLoad();
-        spyOn(component, 'setCursorRange').and.callThrough();
-        let event = {
-          key: 'Enter',
-          preventDefault: jest.fn()
-        } as any;
-        component.onKeyDown(event);
-        event = {
-          key: 'Enter',
-          preventDefault: jest.fn(),
-          target: component.inputElement
-        } as any;
-        component.onKeyDown(event);
-        expect(component.active).toEqual(false);
-        event = {
-          key: 'Tab',
-          preventDefault: jest.fn(),
-          target: component.inputElement
-        } as any;
-        component.onKeyDown(event);
-        expect(component.calendarElement.focusPreviewDate).toHaveBeenCalled();
-        event = {
-          key: 'ArrowUp',
-          preventDefault: jest.fn(),
-          target: component.inputElement
-        } as any;
-        component.onKeyDown(event);
-        expect(component.setCursorRange).toHaveBeenCalledTimes(1);
-        event = {
-          key: 'ArrowRight',
-          preventDefault: jest.fn(),
-          target: component.inputElement
-        } as any;
-        component.onKeyDown(event);
-        expect(component.setCursorRange).toHaveBeenCalledTimes(2);
-        event = {
-          key: 'ArrowDown',
-          preventDefault: jest.fn(),
-          target: component.inputElement
-        } as any;
-        component.onKeyDown(event);
-        expect(component.setCursorRange).toHaveBeenCalledTimes(3);
-        event = {
-          key: 'ArrowLeft',
-          preventDefault: jest.fn(),
-          target: component.inputElement
-        } as any;
-        component.onKeyDown(event);
-        expect(component.setCursorRange).toHaveBeenCalledTimes(4);
-      });
+  it('should build', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `<gux-datepicker></gux-datepicker>`,
+      language
     });
+    expect(page.rootInstance).toBeInstanceOf(GuxDatepicker);
+  });
 
-    it('calendarLabels', () => {
-      component.mode = CalendarModes.Range;
-      expect(component.getCalendarLabels().length).toEqual(2);
-      expect(component.i18n).toHaveBeenCalledTimes(2);
+  describe('#render', () => {
+    [
+      `<gux-datepicker value="1997-08-15"></gux-datepicker>`,
+      `<gux-datepicker value="1997-08-15" format="mm/dd/yy"></gux-datepicker>`,
+      `<gux-datepicker value="1997-08-15" format="mm.dd.yyyy"></gux-datepicker>`,
+      `<gux-datepicker mode="range" value="2019-11-25/2019-12-02" number-of-months="2" ></gux-datepicker>`,
+      `<gux-datepicker mode="range" value="2019-11-25/2019-12-02" min-date="2019-11-10" max-date="2019-12-31" number-of-months="2" ></gux-datepicker>`,
+      `<gux-datepicker mode="range" value="2019-11-25/2019-12-02" min-date="2019-11-10" max-date="2019-12-31" number-of-months="2" format="mm.dd.yyyy" ></gux-datepicker>`
+    ].forEach((input, index) => {
+      it(`should render component as expected (${index + 1})`, async () => {
+        const page = await newSpecPage({
+          components,
+          html: input,
+          language
+        });
+
+        expect(page.root).toMatchSnapshot();
+      });
     });
   });
 });

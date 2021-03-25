@@ -1,0 +1,138 @@
+<form onchange="notify(event)" oninput="notify(event)">
+  <h1>gux-form-field (Text like)</h1>
+
+  <p>
+    slot a input[type=email] / input[type=password] / input[type=search] /
+    input[type=text] / select element into a gux-form-field element
+  </p>
+
+  <div>
+    <gux-form-field>
+      <input
+        slot="input"
+        name="email"
+        type="email"
+        placeholder="joe.bloggs@example.com"
+      />
+      <label slot="label">Email</label>
+    </gux-form-field>
+
+    <gux-form-field>
+      <input
+        slot="input"
+        name="password"
+        type="password"
+        placeholder="Enter a password"
+      />
+      <label slot="label">Password</label>
+    </gux-form-field>
+
+    <gux-form-field>
+      <input slot="input" name="search" type="search" />
+      <label slot="label">Search</label>
+    </gux-form-field>
+
+    <gux-form-field>
+      <input
+        slot="input"
+        name="text"
+        type="text"
+        placeholder="Enter a string"
+      />
+      <label slot="label">Text</label>
+    </gux-form-field>
+
+    <gux-form-field>
+      <select slot="input" name="select" type="select">
+        <option value="option1">Option 1</option>
+        <option value="option1">Option 2</option>
+        <option value="option1">Option 3</option>
+      </select>
+      <label slot="label">Select</label>
+    </gux-form-field>
+  </div>
+
+  <h2>Clearable</h2>
+
+  <div>
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="email-clearable"
+        type="email"
+        placeholder="joe.bloggs@example.com"
+        value="daragh@example.com"
+      />
+      <label slot="label">Email</label>
+    </gux-form-field>
+
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="password-clearable"
+        type="password"
+        placeholder="Enter a password"
+      />
+      <label slot="label">Password</label>
+    </gux-form-field>
+
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="text-clearable"
+        type="text"
+        placeholder="Enter a string"
+      />
+      <label slot="label">Text</label>
+    </gux-form-field>
+  </div>
+
+  <h2>Disabled</h2>
+
+  <div>
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="email-clearable"
+        type="email"
+        placeholder="joe.bloggs@example.com"
+        value="me@example.com"
+        disabled
+      />
+      <label slot="label">Email</label>
+    </gux-form-field>
+
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="password-clearable"
+        type="password"
+        placeholder="Enter a password"
+        value="password"
+        disabled
+      />
+      <label slot="label">Password</label>
+    </gux-form-field>
+
+    <gux-form-field clearable>
+      <input
+        slot="input"
+        name="text-clearable"
+        type="text"
+        placeholder="Enter a string"
+        value="text"
+        disabled
+      />
+      <label slot="label">Text</label>
+    </gux-form-field>
+
+    <gux-form-field>
+      <select slot="input" name="select" type="select" disabled>
+        <option value="option1">Option 1</option>
+        <option value="option1">Option 2</option>
+        <option value="option1">Option 3</option>
+      </select>
+      <label slot="label">Select</label>
+    </gux-form-field>
+  </div>
+</form>

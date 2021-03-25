@@ -2,7 +2,9 @@
 
 exports[`gux-switch #render should render as expected 1`] = `
 <gux-switch class="gux-small" layout="small" role="group" value="day">
-  <!---->
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
   <gux-switch-item value="month">
     <!---->
     <button class="gux-switch-item" type="button">
@@ -15,7 +17,7 @@ exports[`gux-switch #render should render as expected 1`] = `
       Week
     </button>
   </gux-switch-item>
-  <gux-switch-item class="gux-selected" value="day">
+  <gux-switch-item value="day">
     <!---->
     <button class="gux-switch-item" type="button">
       Day

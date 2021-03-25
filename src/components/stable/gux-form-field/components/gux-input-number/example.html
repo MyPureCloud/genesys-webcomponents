@@ -1,0 +1,61 @@
+<form onchange="notify(event)" oninput="notify(event)">
+  <h1>gux-form-field (Number)</h1>
+
+  <p>slot a input[type=number] element into a gux-form-field element</p>
+
+  <gux-form-field>
+    <input
+      slot="input"
+      name="number"
+      type="number"
+      step="5"
+      min="5"
+      max="100"
+      placeholder="Enter a number"
+    />
+    <label slot="label">Number</label>
+  </gux-form-field>
+
+  <gux-form-field clearable>
+    <input
+      slot="input"
+      name="number-clearable"
+      type="number"
+      step="5"
+      min="5"
+      max="100"
+      placeholder="Enter a number"
+      value="50"
+    />
+    <label slot="label">Number</label>
+  </gux-form-field>
+
+  <gux-form-field>
+    <input
+      slot="input"
+      name="number"
+      type="number"
+      step="5"
+      min="5"
+      max="100"
+      placeholder="Enter a number"
+      disabled
+    />
+    <label slot="label">Number</label>
+  </gux-form-field>
+
+  <gux-form-field clearable>
+    <input
+      slot="input"
+      name="number-clearable"
+      type="number"
+      step="5"
+      min="5"
+      max="100"
+      placeholder="Enter a number"
+      value="50"
+      disabled
+    />
+    <label slot="label">Number</label>
+  </gux-form-field>
+</form>

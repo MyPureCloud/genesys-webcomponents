@@ -1,0 +1,44 @@
+<form onchange="notify(event)" oninput="notify(event)">
+  <h1>gux-form-field (Radio)</h1>
+
+  <p>slot a input[type=radio] element into a gux-form-field element</p>
+
+  <div>
+    <gux-form-field>
+      <input slot="input" type="radio" id="pizza" name="food" value="pizza" />
+      <label slot="label" for="pizza">Pizza</label>
+    </gux-form-field>
+    <gux-form-field>
+      <input
+        slot="input"
+        type="radio"
+        id="pasta"
+        name="food"
+        value="pasta"
+        checked
+      />
+      <label slot="label" for="pasta">Pasta</label>
+    </gux-form-field>
+    <gux-form-field>
+      <input
+        slot="input"
+        type="radio"
+        id="hamburger"
+        name="food"
+        value="hamburger"
+      />
+      <label slot="label" for="hamburger">Hamburger</label>
+    </gux-form-field>
+    <gux-form-field>
+      <input
+        slot="input"
+        type="radio"
+        id="sandwich"
+        name="food"
+        value="sandwich"
+        disabled
+      />
+      <label slot="label" for="sandwich">Sandwich</label>
+    </gux-form-field>
+  </div>
+</form>

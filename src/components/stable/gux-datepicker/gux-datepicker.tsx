@@ -31,9 +31,7 @@ import {
   incrementDay,
   incrementMonth,
   incrementYear,
-  getFormattedDay,
-  getFormattedMonth,
-  getFormattedYear,
+  getFormattedDate,
   getIntervalLetter,
   getFormatSeparator,
   getPreviousIntervalRange,
@@ -233,7 +231,6 @@ export class GuxDatepicker {
             selectionEnd: this.focusedField.selectionEnd
           });
           this.updateIntervalValue(event);
-
           this.setCursorRange();
           break;
       }
@@ -529,69 +526,39 @@ export class GuxDatepicker {
   }
 
   increment(delta: number) {
-    let selectionText = document.getSelection().toString();
-
     const interval = getIntervalLetter(
       this.format,
       this.focusedField.selectionStart
     );
     const focusedDateValue = this.getCombinedFocusedDateValue();
 
+    let newDate: Date;
+
     switch (interval) {
       case 'd':
-        selectionText = this.incrementDay(delta, focusedDateValue);
+        newDate = incrementDay(delta, focusedDateValue);
         break;
       case 'm':
-        selectionText = this.incrementMonth(delta, focusedDateValue);
+        newDate = incrementMonth(delta, focusedDateValue);
         break;
       case 'y':
-        selectionText = this.incrementYear(delta, focusedDateValue);
+        newDate = incrementYear(delta, focusedDateValue);
         break;
     }
+
+    if (isOutOfBoundsDate(newDate, this.minDateDate, this.maxDateDate)) {
+      newDate = focusedDateValue;
+    }
+
+    this.lastYear = newDate.getFullYear();
 
     this.setIntervalRange({
       selectionStart: this.focusedField.selectionStart,
       selectionEnd: this.focusedField.selectionEnd
     });
 
-    this.updateSelection(this.focusedField, selectionText);
+    this.focusedField.value = getFormattedDate(newDate, this.format);
     this.setValue();
-  }
-
-  incrementDay(delta: number, focusedDateValue: Date): string {
-    const incrementedDay = incrementDay(delta, focusedDateValue);
-
-    if (isOutOfBoundsDate(incrementedDay, this.minDateDate, this.maxDateDate)) {
-      return getFormattedDay(focusedDateValue);
-    }
-
-    return getFormattedDay(incrementedDay);
-  }
-
-  incrementMonth(delta: number, focusedDateValue: Date): string {
-    const incrementedMonth = incrementMonth(delta, focusedDateValue);
-
-    if (
-      isOutOfBoundsDate(incrementedMonth, this.minDateDate, this.maxDateDate)
-    ) {
-      return getFormattedMonth(focusedDateValue);
-    }
-
-    return getFormattedMonth(incrementedMonth);
-  }
-
-  incrementYear(delta: number, focusedDateValue: Date): string {
-    const incrementedYear = incrementYear(delta, focusedDateValue);
-
-    if (
-      isOutOfBoundsDate(incrementedYear, this.minDateDate, this.maxDateDate)
-    ) {
-      return getFormattedYear(focusedDateValue, this.yearFormat);
-    }
-
-    this.lastYear = incrementedYear.getFullYear();
-
-    return getFormattedYear(incrementedYear, this.yearFormat);
   }
 
   async componentWillLoad() {

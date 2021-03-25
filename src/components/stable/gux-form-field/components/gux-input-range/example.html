@@ -1,0 +1,35 @@
+<form onchange="notify(event)" oninput="notify(event)">
+  <h1>gux-form-field (Range)</h1>
+
+  <p>slot a input[type=range] element into a gux-form-field element</p>
+
+  <gux-form-field>
+    <label slot="label">Range</label>
+    <input slot="input" name="range" type="range" />
+  </gux-form-field>
+
+  <gux-form-field display-units="%">
+    <label slot="label">Range</label>
+    <input slot="input" name="range" type="range" />
+  </gux-form-field>
+
+  <gux-form-field display-units="px">
+    <label slot="label">Range</label>
+    <input slot="input" name="range" type="range" />
+  </gux-form-field>
+
+  <gux-form-field>
+    <label slot="label">Range</label>
+    <input slot="input" name="range-disabled" type="range" disabled />
+  </gux-form-field>
+
+  <gux-form-field display-units="%">
+    <label slot="label">Range</label>
+    <input slot="input" name="range-disabled" type="range" disabled />
+  </gux-form-field>
+
+  <gux-form-field display-units="px">
+    <label slot="label">Range</label>
+    <input slot="input" name="range-disabled" type="range" disabled />
+  </gux-form-field>
+</form>

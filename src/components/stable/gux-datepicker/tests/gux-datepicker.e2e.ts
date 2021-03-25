@@ -8,6 +8,7 @@ describe('gux-datepicker', () => {
     const element = await page.find('gux-datepicker');
     expect(element).toHaveClass('hydrated');
   });
+
   it('updates the text input state when the datepicker’s value property is set', async () => {
     const page = await newE2EPage();
 

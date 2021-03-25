@@ -12,10 +12,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                                        | Type                   | Default     |
-| -------- | --------- | -------------------------------------------------- | ---------------------- | ----------- |
-| `layout` | `layout`  | The allowed sizes                                  | `"default" \| "small"` | `'default'` |
-| `value`  | `value`   | Used to keep track of the currently selected value | `string`               | `undefined` |
+| Property | Attribute | Description | Type                   | Default     |
+| -------- | --------- | ----------- | ---------------------- | ----------- |
+| `layout` | `layout`  |             | `"default" \| "small"` | `'default'` |
+| `value`  | `value`   |             | `string`               | `undefined` |
 
 
 ## Slots

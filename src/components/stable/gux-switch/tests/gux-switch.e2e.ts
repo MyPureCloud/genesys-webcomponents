@@ -84,4 +84,37 @@ describe('gux-switch', () => {
       expect(spyOnChangeEvent.length).toBe(0);
     });
   });
+
+  describe('onSlotchange', () => {
+    it(`should set selected item as expected`, async () => {
+      const page = await newE2EPage({
+        html: `
+        <gux-switch lang-"en" layout="small" value="month">
+          <gux-switch-item value="week">Week</gux-switch-item>
+          <gux-switch-item value="day">Day</gux-switch-item>
+          <gux-switch-item value="hour" disabled>Hour</gux-switch-item>
+          <gux-switch-item value="minute">Minute</gux-switch-item>
+        </gux-switch>
+      `
+      });
+      const element = await page.find('gux-switch');
+
+      await page.evaluate(() => {
+        const weekElement = document.querySelector(
+          'gux-switch-item[value=week]'
+        );
+
+        const template = document.createElement('template');
+        template.innerHTML =
+          '<gux-switch-item value="month">Month</gux-switch-item>';
+        const monthElement = template.content.firstChild as Element;
+
+        weekElement.insertAdjacentElement('beforebegin', monthElement);
+      });
+
+      await page.waitForChanges();
+
+      expect(element.outerHTML).toMatchSnapshot();
+    });
+  });
 });

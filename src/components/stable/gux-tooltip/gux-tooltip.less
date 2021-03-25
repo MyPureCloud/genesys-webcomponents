@@ -1,20 +1,17 @@
 @import (reference) '../../../style/color.less';
 
-// Style
 gux-tooltip {
   z-index: 1;
   box-sizing: border-box;
-  max-width: 500px;
-  padding: 0 12px;
-  overflow: hidden;
+  max-width: 250px;
+  padding: 6px 12px;
   font-size: 12px;
-  line-height: 32px;
-  color: @gux-type;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  color: @gux-black-50;
   pointer-events: none;
   visibility: hidden !important;
-  background-color: @gux-background;
+  background-color: @gux-grey-100;
+  border: 1px solid @gux-black-100;
+  box-shadow: 0 0 2px 0 fade(@gux-black-30, 24%);
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
 
@@ -26,41 +23,4 @@ gux-tooltip {
 
 .gux-tooltip-for-element {
   cursor: pointer;
-}
-
-// Theming
-// Light
-.gux-tooltip-light-theme {
-  border: 1px solid @gux-border;
-  box-shadow: 0 0 2px 0 fade(@gux-black-30, 24%);
-}
-
-.gux-light-theme {
-  gux-tooltip {
-    .gux-tooltip-light-theme;
-  }
-}
-
-gux-tooltip.gux-light-theme {
-  .gux-tooltip-light-theme;
-}
-// Dark
-.gux-tooltip-dark-theme {
-  border: 1px solid @expalette-background-color-dark;
-  box-shadow: 0 0 2px 0 fade(@gux-black-30, 100%);
-}
-
-.gux-dark-theme {
-  gux-tooltip {
-    .gux-tooltip-dark-theme;
-  }
-}
-
-gux-tooltip.gux-dark-theme {
-  .gux-tooltip-dark-theme;
-}
-
-// Default
-gux-tooltip {
-  .gux-tooltip-light-theme;
 }

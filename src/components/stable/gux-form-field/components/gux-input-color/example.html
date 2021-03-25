@@ -1,0 +1,19 @@
+<form onchange="notify(event)" oninput="notify(event)">
+  <h1>gux-form-field (Color)</h1>
+
+  <p>slot a input[type=color] element into a gux-form-field element</p>
+
+  <div>
+    <gux-form-field>
+      <input slot="input" name="color" type="color" value="#1da8b3" />
+      <label slot="label">Color</label>
+    </gux-form-field>
+  </div>
+
+  <div>
+    <gux-form-field>
+      <input slot="input" name="color" type="color" value="#1da8b3" disabled />
+      <label slot="label">Color</label>
+    </gux-form-field>
+  </div>
+</form>

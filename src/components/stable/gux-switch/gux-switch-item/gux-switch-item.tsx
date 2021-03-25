@@ -9,6 +9,9 @@ export class GuxSwitchItem {
   value: string;
 
   @Prop()
+  selected: boolean = false;
+
+  @Prop()
   disabled: boolean = false;
 
   @Listen('click')
@@ -20,7 +23,7 @@ export class GuxSwitchItem {
 
   render(): JSX.Element {
     return (
-      <Host>
+      <Host class={{ 'gux-selected': this.selected }}>
         <button type="button" class="gux-switch-item" disabled={this.disabled}>
           <slot />
         </button>

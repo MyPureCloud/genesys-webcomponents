@@ -18,6 +18,18 @@ export function isOutOfBoundsDate(value: Date, min: Date, max: Date): boolean {
   return (max && max < value) || (min && min > value);
 }
 
+export function getClampedMonthValue(unclampedMonthValue: number): number {
+  let clampedMonthValue = unclampedMonthValue;
+
+  while (clampedMonthValue < 0) {
+    clampedMonthValue += 12;
+  }
+
+  clampedMonthValue = clampedMonthValue % 12;
+
+  return clampedMonthValue;
+}
+
 export function incrementDay(delta: number, focusedDateValue: Date): Date {
   let newDay = new Date(focusedDateValue.getTime());
 
@@ -45,16 +57,13 @@ export function incrementDay(delta: number, focusedDateValue: Date): Date {
 
 export function incrementMonth(delta: number, focusedDateValue: Date): Date {
   const newMonth = new Date(focusedDateValue.valueOf());
-  newMonth.setMonth(newMonth.getMonth() + delta);
+  const newMonthValue = getClampedMonthValue(newMonth.getMonth() + delta);
 
-  if (delta < 0) {
-    if (newMonth.getMonth() > focusedDateValue.getMonth()) {
-      newMonth.setFullYear(newMonth.getFullYear() + 1);
-    }
-  } else {
-    if (newMonth.getMonth() < focusedDateValue.getMonth()) {
-      newMonth.setFullYear(newMonth.getFullYear() - 1);
-    }
+  newMonth.setMonth(newMonthValue);
+  newMonth.setFullYear(focusedDateValue.getFullYear());
+
+  if (newMonth.getMonth() !== newMonthValue) {
+    return incrementMonth(delta, incrementDay(-1, focusedDateValue));
   }
 
   return newMonth;
@@ -82,6 +91,26 @@ export function getFormattedYear(date: Date, yearFormat: string): string {
   } else {
     return date.getFullYear().toString().slice(-2);
   }
+}
+
+export function getFormattedDate(date: Date, format: string) {
+  const formatSeparator = getFormatSeparator(format);
+
+  const dateString = format
+    .split(formatSeparator)
+    .map(intervalFormat => {
+      switch (intervalFormat[0]) {
+        case 'd':
+          return getFormattedDay(date);
+        case 'm':
+          return getFormattedMonth(date);
+        case 'y':
+          return getFormattedYear(date, intervalFormat);
+      }
+    })
+    .join(formatSeparator);
+
+  return dateString;
 }
 
 export function getIntervalLetter(format: string, index: number): string {

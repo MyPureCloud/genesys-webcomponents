@@ -5,7 +5,6 @@ import { onDisabledChange } from '../../../../../utils/dom/on-attribute-change';
 
 /**
  * @slot input - Required slot for input[type="range"]
- * @slot label - Required slot for label
  */
 @Component({
   styleUrl: 'gux-input-range.less',

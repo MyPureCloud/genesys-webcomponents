@@ -26,7 +26,6 @@ changing error-message attribute.
 | Slot      | Description                           |
 | --------- | ------------------------------------- |
 | `"input"` | Required slot for input[type="radio"] |
-| `"label"` | Required slot for label               |
 
 
 ## Dependencies

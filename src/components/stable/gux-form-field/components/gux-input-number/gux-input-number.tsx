@@ -9,7 +9,6 @@ import modalComponentResources from './i18n/en.json';
 
 /**
  * @slot input - Required slot for input[type="radio"]
- * @slot label - Required slot for label
  */
 @Component({
   styleUrl: 'gux-input-number.less',

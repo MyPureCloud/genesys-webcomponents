@@ -106,4 +106,21 @@ describe('gux-switch', () => {
       expect(inputEventSpy).not.toHaveBeenCalled();
     });
   });
+
+  describe('onSlotchange', () => {
+    it(`should set selected item as expected`, async () => {
+      const page = await newSpecPage({ components, html, language });
+
+      expect(page.rootInstance).toBeInstanceOf(GuxSwitch);
+
+      page.rootInstance.slotChanged();
+      page.rootInstance.componentWillRender();
+
+      const daySwitchItem = page.root.querySelector(
+        'gux-switch-item[value=day]'
+      ) as HTMLGuxSwitchItemElement;
+
+      expect(daySwitchItem.selected).toBe(true);
+    });
+  });
 });

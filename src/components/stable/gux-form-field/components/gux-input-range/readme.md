@@ -17,7 +17,6 @@
 | Slot      | Description                           |
 | --------- | ------------------------------------- |
 | `"input"` | Required slot for input[type="range"] |
-| `"label"` | Required slot for label               |
 
 
 ## Dependencies
