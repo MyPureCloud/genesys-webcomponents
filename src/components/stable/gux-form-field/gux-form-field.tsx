@@ -24,19 +24,25 @@ export class GuxFormField {
   displayUnits: string;
 
   @State()
-  private type: string;
+  private slottedElementType: string = 'input' || 'select' || 'textarea';
 
   @State()
   private labelPosition: 'above' | 'beside' = 'above';
 
   componentWillLoad() {
     this.input = this.root.querySelector(
-      'input[slot="input"], select[slot="input"]'
+      'input[slot="input"], select[slot="input"], textarea[slot="input"]'
     );
     this.label = this.root.querySelector('label[slot="label"]');
-    this.type = this.input.getAttribute('type');
+    const type = this.input.getAttribute('type');
+    this.slottedElementType = this.input.tagName.toLowerCase();
 
-    trackComponent(this.root, { variant: this.type });
+    let variant = this.slottedElementType;
+    if (this.slottedElementType === 'input') {
+      variant = this.slottedElementType.concat('-').concat(type);
+    }
+
+    trackComponent(this.root, { variant });
   }
 
   componentWillRender() {
@@ -127,25 +133,55 @@ export class GuxFormField {
     );
   }
 
+  private getInputTextArea(): JSX.Element {
+    return (
+      <div class="gux-label-and-input-and-error-container">
+        <div class={`gux-label-and-input-container gux-${this.labelPosition}`}>
+          <slot name="label" slot="label" />
+          <gux-input-textarea slot="input">
+            <slot name="input" />
+          </gux-input-textarea>
+        </div>
+        <div class="gux-error">
+          <slot name="error" />
+        </div>
+      </div>
+    );
+  }
+
   render(): JSX.Element {
-    switch (this.type) {
-      case 'checkbox':
-        return this.getInputCheckbox();
-      case 'radio':
-        return this.getInputRadio();
-      case 'color':
-        return this.getInputColor();
-      case 'range':
-        return this.getInputRange(this.displayUnits);
-      case 'email':
-      case 'password':
+    const type = this.input.getAttribute('type');
+    switch (this.slottedElementType) {
+      case 'input':
+        switch (type) {
+          case 'checkbox':
+            return this.getInputCheckbox();
+          case 'radio':
+            return this.getInputRadio();
+          case 'color':
+            return this.getInputColor();
+          case 'range':
+            return this.getInputRange(this.displayUnits);
+          case 'email':
+          case 'password':
+          case 'text':
+            return this.getInputTextLike(this.clearable);
+          case 'number':
+            return this.getInputNumber(this.clearable);
+          case 'search':
+            return this.getInputTextLike(false);
+          default:
+            return (
+              <div>
+                <slot name="label" />
+                <slot name="input" />
+              </div>
+            );
+        }
       case 'select':
-      case 'text':
         return this.getInputTextLike(this.clearable);
-      case 'number':
-        return this.getInputNumber(this.clearable);
-      case 'search':
-        return this.getInputTextLike(false);
+      case 'textarea':
+        return this.getInputTextArea();
       default:
         return (
           <div>

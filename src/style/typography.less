@@ -2,6 +2,9 @@
  * Typography styles and mixins.
  */
 
+// Variables part
+@base-line-height: 24px;
+
 /* Base typography */
 
 body,
@@ -27,7 +30,7 @@ h2,
   .light-font();
 
   font-size: 18px;
-  line-height: 24px;
+  line-height: @base-line-height;
 }
 
 h3,
@@ -56,7 +59,7 @@ h6,
   .base-font();
 
   font-size: 14px;
-  line-height: 24px;
+  line-height: @base-line-height;
 }
 
 .gux-small-text {

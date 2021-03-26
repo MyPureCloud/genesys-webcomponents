@@ -41,6 +41,16 @@ export class GuxTabs {
   @Prop() value: string = '';
 
   /**
+   * Maximum nuber of tabs created
+   */
+  @Prop() tabLimit: number = Infinity;
+
+  /**
+   * Disable new tab button event
+   */
+  @State() disableAddTabButton: boolean = false;
+
+  /**
    * Triggers when the new tab button is selected.
    */
   @Event() newTab: EventEmitter;
@@ -135,6 +145,15 @@ export class GuxTabs {
     this.i18n = await buildI18nForComponent(this.root, tabsResources);
   }
 
+  componentWillRender() {
+    const tabs: HTMLGuxTabElement[] = Array.from(
+      this.root.querySelectorAll('gux-tab')
+    );
+    if (tabs.length >= this.tabLimit) {
+      this.disableAddTabButton = true;
+    }
+  }
+
   checkForScrollbarHideOrShow() {
     readTask(() => {
       const el = this.root.shadowRoot.querySelector('.scrollable-section');
@@ -215,9 +234,14 @@ export class GuxTabs {
     const AddNewTabButton = (props: { onClick: () => void }) => {
       return (
         <button
-          title={this.i18n('createNewTab')}
+          title={
+            this.disableAddTabButton
+              ? this.i18n('disableNewTab')
+              : this.i18n('createNewTab')
+          }
           class="add-tab"
           onClick={() => props.onClick()}
+          disabled={this.disableAddTabButton}
         >
           <gux-icon iconName="ic-add" decorative={true} />
         </button>

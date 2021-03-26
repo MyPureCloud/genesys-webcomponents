@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property           | Attribute             | Description                         | Type      | Default |
-| ------------------ | --------------------- | ----------------------------------- | --------- | ------- |
-| `allowSort`        | `allow-sort`          | Enable tab sorting by drag/drop     | `boolean` | `false` |
-| `showNewTabButton` | `show-new-tab-button` | Enable new tab button               | `boolean` | `false` |
-| `value`            | `value`               | tabId of the currently selected tab | `string`  | `''`    |
+| Property           | Attribute             | Description                         | Type      | Default    |
+| ------------------ | --------------------- | ----------------------------------- | --------- | ---------- |
+| `allowSort`        | `allow-sort`          | Enable tab sorting by drag/drop     | `boolean` | `false`    |
+| `showNewTabButton` | `show-new-tab-button` | Enable new tab button               | `boolean` | `false`    |
+| `tabLimit`         | `tab-limit`           | Maximum nuber of tabs created       | `number`  | `Infinity` |
+| `value`            | `value`               | tabId of the currently selected tab | `string`  | `''`       |
 
 
 ## Events

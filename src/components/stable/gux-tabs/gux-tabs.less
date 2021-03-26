@@ -48,6 +48,18 @@
       border-radius: 2px;
       transition: color 0.25s;
 
+      &:disabled {
+        opacity: 0.5;
+
+        &:hover {
+          color: @gux-black-30;
+        }
+
+        &:active {
+          background-color: @gux-tabs-background;
+        }
+      }
+
       gux-icon {
         width: 16px;
         height: 16px;

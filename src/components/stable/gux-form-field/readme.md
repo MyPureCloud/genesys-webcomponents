@@ -31,6 +31,7 @@
 - [gux-input-range](./components/gux-input-range)
 - [gux-input-number](./components/gux-input-number)
 - [gux-input-text-like](./components/gux-input-text-like)
+- [gux-input-textarea](./components/gux-input-textarea)
 
 ### Graph
 ```mermaid
@@ -41,6 +42,7 @@ graph TD;
   gux-form-field --> gux-input-range
   gux-form-field --> gux-input-number
   gux-form-field --> gux-input-text-like
+  gux-form-field --> gux-input-textarea
   gux-input-color --> gux-icon
   gux-input-color --> gux-color-select
   gux-color-select --> gux-input-color-option

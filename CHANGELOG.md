@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.8.0](http://inindca///compare/v2.7.0...v2.8.0) (2021-03-25)
+
+
+### Features
+
+* **gux-form-field:** added individual example pages of gux-form-field types ([98c7c53](http://inindca///commit/98c7c539bad02afd7b69a52fb9b7a1381dea8fd8))
+
+
+### Bug Fixes
+
+* **gux-date-picker:** fixed month increment at end of month ([8379831](http://inindca///commit/8379831cbf43b8fe89a02214d085c23601b702d5))
+* **gux-form-field:** fixed range css bug ([ed53539](http://inindca///commit/ed53539a3a843e72021d5fce1a84fab243f5d29f))
+* **gux-search-beta:** fixed css issue related to v2 migration ([1496f90](http://inindca///commit/1496f90f11a90614fcdfc9824998b1f6e481046c))
+* **gux-switch:** slot changes now detected ([5929b5b](http://inindca///commit/5929b5b60e589fe3be4c63a416ef98f6f862a507))
+* **gux-tooltip:** fixed tooltip layout issue ([bd3fb8e](http://inindca///commit/bd3fb8e38ff24c7423c0830ddf1ab157fd360f15))
+* **pr-comment:** addressed pr comment ([d6352a3](http://inindca///commit/d6352a3d0cb50642940802efa03d73c73a0c9f6d))
+
 ## [2.7.0](http://inindca///compare/v2.6.0...v2.7.0) (2021-03-22)
 
 
