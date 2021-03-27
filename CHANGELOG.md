@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.9.0](http://inindca///compare/v2.8.0...v2.9.0) (2021-03-26)
+
+
+### Features
+
+* **gux-input-textarea:** add default to input case ([08701f9](http://inindca///commit/08701f948191b7e782118c1ed0316e2a03e9617a))
+* **gux-input-textarea:** address feedback ([3af0aa2](http://inindca///commit/3af0aa2c7122a31eb5154aa9f243e5b140cb0e2c))
+* **gux-input-textarea:** fix build failure ([4fcc719](http://inindca///commit/4fcc719a9ac9d61e5b75245a9f88b73fb640a4fd))
+* **gux-input-textarea:** remove second border declaration ([457084b](http://inindca///commit/457084b7344c20d11c7e4db20c53cd6a0d17c11f))
+* **gux-input-textarea:** rename slot as input ([4bb9cb2](http://inindca///commit/4bb9cb20ceffe9d7be81fb3b44463e1a5a424943))
+* **gux-input-textarea:** text area design ([8cfb920](http://inindca///commit/8cfb9208e754eaa01fcca39c85573b172f7761e0))
+* **gux-input-textarea:** update comments and readme ([e9643cc](http://inindca///commit/e9643ccb0f230a6b757b62ed70ff3f75c9f76f41))
+* **gux-input-textarea:** update styling and rework render logic ([d34f2a3](http://inindca///commit/d34f2a3c8382fcfc21eb1da31248568ee648b7ff))
+* **gux-input-textarea:** update textarea css ([e2cbb7b](http://inindca///commit/e2cbb7b214ebfb3a1fac33db7d759dd7da8433eb))
+* **gux-tabs:** allow de-activating add tab button with tooltip ([9f58e3e](http://inindca///commit/9f58e3eb5d419a5ae2f7f63d3a274ea716f4d7ff))
+* **gux-tabs:** set tab limit to infinity, disabled button styling, move to componentWillRender ([188de82](http://inindca///commit/188de82c1d147e24329a6c348a8bf52b51aacd77))
+
 ## [2.8.0](http://inindca///compare/v2.7.0...v2.8.0) (2021-03-25)
 
 
