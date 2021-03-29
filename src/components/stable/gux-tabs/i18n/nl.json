@@ -1,5 +1,6 @@
 {
   "createNewTab": "Nieuw tabblad maken",
   "scrollLeft": "Naar links schuiven",
-  "scrollRight": "Naar rechts schuiven"
+  "scrollRight": "Naar rechts schuiven",
+  "disableNewTab": "Het maximum aantal gemaakte tabs is bereikt."
 }

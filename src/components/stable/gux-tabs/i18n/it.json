@@ -1,5 +1,6 @@
 {
   "createNewTab": "Crea nuova scheda",
   "scrollLeft": "Naviga a sinistra",
-  "scrollRight": "Naviga a destra"
+  "scrollRight": "Naviga a destra",
+  "disableNewTab": "È stato raggiunto il numero massimo di schede create"
 }
