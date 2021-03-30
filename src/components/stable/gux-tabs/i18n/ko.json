@@ -1,5 +1,6 @@
 {
   "createNewTab": "새 탭 만들기",
   "scrollLeft": "왼쪽으로 스크롤",
-  "scrollRight": "오른쪽으로 스크롤"
+  "scrollRight": "오른쪽으로 스크롤",
+  "disableNewTab": "생성된 최대 탭 수에 도달했습니다."
 }

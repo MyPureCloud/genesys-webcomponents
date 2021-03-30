@@ -1,5 +1,6 @@
 {
   "createNewTab": "Criar nova guia",
   "scrollLeft": "Rolar para a esquerda",
-  "scrollRight": "Rolar para a direita"
+  "scrollRight": "Rolar para a direita",
+  "disableNewTab": "Número máximo de guias criadas alcançado"
 }

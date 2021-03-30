@@ -1,5 +1,6 @@
 {
   "createNewTab": "Crear nueva pestaña",
   "scrollLeft": "Desplazar a la izquierda",
-  "scrollRight": "Desplazar a la derecha"
+  "scrollRight": "Desplazar a la derecha",
+  "disableNewTab": "Se alcanzó el número máximo de pestañas creadas"
 }
