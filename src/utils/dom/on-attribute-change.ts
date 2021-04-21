@@ -1,5 +1,24 @@
+export function onMutation(
+  element: HTMLElement | HTMLSelectElement,
+  callback: (value: MutationRecord) => void
+): MutationObserver {
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(value => {
+      callback(value);
+    });
+  });
+
+  observer.observe(element, {
+    attributes: true,
+    childList: true,
+    subtree: true
+  });
+
+  return observer;
+}
+
 export function onHiddenChange(
-  element: HTMLElement,
+  element: HTMLElement | HTMLSelectElement,
   callback: (hidden: boolean) => void
 ): MutationObserver {
   const observer = new MutationObserver(mutations => {
@@ -17,7 +36,7 @@ export function onHiddenChange(
 }
 
 export function onDisabledChange(
-  element: HTMLInputElement,
+  element: HTMLInputElement | HTMLSelectElement,
   callback: (disabled: boolean) => void
 ): MutationObserver {
   const observer = new MutationObserver(mutations => {

@@ -1,11 +1,43 @@
 @import (reference) '../../../../../style/color.less';
+@import (reference) '../../../../../style/mixins.less';
 
 gux-input-select {
-  position: relative;
-  display: block;
+  color: @gux-black-50;
 
-  .gux-input-container {
-    position: relative;
+  &:focus-within {
+    .gux-field-button {
+      .focus-ring();
+
+      .gux-expand-icon {
+        color: @gux-blue-60;
+      }
+    }
+  }
+
+  .gux-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  .gux-listbox-expanded {
+    .gux-field-button {
+      border-color: @gux-blue-60;
+      outline: none;
+      box-shadow: 0 0 4px @gux-blue-80;
+    }
+
+    .gux-listbox {
+      display: block;
+    }
+  }
+
+  .gux-slot {
+    display: none;
+  }
+
+  .gux-field-button {
+    all: unset;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -14,6 +46,8 @@ gux-input-select {
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 32px;
+    padding: 4px 8px 4px 12px;
     font-family: inherit;
     font-size: 12px;
     line-height: 1.66666667;
@@ -22,49 +56,68 @@ gux-input-select {
     background-image: none;
     border: 1px solid @gux-black-100;
     border-radius: 2px;
+    box-shadow: inset 0 0 4px fade(@gux-black-30, 16%);
 
-    &.gux-disabled {
-      pointer-events: none;
-      opacity: 0.5;
-    }
-
-    &:hover {
-      gux-icon {
-        color: @gux-blue-60;
-      }
-    }
-
-    select {
+    .gux-selected-option {
       flex: 1 1 auto;
       align-self: auto;
       order: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .gux-expand-icon {
+      flex: 0 0 auto;
+      align-self: auto;
+      order: 0;
+      width: 20px;
+      height: 20px;
+      margin-left: 8px;
+    }
+
+    &:hover {
+      .gux-expand-icon {
+        color: @gux-blue-60;
+      }
+    }
+  }
+
+  .gux-listbox {
+    z-index: 1;
+    box-sizing: border-box;
+    display: none;
+    padding: 8px 0;
+    margin: 0;
+    overflow-y: auto;
+    line-height: 32px;
+    color: @gux-black-50;
+    list-style-type: none;
+    background: @gux-grey-100;
+    border: 1px solid @gux-black-100;
+    .shadow-30();
+
+    .gux-listbox-option {
       height: 32px;
-      padding: 0 32px 0 12px;
-      margin: 0;
-      color: @gux-black-50;
-      background-color: @gux-grey-90;
-      border: none;
-      outline: none;
-      box-shadow: inset 0 0 4px fade(@gux-black-30, 16%);
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      appearance: none;
-    }
+      padding: 0 16px;
+      cursor: pointer;
 
-    gux-icon {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 16px;
-      height: 16px;
-      margin: 8px;
-      pointer-events: none;
-    }
 
-    &:focus-within {
-      border: 1px solid @gux-blue-60;
-      outline: none;
-      box-shadow: 0 0 4px @gux-blue-80;
+      &[aria-selected] {
+        color: @gux-black-50;
+        background: @gux-blue-100;
+      }
+
+      &:hover, &.gux-active {
+        color: @gux-grey-100;
+        background-color: @gux-blue-60;
+      }
+
+      &[aria-disabled] {
+        pointer-events: none;
+        cursor: default;
+        opacity: 0.5;
+      }
     }
   }
 }

@@ -3,24 +3,161 @@
 
   <p>slot a select element into a gux-form-field element</p>
 
-  <div>
-    <gux-form-field>
-      <select slot="input" name="select">
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-      </select>
-      <label slot="label">Select</label>
-    </gux-form-field>
-  </div>
+  <h2>Examples</h2>
 
-  <h2>Disabled</h2>
+  <h3>Single Select</h3>
+  <gux-form-field>
+    <select slot="input" name="select">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+      <option value="option4" disabled>Option 4</option>
+      <option value="option5">Option 5</option>
+      <option value="option6">Option 6</option>
+    </select>
+    <label slot="label">Select</label>
+  </gux-form-field>
+
+  <h3>Size</h3>
+  <gux-form-field>
+    <select slot="input" name="select" size="4">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+      <option value="option4" disabled>Option 4</option>
+      <option value="option5">Option 5</option>
+      <option value="option6">Option 6</option>
+      <option value="option7">Option 7</option>
+      <option value="option8">Option 8</option>
+      <option value="option9">Option 9</option>
+      <option value="option10">Option 10</option>
+      <option value="option11">Option 11</option>
+      <option value="option12">Option 12</option>
+    </select>
+    <label slot="label">Select</label>
+  </gux-form-field>
+
+  <h3>Disabled</h3>
   <gux-form-field>
     <select slot="input" name="select" disabled>
       <option value="option1">Option 1</option>
       <option value="option2">Option 2</option>
       <option value="option3">Option 3</option>
+      <option value="option4" disabled>Option 4</option>
+      <option value="option5">Option 5</option>
+      <option value="option6">Option 6</option>
     </select>
     <label slot="label">Select</label>
   </gux-form-field>
+
+  <h2>Supported Select Attributes</h2>
+  <table>
+    <tr>
+      <th>autofocus</th>
+      <td>
+        <gux-icon
+          screenreader-text="Not Suppoted"
+          icon-name="alert-warning-octogon"
+        ></gux-icon>
+      </td>
+    </tr>
+    <tr>
+      <th>disabled</th>
+      <td>
+        <gux-icon
+          screenreader-text="Suppoted"
+          icon-name="alert-success"
+        ></gux-icon>
+      </td>
+    </tr>
+    <tr>
+      <th>form</th>
+      <td>
+        <gux-icon
+          screenreader-text="Suppoted"
+          icon-name="alert-success"
+        ></gux-icon>
+      </td>
+    </tr>
+    <tr>
+      <th>multiple</th>
+      <td>
+        <gux-icon
+          screenreader-text="Not Suppoted"
+          icon-name="alert-warning-octogon"
+        ></gux-icon>
+      </td>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td>
+        <gux-icon
+          screenreader-text="Suppoted"
+          icon-name="alert-success"
+        ></gux-icon>
+      </td>
+    </tr>
+    <tr>
+      <th>required</th>
+      <td>
+        <gux-icon
+          screenreader-text="Not Suppoted"
+          icon-name="alert-warning-octogon"
+        ></gux-icon>
+      </td>
+    </tr>
+    <tr>
+      <th>size</th>
+      <td>
+        <gux-icon
+          screenreader-text="Not Suppoted"
+          icon-name="alert-warning-octogon"
+        ></gux-icon>
+      </td>
+    </tr>
+  </table>
+
+  <h2>Supported Child Elements</h2>
+  <table>
+    <tr>
+      <th>optgroup</th>
+      <td>
+        <gux-icon
+          screenreader-text="Not Suppoted"
+          icon-name="alert-warning-octogon"
+        ></gux-icon>
+      </td>
+    </tr>
+    <tr>
+      <th>option</th>
+      <td>
+        <gux-icon
+          screenreader-text="Suppoted"
+          icon-name="alert-success"
+        ></gux-icon>
+      </td>
+    </tr>
+  </table>
+
+  <h2>Supported Events</h2>
+  <table>
+    <tr>
+      <th>input</th>
+      <td>
+        <gux-icon
+          screenreader-text="Suppoted"
+          icon-name="alert-success"
+        ></gux-icon>
+      </td>
+    </tr>
+    <tr>
+      <th>change</th>
+      <td>
+        <gux-icon
+          screenreader-text="Suppoted"
+          icon-name="alert-success"
+        ></gux-icon>
+      </td>
+    </tr>
+  </table>
 </form>
