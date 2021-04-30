@@ -28,6 +28,7 @@
  - [gux-datepicker](../gux-datepicker)
  - [gux-disclosure-button](../gux-disclosure-button)
  - [gux-dropdown](../gux-dropdown)
+ - [gux-dropdown-v3-beta](../../beta/gux-dropdown-v3)
  - [gux-error-message-beta](../../beta/gux-error-message-beta)
  - [gux-input-color](../gux-form-field/components/gux-input-color)
  - [gux-input-number](../gux-form-field/components/gux-input-number)
@@ -63,6 +64,7 @@ graph TD;
   gux-datepicker --> gux-icon
   gux-disclosure-button --> gux-icon
   gux-dropdown --> gux-icon
+  gux-dropdown-v3-beta --> gux-icon
   gux-error-message-beta --> gux-icon
   gux-input-color --> gux-icon
   gux-input-number --> gux-icon

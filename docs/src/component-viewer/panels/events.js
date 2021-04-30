@@ -32,8 +32,10 @@ export default class EventsPanel {
         descriptionsEl.appendChild(toHTML(`<dt>${component} [${name}]</dt>`));
         descriptionsEl.appendChild(toHTML(`<dd>${description}</dd>`));
 
-        for (let element of elements) {
-          element.addEventListener(name, this.notifyEvent.bind(this));
+        if (!name.startsWith('internal')) {
+          for (let element of elements) {
+            element.addEventListener(name, this.notifyEvent.bind(this));
+          }
         }
       });
     });

@@ -1,0 +1,27 @@
+@import (reference) '../../../../style/color.less';
+
+gux-option-v3 {
+  box-sizing: border-box;
+  display: flex;
+  height: 32px;
+  padding: 8px 16px;
+  color: @gux-black-50;
+  word-wrap: break-word;
+  cursor: pointer;
+
+  &.gux-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  &.gux-selected {
+    background: @gux-blue-100;
+  }
+
+  &.gux-active,
+  &:hover:not([disabled]) {
+    color: @gux-grey-100;
+    background: @gux-blue-60;
+  }
+}

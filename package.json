@@ -33,7 +33,7 @@
     "lint.ts": "tslint --project .",
     "list-component-tracking": "./scripts/list-component-tracking.js",
     "list-i18n-files": "./scripts/list-i18n-files.js",
-    "predev": "npm run i18n",
+    "predev": "rm ./src/components.d.ts || true; npm run i18n",
     "predev.public": "npm run predev",
     "prepare": "./scripts/prepare-docs.sh && npm run i18n",
     "release": "standard-version",

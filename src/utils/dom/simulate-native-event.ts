@@ -12,7 +12,7 @@ export default function simulateNativeEvent(
 
     case 'input':
       return targetElement.dispatchEvent(
-        new Event('input', {
+        new InputEvent('input', {
           bubbles: true
         })
       );
