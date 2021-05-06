@@ -14,7 +14,8 @@ describe('gux-action-button', () => {
     await page.setContent('<gux-action-button></gux-action-button>');
     const element = await page.find('gux-action-button');
     const onActionClick = await element.spyOnEvent('actionClick');
-    await element.click();
+    const button = await page.find('.gux-action-button');
+    await button.click();
     expect(onActionClick).toHaveReceivedEventTimes(1);
   });
 
@@ -27,7 +28,8 @@ describe('gux-action-button', () => {
     await page.waitForChanges();
     expect(element).toHaveAttribute('disabled');
     expect(element).toEqualAttribute('disabled', 'disabled');
-    await element.click();
+    const button = await page.find('.gux-action-button');
+    await button.click();
     expect(onActionClick).toHaveReceivedEventTimes(0);
   });
 
@@ -35,8 +37,8 @@ describe('gux-action-button', () => {
     const page = await newE2EPage();
     await page.setContent('<gux-action-button></gux-action-button>');
     const element = await page.find('gux-action-button');
-    const dropdownElm = await element.find('.gux-dropdown-button');
     const onOpen = await element.spyOnEvent('open');
+    const dropdownElm = await element.find('.gux-dropdown-button');
     await dropdownElm.click();
     expect(onOpen).toHaveReceivedEventTimes(1);
   });
@@ -50,7 +52,8 @@ describe('gux-action-button', () => {
     await page.waitForChanges();
     expect(element).toHaveAttribute('disabled');
     expect(element).toEqualAttribute('disabled', 'disabled');
-    await element.click();
+    const dropdownElm = await element.find('.gux-dropdown-button');
+    await dropdownElm.click();
     expect(onOpen).toHaveReceivedEventTimes(0);
   });
 });

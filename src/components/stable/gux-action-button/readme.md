@@ -37,6 +37,7 @@ Example usage
 
 ### Depends on
 
+- [gux-popup-beta](../../beta/gux-popup)
 - [gux-button](../gux-button)
 - [gux-icon](../gux-icon)
 - [gux-list](../gux-list)
@@ -44,6 +45,7 @@ Example usage
 ### Graph
 ```mermaid
 graph TD;
+  gux-action-button --> gux-popup-beta
   gux-action-button --> gux-button
   gux-action-button --> gux-icon
   gux-action-button --> gux-list

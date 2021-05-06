@@ -134,37 +134,37 @@ export class GuxActionButton {
 
   render() {
     return (
-      <div
-        class={{
-          'gux-action-button-container': true,
-          'gux-open': this.isOpen
-        }}
-      >
-        <gux-button
-          type={this.type}
-          accent={this.accent}
-          disabled={this.disabled}
-          onClick={() => this.onActionClick()}
-          class="gux-action-button"
-        >
-          {this.text}
-        </gux-button>
-        <gux-button
-          accent={this.accent}
-          disabled={this.disabled}
-          ref={el => (this.dropdownButton = el)}
-          onClick={() => this.toggle()}
-          onKeyUp={e => this.onKeyUpEvent(e)}
-          class="gux-dropdown-button"
-        >
-          <gux-icon decorative icon-name="chevron-small-down"></gux-icon>
-        </gux-button>
-        <gux-list
-          class="gux-dropdown-list"
-          ref={el => (this.listElement = el as HTMLGuxListElement)}
-        >
-          <slot />
-        </gux-list>
+      <div class="gux-action-button-container">
+        <gux-popup-beta open={this.isOpen}>
+          <div slot="target" class="gux-action-button-container">
+            <gux-button
+              type={this.type}
+              accent={this.accent}
+              disabled={this.disabled}
+              onClick={() => this.onActionClick()}
+              class="gux-action-button"
+            >
+              {this.text}
+            </gux-button>
+            <gux-button
+              accent={this.accent}
+              disabled={this.disabled}
+              ref={el => (this.dropdownButton = el)}
+              onClick={() => this.toggle()}
+              onKeyUp={e => this.onKeyUpEvent(e)}
+              class="gux-dropdown-button"
+            >
+              <gux-icon decorative icon-name="chevron-small-down"></gux-icon>
+            </gux-button>
+          </div>
+
+          <gux-list
+            slot="popup"
+            ref={el => (this.listElement = el as HTMLGuxListElement)}
+          >
+            <slot />
+          </gux-list>
+        </gux-popup-beta>
       </div>
     );
   }

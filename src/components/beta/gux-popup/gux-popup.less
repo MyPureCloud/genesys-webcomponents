@@ -1,0 +1,16 @@
+@import (reference) '../../../style/color.less';
+
+// Style
+gux-popup-beta {
+  .gux-target-container {
+    width: fit-content;
+  }
+
+  .gux-popup-container {
+    visibility: hidden;
+
+    &.gux-open {
+      visibility: visible;
+    }
+  }
+}

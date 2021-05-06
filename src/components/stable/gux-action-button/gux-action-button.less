@@ -4,16 +4,21 @@
 // Variables part
 
 gux-action-button {
-  display: inline-block;
-  min-width: 128px;
   .body-font();
 
   .gux-action-button-container {
-    position: relative;
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 128px;
 
     .gux-action-button {
-      flex: 1;
+      flex: 1 1 auto;
+      align-self: auto;
+      order: 0;
       margin-right: 1px;
 
       button {
@@ -26,6 +31,10 @@ gux-action-button {
     }
 
     .gux-dropdown-button {
+      flex: 0 1 auto;
+      align-self: auto;
+      order: 0;
+
       button {
         width: 32px;
         min-width: 0;
@@ -37,20 +46,6 @@ gux-action-button {
           width: 16px;
           height: 16px;
         }
-      }
-    }
-
-    .gux-dropdown-list {
-      position: absolute;
-      top: 32px;
-      z-index: 1;
-      display: none;
-      width: 100%;
-    }
-
-    &.gux-open {
-      .gux-dropdown-list {
-        display: block;
       }
     }
   }

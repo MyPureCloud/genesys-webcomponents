@@ -1,0 +1,20 @@
+<gux-popup-beta id="example">
+  <gux-button
+    slot="target"
+    onClick='(function() {
+    console.log(this);
+    const popup = document.getElementById("example");
+
+    popup.open = !popup.open;
+})()'
+    >Target</gux-button
+  >
+  <gux-list slot="popup">
+    <gux-list-item>Item 1</gux-list-item>
+    <gux-list-item>Item 2</gux-list-item>
+    <gux-list-item>Item 3</gux-list-item>
+    <gux-list-item>Item 4</gux-list-item>
+    <gux-list-item>Item 5</gux-list-item>
+    <gux-list-item>Item 6</gux-list-item>
+  </gux-list>
+</gux-popup-beta>
