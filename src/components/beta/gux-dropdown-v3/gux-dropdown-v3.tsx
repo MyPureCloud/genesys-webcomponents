@@ -78,14 +78,31 @@ export class GuxDropdownV3Beta {
     }
   }
 
+  @Watch('value')
+  validateValue(newValue: string) {
+    if (newValue === undefined) {
+      return;
+    }
+
+    const selectedListboxOptionElement = this.root.querySelector(
+      `gux-option-v3[value="${newValue}"]`
+    );
+
+    if (selectedListboxOptionElement) {
+      return;
+    }
+
+    this.value = undefined;
+  }
+
   @Listen('keydown')
   onKeydown(event: KeyboardEvent): void {
     switch (event.key) {
       case 'Escape':
-        this.shrinkListbox(true);
+        this.collapseListbox('focusFieldButton');
         return;
       case 'Tab':
-        this.shrinkListbox(false);
+        this.collapseListbox('noFocusChange');
         return;
     }
   }
@@ -98,7 +115,7 @@ export class GuxDropdownV3Beta {
 
   @ClickOutside({ triggerEvents: 'mousedown' })
   checkForClickOutside() {
-    this.shrinkListbox(false);
+    this.collapseListbox('noFocusChange');
   }
 
   @OnMutation({ childList: true })
@@ -109,6 +126,8 @@ export class GuxDropdownV3Beta {
   async componentWillLoad(): Promise<void> {
     trackComponent(this.root);
     this.i18n = await buildI18nForComponent(this.root, translationResources);
+
+    this.validateValue(this.value);
   }
 
   componentDidLoad(): void {
@@ -166,12 +185,6 @@ export class GuxDropdownV3Beta {
           {selectedListboxOptionElement.textContent}
         </div>
       );
-    } else if (this.value) {
-      return (
-        <div class="gux-unknown-option">
-          {this.i18n('unknownSelection')} ({this.value})
-        </div>
-      );
     }
 
     return (
@@ -198,12 +211,14 @@ export class GuxDropdownV3Beta {
     this.listboxExpanded = !this.listboxExpanded;
   }
 
-  private shrinkListbox(focusOnFieldButton: boolean): void {
+  private collapseListbox(
+    focusChange: 'noFocusChange' | 'focusFieldButton'
+  ): void {
     if (this.listboxExpanded) {
       this.listboxExpanded = false;
     }
 
-    if (focusOnFieldButton) {
+    if (focusChange === 'focusFieldButton') {
       this.fieldButtonElement.focus();
     }
   }
@@ -211,7 +226,7 @@ export class GuxDropdownV3Beta {
   private updateValue(newValue: string): void {
     if (this.value !== newValue) {
       this.value = newValue;
-      this.shrinkListbox(true);
+      this.collapseListbox('focusFieldButton');
       simulateNativeEvent(this.root, 'input');
       simulateNativeEvent(this.root, 'change');
     }
