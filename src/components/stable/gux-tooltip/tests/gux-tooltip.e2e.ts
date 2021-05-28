@@ -1,14 +1,30 @@
-import { newE2EPage } from '@stencil/core/testing';
+import { newE2EPage, E2EPage } from '@stencil/core/testing';
 
 function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function newDeterministicE2EPage({
+  html
+}: {
+  html: string;
+}): Promise<E2EPage> {
+  const page = await newE2EPage();
+
+  await page.evaluateOnNewDocument(() => {
+    Math.random = () => 0.5;
+  });
+  await page.setContent(html);
+  await page.waitForChanges();
+
+  return page;
 }
 
 describe('gux-tooltip', () => {
   describe('#render', () => {
     [
       `
-        <div id="element" lang="en">
+        <div lang="en">
           <div>Element</div>
           <gux-tooltip>Tooltip</gux-tooltip>
         </div>
@@ -21,17 +37,10 @@ describe('gux-tooltip', () => {
       `
     ].forEach((html, index) => {
       it(`should render component as expected (${index + 1})`, async () => {
-        const page = await newE2EPage({ html });
+        const page = await newDeterministicE2EPage({ html });
+        const element = await page.find('div[lang]');
 
-        const element = await page.find('#element');
-        const tooltip = await page.find('gux-tooltip');
-
-        expect(element.getAttribute('aria-describedby')).toBe(tooltip.id);
-        expect(element).toHaveClass('gux-tooltip-for-element');
-        expect(tooltip.getAttribute('data-popper-placement')).toBe(
-          'bottom-start'
-        );
-        expect(tooltip).toHaveClass('hydrated');
+        expect(element.innerHTML).toMatchSnapshot();
       });
     });
   });

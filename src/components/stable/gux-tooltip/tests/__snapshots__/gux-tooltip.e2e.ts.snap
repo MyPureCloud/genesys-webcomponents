@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gux-tooltip #render should render component as expected (1) 1`] = `" <div>Element</div> <gux-tooltip id=\\"gux-tooltip-i\\" class=\\"hydrated\\" tabindex=\\"0\\" role=\\"tooltip\\" data-popper-placement=\\"bottom-start\\" style=\\"position: fixed; left: 0px; top: 0px; margin: 0px; right: auto; bottom: auto; transform: translate(8px, 44px);\\"><!---->Tooltip</gux-tooltip> "`;
+
+exports[`gux-tooltip #render should render component as expected (2) 1`] = `" <div id=\\"element\\" class=\\"gux-tooltip-for-element\\" aria-describedby=\\"gux-tooltip-i\\">Element</div> <gux-tooltip for=\\"element\\" id=\\"gux-tooltip-i\\" class=\\"hydrated\\" tabindex=\\"0\\" role=\\"tooltip\\" data-popper-placement=\\"bottom-start\\" style=\\"position: fixed; left: 0px; top: 0px; margin: 0px; right: auto; bottom: auto; transform: translate(8px, 44px);\\"><!---->Tooltip</gux-tooltip> "`;
