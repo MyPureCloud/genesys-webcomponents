@@ -2,6 +2,8 @@
   "emptyMessage": "No data available",
   "scrollLeft": "Scroll Left",
   "scrollRight": "Scroll Right",
+  "selectAllTableRows": "Select All Table Rows",
+  "selectTableRow": "Select Table Row",
   "sortAsc": "Sorted Ascending",
   "sortDesc": "Sorted Descending"
 }

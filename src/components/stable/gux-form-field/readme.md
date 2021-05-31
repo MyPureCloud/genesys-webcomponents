@@ -25,6 +25,11 @@
 
 ## Dependencies
 
+### Used by
+
+ - [gux-all-row-select](../../beta/gux-table/gux-all-row-select)
+ - [gux-row-select](../../beta/gux-table/gux-row-select)
+
 ### Depends on
 
 - [gux-input-checkbox](./components/gux-input-checkbox)
@@ -56,6 +61,8 @@ graph TD;
   gux-input-select --> gux-icon
   gux-input-text-like --> gux-icon
   gux-input-search --> gux-icon
+  gux-all-row-select --> gux-form-field
+  gux-row-select --> gux-form-field
   style gux-form-field fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
