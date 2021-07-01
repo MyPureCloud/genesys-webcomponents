@@ -1,6 +1,7 @@
 import { Component, Element, h, JSX, Prop, State } from '@stencil/core';
-import { randomHTMLId } from '../../../utils/dom/random-html-id';
 
+import { randomHTMLId } from '../../../utils/dom/random-html-id';
+import { OnMutation } from '../../../utils/decorator/on-mutation';
 import { onRequiredChange } from '../../../utils/dom/on-attribute-change';
 import { trackComponent } from '../../../usage-tracking';
 
@@ -42,6 +43,14 @@ export class GuxFormField {
 
   @State()
   private required: boolean = true;
+
+  @State()
+  private hasError: boolean = false;
+
+  @OnMutation({ childList: true, subtree: true })
+  onMutation(): void {
+    this.hasError = Boolean(this.root.querySelector('[slot="error"]'));
+  }
 
   componentWillLoad() {
     this.input = this.root.querySelector(
@@ -311,26 +320,26 @@ export class GuxFormField {
 
   render(): JSX.Element {
     const type = this.input.getAttribute('type');
-    const hasError = this.hasErrorSlot();
+
     switch (this.slottedElementType) {
       case 'input':
         switch (type) {
           case 'checkbox':
-            return this.getInputCheckbox(hasError);
+            return this.getInputCheckbox(this.hasError);
           case 'radio':
             return this.getInputRadio();
           case 'color':
-            return this.getInputColor(hasError);
+            return this.getInputColor(this.hasError);
           case 'range':
             return this.getInputRange(this.displayUnits, this.valueInTooltip);
           case 'email':
           case 'password':
           case 'text':
-            return this.getInputTextLike(this.clearable, hasError);
+            return this.getInputTextLike(this.clearable, this.hasError);
           case 'number':
-            return this.getInputNumber(this.clearable, hasError);
+            return this.getInputNumber(this.clearable, this.hasError);
           case 'search':
-            return this.getInputSearch(hasError);
+            return this.getInputSearch(this.hasError);
           default:
             return (
               <div>
@@ -341,9 +350,9 @@ export class GuxFormField {
             );
         }
       case 'select':
-        return this.getInputSelect(hasError);
+        return this.getInputSelect(this.hasError);
       case 'textarea':
-        return this.getInputTextArea(hasError);
+        return this.getInputTextArea(this.hasError);
       default:
         return (
           <div>
@@ -355,18 +364,18 @@ export class GuxFormField {
     }
   }
 
-  private hasErrorSlot(): boolean {
-    return !!this.root.querySelector('[slot="error"]');
-  }
-
   private getError(hasError: boolean): JSX.Element {
     return (
-      <div class="gux-error" id={this.errorID}>
-        {hasError ? (
-          <gux-error-message-beta>
-            <slot name="error" />
-          </gux-error-message-beta>
-        ) : null}
+      <div
+        id={this.errorID}
+        class={{
+          'gux-error': true,
+          'gux-show': hasError
+        }}
+      >
+        <gux-error-message-beta>
+          <slot name="error" />
+        </gux-error-message-beta>
       </div>
     );
   }

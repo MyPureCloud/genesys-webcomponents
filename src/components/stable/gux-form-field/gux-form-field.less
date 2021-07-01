@@ -34,7 +34,12 @@ gux-form-field {
     }
 
     .gux-error {
+      display: none;
       margin: 4px 0;
+
+      &.gux-show {
+        display: block;
+      }
     }
 
     &.gux-beside {
@@ -59,7 +64,7 @@ gux-form-field {
       gux-error-message-beta {
         .gux-container {
           position: relative;
-          left: @error-message-offset;
+          padding-left: @error-message-offset;
         }
       }
     }
