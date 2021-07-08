@@ -164,12 +164,17 @@ export class GuxPopover {
       <div class="gux-popover-wrapper">
         <div class="gux-arrow" data-popper-arrow />
         {this.displayDismissButton && (
-          <gux-icon
+          <button
             class="gux-dismiss"
-            icon-name="close"
-            screenreader-text={this.i18n('dismiss')}
+            type="button"
+            title={this.i18n('dismiss')}
             onClick={this.dismiss.bind(this)}
-          />
+          >
+            <gux-icon
+              icon-name="close"
+              screenreader-text={this.i18n('dismiss')}
+            ></gux-icon>
+          </button>
         )}
         <div class="gux-popover-content">
           <slot />

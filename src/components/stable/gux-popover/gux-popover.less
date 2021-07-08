@@ -91,14 +91,21 @@ gux-popover {
     position: absolute;
     top: 0;
     right: 0;
-    width: 16px;
-    height: 16px;
-    padding: @spacing-2xs;
+    padding: 2px;
     color: @gux-black-90;
-    cursor: pointer;
+    background: transparent;
+    border: none;
 
-    &:hover {
+    &:not(:disabled):focus,
+    &:not(:disabled):hover {
       color: @gux-blue-60;
+      cursor: pointer;
+    }
+
+    gux-icon {
+      width: 15px;
+      height: 15px;
+      padding: @spacing-2xs;
     }
   }
 }
