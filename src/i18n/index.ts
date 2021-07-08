@@ -67,7 +67,7 @@ export function getDesiredLocale(element: HTMLElement): string {
 
   if (locales.indexOf(locale) >= 0) {
     return locale;
-  } else if (locale.indexOf(lang) >= 0) {
+  } else if (locales.indexOf(lang) >= 0) {
     return lang;
   } else {
     console.error(

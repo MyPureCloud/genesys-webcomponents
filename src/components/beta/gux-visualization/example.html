@@ -1,0 +1,190 @@
+<h1>Default</h1>
+<gux-visualization-beta id="chart-1"> </gux-visualization-beta>
+
+<h1>English</h1>
+<gux-visualization-beta id="chart-2" lang="en"> </gux-visualization-beta>
+
+<h1>German</h1>
+<gux-visualization-beta id="chart-3" lang="de"> </gux-visualization-beta>
+
+<h1>Unknown</h1>
+<gux-visualization-beta id="chart-4" lang="xx"> </gux-visualization-beta>
+
+<h1>Default Again</h1>
+<gux-visualization-beta id="chart-5"> </gux-visualization-beta>
+
+<h1>Default Pie</h1>
+<gux-visualization-beta id="chart-6"> </gux-visualization-beta>
+
+<h1>Default Donut</h1>
+<gux-visualization-beta id="chart-7"> </gux-visualization-beta>
+
+<h1>Default Column</h1>
+<gux-visualization-beta id="chart-8"> </gux-visualization-beta>
+
+<h1>Column Stacked</h1>
+<gux-visualization-beta id="chart-9"> </gux-visualization-beta>
+
+<h1>Column Layered</h1>
+<gux-visualization-beta id="chart-10"> </gux-visualization-beta>
+
+<h1>Line Chart with Tooltips</h1>
+<gux-visualization-beta id="chart-11"> </gux-visualization-beta>
+
+<style
+  onload="(function() {
+    const chart1 = document.querySelector('#chart-1');
+    const chart2 = document.querySelector('#chart-2');
+    const chart3 = document.querySelector('#chart-3');
+    const chart4 = document.querySelector('#chart-4');
+    const chart5 = document.querySelector('#chart-5');
+    const chart6 = document.querySelector('#chart-6');
+    const chart7 = document.querySelector('#chart-7');
+    const chart8 = document.querySelector('#chart-8');
+    const chart9 = document.querySelector('#chart-9');
+    const chart10 = document.querySelector('#chart-10');
+    const chart11 = document.querySelector('#chart-11');
+
+    const visualizationSpecLine = {
+      '$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
+      'data': {'url': 'https://vega.github.io/editor/data/seattle-weather.csv'},
+      'mark': {
+        'type': 'line',
+        'interpolate': 'monotone'
+      },
+      'encoding': {
+        'x': {'timeUnit': 'month', 'field': 'date', 'bandPosition': 0.5},
+        'y': {'aggregate': 'mean', 'field': 'temp_max'}
+      }
+    };
+
+    const visualizationSpecPie = {
+      '$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
+      'data': {
+        'values': [
+          {'category': 'a', 'value': 4},
+          {'category': 'b', 'value': 6},
+          {'category': 'c', 'value': 10},
+          {'category': 'd', 'value': 3},
+          {'category': 'e', 'value': 7},
+          {'category': 'f', 'value': 8}
+        ]
+      },
+      'encoding': {
+        'theta': {'field': 'value', 'type': 'quantitative', 'stack': true},
+        'color': {'field': 'category', 'type': 'nominal', 'legend': null}
+      },
+      'layer': [{
+        'mark': {'type': 'arc', 'outerRadius': 80}
+      }, {
+        'mark': {'type': 'text', 'radius': 90},
+        'encoding': {
+          'text': {'field': 'value', 'type': 'quantitative'}
+        }
+      }],
+      'view': {'stroke': null}
+    };
+
+    const visualizationSpecDonut = {
+      '$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
+      'data': {
+        'values': [
+          {'category': 'a', 'value': 4},
+          {'category': 'b', 'value': 6},
+          {'category': 'c', 'value': 10},
+          {'category': 'd', 'value': 3},
+          {'category': 'e', 'value': 7},
+          {'category': 'f', 'value': 8}
+        ]
+      },
+      'encoding': {
+        'theta': {'field': 'value', 'type': 'quantitative', 'stack': true},
+        'color': {'field': 'category', 'type': 'nominal', 'legend': null}
+      },
+      'layer': [
+        {
+          'mark': {'type': 'arc', 'outerRadius': 80, 'innerRadius': 20}
+        },
+        {
+          'mark': {'type': 'arc', 'innerRadius': 20, 'stroke': '#fff'}
+        },
+        {
+          'mark': {'type': 'text', 'radius': 110},
+          'encoding': {
+            'text': {'field': 'value', 'type': 'quantitative'}
+          }
+        }
+      ]
+    };
+
+    const visualizationSpecColumnStacked = {
+      '$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
+      'data': {'url': 'https://vega.github.io/editor/data/seattle-weather.csv'},
+      'mark': 'bar',
+      'encoding': {
+        'x': {'timeUnit': 'month', 'field': 'date', 'type': 'ordinal'},
+        'y': {'aggregate': 'count'},
+        'tooltip': {'aggregate': 'count', 'type': 'quantitative'},
+        'color': {'field': 'weather'}
+
+      }
+    };
+
+    const visualizationSpecColumnLayered = {
+      '$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
+      'data': {'url': 'https://vega.github.io/editor/data/seattle-weather.csv'},
+      'mark': 'bar',
+      'encoding': {
+        'x': {'timeUnit': 'month', 'field': 'date', 'type': 'ordinal'},
+        'y': {'aggregate': 'count', 'stack': null},
+        'tooltip': {'aggregate': 'count', 'type': 'quantitative'},
+        'color': {'field': 'weather'}
+
+      }
+    };
+
+    const visualizationSpecColumn = {
+      '$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
+      'data': {'url': 'https://vega.github.io/editor/data/seattle-weather.csv'},
+      'mark': 'bar',
+      'encoding': {
+        'x': {'timeUnit': 'month', 'field': 'date', 'type': 'ordinal'},
+        'y': {'aggregate': 'count'},
+        'tooltip': {'aggregate': 'count', 'type': 'quantitative'}
+
+      }
+    };
+
+    const visualizationSpecLineAllPoints = {
+      '$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
+      'data': {'url': 'https://vega.github.io/editor/data/seattle-weather.csv'},
+      'width': 360,
+      'height': 360,
+      'mark': {
+        'type': 'line',
+        'interpolate': 'monotone'
+      },
+      'encoding': {
+        'x': {'field': 'date', 'type': 'temporal'},
+        'y': {'field': 'temp_max', 'type': 'quantitative'},
+        'tooltip': {'field': 'temp_max', 'type': 'quantitative'}
+      }
+    };
+
+
+    chart1.visualizationSpec = visualizationSpecLine;
+    chart2.visualizationSpec = visualizationSpecLine;
+    chart3.visualizationSpec = visualizationSpecLine;
+    chart4.visualizationSpec = visualizationSpecLine;
+    chart5.visualizationSpec = visualizationSpecLine;
+    chart6.visualizationSpec = visualizationSpecPie;
+    chart7.visualizationSpec = visualizationSpecDonut;
+    chart8.visualizationSpec = visualizationSpecColumn;
+    chart9.visualizationSpec = visualizationSpecColumnStacked;
+    chart10.visualizationSpec = visualizationSpecColumnLayered;
+    chart11.visualizationSpec = visualizationSpecLineAllPoints;
+
+  })()"
+>
+  --noop: none;
+</style>
