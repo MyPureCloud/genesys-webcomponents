@@ -27,6 +27,7 @@
  - [gux-content-search](../gux-content-search)
  - [gux-datepicker](../gux-datepicker)
  - [gux-disclosure-button](../gux-disclosure-button)
+ - [gux-dismiss-button](../../beta/gux-dismiss-button)
  - [gux-dropdown](../gux-dropdown)
  - [gux-dropdown-v2-beta](../../beta/gux-dropdown-v2)
  - [gux-error-message-beta](../../beta/gux-error-message-beta)
@@ -38,7 +39,6 @@
  - [gux-modal](../gux-modal)
  - [gux-notification-toast](../gux-notification-toast)
  - [gux-pagination-buttons](../gux-pagination/gux-pagination-buttons)
- - [gux-popover](../gux-popover)
  - [gux-rating](../gux-rating)
  - [gux-search-beta](../../beta/gux-search)
  - [gux-side-panel-button](../../beta/gux-side-panel/buttons)
@@ -64,6 +64,7 @@ graph TD;
   gux-content-search --> gux-icon
   gux-datepicker --> gux-icon
   gux-disclosure-button --> gux-icon
+  gux-dismiss-button --> gux-icon
   gux-dropdown --> gux-icon
   gux-dropdown-v2-beta --> gux-icon
   gux-error-message-beta --> gux-icon
@@ -75,7 +76,6 @@ graph TD;
   gux-modal --> gux-icon
   gux-notification-toast --> gux-icon
   gux-pagination-buttons --> gux-icon
-  gux-popover --> gux-icon
   gux-rating --> gux-icon
   gux-search-beta --> gux-icon
   gux-side-panel-button --> gux-icon

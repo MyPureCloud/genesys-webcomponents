@@ -1,0 +1,28 @@
+@import (reference) '../../../style/color.less';
+@import (reference) '../../../style/mixins.less';
+@import (reference) '../../../style/typography.less';
+@import (reference) '../../../style/spacing.less';
+
+gux-dismiss-button {
+  .gux-dismiss-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2px;
+    color: @gux-black-90;
+    background: transparent;
+    border: none;
+
+    &:not(:disabled):focus,
+    &:not(:disabled):hover {
+      color: @gux-blue-60;
+      cursor: pointer;
+    }
+
+    gux-icon {
+      width: 15px;
+      height: 15px;
+      padding: @spacing-2xs;
+    }
+  }
+}
