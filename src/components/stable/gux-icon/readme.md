@@ -19,6 +19,7 @@
 ### Used by
 
  - [gux-accordion](../gux-accordion)
+ - [gux-accordion-section](../../beta/gux-accordion/gux-accordion-section)
  - [gux-action-button](../gux-action-button)
  - [gux-advanced-dropdown](../gux-advanced-dropdown)
  - [gux-breadcrumb-item](../gux-breadcrumbs/breadcrumb-item)
@@ -56,6 +57,7 @@
 ```mermaid
 graph TD;
   gux-accordion --> gux-icon
+  gux-accordion-section --> gux-icon
   gux-action-button --> gux-icon
   gux-advanced-dropdown --> gux-icon
   gux-breadcrumb-item --> gux-icon

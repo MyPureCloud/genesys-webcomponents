@@ -15,7 +15,7 @@
 
 ## Methods
 
-### `close(slot: string) => Promise<void>`
+### `close(slotName: string) => Promise<void>`
 
 Closes a section.
 
@@ -25,7 +25,7 @@ Type: `Promise<void>`
 
 
 
-### `open(slot: string) => Promise<void>`
+### `open(slotName: string) => Promise<void>`
 
 Opens a section.
 
@@ -35,7 +35,7 @@ Type: `Promise<void>`
 
 
 
-### `toggle(slot: string) => Promise<void>`
+### `toggle(slotName: string) => Promise<void>`
 
 Toggles a section.
 

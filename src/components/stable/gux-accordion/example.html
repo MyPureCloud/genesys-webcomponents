@@ -36,3 +36,84 @@
   >
   <h1>I'm an h1, but i'm not a slot.</h1>
 </gux-accordion>
+
+<h1>New Beta Component</h1>
+
+<gux-accordion-beta>
+  <gux-accordion-section>
+    <h2 slot="header">First Section Beta</h2>
+    <div slot="content">
+      <span>I'm a span in a div.</span>
+      <button>I'm the button.</button>
+    </div>
+  </gux-accordion-section>
+  <gux-accordion-section>
+    <h2 slot="header">Second Section Beta</h2>
+    <p slot="content">I'm a p.</p>
+  </gux-accordion-section>
+  <gux-accordion-section>
+    <h2 slot="header">Third Section Beta</h2>
+    <span slot="content">I'm a span.</span>
+  </gux-accordion-section>
+  <gux-accordion-section>
+    <h2 slot="header">
+      Forth Section Beta has a really really long title to see what it looks
+      like when the title overflows
+    </h2>
+    <span slot="content">I'm a span.</span>
+  </gux-accordion-section>
+</gux-accordion-beta>
+
+<h1>New Beta Component with Beside Text Arrow Positioning</h1>
+
+<gux-accordion-beta arrow-position="beside-text">
+  <gux-accordion-section>
+    <h2 slot="header">First Section Beta</h2>
+    <div slot="content">
+      <span>I'm a span in a div.</span>
+      <button>I'm the button.</button>
+    </div>
+  </gux-accordion-section>
+  <gux-accordion-section>
+    <h2 slot="header">Second Section Beta</h2>
+    <p slot="content">I'm a p.</p>
+  </gux-accordion-section>
+  <gux-accordion-section>
+    <h2 slot="header">Third Section Beta</h2>
+    <span slot="content">I'm a span.</span>
+  </gux-accordion-section>
+  <gux-accordion-section>
+    <h2 slot="header">
+      Forth Section Beta has a really really long title to see what it looks
+      like when the title overflows
+    </h2>
+    <span slot="content">I'm a span.</span>
+  </gux-accordion-section>
+</gux-accordion-beta>
+
+<h1>New Beta Component with Invalid Headers</h1>
+
+<gux-accordion-beta>
+  <gux-accordion-section arrow-position="beside-text">
+    <div slot="header">First Section Beta</div>
+    <div slot="content">
+      <span>I'm a span in a div.</span>
+      <button>I'm the button.</button>
+    </div>
+  </gux-accordion-section>
+  <gux-accordion-section arrow-position="beside-text">
+    <div slot="header">Second Section Beta</div>
+    <p slot="content">I'm a p.</p>
+  </gux-accordion-section>
+  <gux-accordion-section arrow-position="beside-text">
+    <div slot="header">Third Section Beta</div>
+    <span slot="content">I'm a span.</span>
+  </gux-accordion-section>
+  <gux-accordion-section arrow-position="beside-text">
+    <div slot="header">
+      Forth Section Beta has a really really long title to see what it looks
+      like when the title overflows
+    </div>
+    <span slot="content">I'm a span.</span>
+  </gux-accordion-section>
+</gux-accordion-beta>

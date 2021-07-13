@@ -6,9 +6,14 @@ import { Component } from '@angular/core';
   // styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  hasError = true;
+  secondSectionExists = true;
+  secondSectionExistsBeta = true;
 
-  toggleHasError(): void {
-    this.hasError = !this.hasError;
+  toggleSecondSectionExisting(): void {
+    this.secondSectionExists = !this.secondSectionExists;
+  }
+
+  toggleSecondSectionExistingBeta(): void {
+    this.secondSectionExistsBeta = !this.secondSectionExistsBeta;
   }
 }

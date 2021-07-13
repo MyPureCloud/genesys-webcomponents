@@ -1,4 +1,4 @@
-import { Component, Element, h, Method, Prop } from '@stencil/core';
+import { Component, Element, h, JSX, Method, Prop, State } from '@stencil/core';
 
 import { trackComponent } from '../../../usage-tracking';
 
@@ -6,10 +6,11 @@ import {
   GuxAccordionArrowPosition,
   IGuxAccordionSection
 } from './gux-accordion.types';
-
-function getToggleButton(slot: HTMLElement): HTMLElement {
-  return slot.children[0].children[0] as HTMLElement;
-}
+import {
+  getSections,
+  modifyClassList,
+  onKeyboardNavigation
+} from './gux-accordion.service';
 
 @Component({
   styleUrl: 'gux-accordion.less',
@@ -19,6 +20,7 @@ export class GuxAccordion {
   @Element()
   root: HTMLElement;
 
+  @State()
   sections: IGuxAccordionSection[] = [];
 
   /**
@@ -33,124 +35,46 @@ export class GuxAccordion {
   @Prop()
   arrowPosition: GuxAccordionArrowPosition = 'default';
 
-  initializeSections() {
-    const children = Array.from(this.root.children);
-    children.map(element => {
-      const slot = element.getAttribute('slot');
-      if (slot) {
-        this.sections.push({
-          slotName: slot,
-          slotRef: null
-        });
-      } else {
-        element.parentNode.removeChild(element);
-      }
-    });
-  }
-
-  componentWillLoad() {
-    trackComponent(this.root);
-    this.initializeSections();
-  }
-
   /**
    * Opens a section.
-   * @param slot The slot name
+   * @param slotName The slot name
    */
   @Method()
-  async open(slot: string) {
-    const section = this.getSectionByName(slot);
-    if (section) {
-      section.slotRef.classList.add('gux-opened');
-    }
+  async open(slotName: string): Promise<void> {
+    modifyClassList(slotName, 'add', this.sections);
   }
   /**
    * Closes a section.
-   * @param slot The slot name
+   * @param slotName The slot name
    */
   @Method()
-  async close(slot: string) {
-    const section = this.getSectionByName(slot);
-    if (section) {
-      section.slotRef.classList.remove('gux-opened');
-    }
+  async close(slotName: string): Promise<void> {
+    modifyClassList(slotName, 'remove', this.sections);
   }
   /**
    * Toggles a section.
-   * @param slot The slot name
+   * @param slotName The slot name
    */
   @Method()
-  async toggle(slot: string) {
-    const section = this.getSectionByName(slot);
-    if (section) {
-      section.slotRef.classList.toggle('gux-opened');
-    }
+  async toggle(slotName: string): Promise<void> {
+    modifyClassList(slotName, 'toggle', this.sections);
   }
 
-  getSectionByName(slot: string): IGuxAccordionSection {
-    const slotIndex = this.sections
-      .map(section => {
-        return section.slotName;
-      })
-      .indexOf(slot);
-    return this.sections[slotIndex];
+  componentWillLoad(): void {
+    trackComponent(this.root);
+    this.sections = getSections(this.root);
   }
 
-  getPreviousSlot(slot: string): HTMLElement {
-    const currentIndex = this.sections
-      .map(section => {
-        return section.slotName;
-      })
-      .indexOf(slot);
-    if (currentIndex <= 0) {
-      return this.sections[this.sections.length - 1].slotRef;
-    } else {
-      return this.sections[currentIndex - 1].slotRef;
-    }
-  }
-
-  getNextSlot(slot: string): HTMLElement {
-    const currentIndex = this.sections
-      .map(section => {
-        return section.slotName;
-      })
-      .indexOf(slot);
-    if (currentIndex >= this.sections.length - 1) {
-      return this.sections[0].slotRef;
-    } else {
-      return this.sections[currentIndex + 1].slotRef;
-    }
-  }
-
-  onKeyDown(event: KeyboardEvent, slotName: string) {
-    switch (event.key) {
-      case 'ArrowUp':
-        const previousSlot = this.getPreviousSlot(slotName);
-        getToggleButton(previousSlot).focus();
-        break;
-      case 'ArrowDown':
-        const nextSlot = this.getNextSlot(slotName);
-        getToggleButton(nextSlot).focus();
-        break;
-      case 'End':
-        const lastSlot = this.sections[this.sections.length - 1].slotRef;
-        getToggleButton(lastSlot).focus();
-        break;
-      case 'Home':
-        const firstSlot = this.sections[0].slotRef;
-        getToggleButton(firstSlot).focus();
-        break;
-    }
-  }
-
-  render() {
+  render(): JSX.Element {
     return (
       <div class="gux-accordion">
-        {this.sections.map(slot => (
+        {this.sections.map(section => (
           <section
             class="gux-section"
-            onKeyDown={e => this.onKeyDown(e, slot.slotName)}
-            ref={el => (slot.slotRef = el)}
+            onKeyDown={event =>
+              onKeyboardNavigation(event, section.slotName, this.sections)
+            }
+            ref={el => (section.ref = el)}
           >
             <div
               aria-role="heading"
@@ -160,9 +84,9 @@ export class GuxAccordion {
               <button
                 class="gux-header-button"
                 type="button"
-                onClick={() => this.toggle(slot.slotName)}
+                onClick={() => this.toggle(section.slotName)}
               >
-                <div class="gux-text">{slot.slotName}</div>
+                <div class="gux-text">{section.slotName}</div>
                 {this.arrowPosition === 'beside-text' ? null : (
                   <div class="gux-spacer"></div>
                 )}
@@ -175,7 +99,7 @@ export class GuxAccordion {
               </button>
             </div>
             <div class="gux-content">
-              <slot name={slot.slotName} />
+              <slot name={section.slotName}></slot>
             </div>
           </section>
         ))}

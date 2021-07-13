@@ -1,18 +1,140 @@
 <h1>Angular@12</h1>
-<div>
-  <gux-form-field>
-    <input
-      slot="input"
-      name="errorInput"
-      type="text"
-      step="5"
-      min="5"
-      max="100"
-      placeholder="Enter text"
-    />
-    <label slot="label">Input</label>
-    <span *ngIf="hasError" slot="error">Field is required</span>
-  </gux-form-field>
+<h1>Default Arrow Position</h1>
 
-  <gux-button (click)="toggleHasError()">Toggle Has Error</gux-button>
-</div>
+<gux-accordion heading-level="2">
+  <div slot="First Section">
+    <span>I'm a span in a div.</span>
+    <button>I'm the button.</button>
+  </div>
+  <p slot="Second Section">I'm a p.</p>
+  <span slot="Third Section">I'm a span.</span>
+  <span
+    slot="Forth Section has a really really long title to see what it looks like when the title overflows"
+    >I'm a span.</span
+  >
+  <h1>I'm an h1, but i'm not a slot.</h1>
+</gux-accordion>
+
+<h1>Beside Text Arrow Positioning</h1>
+
+<gux-accordion heading-level="2" arrow-position="beside-text">
+  <div slot="First Section">
+    <span>I'm a span in a div.</span>
+    <button>I'm the button.</button>
+  </div>
+  <p slot="Second Section">I'm a p.</p>
+  <span slot="Third Section">I'm a span.</span>
+  <span
+    slot="Forth Section has a really really long title to see what it looks like when the title overflows"
+    >I'm a span.</span
+  >
+  <h1>I'm an h1, but i'm not a slot.</h1>
+</gux-accordion>
+
+<h1>New Beta Component</h1>
+
+<gux-accordion-beta>
+  <gux-accordion-section>
+    <h2 slot="header">First Section Beta</h2>
+    <div slot="content">
+      <span>I'm a span in a div.</span>
+      <button>I'm the button.</button>
+    </div>
+  </gux-accordion-section>
+  <gux-accordion-section>
+    <h2 slot="header">Second Section Beta</h2>
+    <p slot="content">I'm a p.</p>
+  </gux-accordion-section>
+  <gux-accordion-section>
+    <h2 slot="header">Third Section Beta</h2>
+    <span slot="content">I'm a span.</span>
+  </gux-accordion-section>
+
+  <gux-accordion-section>
+    <h2 slot="header">
+      Forth Section Beta has a really really long title to see what it looks
+      like when the title overflows
+    </h2>
+    <span slot="content">I'm a span.</span>
+  </gux-accordion-section>
+</gux-accordion-beta>
+
+<h1>New Beta Component with Beside Text Arrow Positioning</h1>
+
+<gux-accordion-beta arrow-position="beside-text">
+  <gux-accordion-section>
+    <h2 slot="header">First Section Beta</h2>
+    <div slot="content">
+      <span>I'm a span in a div.</span>
+      <button>I'm the button.</button>
+    </div>
+  </gux-accordion-section>
+  <gux-accordion-section>
+    <h2 slot="header">Second Section Beta</h2>
+    <p slot="content">I'm a p.</p>
+  </gux-accordion-section>
+  <gux-accordion-section>
+    <h2 slot="header">Third Section Beta</h2>
+    <span slot="content">I'm a span.</span>
+  </gux-accordion-section>
+
+  <gux-accordion-section>
+    <h2 slot="header">
+      Forth Section Beta has a really really long title to see what it looks
+      like when the title overflows
+    </h2>
+    <span slot="content">I'm a span.</span>
+  </gux-accordion-section>
+</gux-accordion-beta>
+
+<h1>Current Component ngif</h1>
+
+<gux-accordion heading-level="2">
+  <div slot="First Section">
+    <span>I'm a span in a div.</span>
+    <button>I'm the button.</button>
+  </div>
+  <p *ngIf="secondSectionExists" slot="Second Section">I'm a p.</p>
+  <span slot="Third Section">I'm a span.</span>
+  <span
+    slot="Forth Section has a really really long title to see what it looks like when the title overflows"
+    >I'm a span.</span
+  >
+  <h1>I'm an h1, but i'm not a slot.</h1>
+</gux-accordion>
+
+<gux-button accent="primary" (click)="toggleSecondSectionExisting()"
+  >Toggle Second Section Existing</gux-button
+>
+
+<h1>Beta Component ngif</h1>
+
+<gux-accordion-beta>
+  <gux-accordion-section>
+    <h2 slot="header">First Section Beta</h2>
+    <div slot="content">
+      <span>I'm a span in a div.</span>
+      <button>I'm the button.</button>
+    </div>
+  </gux-accordion-section>
+  <gux-accordion-section *ngIf="secondSectionExistsBeta">
+    <h2 slot="header">Second Section Beta</h2>
+    <p slot="content">I'm a p.</p>
+  </gux-accordion-section>
+  <gux-accordion-section>
+    <h2 slot="header">Third Section Beta</h2>
+    <span slot="content">I'm a span.</span>
+  </gux-accordion-section>
+
+  <gux-accordion-section>
+    <h2 slot="header">
+      Forth Section Beta has a really really long title to see what it looks
+      like when the title overflows
+    </h2>
+    <span slot="content">I'm a span.</span>
+  </gux-accordion-section>
+</gux-accordion-beta>
+
+<gux-button accent="primary" (click)="toggleSecondSectionExistingBeta()"
+  >Toggle Second Section Existing</gux-button
+>

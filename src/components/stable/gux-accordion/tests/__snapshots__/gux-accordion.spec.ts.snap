@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gux-accordion should render component as expected 1`] = `
+<gux-accordion heading-level="2">
+  <!---->
+  <h1 hidden="">
+    I'm an h1, but i'm not a slot.
+  </h1>
+  <div class="gux-accordion">
+    <section class="gux-section">
+      <div aria-level="2" aria-role="heading" class="gux-header">
+        <button class="gux-header-button" type="button">
+          <div class="gux-text">
+            First Section
+          </div>
+          <div class="gux-spacer"></div>
+          <div class="gux-toggle-arrow">
+            <gux-icon decorative="" icon-name="chevron-small-down"></gux-icon>
+          </div>
+        </button>
+      </div>
+      <div class="gux-content">
+        <div slot="First Section">
+          <span>
+            I'm a span in a div.
+          </span>
+          <button>
+            I'm the button.
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="gux-section">
+      <div aria-level="2" aria-role="heading" class="gux-header">
+        <button class="gux-header-button" type="button">
+          <div class="gux-text">
+            Second Section
+          </div>
+          <div class="gux-spacer"></div>
+          <div class="gux-toggle-arrow">
+            <gux-icon decorative="" icon-name="chevron-small-down"></gux-icon>
+          </div>
+        </button>
+      </div>
+      <div class="gux-content">
+        <p slot="Second Section">
+          I'm a p.
+        </p>
+      </div>
+    </section>
+    <section class="gux-section">
+      <div aria-level="2" aria-role="heading" class="gux-header">
+        <button class="gux-header-button" type="button">
+          <div class="gux-text">
+            Third Section
+          </div>
+          <div class="gux-spacer"></div>
+          <div class="gux-toggle-arrow">
+            <gux-icon decorative="" icon-name="chevron-small-down"></gux-icon>
+          </div>
+        </button>
+      </div>
+      <div class="gux-content">
+        <span slot="Third Section">
+          I'm a span.
+        </span>
+      </div>
+    </section>
+    <section class="gux-section">
+      <div aria-level="2" aria-role="heading" class="gux-header">
+        <button class="gux-header-button" type="button">
+          <div class="gux-text">
+            Forth Section has a really really long title to see what it looks like when the title overflows
+          </div>
+          <div class="gux-spacer"></div>
+          <div class="gux-toggle-arrow">
+            <gux-icon decorative="" icon-name="chevron-small-down"></gux-icon>
+          </div>
+        </button>
+      </div>
+      <div class="gux-content">
+        <span slot="Forth Section has a really really long title to see what it looks like when the title overflows">
+          I'm a span.
+        </span>
+      </div>
+    </section>
+  </div>
+</gux-accordion>
+`;

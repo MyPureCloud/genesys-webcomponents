@@ -1,61 +1,28 @@
 import { newSpecPage } from '@stencil/core/testing';
 import { GuxAccordion } from '../gux-accordion';
 
+const components = [GuxAccordion];
+const language = 'en';
+
 describe('gux-accordion', () => {
-  let component: GuxAccordion;
+  it('should render component as expected', async () => {
+    const html = `
+      <gux-accordion heading-level="2">
+        <div slot="First Section">
+          <span>I'm a span in a div.</span>
+          <button>I'm the button.</button>
+        </div>
+        <p slot="Second Section">I'm a p.</p>
+        <span slot="Third Section">I'm a span.</span>
+        <span
+          slot="Forth Section has a really really long title to see what it looks like when the title overflows"
+          >I'm a span.</span
+        >
+        <h1>I'm an h1, but i'm not a slot.</h1>
+      </gux-accordion>
+    `;
+    const page = await newSpecPage({ components, html, language });
 
-  beforeEach(async () => {
-    const page = await newSpecPage({
-      components: [GuxAccordion],
-      html: `<gux-accordion></gux-accordion>`,
-      language: 'en'
-    });
-
-    component = page.rootInstance;
-  });
-
-  describe('Class Logic', () => {
-    let firstSection;
-    let secondSection;
-    let thirdSection;
-
-    beforeEach(async () => {
-      firstSection = {
-        slotName: 'First',
-        slotRef: 'DummyRef1'
-      };
-      secondSection = {
-        slotName: 'Second',
-        slotRef: 'DummyRef2'
-      };
-      thirdSection = {
-        slotName: 'Third',
-        slotRef: 'DummyRef3'
-      };
-      component.sections = [firstSection, secondSection, thirdSection];
-    });
-
-    it('getSectionByName', () => {
-      const section = component.getSectionByName(firstSection.slotName);
-      expect(section).toEqual(firstSection);
-    });
-
-    it('getPreviousSlot', () => {
-      expect(component.getPreviousSlot(firstSection.slotName)).toEqual(
-        thirdSection.slotRef
-      );
-      expect(component.getPreviousSlot(thirdSection.slotName)).toEqual(
-        secondSection.slotRef
-      );
-    });
-
-    it('getNextSlot', () => {
-      expect(component.getNextSlot(thirdSection.slotName)).toEqual(
-        firstSection.slotRef
-      );
-      expect(component.getNextSlot(firstSection.slotName)).toEqual(
-        secondSection.slotRef
-      );
-    });
+    expect(page.root).toMatchSnapshot();
   });
 });
