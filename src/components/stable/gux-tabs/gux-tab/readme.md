@@ -33,7 +33,8 @@
 graph TD;
   gux-tab --> gux-icon
   gux-tab --> gux-popover
-  gux-popover --> gux-icon
+  gux-popover --> gux-dismiss-button
+  gux-dismiss-button --> gux-icon
   style gux-tab fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

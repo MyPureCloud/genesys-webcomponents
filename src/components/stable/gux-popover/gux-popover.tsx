@@ -13,6 +13,7 @@ import {
 } from '@stencil/core';
 import { ClickOutside } from 'stencil-click-outside';
 
+// import { toHTML } from '../../utils/to-html';
 import { buildI18nForComponent, GetI18nValue } from '../../../i18n';
 import { onHiddenChange } from '../../../utils/dom/on-attribute-change';
 import { trackComponent } from '../../../usage-tracking';
@@ -29,6 +30,7 @@ export class GuxPopover {
   private popperInstance: Instance;
   private forElement: HTMLElement;
   private hiddenObserver: MutationObserver;
+  private dismissButton: HTMLElement;
 
   @Element()
   private root: HTMLElement;
@@ -130,6 +132,7 @@ export class GuxPopover {
   }
 
   private dismiss(): void {
+    // console.log("dismiss 2");
     const dismissEvent = this.guxdismiss.emit();
     if (!dismissEvent.defaultPrevented) {
       this.root.setAttribute('hidden', '');
@@ -150,8 +153,22 @@ export class GuxPopover {
     this.hidden = this.root.hidden;
   }
 
+  componentWillLoad(): void {
+    // if (this.displayDismissButton) {
+    //   this.dismissButton.addEventListener('dismiss', () => {
+    //     this.dismiss.bind(this);
+    //   });
+    // }
+    // this.dismissButton = toHTML(`<gux-dismiss-button id='dismissButton' class="gux-dismiss"></gux-dismiss-button>`);
+    // console.log(this.dismissButton);
+  }
+
   componentDidLoad(): void {
     this.runPopper();
+    this.dismissButton = document.getElementById('dismissButton');
+    // console.log(this.dismissButton);
+    // this is the event listener that never gets triggered:
+    this.dismissButton.addEventListener('dismiss', this.dismiss.bind(this));
   }
 
   disconnectedCallback(): void {
@@ -164,12 +181,21 @@ export class GuxPopover {
       <div class="gux-popover-wrapper">
         <div class="gux-arrow" data-popper-arrow />
         {this.displayDismissButton && (
-          <gux-icon
+          <gux-dismiss-button
+            id="dismissButton"
             class="gux-dismiss"
-            icon-name="close"
-            screenreader-text={this.i18n('dismiss')}
-            onClick={this.dismiss.bind(this)}
-          />
+          ></gux-dismiss-button>
+          // <button
+          //   class="gux-dismiss"
+          //   type="button"
+          //   title={this.i18n('dismiss')}
+          //   onClick={this.dismiss.bind(this)}
+          // >
+          //   <gux-icon
+          //     icon-name="close"
+          //     screenreader-text={this.i18n('dismiss')}
+          //   ></gux-icon>
+          // </button>
         )}
         <div class="gux-popover-content">
           <slot />
