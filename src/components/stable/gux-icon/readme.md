@@ -21,6 +21,7 @@
  - [gux-accordion](../gux-accordion)
  - [gux-action-button](../gux-action-button)
  - [gux-advanced-dropdown](../gux-advanced-dropdown)
+ - [gux-basic-tabs](../../beta/gux-basic-tabs)
  - [gux-breadcrumb-item](../gux-breadcrumbs/breadcrumb-item)
  - [gux-calendar](../gux-calendar)
  - [gux-color-picker-legacy](../../legacy/gux-color-picker-legacy)
@@ -58,6 +59,7 @@ graph TD;
   gux-accordion --> gux-icon
   gux-action-button --> gux-icon
   gux-advanced-dropdown --> gux-icon
+  gux-basic-tabs --> gux-icon
   gux-breadcrumb-item --> gux-icon
   gux-calendar --> gux-icon
   gux-color-picker-legacy --> gux-icon

@@ -1,0 +1,102 @@
+@import (reference) '../../../style/color.less';
+@import (reference) '../../../style/mixins.less';
+
+// Variables part
+@gux-tabs-background: @gux-grey-60;
+@gux-off-tab-fill: @gux-grey-40;
+
+// Style
+.gux-basic-tabs {
+  &.gux-vertical {
+    width: 160px;
+    // outline: 3px solid purple !important;
+    border-right: 1px solid @gux-grey-50;
+  }
+
+  &.gux-horizontal {
+    &.gux-center {
+      ::slotted([slot='tabs']) {
+        margin: auto;
+      }
+    }
+
+    &.gux-left,
+    &.gux-center {
+      gux-basic-tab {
+        max-width: 160px;
+      }
+    }
+
+    &.gux-full-width {
+      ::slotted([slot='tabs']) {
+        width: 100%;
+      }
+    }
+
+    &.gux-left,
+    &.gux-center,
+    &.gux-full-width {
+      .scrollable-section {
+        width: 100%;
+        overflow-x: hidden;
+      }
+      ::slotted([slot='tabs']) {
+        display: flex;
+      }
+
+      display: flex;
+      width: 100%;
+      height: 40px;
+      overflow-x: hidden;
+      background-color: @gux-grey-90;
+      border-bottom: 1px solid @gux-grey-50;
+
+      .scroll-button-container {
+        display: flex;
+        background-color: @gux-off-tab-fill;
+        border-radius: 4px;
+
+        .scroll-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 28px;
+          height: 40px;
+          color: @gux-black-30;
+          background-color: @gux-tabs-background;
+          // border-color: @gux-off-tab-fill;
+          border: none;
+
+          gux-icon {
+            width: 10px;
+            height: 10px;
+          }
+
+          &:hover {
+            color: @gux-blue-60;
+          }
+
+          &:active {
+            background-color: darken(@gux-tabs-background, 5%);
+          }
+
+          &:focus-visible {
+            .focus-ring();
+          }
+        }
+      }
+
+      .scrollable-section {
+        display: flex;
+        flex: 1 1 auto;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          height: 0;
+        }
+      }
+    }
+  }
+}
